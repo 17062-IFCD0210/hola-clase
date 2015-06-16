@@ -33,7 +33,7 @@
 			
 	<article>	
 		<header>
-			<h1>Jquery UI - DatePickerSSS </h1>
+			<h1>Jquery UI - DatePicker </h1>
 		</header>
 		<div class="cnt_article">
 			
