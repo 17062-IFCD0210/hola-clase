@@ -8,7 +8,7 @@
 	<article>	
 		<header>
 			<h1>FontAwesome</h1>
-			<h2>Cambio tonto para probar "mihai" </h2>
+			<h2>Cambio  para probar "mihai" </h2>
 		</header>
 			
 			<style>
