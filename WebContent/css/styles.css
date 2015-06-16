@@ -1,0 +1,624 @@
+/*   
+	version:  1.0
+	author:   Ander Uraga Real
+	date: 	  20150610
+		
+*/
+
+/* 
+   RESET    
+   Resetear todos los estilos para cualquier navegador
+*/
+@import url("reset.css");
+
+/***************************** 
+      ClearFix
+*******************************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+
+/* 
+
+   ETIQUETAS 
+   dar un estilo general o base a toda la Web	
+
+*/
+body {
+	background-image: url('../img/back2.jpg');
+	font-family: arial;
+}
+
+figure {
+	
+}
+
+figcaption {
+	
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	color: orange;
+}
+
+/* recomendable para CSS impresion
+
+    a:after { content: " (" attr(href) ") "; }
+*/
+
+ol, ul {
+	list-style-type: disc;
+}
+
+li {
+	margin-bottom: 8px;
+}
+
+ol h3, ul h3 {
+	font-weight: bold;
+	margin-bottom: 15px;
+}
+
+ol ol, ul ul {
+	margin-left: 20px;
+	list-style-type: circle;
+}
+
+h1 {
+	font-size: 50px;
+	margin-bottom: 20px;
+	color: green;
+	font-family: arial;
+	text-align: center;
+}
+
+strong {
+	font-weight: bold;
+}
+
+p {
+	font-family: arial;
+	font-size: 16px;
+	text-align: justify;
+	line-height: 20px;
+}
+
+mark {
+	background-color: yellow;
+}
+
+fieldset {
+	border: 1px solid grey;
+	padding: 20px 30px;
+	margin-bottom: 20px;
+}
+
+legend {
+	font-weight: bold;
+}
+
+article {
+	border: 1px solid #013729;
+	padding: 20px;
+	margin-bottom: 25px;
+}
+
+article h1 {
+	background-color: #DDD;
+	color: #C10D57;
+	font-size: 25px;
+	padding: 5px 0;
+}
+
+footer {
+	border: 1px solid #DDD;
+	padding: 10px 5px;
+	margin-top: 10px;
+}
+
+/************************
+          HEAD 
+*************************/
+#head {
+	position: fixed;
+	background-color: #FFF;
+	width: 900px;
+	padding-top: 10px;
+	z-index: 100;
+}
+
+#head #logo, #head h1 {
+	float: left;
+}
+
+#head h1 {
+	color: #7B02F5;
+	font-size: 30px;
+}
+
+#logo img {
+	width: 50px;
+	height: 50px;
+}
+
+/************************
+      MENU PRINCIPAL 
+*************************/
+header { 100%;
+	
+
+}
+
+nav * {
+	padding: 0px;
+	margin: 0px;
+}
+
+nav {
+	margin: 0px auto;
+	width: 100%;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+nav ul, nav ol {
+	list-style: none;
+}
+
+nav ul ul {
+	margin: 0px;
+}
+
+nav h2, nav h3 {
+	margin: 0px;
+}
+
+.menu li a, .menu li h2, .menu li h3 {
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px 15px;
+	display: block;
+}
+
+.menu li h2:hover, .menu li h3:hover, .menu li a:hover {
+	background-color: #434343;
+}
+
+.menu>li {
+	float: left;
+}
+
+.menu li ul {
+	display: none;
+	position: absolute;
+	min-width: 175px;
+}
+
+.menu li:hover>ul {
+	display: block;
+}
+
+.menu li ul li {
+	position: relative;
+}
+
+.menu li ul li ul {
+	right: -175px;
+	top: 0px;
+}
+
+/* contenedor */
+#content {
+	padding-top: 120px;
+
+}
+
+/*********************
+		FOOTER
+**********************/
+.copy, #list_paginas {
+	float: left;
+}
+#list_paginas li {
+	float: left;	
+	text-decoration: none;
+}
+#list_paginas {
+	list-style: none;
+	margin: 0px;
+	padding-right: 40px;
+}
+
+#foot{
+	display: block;
+	margin: 0 auto;
+	width: 620px;
+	font-size: 15px;
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+}
+#list_paginas li a, .copy{
+	background-color: white;
+	color: black;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px 10px;
+	display: block;
+}
+		
+#list_rrss li {
+	float: left;
+	list-style: none outside none;
+	border: none;
+}
+	
+#list_rrss li a {
+	background-color: white;
+	background-image: url("../img/social_icons.png");
+	background-repeat: no-repeat;
+	background-size: auto 96px;
+	border: 0 none;
+	color: white;
+	direction: ltr;
+	display: block;
+	height: 49px;
+	width: 49px;
+	overflow: hidden;
+	text-align: left;
+	text-decoration: none;
+	text-indent: -999em;
+	transition: all 0.2s ease 0s;
+}
+		
+#list_rrss li.facebook a {
+	background-position: 0 -49px;
+}
+#list_rrss li.facebook a:hover {
+	background-position: 0 0;
+}
+
+#list_rrss li.twitter a {
+	background-position: -49px -49px;
+}
+#list_rrss li.twitter a:hover {
+	background-position: -49px 0;
+}
+	
+#list_rrss li.youtube a {
+	background-position: -98px -49px;
+}
+#list_rrss li.youtube a:hover {
+	background-position: -98px -0;
+}
+
+#list_rrss li.instagram a {
+	background-position: -145px -49px;
+}
+#list_rrss li.instagram a:hover {
+	background-position: -145px 0;
+}
+
+
+nav * {
+	padding: 0px;
+	margin: 0px;
+}
+
+nav {
+	margin: 0px auto;
+	width: 100%;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+nav ul, nav ol {
+	list-style: none;
+}
+
+nav ul ul {
+	margin: 0px;
+}
+
+nav h2, nav h3 {
+	margin: 0px;
+}
+
+.menu li a, .menu li h2, .menu li h3 {
+	background-color: black;
+	color: white;
+	text-decoration: none;
+	text-align: center;
+	padding: 10px 15px;
+	display: block;
+}
+
+.menu li h2:hover, .menu li h3:hover, .menu li a:hover {
+	background-color: #434343;
+}
+
+.menu>li {
+	float: left;
+}
+
+.menu li ul {
+	display: none;
+	position: absolute;
+	min-width: 175px;
+}
+
+.menu li:hover>ul {
+	display: block;
+}
+
+.menu li ul li {
+	position: relative;
+}
+
+.menu li ul li ul {
+	right: -175px;
+	top: 0px;
+}
+
+/* contenedor */
+#content {
+	padding-top: 120px;
+}
+
+/*
+	validaciones formularios
+*/
+form input[type="text"]:required:valid {
+	border: 5px solid #33A979;
+}
+
+form input[type="text"]:focus:required:invalid {
+	border: 5px solid #DB257C;
+}
+
+/* 
+	ESTILOS REUTILIZABLES
+    Regla con selector por CLASS para usar en todas las paginas
+*/
+.btn {
+	background: #3498db; 
+	background-image: -webkit-linear-gradient(top, #3498db, #2980b9); 
+	background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+	background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+	background-image: -o-linear-gradient(top, #3498db, #2980b9);
+	background-image: linear-gradient(to bottom, #3498db, #2980b9);
+	-webkit-border-radius: 28;
+	-moz-border-radius: 28;
+	border-radius: 28px;
+	font-family: Arial;
+	color: #ffffff;
+	font-size: 20px;
+	padding: 10px 20px 10px 20px;
+	text-decoration: none;
+}
+
+.btn:hover {
+	background: #3cb0fd;
+	background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+	background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+	text-decoration: none;
+}
+
+/* contendor para columnas */
+.cnt_cols{ 
+	width: 100%;	
+	border: 1px solid #DDD;
+}
+
+.col1 , .col2 {
+	float:left;	
+	width: 49%;
+	min-height: 100px;
+}
+
+.col1{
+	border-right: 1px solid #DDD;
+}
+.col2{
+	padding: 5%;
+	width: 39%;
+}
+
+
+
+
+table.tabla_azul, .tabla_azul tr, .tabla_azul td {
+	border: 1px solid grey;
+	text-align: center;
+	font-family: arial;
+	font-size: 35px;
+	color: #0099FF;
+}
+
+.tabla_azul th, .tabla_azul td {
+	padding: 10px;
+	height: 40px;
+}
+
+.tabla_azul th {
+	color: grey;
+}
+
+.btn_volver {
+	background-color: #FFF;
+}
+
+.numero {
+	color: #0099FF;
+	font-family: arial;
+	font-size: 50px;
+}
+
+.hightlight {
+	background-color: yellow;
+}
+
+.verde {
+	color: green;
+}
+
+.cnt_article {
+	padding: 20px;
+	border: 1px solid #DDD;
+}
+
+.cnt_article h2{
+	color:#cf5b89;
+	font-size: 25px;
+	border-bottom:1px solid #cf5b89;
+	margin-bottom: 25px;
+}	
+
+.cnt_article ul {
+	list-style: none;
+	margin-left: 20px;
+}
+
+
+/*
+	PAGINAS
+	Tendremos una seccion por cada pagina de nuestra Web
+
+*/
+
+/* HOME */
+#home section, #home aside {
+	float: left;
+}
+
+#home section {
+	width: 60%;
+	margin-right: 9%;
+}
+
+#home aside {
+	width: 26%;
+	background-color: #DDD;
+	min-height: 300px;
+	padding: 2%;
+}
+
+#home aside h3 {
+	color: #ff0064;
+	border-bottom: 1px solid #ff0064;
+	margin-bottom: 10px;
+}
+
+#home aside li {
+	list-style-type: none;
+}
+
+/* CARTELERA */
+#cartelera ul {
+	float: left;
+	padding-left: 5%;
+}
+
+#cartelera li {
+	float: left;
+	width: 30%;
+	margin-right: 2%;
+	list-style: none;
+}
+
+#cartelera li:nth-child(3n+0) {
+	margin-right: 0;
+}
+
+#cartelera .cartel {
+	position: relative;
+	width: 200px;
+}
+
+#cartelera .titulo {
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	width: 90%;
+	padding: 3% 5%;
+	min-height: 40px;
+	display: none;
+}
+
+#cartelera .cartel:hover .titulo {
+	display: block;
+}
+
+#cartelera .titulo h3 {
+	color: #0099FF;
+	text-align: center;
+}
+
+/* CARTELERA_DETALLE */
+#cartelera_detalle h1 {
+	color: blue;
+	text-align: left;
+}
+
+/* Regla con selector por ID */
+#dado {
+	width: 200px;
+	height: 200px;
+}
+
+#encabezado {
+	border: 5px dotted green;
+}
+
+#container {
+	width: 900px;
+	background-color: #FFF;
+	min-height: 700px;
+	margin: 0 auto;
+	padding: 0 20px;
+	border-right: 1px solid grey;
+	border-left: 1px solid grey;
+	clear: both;
+}
+
+#ficha {
+	/*float:left;*/
+	width: 580px;
+	min-height: 360px;
+	margin-bottom: 20px;
+}
+
+#ficha p {
+	font-size: 35px;
+	line-height: 45px;
+}
+
+#ficha .destacado {
+	color: green;
+	font-weight: 600;
+}
+
+#sinopsis {
+	/*float: left;*/
+	height: 200px;
+	overflow: scroll;
+}
