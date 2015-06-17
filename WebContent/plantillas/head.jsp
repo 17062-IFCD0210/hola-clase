@@ -4,7 +4,7 @@
 
 <head>
 
-  <base href="/Hola-clase/">	
+  <base href="/hola-clase/">	
 
   <meta charset="utf-8">
 
