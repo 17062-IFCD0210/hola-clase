@@ -4,7 +4,8 @@
 
 <head>
 
-  <base href="/hola-clase/">	
+  <base href="<%=request.getContextPath()%>/">
+  
 
   <meta charset="utf-8">
 
