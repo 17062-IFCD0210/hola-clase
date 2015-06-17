@@ -4,7 +4,7 @@
 
 <head>
 
-  <base href="/HolaHtml/">		
+  <base href="/Hola-clase/">	
 
   <meta charset="utf-8">
 
