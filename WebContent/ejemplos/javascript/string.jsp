@@ -28,11 +28,12 @@
 			var charat=cadena.charAt(2);
 			document.write("Retorna el caracter situado en la posicion indicada '(2)': " + charat +"<br><br>");
 			
-			var res=cadena.split(' ');
-			document.write("Split: " + res +"<br><br>");
-			
-			var rese=cadena.split('e');
-			document.write("Split e: " + rese +"<br><br>");
+			var res=cadena.split(' ');				
+			document.write("<h3>String troceado con split(' ')<h3><ol>");
+				for (i=0 ; i<res.length; i++ ){
+					document.write("<li>"+res[i]+"</li>");
+				}
+			document.write("</ol>");
 			</script>
 			
 	 	</div>
