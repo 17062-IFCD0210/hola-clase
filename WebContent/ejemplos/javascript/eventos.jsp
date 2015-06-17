@@ -77,7 +77,9 @@
 			<div class = "col1">
 				<textarea id="txt" rows="20" cols="50"></textarea>
 				<input type="button" id="clear" value="Limpiar">
-				<input type="button" id="copy" value="Copiar al portapapeles">
+				
+				<button id="copy-button" data-clipboard-target="txt" title="Copiar al portapapeles">Copiar al portapapeles</button>
+<!-- 				<input type="button" id="copy" value="Copiar al portapapeles"> -->
 			</div>
 			<div class = "col2">
 				<input type="button" id="boton" value="Pulsame">
@@ -163,11 +165,7 @@
 				+ checkeado +"\n";
 				}
 			}			
-			
-			copy.onclick=function(event){
-				window.clipboardData.setData('Text',str);
-			}
-
+	
 		</script>
 		<footer>
 			Sin referencia

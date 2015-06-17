@@ -47,6 +47,10 @@
  <!--  Custom JavaScript despues de cargar todas las librerias  -->
  <script src="js/main.js"></script>
  
+ <!-- ZeroClipboard -->
+ <script type="text/javascript" src="js/zeroclipboard-2.2.0/dist/ZeroClipboard.js">
+ ZeroClipboard.config( { swfPath: "js/zeroclipboard-2.2.0/dist/ZeroClipboard.swf" } );
+ </script>
  
 </body>
 </html>
