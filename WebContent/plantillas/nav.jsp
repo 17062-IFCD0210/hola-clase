@@ -83,18 +83,13 @@
 					<li><a href="ejemplos/javascript/screen.jsp">Objeto Screen de JavaScript</a></li>
 					<li><a href="ejemplos/javascript/navigator.jsp">Objeto navigator de JavaScript</a></li>
 					<li><a href="ejemplos/javascript/date.jsp">Objeto Date de JavaScript</a></li>
-					<li><a href="ejemplos/javascript/string.jsp">Objeto String de JavaScript</a></li>
 				</ul>
-			</li>	
-			
-			
+			</li>		
 			<li>
-				<h3>Eventos</h3>
-				<ul>
-					<li><a href="ejemplos/javascript/eventos.jsp">Eventos</a></li>
-				</ul>
-			</li>	
-		
+				<a href="ejemplos/javascript/eventos.jsp">
+					<h3>Eventos</h3>
+				</a> 			
+			</li>
 			<li>
 				<h3>Plugins</h3>
 				<ul>

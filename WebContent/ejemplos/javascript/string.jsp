@@ -26,7 +26,7 @@
 			document.write("Subcadena 'uso': " + subcadena +"<br><br>");
 			
 			var charat=cadena.charAt(2);
-			document.write("Retorna el caracter situado en la posicion indicada '(2)posicion=3': " + charat +"<br><br>");
+			document.write("Retorna el caracter situado en la posicion indicada '(2)': " + charat +"<br><br>");
 			
 			var res=cadena.split(' ');
 			document.write("Split: " + res +"<br><br>");
