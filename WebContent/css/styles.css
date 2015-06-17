@@ -397,6 +397,18 @@ form input[type="text"]:focus:required:invalid {
 	border: 5px solid #DB257C;
 }
 
+.div_error{
+	margin: 10px;
+	padding: 10px;
+	border: 1px solid red;
+	display: none;
+	color: red;
+}
+
+.campo_error{
+	border: 3px solid red;
+	color: red;
+}
 /* 
 	ESTILOS REUTILIZABLES
     Regla con selector por CLASS para usar en todas las paginas

@@ -85,18 +85,19 @@
 				<div class="col2">
 				
 					<form action="#" method="post" onsubmit="validar(this); return false;">
-					
+						<div id="div_error" class="div_error"></div>
 						<input type="button" id="boton" value="Pulsame">
 						<input type="button" id="clear" value="Limpiar">
-						
+						<br><br>
 						<select id="selec">
 							<option value="bio">Bilbao</option>
 							<option value="bar">Barakaldo</option>
-						</select><br>
+						</select>
+						<br><br>
 						<label>Introduce Texto:</label>
 						<input type="text" id="texto" class="text">
 						
-						<fieldset>
+						<fieldset name="fsexo">
 							<legend>Sexo</legend>
 							
 							<input data-label="hombre" type="radio" name="sexo" value="H" id="hom">						
@@ -109,11 +110,11 @@
 							<label for="muj">Indeterminado</label><br>
 						</fieldset>
 						
-						<fieldset>
+						<fieldset name="fcon">
 							<legend>Conocimientos</legend>
-							<input type="checkbox" name="con" value="0" id="html" checked>
+							<input type="checkbox" name="con" value="0" id="html">
 							<label for="html">HTML</label><br>
-							<input type="checkbox" name="con" value="1" id="js" checked>
+							<input type="checkbox" name="con" value="1" id="js">
 							<label for="js">JS</label><br>
 							<input type="checkbox" name="con" value="2" id="css3">
 							<label for="css3">CSS3</label>
@@ -152,14 +153,84 @@
 				*/
 				function validar(formulario){
 					var resul = false;
+					var div_error = document.getElementById("div_error");
+					var sexo = formulario.sexo.value;
+					var con = formulario.con;
+					var cons = 0;
 					
-					//TODO validar vosotros el formulario
+					for (var i = 0; i<con.length; i++){
+						if (con[i].checked){
+							cons++;
+						}
+					}
 					
+					//validar texto
+					if (formulario.texto.value!=""){
+						if (formulario.texto.value.length<5 || formulario.texto.value.length>255){
+							div_error.innerHTML="El texto tiene que tener mas de 5 caracteres y menos de 255.";
+							div_error.style.display="block";
+							formulario.texto.className+=" campo_error";
+							resul = false;
+							return resul;
+						} else {
+							formulario.texto.className="text";
+							resul = true;
+// 							alert('resul true');
+						}
+					}else{
+						div_error.innerHTML="El texto no puede estar vacio.";
+						div_error.style.display="block";
+						formulario.texto.className+=" campo_error";
+						return resul;
+					}
+					
+					
+					switch (sexo){
+					case 'H':
+						if (cons<1){
+							div_error.innerHTML="Los hombres tienen que tener minimo un conocimiento.";
+							div_error.style.display="block";
+							formulario.fcon.className+=" campo_error";
+							resul = false;
+							return resul;
+						}else{
+							resul = true;
+// 							alert('resul true');
+						}
+						break;
+						
+					case 'M':
+						if (cons<2){
+							div_error.innerHTML="Las mujeres tienen que tener minimo dos conocimientos.";
+							div_error.style.display="block";
+							formulario.fcon.className+=" campo_error";
+							resul = false;
+							return resul;
+						}else{
+							resul = true;
+// 							alert('resul true');
+						}
+						break;
+						
+					case 'I':
+						resul = true;
+// 						alert('resul true');
+						break;
+						
+					default:
+						div_error.innerHTML="Error desconocido, pongase en contacto con el administrador.";
+						div_error.style.display="block";
+						result=false;
+						return resul;
+					}
 					
 					//Si todo correcto submitar formulario
 					if ( resul ){
-						//TODO pedir confirmacion para enviar formulario
-						formulario.submit();
+						if (confirm('¿Deseas enviar los datos?')){
+							formulario.submit();	
+						}else{
+							return false;
+						}
 					}else{					
 						return resul;
 					}	
