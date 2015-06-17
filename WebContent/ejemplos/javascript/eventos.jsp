@@ -83,39 +83,90 @@
 					<textarea id="txt" cols="50" rows="20"></textarea>
 				</div>
 				<div class="col2">
-					<input type="button" id="boton" value="Pulsame">
-					<input type="button" id="clear" value="Limpiar">
+				
+					<form action="#" method="post" onsubmit="validar(this); return false;">
 					
-					<select id="selec">
-						<option value="bio">Bilbao</option>
-						<option value="bar">Barakaldo</option>
-					</select><br>
-					<label>Introduce Texto:</label>
-					<input type="text" id="texto" class="text">
-					
-					<fieldset>
-						<legend>Sexo</legend>
-						<input type="radio" name="sexo" value="H" id="hom">
-						<label for="hom">Hombre</label>
-						<input type="radio" name="sexo" value="M" id="muj" checked>
-						<label for="muj">Mujer</label>
-						<input type="radio" name="sexo" value="I" id="ind">
-						<label for="muj">Indeterminado</label><br>
-					</fieldset>
-					<fieldset>
-						<legend>Conocimientos</legend>
-						<input type="checkbox" name="con" value="0" id="html" checked>
-						<label for="html">HTML</label><br>
-						<input type="checkbox" name="con" value="1" id="js" checked>
-						<label for="js">JS</label><br>
-						<input type="checkbox" name="con" value="2" id="css3">
-						<label for="css3">CSS3</label>
-					</fieldset>
-					
-				</div>
-			</div>
+						<input type="button" id="boton" value="Pulsame">
+						<input type="button" id="clear" value="Limpiar">
+						
+						<select id="selec">
+							<option value="bio">Bilbao</option>
+							<option value="bar">Barakaldo</option>
+						</select><br>
+						<label>Introduce Texto:</label>
+						<input type="text" id="texto" class="text">
+						
+						<fieldset>
+							<legend>Sexo</legend>
+							
+							<input data-label="hombre" type="radio" name="sexo" value="H" id="hom">						
+							<label for="hom">Hombre</label>
+							
+							<input data-label="mujer" type="radio" name="sexo" value="M" id="muj" checked>						
+							<label for="muj">Mujer</label>
+							
+							<input data-label="indeterminado" type="radio" name="sexo" value="I" id="ind">
+							<label for="muj">Indeterminado</label><br>
+						</fieldset>
+						
+						<fieldset>
+							<legend>Conocimientos</legend>
+							<input type="checkbox" name="con" value="0" id="html" checked>
+							<label for="html">HTML</label><br>
+							<input type="checkbox" name="con" value="1" id="js" checked>
+							<label for="js">JS</label><br>
+							<input type="checkbox" name="con" value="2" id="css3">
+							<label for="css3">CSS3</label>
+						</fieldset>
+						
+						<!-- botones -->
+						<input type="submit" value="Guardar">
+						<input type="reset"  value="Limpiar">
+						
+					</form>
+							
+				</div><!-- col2 -->
+				
+			</div><!-- cnt_cols -->
 			
 			<script type="text/javascript">
+			
+				/**
+					Validacion del formulario
+					Si retorno true se submita
+					Si retorno false NO se submita
+					
+					Estado inicial: 
+							Sexo          - indeterminado
+							conocimientos - Sin checkear
+					
+					Validaciones:
+						
+						    Texo:  entre 5 y 255 caracteres
+						    Sexo indeterminado: sin conocimientos obligatorios
+						    Sexo hombre       : minimo 1 conocimiento
+						    Sexo mujer        : minimo 2 conocimiento
+					
+				    Fedback para el usuario: caja de texto mostrando los errores	
+						    
+				*/
+				function validar(formulario){
+					var resul = false;
+					
+					//TODO validar vosotros el formulario
+					
+					
+					//Si todo correcto submitar formulario
+					if ( resul ){
+						//TODO pedir confirmacion para enviar formulario
+						formulario.submit();
+					}else{					
+						return resul;
+					}	
+				}
+			
+			
+			
 				//Buscar objetos por su ID
 				var txt = document.getElementById("txt");
 				var boton = document.getElementById("boton");
@@ -157,12 +208,16 @@
 				//RadioButton
 				for(i=0; i<sexo.length; i++) {
 					sexo[i].onchange = function(event) {
-						txt.value += 'Has cambiado a (' + this.value + ') ' + this.nextElementSibling.innerHTML + '\n';
+						
+						//var label = this.nextElementSibling.innerHTML;
+						var label = this.dataset.label;						
+						txt.value += 'Has cambiado a (' + this.value + ') ' + label + '\n';
 					}
 				}
 				
 				for(i=0; i<con.length; i++) {
 					con[i].onchange = function(event) {
+						
 						if(this.checked) {
 							txt.value += 'Has activado (' + this.value + ') ' + this.nextElementSibling.innerHTML + '\n';
 						} else {
