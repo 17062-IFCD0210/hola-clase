@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-Esto es un leeme.txt
-=======
-Hola a todos!!!
->>>>>>> refs/remotes/originKlase/master
