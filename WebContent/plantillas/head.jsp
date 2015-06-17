@@ -4,8 +4,8 @@
 
 <head>
 
-  <base href="/HolaHtml/">		
-
+  <base href="<%=request.getContextPath()%>/">
+  
   <meta charset="utf-8">
 
   <title>TODO: A que kambiarloooooooooo</title>
