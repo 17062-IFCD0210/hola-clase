@@ -10,7 +10,15 @@
 		<div class="cnt_article">
 				<textarea id="txt" rows="20" cols="50"></textarea>
 				<br><br>
-				<input type="button" id="clear" value="Limpiar">
+				<input type="button" id="clear" value="Limpiar" >
+				
+				<script type="text/javascript">
+				//Boton limpiar
+				clear.onclick = function(event) {
+					console.debug('Boton pulsado');
+					txt.value = '';
+				}
+				</script>
 				
 				<button id="copy-button" data-clipboard-target="txt" title="Copiar al portapapeles">Copiar al portapapeles</button>
 		</div>
