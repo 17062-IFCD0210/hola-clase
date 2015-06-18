@@ -84,7 +84,7 @@
 				</div>
 				<div class="col2">
 				
-					<form action="#" method="post" onsubmit="validar(this); return false;">
+					<form action="#" method="post" onsubmit="validar(this); return false;" name="formulario">
 					
 						<input type="button" id="boton" value="Pulsame">
 						<input type="button" id="clear" value="Limpiar">
@@ -102,18 +102,18 @@
 							<input data-label="hombre" type="radio" name="sexo" value="H" id="hom">						
 							<label for="hom">Hombre</label>
 							
-							<input data-label="mujer" type="radio" name="sexo" value="M" id="muj" checked>						
+							<input data-label="mujer" type="radio" name="sexo" value="M" id="muj">						
 							<label for="muj">Mujer</label>
 							
-							<input data-label="indeterminado" type="radio" name="sexo" value="I" id="ind">
+							<input data-label="indeterminado" type="radio" name="sexo" value="I" id="ind" checked>
 							<label for="muj">Indeterminado</label><br>
 						</fieldset>
 						
 						<fieldset>
 							<legend>Conocimientos</legend>
-							<input type="checkbox" name="con" value="0" id="html" checked>
+							<input type="checkbox" name="con" value="0" id="html">
 							<label for="html">HTML</label><br>
-							<input type="checkbox" name="con" value="1" id="js" checked>
+							<input type="checkbox" name="con" value="1" id="js">
 							<label for="js">JS</label><br>
 							<input type="checkbox" name="con" value="2" id="css3">
 							<label for="css3">CSS3</label>
@@ -122,7 +122,7 @@
 						<!-- botones -->
 						<input type="submit" value="Guardar">
 						<input type="reset"  value="Limpiar">
-						
+						<div id="errores"></div>
 					</form>
 							
 				</div><!-- col2 -->
@@ -131,6 +131,12 @@
 			
 			<script type="text/javascript">
 			
+				/* aplicar estilos al div errores */
+				
+				var errores=document.getElementById('errores');
+				errores.style.backgroundColor='red';
+			
+			
 				/**
 					Validacion del formulario
 					Si retorno true se submita
@@ -138,12 +144,12 @@
 					
 					Estado inicial: 
 							Sexo          - indeterminado
-							conocimientos - Sin checkear
+							con - Sin checkear
 					
 					Validaciones:
 						
 						    Texo:  entre 5 y 255 caracteres
-						    Sexo indeterminado: sin conocimientos obligatorios
+						    Sexo indeterminado: sin con obligatorios
 						    Sexo hombre       : minimo 1 conocimiento
 						    Sexo mujer        : minimo 2 conocimiento
 					
@@ -151,18 +157,59 @@
 						    
 				*/
 				function validar(formulario){
-					var resul = false;
+					var resul=false;
+					var mensaje='';
+
+					errores.innerHTML='';
+					if(!confirm('Desea enviar el formulario?')){
+						errores.innerHTML='Envio cancelado';
+						return false;
+						
+					}
+					//TODO validar nosotros el formulario
 					
-					//TODO validar vosotros el formulario
+					if(formulario.texto.value.length<5){
+						mensaje+="El cuadro de texto tiene menos de 5 caracteres<br/>";
+						formulario.texto.style.backgroundColor='red';
+					}
 					
+					if(formulario.texto.value.length>255){
+						mensaje+="El cuadro de texto tiene mas de 255 caracteres<br/>";
+						formulario.texto.style.backgroundColor='red';
+					}
 					
-					//Si todo correcto submitar formulario
-					if ( resul ){
-						//TODO pedir confirmacion para enviar formulario
+					if(formulario.sexo.value=='H'){ //sexo Hombre, debe tener al menos 1 conocimiento
+						var conoce=false;
+						for(i=0;i<formulario.con.length;i++){
+							if(formulario.con[i].checked){
+								conoce=true;
+								break
+							}
+						}
+						if(!conoce)mensaje+="Siendo hombre deberia tener al menos 1 conocimiento<br/>";
+					}
+					
+					if(formulario.sexo.value=='M'){ //sexo Mujer, debe tener al menos 2 con
+						var conoce1=false;
+						var conoce2=false;
+						for(i=0;i<formulario.con.length;i++){
+							if(formulario.con[i].checked)conoce1=true;
+							if((formulario.con[i].checked)&&(conoce1)){
+								conoce2=true;
+								break;
+							}
+							
+						}
+						if(!conoce2)mensaje+="Siendo mujer deberia tener al menos 2 conocimientos<br/>";
+					}
+					
+					errores.innerHTML=mensaje;
+					//Si todo es correcto submitar el formulario
+					if(mensaje=='')resul=true;
+					if(resul){
 						formulario.submit();
-					}else{					
-						return resul;
-					}	
+					}
+					else return resul;
 				}
 			
 			
