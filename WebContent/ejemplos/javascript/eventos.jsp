@@ -94,7 +94,7 @@
 							<option value="bar">Barakaldo</option>
 						</select><br>
 						<label>Introduce Texto:</label>
-						<input type="text" id="texto" class="text">
+						<input type="text" id="texto" name="texto" class="text">
 						
 						<fieldset>
 							<legend>Sexo</legend>
@@ -159,58 +159,59 @@
 				function validar(formulario){
 					var resul=false;
 					var mensaje='';
-
+			
+					
+					//limpiar div para mostrar errores	
 					errores.innerHTML='';
-					if(!confirm('Desea enviar el formulario?')){
-						errores.innerHTML='Envio cancelado';
-						return false;
-						
-					}
+					
 					//TODO validar nosotros el formulario
+					var texto_long = formulario.texto.value.length;
 					
-					if(formulario.texto.value.length<5){
-						mensaje+="El cuadro de texto tiene menos de 5 caracteres<br/>";
+					if( texto_long <5 || texto_long >255){
+						mensaje+="El texto de tener entre 5 y 255 caracteres <br/>";
 						formulario.texto.style.backgroundColor='red';
 					}
 					
-					if(formulario.texto.value.length>255){
-						mensaje+="El cuadro de texto tiene mas de 255 caracteres<br/>";
-						formulario.texto.style.backgroundColor='red';
+					
+					//contar los conociminetos
+					var contador = 0;
+					for(i=0;i<formulario.con.length;i++){
+						if(formulario.con[i].checked){
+							contador++;
+						}
 					}
+					
 					
 					if(formulario.sexo.value=='H'){ //sexo Hombre, debe tener al menos 1 conocimiento
-						var conoce=false;
-						for(i=0;i<formulario.con.length;i++){
-							if(formulario.con[i].checked){
-								conoce=true;
-								break
-							}
+						
+						if( contador < 1 ){
+							mensaje+="Siendo hombre deberia tener al menos 1 conocimiento<br/>";
 						}
-						if(!conoce)mensaje+="Siendo hombre deberia tener al menos 1 conocimiento<br/>";
 					}
 					
 					if(formulario.sexo.value=='M'){ //sexo Mujer, debe tener al menos 2 con
-						var conoce1=false;
-						var conoce2=false;
-						for(i=0;i<formulario.con.length;i++){
-							if(formulario.con[i].checked)conoce1=true;
-							if((formulario.con[i].checked)&&(conoce1)){
-								conoce2=true;
-								break;
-							}
-							
+						if( contador < 2 ){
+							mensaje+="Siendo mujer deberia tener al menos 2 conocimientos<br/>";
 						}
-						if(!conoce2)mensaje+="Siendo mujer deberia tener al menos 2 conocimientos<br/>";
+						
 					}
 					
 					errores.innerHTML=mensaje;
 					//Si todo es correcto submitar el formulario
 					if(mensaje=='')resul=true;
 					if(resul){
-						formulario.submit();
+						
+						if(!confirm('Desea enviar el formulario?')){
+							errores.innerHTML='Envio cancelado';
+							return false;
+							
+						}else{						
+							formulario.submit();
+						}	
 					}
 					else return resul;
-				}
+				}				
+				//end function validar
 			
 			
 			
