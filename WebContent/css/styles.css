@@ -11,6 +11,18 @@
 */
 @import url("reset.css");
 
+
+
+/*************************
+         Fonts
+*************************/
+
+@font-face {
+	font-family: kikelet;
+	src: url(../fonts/kikelet/Kikelet.ttf) format('truetype');
+}
+
+
 /***************************** 
       ClearFix
 *******************************/
@@ -153,13 +165,16 @@ footer {
 
 #head h1 {
 	color: #7B02F5;
-	font-size: 30px;
+	font-size: 2.5em;
+	font-family: kikelet;
 }
 
 #logo img {
 	width: 50px;
 	height: 50px;
 }
+
+
 
 /************************
       MENU PRINCIPAL 
@@ -381,6 +396,9 @@ nav h2, nav h3 {
 	top: 0px;
 }
 
+/*  nav_top */
+#nav_top{ display: none; }
+
 /* contenedor */
 #content {
 	padding-top: 120px;
@@ -595,10 +613,10 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 }
 
 #container {
-	width: 900px;
+	max-width: 900px; /* recomendable 960px */
+	margin: 0 auto;	
 	background-color: #FFF;
-	min-height: 700px;
-	margin: 0 auto;
+	min-height: 700px;	
 	padding: 0 20px;
 	border-right: 1px solid grey;
 	border-left: 1px solid grey;
@@ -627,5 +645,33 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	height: 200px;
 	overflow: scroll;
 }
+
+
+
+/***********************************************************
+                   reglas media querys 
+************************************************************/
+
+
+/* Se aplican estan reglas si el ancho es menor que 460px */
+@media screen and (max-width:460px) {
+	
+	#head h1 {
+		color: red;
+		font-size: 1.2em;		
+	}
+	
+	#nav_top{
+		  display: inline;
+		  
+		  position: fixed;		  
+		  bottom: 10px;
+		  right: 10px;
+		  		  
+		  width: 45px;
+		  height: 45px;		  
+	}
+		
+}	
 
 

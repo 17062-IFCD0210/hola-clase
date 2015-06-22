@@ -9,8 +9,11 @@
   <meta charset="utf-8">
 
   <title>TODO: A que kambiarloooooooooo</title>
-  <meta name="description" content="Mio primera pagina en HTML5, esperoq ue no sea la ultima">
+  <meta name="description" content="Mio primera pagina en HTML5, espero que no sea la ultima">
   <meta name="author" content="Ander Uraga Real">
+
+  <!-- ViewPort imprescindible para RWD -->	
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
   <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
@@ -26,10 +29,14 @@
   <!-- Custom IconMoon  -->
   <link rel="stylesheet" type="text/css" href="fonts/iconmoon/style.css">
 
-
+  <!-- http://responsive-nav.com/ -->
+  <link rel="stylesheet" href="js/responsive-nav/responsive-nav.css">
+  
+  	
 
   <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
   <![endif]-->
   
 </head>

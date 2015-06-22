@@ -28,7 +28,17 @@
 				</li>
 			</ul> 
 		</div>
+		
+		<!-- boton para ir hasta la cabecera de la pagina -->
+			<nav id="nav_top">
+				<a href="<%=request.getRequestURL()%>#container" title="Ir inicio pagina">
+					<i class="fa fa-arrow-circle-up fa-4x"></i>
+				</a>
+			</nav>
+		
 	</footer>
+	
+	
 
 </div>	<!-- container -->
  
@@ -43,6 +53,12 @@
   
  <!--  Filter plugin -->
  <script src="js/filter_by_text.js"></script>
+ 
+ <!-- http://responsive-nav.com/ -->
+ <script src="js/responsive-nav/responsive-nav.min.js" ></script> 
+ <script>
+   var nav = responsiveNav(".nav-collapse");
+ </script>
  
  <!--  Custom JavaScript despues de cargar todas las librerias  -->
  <script src="js/main.js"></script>
