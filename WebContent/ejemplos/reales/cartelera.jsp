@@ -13,14 +13,26 @@
 				<% for (int i=0; i<5;i++){ %>
 					<li>				
 						<div class="cartel">							
-							<a href="cartelera_detalle.html" title="Ver detalle pelicula">							
+							<a data-role="modal" 
+							   href="<%=request.getRequestURL()%>#openModal<%=i%>" 
+							   title="Ver detalle pelicula">
+							   							
 								<img alt="Cartel de la pelicula X" src="http://www.cinesa.es/Manager/Peliculas/upsdndeestno/cartelera.jpg" />
 								
 								<div class="titulo">
 									<h3>&quest;Donde esta Noe?</h3>							
 								</div>
 							</a>							
+						</div>					
+						<!-- ventana modal -->
+						<div id="openModal<%=i%>" class="modalDialog">
+							<div>
+								<a href="<%=request.getRequestURL()%>#close" title="Close" class="close">X</a>
+								<h2>Titulo Pelicula</h2>
+								<p>Terminar de maquetar el detalle...</p>
+							</div>
 						</div>
+						
 					</li>		
 				<%} %>	
 				
