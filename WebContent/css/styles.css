@@ -208,6 +208,12 @@ nav h2, nav h3 {
 	margin: 0px;
 }
 
+
+/* menus */
+
+#dl-menu { display:none; }
+
+
 .menu li a, .menu li h2, .menu li h3 {
 	background-color: black;
 	color: white;
@@ -656,6 +662,12 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 /* Se aplican estan reglas si el ancho es menor que 460px */
 @media screen and (max-width:460px) {
 	
+	#head #logo, #head h1 {
+	  float: left;
+	  margin-left: -37%;
+	}
+	#head #logo { display: none; }
+	
 	#head h1 {
 		color: red;
 		font-size: 1.2em;		
@@ -671,7 +683,16 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 		  width: 45px;
 		  height: 45px;		  
 	}
-		
+	
+	#dl-menu { display:inline; }
+	#dsk-menu { display:none; }
+	
+	/*	
+	.dl-menuwrapper button{
+		background: url(../img/dado.png) !important;
+		background-color: transparent !important;
+	}	
+	*/
 }	
 
 

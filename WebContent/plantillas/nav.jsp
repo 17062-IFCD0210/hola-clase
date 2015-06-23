@@ -1,6 +1,7 @@
-<nav class="clearfix"> 
+<!-- menu desktop --> 
+<nav id="dsk-menu" class="clearfix"> 
  	
-  <ul class="menu">	
+  <ul id="" class="menu">	
 	<li>
 		<h2>B&aacute;sicos</h2>
 		<ul>
@@ -107,6 +108,10 @@
 		</ul>
 	</li>  
   </ul>
+
+
+
+
 </nav>
 
 </header>

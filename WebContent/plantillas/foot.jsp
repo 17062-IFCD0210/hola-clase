@@ -55,10 +55,16 @@
  <script src="js/filter_by_text.js"></script>
  
  <!-- http://responsive-nav.com/ -->
- <script src="js/responsive-nav/responsive-nav.min.js" ></script> 
+ 
+ <script src="js/ResponsiveMultiLevelMenu/js/jquery.dlmenu.js" ></script>  
  <script>
-   var nav = responsiveNav(".nav-collapse");
- </script>
+			$(function() {
+				$( '#dl-menu' ).dlmenu({
+					animationClasses : { classin : 'dl-animate-in-2', classout : 'dl-animate-out-2' }
+				});
+			});
+</script>
+
  
  <!--  Custom JavaScript despues de cargar todas las librerias  -->
  <script src="js/main.js"></script>
