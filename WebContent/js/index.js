@@ -90,7 +90,7 @@ function obtener_ganador(){
 	
 	
 	var lb_afortunado = document.getElementById('afortunado');
-	var num_aleatorio = Math.floor(Math.random() * (afortunados.length-1) ) + 1;
+	var num_aleatorio = Math.floor(Math.random() * (afortunados.length-1) );
 	
 	//como tenemos un sitio sin ocupar a partir del alumno 14, sumamos uno
 	if ( num_aleatorio >= 14 ){
