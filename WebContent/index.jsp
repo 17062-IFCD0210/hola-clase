@@ -2,10 +2,6 @@
 <jsp:include page="plantillas/nav.jsp"></jsp:include>
 
 <div id="home" class="clearfix">
-
-		
-	<span class="icon-small-orange fa-5x"></span>
-	 
 	 
 	 <!-- Contenido principal de la pagina -->
 	 <section> 

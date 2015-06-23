@@ -252,6 +252,7 @@ nav h2, nav h3 {
 
 /* contenedor */
 #content {
+	width:100%;
 	padding-top: 120px;
 
 }
@@ -535,6 +536,10 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 */
 
 /* HOME */
+#home{
+	width: 100%;
+}
+
 #home section, #home aside {
 	float: left;
 }
@@ -660,7 +665,7 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 
 
 /* Se aplican estan reglas si el ancho es menor que 460px */
-@media screen and (max-width:460px) {
+@media screen and (max-width:460px )  {
 	
 	#head #logo, #head h1 {
 	  float: left;
@@ -687,12 +692,27 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	#dl-menu { display:inline; }
 	#dsk-menu { display:none; }
 	
+	#home section {
+		width: 100%;		
+	}
+	
+	#home aside {
+		width: 96%;		
+	}
+	
+	
 	/*	
 	.dl-menuwrapper button{
 		background: url(../img/dado.png) !important;
 		background-color: transparent !important;
 	}	
 	*/
+	#dado {display:none;}
+	#afortunado {display:none;}
+	table.tabla_azul, .tabla_azul tr, .tabla_azul td { font-size: 1em;}
+		.tabla_azul td {	padding: 5px; }
+	
+  
 }	
 
 
