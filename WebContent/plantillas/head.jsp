@@ -30,7 +30,7 @@
   <link rel="stylesheet" type="text/css" href="fonts/iconmoon/style.css">
 
   <!-- http://tympanus.net/codrops/2013/04/19/responsive-multi-level-menu/ -->
-  <link rel="stylesheet" href="js/ResponsiveMultiLevelMenu/css/default.css">
+<!--   <link rel="stylesheet" href="js/ResponsiveMultiLevelMenu/css/default.css"> -->
   <link rel="stylesheet" href="js/ResponsiveMultiLevelMenu/css/component.css">
   <script src="js/ResponsiveMultiLevelMenu/js/modernizr.custom.js" ></script>
 
@@ -64,7 +64,10 @@
 	<div id="dl-menu" class="dl-menuwrapper"> 
 	  <button class="dl-trigger">Open Menu</button>	
 	 	
-	  <ul class="dl-menu">	
+	  <ul class="dl-menu">
+	  	<li>
+	  		<a href="index.jsp">HOME</a>
+	  	</li>	
 		<li>
 			<a href="#">B&aacute;sicos</a>
 			<ul class="dl-submenu">

@@ -5,20 +5,19 @@
 	 
 	 <!-- Contenido principal de la pagina -->
 	 <section> 
-	 	 
+
 	   <h2>El afortunado en leer es:</h2>
 	   <label for="btn_ganador" class="numero" id="afortunado" >0</label>
+	  
+	   <img alt="dado de seis caras blanco" 
+			 title="Dado blanco" 
+			 id="dado" 
+			 src="img/dado.png" /> 
+	  
 	   <input type="button" class="btn"
 			  value="Obtener nuevo afortunad@" 
 			  id="btn_ganador" name="btn_ganador" 
 			  onclick="obtener_ganador();"/>
-	   
-
-		<img alt="dado de seis caras blanco" 
-			 title="Dado blanco" 
-			 id="dado" 
-			 src="img/dado.png" />
-	   
 	   
 		<table border="1" class="tabla_azul">
 			<tr>

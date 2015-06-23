@@ -27,7 +27,7 @@
 }
 
 .dl-menuwrapper button {
-	background: #ccc;
+	background: #6FC5FF;
 	border: none;
 	width: 48px;
 	height: 45px;
@@ -41,7 +41,7 @@
 .dl-menuwrapper button:hover,
 .dl-menuwrapper button.dl-active,
 .dl-menuwrapper ul {
-	background: #aaa;
+	background: #6FC5FF;
 }
 
 .dl-menuwrapper button:after {
@@ -72,7 +72,7 @@
 	display: block;
 	position: relative;
 	padding: 15px 20px;
-	font-size: 16px;
+	font-size: 1.25em;
 	line-height: 20px;
 	font-weight: 300;
 	color: #fff;
@@ -775,7 +775,7 @@ All this is done for any sub-level being entered.
 .demo-1 .dl-menuwrapper button:hover,
 .demo-1 .dl-menuwrapper button.dl-active,
 .demo-1 .dl-menuwrapper ul {
-	background: #9e1847;
+	background: #6FC5FF;
 }
 
 /* Demo 2 */
@@ -786,7 +786,7 @@ All this is done for any sub-level being entered.
 .demo-2 .dl-menuwrapper button:hover,
 .demo-2 .dl-menuwrapper button.dl-active,
 .demo-2 .dl-menuwrapper ul {
-	background: #D35400;
+	background: #6FC5FF;
 }
 
 /* Demo 3 */
@@ -797,7 +797,7 @@ All this is done for any sub-level being entered.
 .demo-3 .dl-menuwrapper button:hover,
 .demo-3 .dl-menuwrapper button.dl-active,
 .demo-3 .dl-menuwrapper ul {
-	background: #00b4ae;
+	background: #6FC5FF;
 }
 
 /* Demo 4 */
@@ -808,7 +808,7 @@ All this is done for any sub-level being entered.
 .demo-4 .dl-menuwrapper button:hover,
 .demo-4 .dl-menuwrapper button.dl-active,
 .demo-4 .dl-menuwrapper ul {
-	background: #79a002;
+	background: #6FC5FF;
 }
 
 /* Demo 5 */
@@ -819,5 +819,5 @@ All this is done for any sub-level being entered.
 .demo-5 .dl-menuwrapper button:hover,
 .demo-5 .dl-menuwrapper button.dl-active,
 .demo-5 .dl-menuwrapper ul {
-	background: #643771;
+	background: #6FC5FF;
 }
