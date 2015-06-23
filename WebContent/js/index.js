@@ -35,23 +35,23 @@ function init(){
 	
 	
 	//set o guardar valor
-	localStorage["l1"] = "pepe";
-	localStorage.setItem ("l2", "pepa");
+//	localStorage["l1"] = "pepe";
+//	localStorage.setItem ("l2", "pepa");
 	
 	//se pierde si cerramos el navegador
-	sessionStorage.setItem ("s1", "se pierde si cerramos el navegador");
+//	sessionStorage.setItem ("s1", "se pierde si cerramos el navegador");
 	
 	
 	//recuperar valor por su Key	
-	console.debug ( localStorage["l1"] );
-	console.debug ( localStorage.getItem ("l2") );
+//	console.debug ( localStorage["l1"] );
+//	console.debug ( localStorage.getItem ("l2") );
 	
 	//eliminar elemento
 	//localStorage.removeItem("l2");
 	//console.debug (" Cuidaddo que hemos eliminado a PEPA");
 	
 	
-	var listado_keys = Object.keys(localStorage);
+//	var listado_keys = Object.keys(localStorage);
 	
 }
 
@@ -59,18 +59,18 @@ function init(){
 	
 	
 	
-function allStorage(){
-
-    var archive = [],
-        keys = Object.keys(localStorage),
-        i = 0;
-
-    for (; i < keys.length; i++) {
-        archive.push( localStorage.getItem(keys[i]) );
-    }
-
-    return archive;
-}
+//function allStorage(){
+//
+//    var archive = [],
+//        keys = Object.keys(localStorage),
+//        i = 0;
+//
+//    for (; i < keys.length; i++) {
+//        archive.push( localStorage.getItem(keys[i]) );
+//    }
+//
+//    return archive;
+//}
 
 /**
   genera un numero aleatorio entre el 1 y 15	
@@ -81,11 +81,11 @@ function obtener_ganador(){
 	
 	//console.debug( afortunados[0] );
 	//console.debug( afortunados[15] );
-	console.debug( 'Todos los afortunados son : ' + afortunados.length );
-	for (i = 0; i < afortunados.length; i++) { 
-		
-		console.debug( 'posicion:' + i + ' persona:' + afortunados[i] );
-	}
+//	console.debug( 'Todos los afortunados son : ' + afortunados.length );
+//	for (i = 0; i < afortunados.length; i++) { 
+//		
+//		console.debug( 'posicion:' + i + ' persona:' + afortunados[i] );
+//	}
 	
 	
 	
@@ -105,6 +105,7 @@ function obtener_ganador(){
 	for (i = 0; i < celdas.length; i++) { 
 		//cambiamos su estilo y ponemos color de fondo white
 		celdas[i].style.backgroundColor = '#FFF';
+		celdas[i].style.color = '#0099FF';
 	}
 	
 	celdas[num_aleatorio].style.backgroundColor = '#7c01f6';
