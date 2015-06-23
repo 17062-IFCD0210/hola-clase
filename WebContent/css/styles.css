@@ -665,7 +665,7 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 
 
 /* Se aplican estan reglas si el ancho es menor que 460px */
-@media screen and (max-width:460px )  {
+@media screen and (max-width:461px )  {
 	
 	#head #logo, #head h1 {
 	  float: left;
@@ -686,7 +686,9 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 		  right: 10px;
 		  		  
 		  width: 45px;
-		  height: 45px;		  
+		  height: 45px;
+		  
+		  		  
 	}
 	
 	#dl-menu { display:inline; }
@@ -697,7 +699,7 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	}
 	
 	#home aside {
-		width: 96%;		
+		width: 96%;	
 	}
 	
 	
@@ -709,10 +711,69 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	*/
 	#dado {display:none;}
 	#afortunado {display:none;}
-	table.tabla_azul, .tabla_azul tr, .tabla_azul td { font-size: 1em;}
+
+	table.tabla_azul, .tabla_azul tr, .tabla_azul td {font-size: 1em;}
 		.tabla_azul td {	padding: 5px; }
+ 
+
+	#home section h2, #home section .btn { margin-bottom:10px; }
 	
-  
+	#home aside ul li{
+		padding-bottom: 10px;
+		border-bottom: 1px dotted;
+	}
+	
+	table.tabla_azul { margin-bottom:10px; }
+	
+	footer{ border:0;padding:0}
+	
+	#foot{
+		padding: 10px 5px;
+		margin-top: 10px;
+		margin: 0;
+		width: 96%;
+		font-size: 15px;
+		float:none;
+		background-color: #C5C5C5;
+	}
+	
+		#foot .copy{
+			float:none;
+			padding-top: 0;
+			background-color: #C5C5C5;
+		}
+		
+		#foot #list_paginas{
+			float:none;
+		}
+		
+			#foot #list_paginas ul{
+				float:none;
+				margin:0 auto;
+				padding-right:0;
+			}
+			
+			#foot #list_paginas li{
+				float:none;
+				width:100%;
+				padding-right: 0;
+			}
+		
+				#foot #list_paginas li a{
+					padding-top: 0;
+					padding-bottom:0;
+					background-color: #C5C5C5;
+				}
+		
+		#foot #list_rrss{
+			float:none;
+			padding-left:15%;
+		}
+
+			#foot #list_rrss li{
+				padding-right: 5%;
+			}
+		
 }	
 
 
