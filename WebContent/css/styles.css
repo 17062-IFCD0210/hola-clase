@@ -428,6 +428,64 @@ form input[type="text"]:focus:required:invalid {
 	ESTILOS REUTILIZABLES
     Regla con selector por CLASS para usar en todas las paginas
 */
+
+/* Ventanas modales */
+.modalDialog {
+	position: fixed;
+	font-family: Arial, Helvetica, sans-serif;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: rgba(0, 0, 0, 0.8);
+	z-index: 99999;
+	opacity: 0;
+	-webkit-transition: opacity 400ms ease-in;
+	-moz-transition: opacity 400ms ease-in;
+	transition: opacity 400ms ease-in;
+	pointer-events: none;
+}
+
+.modalDialog:target {
+	opacity: 1;
+	pointer-events: auto;
+}
+
+.modalDialog>div {
+	width: 79%;
+	position: relative;
+	margin: 10% auto;
+	padding: 5px 20px 13px 20px;
+	border-radius: 10px;
+	background: #fff;
+	background: -moz-linear-gradient(#fff, #999);
+	background: -webkit-linear-gradient(#fff, #999);
+	background: -o-linear-gradient(#fff, #999);
+}
+
+.close {
+	background: #606061;
+	color: #FFFFFF;
+	line-height: 25px;
+	position: absolute;
+	right: -12px;
+	text-align: center;
+	top: -10px;
+	width: 24px;
+	text-decoration: none;
+	font-weight: bold;
+	-webkit-border-radius: 12px;
+	-moz-border-radius: 12px;
+	border-radius: 12px;
+	-moz-box-shadow: 1px 1px 3px #000;
+	-webkit-box-shadow: 1px 1px 3px #000;
+	box-shadow: 1px 1px 3px #000;
+}
+
+.close:hover {
+	background: #00d9ff;
+}
+
 .btn {
 	background: #3498db;
 	background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
@@ -597,12 +655,16 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 
 #cartelera .cartel {
 	position: relative;
-	width: 200px;
+	width: 100%;
+}
+
+.imgCartel {
+	width: 100%;
 }
 
 #cartelera .titulo {
 	position: absolute;
-	bottom: 0;
+	bottom: 3px;
 	background-color: rgba(0, 0, 0, 0.5);
 	width: 90%;
 	padding: 3% 5%;
@@ -617,6 +679,38 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 #cartelera .titulo h3 {
 	color: #0099FF;
 	text-align: center;
+}
+
+#carteleraModal h2 {
+	width: 100%;
+	margin: 5% 0;
+	color: green;
+	font-size: 1.7em;
+	font-weight: bold;
+	text-align: center;
+}
+
+#carteleraModal #ficha {
+	float: right;
+	width: 40%;
+	font-size: 1.4em;
+	margin: 15% 1%;
+	min-height: 0;
+}
+
+.imgCartelModal {
+	width: 40%;
+	height: auto;
+	margin: 0 5% 5%;
+}
+
+#carteleraModal #ficha p {
+	font-size: 1em;
+	line-height: 2em;
+}
+
+#carteleraModal #sinopsis {
+	border: 1px solid grey;
 }
 
 /* CARTELERA_DETALLE */
@@ -649,8 +743,7 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 }
 
 #ficha {
-	/*float:left;*/
-	width: 580px;
+	width: 100%;
 	min-height: 360px;
 	margin-bottom: 20px;
 }
@@ -748,7 +841,52 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 		width: 100%;
 		padding-right: 0;
 	}
+	#list_rrss {
+		padding-left: 7%;
+	}
+	#list_rrss li {
+		width: 25%;
+	}
 	#foot {
 		width: 100%;
 	}
+	.copy {
+		float: none;
+	}
+	#cartelera li {
+		width: 48%;
+	}
+	#cartelera .cartel:hover .titulo {
+		display: none;
+	}
+	#cartelera li:nth-child(3n+0) {
+		margin-right: 2%;
+	}
+	.imgCartel {
+		width: 100%;
+	}
+	.imgCartelModal {
+		width: 100%;
+		height: auto;
+		margin: 5% auto 2%;
+	}
+	#carteleraModal h2 {
+		top: 5%;
+		left: 0;
+		width: 100%;
+	}
+	#carteleraModal #ficha {
+		font-size: 1em;
+		width: 100%;
+		min-height: 0;
+		margin: 1% 1%;
+	}
+	#carteleraModal #ficha p {
+		font-size: 1em;
+		line-height: 1.2em;
+	}
+	#sinopsis {
+		display: none;
+	}
+}
 }
