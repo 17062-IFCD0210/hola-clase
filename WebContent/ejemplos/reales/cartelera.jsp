@@ -28,8 +28,15 @@
 						<div id="openModal<%=i%>" class="modalDialog">
 							<div>
 								<a href="<%=request.getRequestURL()%>#close" title="Close" class="close">X</a>
-								<h2>Titulo Pelicula</h2>
-								<p>Terminar de maquetar el detalle...</p>
+								<div id="sinopsisImg">
+									<img alt="Cartel de la pelicula X" src="http://www.cinesa.es/Manager/Peliculas/upsdndeestno/cartelera.jpg" />
+								</div>
+								<div id="sinopsisTexto">
+									<h3>Titulo   : &quest;Donde esta Noe?</h3>
+									<h3>Director : Director Pelicula</h3>
+									<h3>Sinopsis : </h3>
+									<p>sinopsis de la pelicula</p>
+								</div>
 							</div>
 						</div>
 						
