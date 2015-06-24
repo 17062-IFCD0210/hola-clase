@@ -673,6 +673,40 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	text-align: left;
 }
 
+/* VENTANA MODAL DE DETALLE DE CARTELERA */
+
+#titulo_modal{
+	font-size:1.5em;
+	color:#000;
+	font-style: oblique;	
+}
+
+#caratula_modal{
+	width:50%;
+	display:inline;
+}
+
+#ficha_modal {
+	position: absolute;
+	top: 5%;
+	left: 55%;
+}
+
+.encabezado_modal{
+	font-size:1.2em;
+	color:#000;
+	padding-bottom:5px;
+	font-weight: bold;
+	
+}
+
+#ficha_modal p{
+	font-size:1em;
+	color:#000;
+	padding-bottom:5px;
+}
+
+
 /* Regla con selector por ID */
 #dado {
 	width: 200px;
@@ -835,11 +869,160 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 
 			#foot #list_rrss li{ padding-right: 5%; }		
 
-/*			#foot #list_rrss li a{
-				margin-left: 15%;
-			}		
-*/
 
-}	
+	/* Cartelera de cine */
+	
+	#content {
+  		padding-top: 10px;
+	}
+	
+	#cartelera{
+		width:100%; /*85%;*/
+	}
+	
+	#cartelera h1{
+		color: red;
+		font-size: 1.2em;			
+	}
+	
+	#cartelera ul {
+		float: left;
+		padding-left:0;
+	}
+	
+	#cartelera li {
+		float: left;
+  		width: 48%;
+  		margin-right: 5px;
+  		list-style: none;
+	}
+	
+	#cartelera li:nth-child(3n+0) {
+		margin-right: 5px;
+	}
+	
+	#cartelera li:nth-child(2n+0) {
+		margin-right: 0;
+	}
+	
+	#cartelera .cartel {
+		position: relative;
+		width: 100%;
+	}
+	
+	.cartel img{
+		width:100%;
+		height:auto;
+	}
+	
+	#cartelera .titulo {
+		position: absolute;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+		width: 90%;
+		padding: 3% 5%;
+		min-height: 40px;
+		display: none;
+	}
+	
+	#cartelera .cartel:hover .titulo {
+		display: block;
+	}
+	
+	#cartelera .titulo h3 {
+		color: #0099FF;
+		text-align: center;
+	}	
+
+	/* VENTANA MODAL DE DETALLE DE CARTELERA */
+	
+	#ventana_modal{
+		height:90%;
+	}
+	
+	#titulo_modal{
+		font-size:1em;
+		color:#000;
+		font-style: oblique;	
+	}
+	
+	#caratula_modal{
+		width: 88%;
+		position: relative;
+		height: auto;
+		top: 171px;
+		left: 10px;
+		height: 60%;
+		width: auto;
+		margin-left: 0;
+  	}
+	
+	#ficha_modal {
+		width:100%;
+		position: absolute;
+		top: 5%;
+		left: 5%;
+	}
+	
+	.encabezado_modal{
+		font-size:1.2em;
+		color:#000;
+		padding-bottom:5px;
+		font-weight: bold;
+	}
+	
+	#ficha_modal p{
+		font-size:1em;
+		color:#000;
+		padding-bottom:5px;
+	}
 
 
+} /* viene de @media screen and (max-width:461px )  */	
+
+
+/* PESTAÑAS */
+
+	.tabs {
+	  background: white;
+	  margin: auto;
+	  padding: 1em;
+	  width: 50%;
+	}
+	
+	ul.tabs {
+	  list-style-type: none;
+	  margin: 0;
+	  padding: 0;
+	}
+	
+	ul.tabs li {
+	  border: gray solid 1px;
+	  border-bottom: none;
+	  float: left;
+	  margin: 0 .25em 0 0;
+	  padding: .25em .5em;
+	}
+	
+	ul.tabs li a {
+	  color: gray;
+	  font-weight: bold;
+	  text-decoration: none;
+	}
+	
+	ul.tabs li.active {
+	  background: gray;
+	}
+	
+	ul.tabs li.active a {
+	  color: white;
+	}
+	
+	.clr {
+	  clear: both;
+	}
+	
+	tabs article {
+	  border-top: gray solid 1px;
+	  padding: 0 1em;
+	}

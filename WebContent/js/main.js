@@ -32,4 +32,22 @@ $(function() {
 		//	alert("Copied text to clipboard: " + event.data["text/plain"] );
 	  } );
 	} );
+	
+	/* funcionalidad de las pestañas */
+	$('ul.tabs li:first').addClass('active');
+	$('.block article').hide();
+	$('.block article:first').show();
+	$('ul.tabs li').on('click',function(event){
+		event.preventDefault(); //previene el evento del ancla, ya no funciona como ancla
+		$('ul.tabs li').removeClass('active');
+		$(this).addClass('active')
+		$('.block article').hide();
+		var activeTab = $(this).find('a').attr('href');
+		$(activeTab).show();
+	});
+	
+	/* inicializacion de highlightjs */
+	 $('pre code').each(function(i, block) {
+		    hljs.highlightBlock(block);
+		  });
   });

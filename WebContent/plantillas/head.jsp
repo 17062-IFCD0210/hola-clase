@@ -34,6 +34,8 @@
   <link rel="stylesheet" href="js/ResponsiveMultiLevelMenu/css/component.css">
   <script src="js/ResponsiveMultiLevelMenu/js/modernizr.custom.js" ></script>
 
+  <!-- highlightjs.org  -->
+  <link rel="stylesheet" href="/path/to/styles/default.css">
   
   	
 

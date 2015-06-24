@@ -54,7 +54,32 @@
 		
 	</article>
 	
-	
+	<article>
+		<header>
+			<h1>Codigo</h1>
+		</header>
+		<div class="tabs">	
+			<ul class="tabs">
+		      <li><a href="#tab1">HTML</a></li>
+		      <li><a href="#tab2">CSS</a></li>
+		      <li><a href="#tab3">JS</a></li>
+	    	</ul>
+  			<div class="clr"></div>
+			    <section class="block">
+			      <article id="tab1">
+			      	<p>PESTAÑA PARA HTML</p>
+			      	<pre><code class="html">html</code></pre>
+			      
+			      </article>
+			      <article id="tab2">
+			        <p>PESTAÑA PARA CSS</p>
+			      </article>
+			      <article id="tab3">
+			        <p>PESTAÑA PARA JS</p>
+			      </article>
+			    </section>	    	
+		</div>
+	</article>
 </section>
 
 <jsp:include page="../../../plantillas/foot.jsp"></jsp:include>

@@ -24,10 +24,18 @@
 						
 						<!--  ventana modal  -->
 						<div id="openModal<%=i%>" class="modalDialog">
-							<div>
+							<div id="ventana_modal">
 								<a href="<%=request.getRequestURL()%>#close" title="Cerrar" class="close">X</a>
-								<h2>Titulo Pelicula</h2>
-								<p>Terminar de maquetar el detalle.</p>
+								<h2 id="titulo_modal">Cronicas de Narnia</h2>
+								<img id="caratula_modal" alt="Cartel pelicula 'Cronicas de Narnia'" src="img/cronicas_narnia.jpg"/>
+								<div id="ficha_modal">
+									<p><span class="encabezado_modal">Titulo:</span></p>
+									<p>Periko el de los palotes</p>
+									<p><span class="encabezado_modal">Autor:</span></p>
+									<p>Steven Spilberg</p>
+									<p><span class="encabezado_modal">Duracion:</span></p>
+									<p>120'</p>
+								</div>	
 							</div>
 						</div>
 					</li>		
