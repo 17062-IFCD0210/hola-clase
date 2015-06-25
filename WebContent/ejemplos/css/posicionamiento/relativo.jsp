@@ -68,7 +68,12 @@
 			    <section class="block">
 			      <article id="tab1">
 			      	<p>PESTAÑA PARA HTML</p>
-			      	<pre><code class="html">html</code></pre>
+			      	<pre><code class="html">
+			      		<span class="hljs-tag">div id="capa1"</span>
+				      	<div id="capa1">Capa1</div>
+						<div id="capa2">Capa2</div>
+						<div id="capa3">Capa3</div>
+			      	</code></pre>
 			      
 			      </article>
 			      <article id="tab2">

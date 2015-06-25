@@ -35,8 +35,7 @@
   <script src="js/ResponsiveMultiLevelMenu/js/modernizr.custom.js" ></script>
 
   <!-- highlightjs.org  -->
-  <link rel="stylesheet" href="/path/to/styles/default.css">
-  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
   	
 
   <!--[if lt IE 9]>

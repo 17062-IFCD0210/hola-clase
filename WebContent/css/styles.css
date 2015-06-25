@@ -987,7 +987,7 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	  background: white;
 	  margin: auto;
 	  padding: 1em;
-	  width: 50%;
+/*	  width: 50%;*/
 	}
 	
 	ul.tabs {
@@ -1025,4 +1025,9 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	tabs article {
 	  border-top: gray solid 1px;
 	  padding: 0 1em;
+	}
+	
+	div.tabs{
+		margin-left:0;
+		margin-right:0;
 	}
