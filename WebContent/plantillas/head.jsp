@@ -62,7 +62,7 @@
 		
 	<!-- Menu movil -->
 	<div id="dl-menu" class="dl-menuwrapper"> 
-	  <button class="dl-trigger">Open Menu</button>	
+	  <button class="dl-trigger"><img src="img/dado.png" alt="dado de 6 caras icono de la App Web"/></button>	
 	 	
 	  <ul class="dl-menu">
 	  	<li>

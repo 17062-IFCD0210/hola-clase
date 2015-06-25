@@ -27,19 +27,20 @@
 }
 
 .dl-menuwrapper button {
-	background: #6FC5FF;
+	/* background: #6FC5FF; */
+	background: transparent;
 	border: none;
-	width: 48px;
-	height: 45px;
-	text-indent: -900em;
+	width: 50px;
+	height: 50px;
+	/* text-indent: -900em; */
 	overflow: hidden;
-	position: relative;
+	/* position: relative; */
 	cursor: pointer;
 	outline: none;
 }
 
-.dl-menuwrapper button:hover,
-.dl-menuwrapper button.dl-active,
+/* .dl-menuwrapper button:hover, */
+/* .dl-menuwrapper button.dl-active, */
 .dl-menuwrapper ul {
 	background: #6FC5FF;
 }

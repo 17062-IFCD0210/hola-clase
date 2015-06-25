@@ -459,7 +459,6 @@ form input[type="text"]:focus:required:invalid {
 
 .modalDialog > div {
 	width: 79%;
-	max-width:400px;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;

@@ -39,7 +39,7 @@
 								
 								<img alt="Cartel de la pelicula X" src="http://www.cinesa.es/Manager/Peliculas/upsdndeestno/cartelera.jpg" />
 								
-								
+
 							</div>
 						</div>
 						
