@@ -701,6 +701,18 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	text-align: center;
 }
 
+#cartelera .modalDialog .sinopsisTexto {
+	float: right;
+	width: 40%;
+}
+
+#cartelera .modalDialog img {
+
+	float: left;
+	width: 40%;
+	
+}
+
 /* CARTELERA_DETALLE */
 #cartelera_detalle h1 {
 	color: blue;

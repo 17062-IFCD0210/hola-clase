@@ -26,17 +26,17 @@
 						</div>					
 						<!-- ventana modal -->
 						<div id="openModal<%=i%>" class="modalDialog">
-							<div>
+							<div class="clearfix">
 								<a href="<%=request.getRequestURL()%>#close" title="Close" class="close">X</a>
-								<div id="sinopsisImg">
-									<img alt="Cartel de la pelicula X" src="http://www.cinesa.es/Manager/Peliculas/upsdndeestno/cartelera.jpg" />
-								</div>
-								<div id="sinopsisTexto">
+
+								<div class="sinopsisTexto">
 									<h3>Titulo   : &quest;Donde esta Noe?</h3>
 									<h3>Director : Director Pelicula</h3>
 									<h3>Sinopsis : </h3>
 									<p>sinopsis de la pelicula</p>
 								</div>
+								<img alt="Cartel de la pelicula X" src="http://www.cinesa.es/Manager/Peliculas/upsdndeestno/cartelera.jpg" />
+								
 							</div>
 						</div>
 						
