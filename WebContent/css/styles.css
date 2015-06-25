@@ -108,6 +108,11 @@ p {
 	line-height: 20px;
 }
 
+img{
+	width: 59%;
+	height: auto;
+}
+
 mark {
 	background-color: yellow;
 }
@@ -455,6 +460,7 @@ form input[type="text"]:focus:required:invalid {
 
 .modalDialog > div {
 	width: 79%;
+	max-width: 400px;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
@@ -486,7 +492,21 @@ form input[type="text"]:focus:required:invalid {
 
 .close:hover { background: #00d9ff; }
 
+.modal_contenedor{
+	width: 48% !important;
+	padding: 5px 20px 5px 20px !important;
+}
 
+#cartelera .modalDialog .desc_cartel{
+	float:right;/*Van juntos float con Width*/
+	width:48%;
+}
+
+#cartelera .modalDialog .img{
+	float:left;
+	width:200px;
+	height: auto:
+}
 
 .btn {
 	background: #3498db;
@@ -646,18 +666,18 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 
 #cartelera li {
 	float: left;
-	width: 30%;
+	width: 46%;
 	margin-right: 2%;
 	list-style: none;
 }
 
-#cartelera li:nth-child(3n+0) {
+#cartelera li:nth-child(3n+0) {/*Al tercer hijo*/
 	margin-right: 0;
 }
 
 #cartelera .cartel {
 	position: relative;
-	width: 200px;
+	width: 100%;
 }
 
 #cartelera .titulo {
@@ -735,7 +755,7 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
                    reglas media querys 
 ************************************************************/
 
-/* Se aplican estan reglas si el ancho es menor que 460px */
+/* Se aplican estas reglas si el ancho es menor que 460px */
 @media screen and (max-width:460px ) {
 	#head {
 		position: fixed;
@@ -831,4 +851,34 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	
 	#foot {	width: 100%;}
 		#foot .copy{float: none;}
+
+
+/* Para Ventana Modal */
+
+#cartelera .modalDialog .desc_cartel{
+	float:left;/*Van juntos, float con Width*/
+	width:100%;
 }
+
+#cartelera .modalDialog .img{
+	float:left;
+	width:200px;;
+	margin-left:10%;
+}
+
+#cartelera li {
+	width: 48%;
+}
+
+#cartelera li:nth-child(2n+0) {/*Al segundo hijo o los pares*/
+	margin-right: 0%;
+}
+
+#cartelera li:nth-child(3n+0) {/*Al tercer hijo*/
+	margin-right: 2%;
+}
+
+
+
+
+} /*Fín Media Queries*/
