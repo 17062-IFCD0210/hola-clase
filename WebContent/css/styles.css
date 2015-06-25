@@ -108,6 +108,9 @@ p {
 	line-height: 20px;
 }
 
+img { width: 100%; height: auto;}
+
+
 mark {
 	background-color: yellow;
 }
@@ -435,6 +438,7 @@ form input[type="text"]:focus:required:invalid {
 .modalDialog {
 	position: fixed;
 	font-family: Arial, Helvetica, sans-serif;
+	/*max-height:300px;*/
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -455,6 +459,7 @@ form input[type="text"]:focus:required:invalid {
 
 .modalDialog > div {
 	width: 79%;
+	max-width:400px;
 	position: relative;
 	margin: 10% auto;
 	padding: 5px 20px 13px 20px;
@@ -657,7 +662,7 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 
 #cartelera .cartel {
 	position: relative;
-	width: 200px;
+	width: 100%;
 }
 
 #cartelera .titulo {
@@ -678,6 +683,10 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	color: #0099FF;
 	text-align: center;
 }
+
+#cartelera .modalDialog .sinopsisTexto { float:right; width: 48%;}
+#cartelera .modalDialog img { float: left; width: 200px; height: auto;}
+
 
 /* CARTELERA_DETALLE */
 #cartelera_detalle h1 {
@@ -825,4 +834,14 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	
 	#foot {	width: 100%;}
 		#foot .copy{float: none;}
+		
+	
+	/* Cartelera */
+	#cartelera li {	width: 48%;	}
+		#cartelera li:nth-child(2n+0) { margin-right: 0;}
+		#cartelera li:nth-child(3n+0) {	margin-right: 2%; }
+	
+		#cartelera .modalDialog .sinopsisTexto { float:left; width: 100%;}
+		#cartelera .modalDialog img { float: left; margin-left: 10%; }		
+		
 }
