@@ -34,7 +34,8 @@
   <link rel="stylesheet" href="js/ResponsiveMultiLevelMenu/css/component.css">
   <script src="js/ResponsiveMultiLevelMenu/js/modernizr.custom.js" ></script>
 
-  
+  <!-- highlight code -->
+  <link rel="stylesheet" href="js/highlight/styles/railscasts.css">
   	
 
   <!--[if lt IE 9]>
