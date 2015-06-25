@@ -1,0 +1,198 @@
+/*   
+	version:  1.0
+	author:   DavidGarcia
+	date: 	  20150625
+		
+*/
+
+/************************************************************************** 
+			   RESET    
+			   Resetear todos los estilos para cualquier navegador
+***************************************************************************/
+@import url("reset.css");
+
+/************************************************************************** 
+      						ClearFix
+***************************************************************************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+/************************************************************************** 
+      					Etiquetas base
+***************************************************************************/
+
+
+/************************************************************************** 
+      						Layout
+***************************************************************************/
+
+			/*************************************************
+			      				Head
+			*************************************************/
+#head{
+	margin: 1% auto;
+	width: 960px;
+}
+#logo{
+	width: 217px;
+	margin: 0 auto;
+}
+					
+			/*************************************************
+			      				Menu
+			*************************************************/
+#menu-wrapper{
+	width: 100%;
+	background-color: rgb(195, 190, 190);
+}			
+#menu{
+	
+	margin: 0 auto;
+	width: 960px;
+	padding: 1% 0;
+}
+#menu ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+	text-align: center;
+}
+
+#menu ul li{
+	display: inline;
+	margin: 0 1%;
+	padding: 1%;
+}
+
+#menu ul li:hover{
+	background-color: grey;
+}
+			
+			/*************************************************
+			      				Body
+			*************************************************/
+			
+#content{
+	margin: 0 auto;
+	width: 960px;
+}			
+
+#content_top{
+	margin: 1% auto 0;
+	width: 960px;
+}			
+#content_middle{
+	margin: 1% auto;
+	width: 960px;
+}			
+#content_bottom{
+	margin: 0 auto;
+	width: 960px;
+}	
+#box_container{
+	float: left;
+	width:48%;
+	margin: 0 1%;
+}		
+
+			
+			/*************************************************
+			      				Footer
+			*************************************************/
+footer{
+	background-color: grey;
+	margin: 1% auto 3%;
+	width: 960px;
+	height: 150px;
+}
+
+#foot{
+	padding:5%;
+}
+
+footer p{
+	text-align: center;
+}
+			
+			
+/************************************************************************** 
+      						Reutilizables
+***************************************************************************/			
+.caja_1x1{
+	float: left;
+	width: 25%;
+	height: 250px;
+	background-color: aqua;
+}
+.caja_2x1{
+	margin: 0 1%;
+	float: left;
+	width: 48%;
+	height: 250px;
+	background-color: lime;
+}
+.caja_1x2{
+	float: left;
+	width: 25%;
+	height: 510px;
+	background-color: purple;
+}
+
+#box_container .caja_1x1{
+	width: 49%;
+}
+#box_container .caja_1x1:nth-child(2n+0){
+	margin-left: 2%;
+}
+
+#box_container .caja_1x1:nth-child(1), #box_container .caja_1x1:nth-child(2){
+	margin-bottom: 10px;
+}
+
+/************************************************************************** 
+      						MediaQuerys
+***************************************************************************/
+@media screen and (max-width:960px ) {
+	#head,	#menu,	#content, #content_top, #content_middle, #content_bottom, footer{
+		width: 98%;
+		padding: 0 1%;
+	}
+}
+
+@media screen and (max-width:460px ) {
+	#content_top{
+	position: relative;
+	height: 505px;
+	padding: 0;
+	margin-bottom: 1%;
+	}
+	#content_top .caja_1x1{
+		width: 49%;
+	}
+	#content_top .caja_1x1:nth-child(1){
+		margin-right: 2%;
+	}
+	#content_top .caja_2x1{
+		position: absolute;
+		top: 250px;
+		left: 0;
+		width: 100%;
+		margin: 5px 0 0;
+	}
+	#content_middle{
+	position: relative;
+	height: 505px;
+	padding: 0;
+	margin-bottom: 1%;
+	}
+}
