@@ -1,0 +1,112 @@
+/*   
+	version:  1.0
+	author:   Unai Perea Cruz
+	date: 	  20150625
+		
+*/
+
+/* 
+   RESET    
+   Resetear todos los estilos para cualquier navegador
+*/
+@import url("reset.css");
+
+
+/***************************** 
+      ClearFix
+*******************************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+/*  LAYOUTS  */
+  
+body {
+	bg-color: #FFF;
+	font-family: arial;
+}
+
+#head960, #wrapper_menu, #menu960, #content960, #footer960{ min-height:100px; }
+#wrapper_menu{ width:100%; background-color: black; }
+#head960, #menu960, #content960, #footer960{ width:960px; margin: 0 auto; }
+
+#head960{ background-color:red; }
+#menu960{ background-color:blue; }
+#content960{ background-color:green; }
+#footer960{ background-color:pink; }
+
+#dl_menu{ /*menú móvil*/
+	display: none;
+}
+
+#seccion_izda{
+	float: left;
+	background-color: lime;
+	width: 230px;
+	margin-top: 13px;
+	margin-right: 13px;
+}
+
+#seccion_central{
+	float:left;
+	background-color:navy;
+  	width: 474px;
+  	margin-top: 13px;
+  	margin-right: 13px;
+}
+
+#seccion_dcha{
+	float:right;
+	background-color:silver; 
+	width: 230px;
+ 	margin-top: 13px;
+}
+
+.box_1x1{
+	background-color: yellow;
+	width: 230px;
+	min-height: 230px;
+}
+
+.box_2x1{
+	background-color: brown;
+	width: 474px;
+	min-height: 230px;
+}
+	
+.box_1x2{
+	background-color: grey;
+	width: 230px;
+	min-height: 474px;
+}
+
+#cajas{
+	float:left;
+}
+
+.flotar_margin_abajo_dcha{
+	float:left;
+	margin-bottom:13px;
+	margin-right:13px;
+	
+}
+.flotar{
+	float:left;
+}
+
+.margin_abajo{
+	margin-bottom: 13px;
+}
+
+
+

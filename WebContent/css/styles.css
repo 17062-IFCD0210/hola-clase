@@ -502,7 +502,7 @@ form input[type="text"]:focus:required:invalid {
 	width:48%;
 }
 
-#cartelera .modalDialog .img{
+#cartelera .modalDialog img{
 	float:left;
 	width:200px;
 	height: auto:
@@ -860,10 +860,10 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	width:100%;
 }
 
-#cartelera .modalDialog .img{
+#cartelera .modalDialog img{
 	float:left;
-	width:200px;;
-	margin-left:10%;
+	width: 90%;
+  	margin-left: 5%;
 }
 
 #cartelera li {

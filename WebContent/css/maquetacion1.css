@@ -1,7 +1,7 @@
 /*   
 	version:  1.0
-	author:   Ander Uraga Real
-	date: 	  20150610
+	author:   Unai Perea Cruz
+	date: 	  20150625
 		
 */
 
@@ -45,79 +45,67 @@ body {
 #content960{ background-color:green; }
 #footer960{ background-color:pink; }
 
-/*
-	#head_izda, #head_centro, #head_dcha{
-		background-color:lime; 
-		width: 33%;
-	}
-	
-	#head_centro{
-		background-color:navy; 
-		width: 33%;
-	}
-	
-	#head_dcha{
-		background-color:silver; 
-		width: 33%;
-	}
-*/
-
-#dl_menu{
+#dl_menu{ /*menú móvil*/
 	display: none;
 }
 
-#seccion_alta{
-	float:left;
-	background-color:lime;
-	/*width: 240px;*/
-	min-height: 240px;
+#seccion_izda{
+	float: left;
+	background-color: lime;
+	width: 230px;
+	margin-top: 13px;
+	margin-right: 13px;
 }
 
 #seccion_central{
 	float:left;
 	background-color:navy;
-	width: 480px;
-	min-height: 460px;
+  	width: 474px;
+  	margin-top: 13px;
+  	margin-right: 13px;
 }
 
-#seccion_baja{
+#seccion_dcha{
+	float:right;
 	background-color:silver; 
-	width: 240px;
-	min-height: 240px;
+	width: 230px;
+ 	margin-top: 13px;
 }
 
 .box_1x1{
 	background-color: yellow;
-	float: left;
-	width: 220px;
-	min-height: 220px;
+	width: 230px;
+	min-height: 230px;
 }
 
 .box_2x1{
 	background-color: brown;
-	float: left;
-	width: 440px;
-	min-height: 220px;
+	width: 474px;
+	min-height: 230px;
 }
 	
 .box_1x2{
 	background-color: grey;
-	float: left;
-	width: 220px;
-	min-height: 440px;
+	width: 230px;
+	min-height: 474px;
 }
 
-#seccion_alta div:first-child{ /*Al primer hijo*/
-	margin-left:20px;
-	margin-right:20px;
+#cajas{
+	float:left;
 }
 
-#seccion_alta div:nth-child(2n+0){ /*A los hijos pares. Cada dos*/
-	margin-right:20px;
+.flotar_margin_abajo_dcha{
+	float:left;
+	margin-bottom:13px;
+	margin-right:13px;
+	
+}
+.flotar{
+	float:left;
 }
 
-#seccion_alta div:last-child{ /*Al último hijo*/
-	margin-right:20px;
+.margin_abajo{
+	margin-bottom: 13px;
 }
 
 

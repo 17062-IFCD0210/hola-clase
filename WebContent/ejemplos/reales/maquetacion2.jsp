@@ -15,7 +15,7 @@
   <!-- ViewPort imprescindible para RWD (media queries) -->	
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
   
-  <link rel="stylesheet" type="text/css" href="css/maquetacion.css?v=1.0">
+  <link rel="stylesheet" type="text/css" href="css/maquetacion2.css?v=1.0">
 
   <!-- http://tympanus.net/codrops/2013/04/19/responsive-multi-level-menu/ -->
   <!--   <link rel="stylesheet" href="js/ResponsiveMultiLevelMenu/css/default.css"> -->
@@ -86,30 +86,55 @@
 	</div>
 
 	<!-- CONTENIDO -->
-	<div id="content960">
+	<div id="content960" class="clearfix">
 		
-		<section id="seccion_alta" class="clearfix">
+		<aside id="seccion_izda" class="clearfix">
+			<div class="box_1x1 margin_abajo"></div>
+			<div class="box_1x2 margin_abajo"></div>
+			<div class="box_1x1 margin_abajo"></div>
+		</aside>
+		
+		<section id="seccion_central" class="clearfix">
+			<div class="box_2x1 margin_abajo"></div>
+			
+			<div id="cajas" class="clearfix">
+				<div class="box_1x1 flotar_margin_abajo_dcha clearfix"></div>
+				<div class="box_1x1 flotar    margin_abajo   clearfix"></div>
+				<div class="box_1x1 flotar_margin_abajo_dcha clearfix"></div>
+				<div class="box_1x1 flotar   margin_abajo   clearfix"></div>
+			</div>
+			<div class="box_2x1 flotar margin_abajo clearfix"></div>
+		</section>
+		
+		<aside id="seccion_dcha" class="clearfix">
+			<div class="box_1x1 margin_abajo clearfix"></div>
+			<div class="box_1x2 margin_abajo clearfix"></div>
+			<div class="box_1x1 margin_abajo clearfix"></div>
+		</aside>
+		
+		
+		<!-- <section id="seccion_alta">
 			<div class="box_1x1 clearfix"></div>
 			<div class="box_2x1 clearfix"></div>
 			<div class="box_1x1 clearfix"></div>
-		</section>
+		</section> -->
 		
-		<!-- <section id="seccion_central" class="clearfix">
-				<div class="box_2x1 clearfix"></div>
+		<!-- <section id="seccion_central">
+				<div class="box_1x2 clearfix"></div>
 				
 				<div class="box_1x1 clearfix"></div>
 				<div class="box_1x1 clearfix"></div>
 				<div class="box_1x1 clearfix"></div>
 				<div class="box_1x1 clearfix"></div>
 				
-				<div class="box_2x1 clearfix"></div>
-		</section>
+				<div class="box_1x2 clearfix"></div>
+		</section> -->
 
-		<section id="seccion_baja" class="clearfix">
-			<div class="box_1x1 clearfix"></div>
+		<!-- <section id="seccion_baja">
+		 	<div class="box_1x1 clearfix"></div>
 			<div class="box_1x2 clearfix"></div>
 			<div class="box_1x1 clearfix"></div>
-		</section> -->	
+		</section>-->
 	
 	</div>
 	
