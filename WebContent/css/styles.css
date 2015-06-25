@@ -1,7 +1,7 @@
 /*   
 	version:  1.0
 	author:   Ander Uraga Real
-	date: 	  20150610
+	date: 	  20150615
 		
 */
 
@@ -699,18 +699,6 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 #cartelera .titulo h3 {
 	color: #0099FF;
 	text-align: center;
-}
-
-#cartelera .modalDialog .sinopsisTexto {
-	float: right;
-	width: 40%;
-}
-
-#cartelera .modalDialog img {
-
-	float: left;
-	width: 40%;
-	
 }
 
 /* CARTELERA_DETALLE */
