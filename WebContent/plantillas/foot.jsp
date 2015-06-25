@@ -74,8 +74,5 @@
  ZeroClipboard.config( { swfPath: "js/zeroclipboard-2.2.0/dist/ZeroClipboard.swf" } );
  </script>
  
- <!-- Highlight code -->
- <script src="js/highlight/highlight.pack.js"></script>
- <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

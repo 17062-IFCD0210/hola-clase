@@ -32,19 +32,4 @@ $(function() {
 		//	alert("Copied text to clipboard: " + event.data["text/plain"] );
 	  } );
 	} );
-  
-	
-//codigo para las pestañas
-	$('ul.tabs li:first').addClass('active');
-	$('.block div').hide();
-	$('.block div:first').show();
-	$('ul.tabs li').on('click', function() {
-		$('ul.tabs li').removeClass('active');
-		$(this).addClass('active')
-		$('.block div').hide();
-		var activeTab = $(this).find('a').attr('href');
-		$(activeTab).show();
-		return false;
-	})
-
-});
+  });
