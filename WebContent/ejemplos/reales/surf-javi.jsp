@@ -13,7 +13,7 @@
   <!-- ViewPort imprescindible para RWD -->	
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
 
-  <link rel="stylesheet" type="text/css" href="css/surf.css?v=1.0">
+  <link rel="stylesheet" type="text/css" href="css/surf-javi.css?v=1.0">
 </head>
  
 <body>
@@ -138,34 +138,33 @@
 	</div>
 	
 	<div id="content">
-	
-		<div class="row clearfix"> <!--  usamos clearfix en el contenedor donde haya elementos flotantes -->
-			<div class="caja1x1">Caja 1: 1x1</div>
-			<div class="caja2x1">Caja 2: 2x1</div>
-			<div class="caja1x1 mr0">Caja 3: 1x1</div>		
+		<div id="fila1" class="clearfix">
+			<div id="caja1" class="caja1x1">Caja 1: 1x1</div>
+			<div id="caja2" class="caja1x2">Caja 2: 2x1</div>
+			<div id="caja3" class="caja1x1">Caja 3: 1x1</div>
 		</div>
-	
-		<div class="row clearfix">
-		
-			<div class="caja1x2"></div>
-			
-			<div class="contenedor2x2 clearfix">
-				<div class="caja1x1 mb2"></div>
-				<div class="caja1x1 mr0 mb2"></div>
-				<div class="caja1x1 mb0"></div>
-				<div class="caja1x1 mr0 mb0"></div>
+		<div id="fila2"  class="clearfix">
+			<div id="caja4" class="caja2x1">Caja 4: 2x1</div>
+			<div id="caja5" class="caja2x2 clearfix">
+ 			
+				<div id="caja5_1" class="caja1x1">Caja 5_1:1x1</div>
+				<div id="caja5_2" class="caja1x1">Caja 5_2:1x1</div>
+				<div id="caja5_3" class="caja1x1">Caja 5_3:1x1</div>
+				<div id="caja5_4" class="caja1x1">Caja 5_4:1x1</div>
+	 		
 			</div>
-			
-			<div class="caja1x2 mr0"></div>
-					
+			<div id="caja6" class="caja2x1">Caja 6: 2x1</div>		
 		</div>
+		<div id="fila3" class="clearfix">
+			<div id="caja7" class="caja1x1">Caja 7: 1x1</div>
+			<div id="caja8" class="caja1x2">Caja 8: 2x1</div>
+			<div id="caja9" class="caja1x1">Caja 9: 1x1</div>		
+		</div>		
+	</div>
 	
-		<div class="row clearfix"> <!--  usamos clearfix en el contenedor donde haya elementos flotantes -->
-			<div class="caja1x1">Caja 1: 1x1</div>
-			<div class="caja2x1">Caja 2: 2x1</div>
-			<div class="caja1x1 mr0">Caja 3: 1x1</div>		
-		</div>
-		
+	<div id="footer">FOOTER
+	</div>
+			
 </body>
   
 </html>

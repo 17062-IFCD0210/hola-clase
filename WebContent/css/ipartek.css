@@ -1,0 +1,90 @@
+
+/* 
+   RESET    
+   Resetear todos los estilos para cualquier navegador
+*/
+@import url("reset.css");
+
+
+
+
+/***************************** 
+      ClearFix
+*******************************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+
+/************ LAYOUT *****************/
+
+/*
+	#head
+		#logo
+		nav#menu
+	#content
+		#sidebar1
+			#opciones
+			#erkide
+			#aek
+		#centro
+			#col1
+				.caja
+				.caja
+				.caja		
+			#col2
+				.caja
+				#noticias
+		#sidebar2
+	#footer
+*/
+
+body{font: 18px/27px 'OpenSansRegular', Arial, sans-serif;}
+#head, #content, #footer {width:960px; margin: 0 auto; }
+
+#head {min-height:50px;padding-top:10px;margin-bottom:10px;min-height:30px;}
+	#logo{float:left;width:175px;margin-right:10px;}
+		#logo img{width:175px;height:auto;}
+	#head nav#menu {
+		float:left; width:695px; background-color:#0099CC; min-height:50px; border-top-left-radius:5px; 
+		border-bottom-left-radius:5px;padding-top:3px;padding-bottom:3px;
+		}
+		#head nav#menu ul{list-style:none} 
+		#head nav#menu li {float: left; margin-right:10px; color:white; font-size:13px;}
+
+	#redes{ 
+		float:left; width:80px; background-color:#0099CC; min-height:50px; border-top-right-radius:5px; 
+		border-bottom-right-radius:5px;padding-top:3px;padding-bottom:3px;
+	}
+
+
+#content{background-color:#DDD; margin-bottom:10px; min-height:100px;}
+	#sidebar1{margin-right:10px;float:left; width:175px; min-height:100px;}
+		#opciones, #erkide, #aek{min-height:50px;float:left; width: 175px;}
+		#opciones{margin-bottom:10px;}
+			.enlace_redondeado{border-radius: 5px; background-color:#E9E9E9;color:#0099CC;font-size: 13px; line-height: 15px;padding:3px;}
+		#erkide{background-color:aqua;margin-bottom:10px;}
+		#aek{background-color:purple;}
+	
+	#centro{float:left;width:600px;min-height:100px;}
+		#col1{margin-right:10px; width:290px;float:left;}
+		.caja{min-height:50px; width:286px; float:left; margin-bottom: 10px; background-color:green; border-radius:5px; padding:3px; }
+		#noticias{min-height:100px; width:286px; float:left;background-color:gray; margin-bottom: 10px; border-radius:5px;padding:3px;}
+	
+	
+	#sidebar2{background-color:blue;float:left; width:175px; min-height:200px;}
+#footer{background-color:black;width:100%;color:white;text-align:center;}
+
+
+
+
