@@ -29,6 +29,34 @@
 	
 	<!-- Contenido-->
 	<div id="content">
+	
+		<div class="row clearfix">
+			<div class="caja1x1"></div>
+			<div class="caja2x1"></div>
+			<div class="caja1x1 mr0"></div>			
+		</div> 
+		
+		<div class="row clearfix">
+		
+			<div class="caja1x2"></div>
+			
+			<div class="contenedor2x2 clearfix">
+				<div class="caja1x1 mb2"></div>
+				<div class="caja1x1 mb2 mr0"></div>
+				<div class="caja1x1 mb0"></div>
+				<div class="caja1x1 mb0 mr0"></div>
+			</div>
+			
+			<div class="caja1x2 mr0"></div>
+		
+		</div>
+		
+		<div class="row clearfix">
+			<div class="caja1x1"></div>
+			<div class="caja2x1"></div>
+			<div class="caja1x1 mr0"></div>		
+		</div>
+		
 	</div>
 
 	<!-- pie-->

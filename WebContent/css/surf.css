@@ -84,11 +84,41 @@ table {
 #content{ background-color: blue;} 
 #footer{ background-color: grey;}
 
+/* margenes */
+.mr0 { margin-right: 0!important;}
+
+.mb0 { margin-bottom: 0!important;}
+.mb1 { margin-bottom: 1% !important;} 
+.mb2 { margin-bottom: 2% !important;}
 
 
+/* CAJAS */
 
+.row { background-color: lime; margin-bottom: 15px; min-height: 100px;}
 
+.caja1x1, .caja2x1, .caja1x2 { 
+	float:left; 
+	background-color: #EF6B00;
+	height: 250px;
+	width: 5%;	
+	margin-right: 1%;
+	
+}
 
+.caja1x1{
+	width: 24.25%;
+}
 
+.caja2x1{
+	width: 49.50%;
+}
 
+.caja1x2{
+	width: 24.25%;
+	height: 500px;
+}
+
+.contenedor2x2{ background-color: red; float:left; width: 49.50%; margin-right: 1%;}
+	.contenedor2x2 .caja1x1 { width: 49%; margin-right: 2%;}
+	
 
