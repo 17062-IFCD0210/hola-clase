@@ -19,7 +19,7 @@
 			</style>
 		 	
 		 	<img data-image="icon" data-value="wind" src="//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/wind/calm-orange.svg" scale="0.2">
-			<input type="range" name="range_wind" id="range_wind" value="0" min="0" max="5">
+			<input type="range" name="range_wind" id="range_wind" value="0" min="0" max="3" step="1">
 			<br>
 			
 			<a href="http://www.w3schools.com/jquerymobile/tryit.asp?filename=tryjqmob_forms_slider_range">Doble</a>
@@ -33,11 +33,21 @@
 		     <script>
 		     	$(function(){
 		     		console.info('ready');
-		     		console.info();
+		     		
+		     		var a_wind = [
+		     		              	"//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/wind/calm-orange.svg",
+		     		              	"//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/wind/loose-orange.svg",
+		     		              	"//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/wind/moderate-orange.svg",
+		     		             	"//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/wind/cool-orange.svg"
+		     		              ]
+		     		
+		     		var img_wind = $('[data-value="wind"]')[0]; 
 		     		$( "#range_wind" ).on("input change", function( event ) { 
-		     			console.info('parado con valor ' + this.value );
+		     			console.info('parado con valor ' + this.value );		     			
+		     			img_wind.src = a_wind[this.value];
+		     			
 		     		});
-		     		//$('[data-value="wind"]')[0].val()
+		     		
 		     		
 		     	});
 		     </script>
