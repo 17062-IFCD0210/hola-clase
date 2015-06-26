@@ -49,7 +49,7 @@
 	
 	<!-- menú desktop--> 
 	<div id="wrapper_menu"> <!-- Que ocupe el ancho de la pantalla -->
-		<nav id="menu960" class="clearfix"> 
+		<nav id="menu960"> 
 		 	
 		  <ul class="menu">	
 			<li>

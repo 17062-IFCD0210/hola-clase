@@ -63,8 +63,9 @@
 		<ul>
 			<li><a href="ejemplos/reales/cartelera.jsp">Cartelera</a></li>
 			<li><a href="ejemplos/reales/cartelera_detalle.jsp">Detalle Cartelera</a></li>
-			<li><a href="ejemplos/reales/maquetacion1.jsp">Maquetaci&oacute;n 1</a></li>
-			<li><a href="ejemplos/reales/maquetacion2.jsp">Maquetaci&oacute;n 2</a></li>
+			<li><a href="ejemplos/reales/maquetacion1.jsp">Maquetaci&oacute;n Surf 1</a></li>
+			<li><a href="ejemplos/reales/maquetacion2.jsp">Maquetaci&oacute;n Surf 2</a></li>
+			<li><a href="ejemplos/reales/maquetacion3.jsp">Maquetaci&oacute;n Ipartek</a></li>
 		</ul>
 	</li> 
 	<li> 

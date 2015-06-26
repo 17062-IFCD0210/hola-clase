@@ -1,0 +1,96 @@
+/*   
+	version:  1.0
+	author:   Unai Perea Cruz
+	date: 	  20150625
+		
+*/
+
+/* 
+   RESET    
+   Resetear todos los estilos para cualquier navegador
+*/
+@import url("reset.css");
+
+
+/***************************** 
+      ClearFix
+*******************************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+/*  LAYOUTS  */
+ 
+body {
+	background-color: #EEE;
+	font-family: arial;
+	font-size: 16px;
+}
+
+h3 {
+	font-size: 1.2em;
+	font-weight: bold;
+	color: white;
+}
+
+/* HEADER */
+#head960 { width: 960px; margin: 0 auto; background-color: fuchsia; }
+
+	#head_izda, #menu { min-height: 100px; }
+	#head_izda { float: left; width: 200px; background-color: silver; }
+	#menu { float: right; width: 747px; background-color: olive; }
+
+
+/* COLUMNAS */
+#content960{ width: 960px; margin: 0 auto; background-color: #033; }
+
+	#col_1, #col_2, #col_3, #col_4 { min-height: 400px; }
+	#col_1, #col_4 { width: 200px;}
+	#col_1 { float: left; background-color: aqua; }
+	#col_2, #col_3 { float: left; width: 260px; background-color: green; }
+	#col_4 { float: right; background-color: maroon; }
+
+	/* columna izda*/
+	#lista_izda li { margin-bottom: 5px; }
+	#lista_izda { padding: 5px; }
+	#lista_izda li {color: blue; font-size: 1em;}
+	#lista_izda ul li div { padding: 5px; background-color: orange; }
+	#publicidad { width:100%; min-height:294px;  background-color: lime;}
+
+	/* columna central dcha */
+	.box_1x1, .box_2x1{ width:100%; margin-bottom: 13px; background-color: black; }
+	.box_1x1{ min-height: 124px; }
+	.box_2x1{ min-height: 261px; }
+	
+	.articulo{ min-height: 59px; background-color: olive; }
+
+	/* columna dcha*/
+	#buscar { padding: 3px; width:190px; }
+	#lista_dcha { margin-bottom: 10px; }
+	#lista_dcha li { margin-bottom: 5px; }
+	#lista_dcha ul li div { padding: 5px; background-color: orange; }
+	#newsletter { width: 150px; min-height: 50px; margin: 0 auto; background-color: red;}
+
+
+/* FOOTER */
+#wrapper_footer { float:left; width:100%; min-height: 50px; background-color: #DDD; }
+	#footer960 { width: 960px; min-height: 50px; margin: 0 auto; background-color: red; }
+
+
+/* Márgenes */
+
+.mr10{ margin-right: 13px; }
+.mb0{ margin-bottom: 0; }
+
+.noticias { padding-top: 5px; }
+.noticias h3 { margin-bottom: 5px; }

@@ -49,6 +49,7 @@ body {
 	display: none;
 }
 
+/* SECCIONES */
 #seccion_izda{
 	float: left;
 	background-color: lime;
@@ -69,9 +70,14 @@ body {
 	float:right;
 	background-color:silver; 
 	width: 230px;
- 	margin-top: 13px;
+	margin-top: 13px;
 }
 
+#cajas{
+	float:left;
+}
+
+/* CAJAS */
 .box_1x1{
 	background-color: yellow;
 	width: 230px;
@@ -90,10 +96,7 @@ body {
 	min-height: 474px;
 }
 
-#cajas{
-	float:left;
-}
-
+/* márgenes y otras clases adicionales que posicionan */
 .flotar_margin_abajo_dcha{
 	float:left;
 	margin-bottom:13px;
