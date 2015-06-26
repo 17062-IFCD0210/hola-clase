@@ -15,8 +15,20 @@
 			<style>					
 					
 				[data-image="icon"] { width: 100px; height: 100px;}
-								
+				[data-value="swell"] { fill:#DDD;}				
 			</style>
+		 	
+		 	
+		 	<div>
+		 		
+		 		<img data-image="icon" data-value="swell" class="svg-inject" src="//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/swell/small.svg" />
+		 		<img data-image="icon" data-value="swell" class="svg-inject" src="//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/swell/medium.svg" />
+		 		<img data-image="icon" data-value="swell" class="svg-inject" src="//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/swell/big.svg" />
+		 		<img data-image="icon" data-value="swell" class="svg-inject" src="//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/swell/enormous.svg" />
+		 		<img data-image="icon" data-value="swell" class="svg-inject" src="//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/swell/monstrous.svg" />
+		 	
+		 	</div>
+		 	
 		 	
 		 	<img data-image="icon" data-value="wind" src="//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/wind/calm-orange.svg" scale="0.2">
 			<input type="range" name="range_wind" id="range_wind" value="0" min="0" max="3" step="1">
@@ -29,10 +41,15 @@
 		        <input type="range" name="price-max" id="price-max" value="800" min="0" max="1000">
 		     
 		     
-		     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+		     <script src="js/jquery.svginject.js"></script>
 		     <script>
-		     	$(function(){
+		     $(document).ready(function () {
 		     		console.info('ready');
+		     		
+		     		$('.svg-inject').svgInject();
+										
+					
 		     		
 		     		var a_wind = [
 		     		              	"//www.surfsearchspot.com/wp-content/themes/surfSearchSpot/img/icons/wind/calm-orange.svg",
