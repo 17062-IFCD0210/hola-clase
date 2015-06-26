@@ -1,0 +1,153 @@
+/*   
+	version:  1.0
+	author:   Cristina Martin Pumar
+	date: 	  20150626
+		
+*/
+
+/******************************  
+   RESET    
+*******************************/
+@import url("reset.css");
+
+/******************************** 
+		CLEARFIX
+********************************/ 
+.clearfix:before, .clearfix:after {
+	content: ""; 
+	display: table; 
+}
+.clearfix:after { 
+	clear: both; 
+}
+.clearfix { 
+	*zoom: 1; 
+}
+	
+/****************************** 
+		ETIQUETAS
+*******************************/ 
+body {
+	font-family: arial;
+}
+/****************************** 
+	MAQUETACION - LAYOUT
+
+	#head        <header>
+		#logo #menu
+    #content
+    #foot        <footer>
+	
+*******************************/
+
+#head, #content, #enlaces {
+	width: 960px;
+	margin: 0 auto; /* para que quede centrado */
+}
+
+#head {
+	background-color: #ffffff;
+	height: 50px;
+	margin-top:10px;
+	margin-bottom:10px;
+}
+
+#logo {	
+	background-color: #ffffff;
+	float:left;
+	width:232.50px;
+	height: 100%;
+	margin-right: 10px;
+}
+
+#menu {	
+	background-color: #0080c0;
+	float:left;
+	width:717.50px;
+	height: 100%;
+	border-radius: 12px;
+}
+
+#logo img {
+	width: 175px;
+	height: 61px;
+}
+
+#content {
+	background-color: #ffffff;
+	height: 620px;
+	margin-bottom: 10px;
+}
+
+	#content #izquierdo {width:232.50px; background-color: #e0e0e0; height: 100%; float:left; margin-right: 10px; }
+	#content #main1     {width:232.50px; background-color: #ffffff; height: 100%; float:left; margin-right: 10px; }
+	#content #main2     {width:232.50px; background-color: #ffffff; height: 100%; float:left; margin-right: 10px; }
+	#content #derecho   {width:232.50px; background-color: #e0e0e0; height: 100%; float:left;}
+
+.info {
+	
+	width:232.50px;
+	height: 200px;
+	background-color: #e0e0e0;
+	margin-bottom: 10px;
+	border-radius: 12px;
+	
+}
+
+.info img { width:232.50px; height:200px; margin-bottom: 10px;}
+
+.articulo {
+	
+	width: 224.50px;
+  	height: 402px;
+	background-color: #e0e0e0;
+	border-radius: 12px;
+	padding: 4px
+	
+}
+
+.articulo ul {
+
+  font-size: 13px;
+  color: #666666;
+  line-height: 19px;
+  list-style-position: inside;
+  margin-top: 10px!important;
+}
+
+.articulo li {
+  display: list-item;
+  text-align: -webkit-match-parent;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  border-bottom-width: 1px;
+  border-bottom-style: dotted;
+  border-bottom-color: #CCCCCC;
+  
+}
+
+.mb0 { margin-bottom: 0px;}
+
+#foot {
+	width: 100%;
+	height: 40px;
+	background-color: #DDD;
+	margin-bottom: 20px;
+}
+
+.articulo h2 {
+  color: #0099CC;
+  font-size: 19px;
+  margin: 0px;
+  background-image: url(http://www.formacion.ipartek.com/images/icono-ultimas-noticias.gif);
+  background-repeat: no-repeat;
+  background-position: left center;
+  padding: 0 0 0 40px;
+}
+
+/******************************************************************** */
+/* Se aplican estas reglas si el ancho es menor de 460px (BREAKPOINTS)*/
+/********************************************************************* /
+@media screen and (max-width:460px ) {
+	
+}

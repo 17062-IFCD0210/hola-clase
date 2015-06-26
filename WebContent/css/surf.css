@@ -96,19 +96,24 @@ body {
 	}
 	
 	#content .cajita1x1 {
-		width: 50%;
-		height: 50%;
+		width: 49%;
+		height: 49%;
 		float: left;
 	}
 
 	#content #cajita1x11 {
 		background-color: #ff80ff;	
+		margin-right: 2%;
+		margin-bottom: 2%;
+		
 	}
 	#content #cajita1x12 {
-		background-color: #ff00ff;	
+		background-color: #ff00ff;
+		margin-bottom: 2%;	
 	}
 	#content #cajita1x13 {
 		background-color: #ff0080;	
+		margin-right: 2%;
 	}
 	#content #cajita1x14 {
 		background-color: #8000ff;	
