@@ -1,0 +1,146 @@
+/*   
+	version:  1.0
+	author:   Raul Garcia
+	date: 	  20150626
+		
+*/
+
+/* 
+   RESET    
+   Resetear todos los estilos para cualquier navegador
+*/
+@import url("reset.css");
+
+/***************************** 
+      ClearFix
+*******************************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+#header {
+	max-width:960px;
+	min-height:60px;
+	margin:0 auto;
+	margin-bottom: 15px;
+	margin-top:15px;
+}
+
+#header #logo {
+	float: left;
+	width:20.2%;
+	height:60px;
+	margin-right:1.8%;
+}
+
+
+#header #menu {
+	float: left;
+	width:78%;
+	height: 60px;
+	border-radius: 20px;
+	background-color: #0099CC;
+}
+
+#header #menu .lista_menu  {
+	list-style-type: none;
+	padding: 3%;
+	padding-left: 2%;}
+
+#header #menu .lista_menu li span {
+	float: left;
+	margin-left: 2%;
+	color: white;
+}
+
+main {
+	max-width:960px;
+	margin:0 auto;
+	min-height:400px;
+	margin-bottom: 15px;
+}
+
+main .sidebar {
+	float: left;
+	width: 20%;
+	min-height:400px;
+	margin-right:2%;
+}
+
+main .gris  {
+	background-color: #E9E9E9;
+	border-radius: 12px;
+	padding: 5%;
+	margin-bottom: 10px;
+	color: #0099CC;}
+
+main #content {
+	float:left;
+	width: 56%;
+	margin-right: 2%;
+	min-height:400px;
+}
+
+main #content .partir {
+	float: left;
+	width:48.5%;
+	min-height: 400px;
+	margin-right: 3%;
+}
+
+main #content .rectangulo {
+	width: 100%;
+	min-height: 125px;
+	margin-bottom: 15px;
+	border-radius: 20px;
+}
+
+main #content .cuadrado {
+	width: 100%;
+	min-height: 265px;
+	border-radius:20px;
+}
+
+#wrapper_footer {
+	width:100%;
+	min-height:30px;
+	background-color: #DDD;
+	margin-bottom: 15px;
+}
+
+#footer {
+	max-width:960px;
+	min-height:30px;
+	margin: 0 auto;
+	padding-top: 1%;
+	background-color: #F0F0F0;
+	text-align: center;
+}
+
+.newsletter {
+	background-color: #0099CC !important;
+	color:white !important;
+}
+
+.img_cent  {
+	width: 100%;
+	height: auto;
+}
+
+.mr0 {margin-right:0 !important;}
+.mb0 {margin-bottom:0 !important;}
+
+.granate {background-color: #9A3334;}
+.azul {background-color: #00CCFF;}
+.naranja {background-color: #FF6600;}
+.cacahuete{background-color: #CDCC02;}
+.col_gris {background-color: #F0F0F0;}
