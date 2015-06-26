@@ -1,94 +1,230 @@
-/* http://meyerweb.com/eric/tools/css/reset/ 
-   v2.0 | 20110126
-   License: none (public domain)
-*/ 
-
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-	margin: 0;
-	padding: 0;
-	border: 0;
-	font-size: 100%;
-	font: inherit;
-	vertical-align: baseline;
-}
-/* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
-footer, header, hgroup, menu, nav, section {
-	display: block;
-}
-body {
-	line-height: 1;
-}
-ol, ul {
-	list-style: none;
-}
-blockquote, q {
-	quotes: none;
-}
-blockquote:before, blockquote:after,
-q:before, q:after {
-	content: '';
-	content: none;
-}
-table {
-	border-collapse: collapse;
-	border-spacing: 0;
-}
-
-
-
-/***************************** 
-      ClearFix
-*******************************/
-.clearfix:before, .clearfix:after {
-	content: "";
-	display: table;
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.clearfix {
-	*zoom: 1;
-}
-
-
-/* LAYOUTS 
-
-	#head
-	#wrapper_menu
-		#menu
-	#content
-	#footer
+/*   
+	version:  1.0
+	author:   Cristina Martin Pumar
+	date: 	  20150625
+		
 */
 
-#head,#wrapper_menu,#menu,#content,	#footer { min-height: 100px; }
-#wrapper_menu { width: 100%; background-color: black; }
-#head,#menu,#content, #footer { width: 960px; margin:0 auto; }
+/******************************  
+   RESET    
+*******************************/
+@import url("reset.css");
 
-#head { background-color: red;}
-#menu { background-color: pink;} 
-#content{ background-color: blue;} 
-#footer{ background-color: grey;}
+/******************************** 
+		CLEARFIX
+********************************/ 
+.clearfix:before, .clearfix:after {
+	content: ""; 
+	display: table; 
+}
+.clearfix:after { 
+	clear: both; 
+}
+.clearfix { 
+	*zoom: 1; 
+}
+	
+/****************************** 
+		ETIQUETAS
+*******************************/ 
+body {
+	font-family: arial;
+}
+/****************************** 
+	MAQUETACION - LAYOUT
 
+	#head        <header>
+	#wraper-menu <nav>
+		#menu    <div>
+    #content
+    #foot
+	
+*******************************/
 
+#head, #menu, #content, #foot {
+	width: 960px;
+	margin: 0 auto; /* para que quede centrado */
+}
+#head {
+	background-color: #c0c0c0;
+	text-align: center;
+	height: 50px;
+}
 
+#wraper-menu {
+	width: 100%;
+	height: 40px;
+	background-color: #000000;
+}
 
+#menu {	
+	background-color: #800040;
+}
+#content {
+	background-color: #DDDDDD;
+}
+	#content .caja1x1 {
+		width: 24%;
+		height: 200px;
+		float: left;
+		background-color: blue;
+	}
+	#content .caja2x1 {
+		width: 50%;
+		height: 200px;
+		float: left;
+		background-color: red;
+		margin-left: 1%;
+		margin-right: 1%;
+		
+	}
+	#content .caja1x2 {
+		width: 24%;
+		height: 400px;
+		float: left;
+		background-color: green;
+	}
 
+	#content .caja2x2 {
+		width: 50%;
+		height: 400px;
+		float: left;
+		background-color: #ffff00;
+		margin-left: 1%;
+		margin-right: 1%;
+		
+	}
+	
+	#content .cajita1x1 {
+		width: 50%;
+		height: 50%;
+		float: left;
+	}
 
+	#content #cajita1x11 {
+		background-color: #ff80ff;	
+	}
+	#content #cajita1x12 {
+		background-color: #ff00ff;	
+	}
+	#content #cajita1x13 {
+		background-color: #ff0080;	
+	}
+	#content #cajita1x14 {
+		background-color: #8000ff;	
+	}
+	
 
+#content #box1 {
+	margin-top: 2%;
+}
 
+#content #box1, #box2, #box3 {
+	width: 100%;
+	margin-bottom: 2%;
+}
 
+#foot {
+	background-color: #c0c0c0;
+	height: 50px;
+	text-align: center;
+}
+
+/******************************************************************** */
+/* Se aplican estas reglas si el ancho es menor de 460px (BREAKPOINTS)*/
+/********************************************************************* /
+@media screen and (max-width:460px ) {
+	
+	h1 {
+		text-align: center;
+		padding-left: 5%;
+		font-size: 3em;
+	}
+	
+	#head, #menu, #content, #foot {
+		width: 88%;
+	}
+	
+	#head {
+		background-color: #c0c0c0;
+		text-align: center;
+		height: 50px;
+	}
+	
+	#wraper-menu {
+		width: 100%;
+		height: 40px;
+		background-color: #000000;
+	}
+	
+	#menu {	
+		background-color: #800040;
+	}
+	#content {
+		background-color: #DDDDDD;
+	}
+		#content .caja1x1 {
+			width: 100%;
+		}
+		#content .caja2x1 {
+			width: 50%;
+			height: 200px;
+			float: left;
+			background-color: red;
+			margin-left: 1%;
+			margin-right: 1%;
+			
+		}
+		#content .caja1x2 {
+			width: 24%;
+			height: 400px;
+			float: left;
+			background-color: green;
+		}
+	
+		#content .caja2x2 {
+			width: 50%;
+			height: 400px;
+			float: left;
+			background-color: #ffff00;
+			margin-left: 1%;
+			margin-right: 1%;
+			
+		}
+		
+		#content .cajita1x1 {
+			width: 50%;
+			height: 50%;
+			float: left;
+		}
+	
+		#content #cajita1x11 {
+			background-color: #ff80ff;	
+		}
+		#content #cajita1x12 {
+			background-color: #ff00ff;	
+		}
+		#content #cajita1x13 {
+			background-color: #ff0080;	
+		}
+		#content #cajita1x14 {
+			background-color: #8000ff;	
+		}
+		
+	
+	#content #box1 {
+		margin-top: 2%;
+	}
+	
+	#content #box1, #box2, #box3 {
+		width: 100%;
+		margin-bottom: 2%;
+	}
+	
+	#foot {
+		background-color: #c0c0c0;
+		height: 50px;
+		text-align: center;
+	}
+	
+}

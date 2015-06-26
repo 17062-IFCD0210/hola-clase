@@ -1,0 +1,181 @@
+/*   
+	version:  1.0
+	author:   Cristina Martín Pumar
+	date: 	  20150625
+		
+*/
+
+/* 
+   RESET    
+   Resetear todos los estilos para cualquier navegador
+*/
+@import url("reset.css");
+
+/***************************** 
+      ClearFix
+*******************************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+/************************
+   ETIQUETAS 
+   dar un estilo general o base a toda la Web
+*************************/	
+
+body {
+	font-family: arial;
+}
+
+/************************
+	LAYOUT
+	#head
+	#wrapper_menu
+		#menu
+	#content
+	#footer 
+          
+*************************/
+#head {
+	min-height: 100px;
+	width: 960px;
+	margin: 0% auto;  /* Así estan centrados */
+	background-color: red;
+}
+#wrapper_menu {
+	min-height: 100px;
+	width: 100%;
+	margin: 0% auto;
+	background-color: black;
+}
+#menu {
+	min-height: 100px;
+	width: 960px;
+	margin: 0% auto;
+	background-color: pink;
+}
+#content{
+	min-height: 100px;
+	width: 960px;
+	margin: 0% auto;
+	background-color: #c0c0c0;
+}
+#footer{
+	min-height: 100px;
+	width: 960px;
+	margin: 0% auto;
+	background-color: grey;
+}
+
+#content div{
+
+}
+
+#box1 {
+	margin-top: 10px;
+	height: 200px;
+	margin-bottom: 10px;
+
+}
+#box2 {
+	height: 400px;
+	margin-bottom: 10px;
+}
+
+#box3 {
+	height: 200px;
+	margin-bottom: 10px;
+}
+
+#box2x2 {
+	float:left;
+	width: 50%;
+	height: 100%;
+	margin-left: 2%;
+  	margin-right: 2%;
+}
+
+.caja1x1 {
+	float:left;
+	width: 23%;
+	height: 100%;
+	background-color: blue;
+}
+
+.caja2x1 {
+	float:left;
+	width: 50%;
+	height: 100%;
+	margin-left: 2%;
+  	margin-right: 2%;
+  	background-color: #00ffff;
+}
+
+.caja1x2 {
+	float:left;
+	width: 23%;
+	height: 100%;
+	background-color: yellow;
+}
+
+.cajita {
+	float:left;
+	width: 50%;
+	height: 50%;
+}
+
+#cajita1 {
+	background-color: #8000ff;
+}
+
+#cajita2 {
+	background-color: #ff00ff;
+}
+
+#cajita3 {
+	background-color: #ff80ff;
+}
+
+#cajita4 {
+	background-color: #ff0080;
+}
+
+/**
+.caja2x2 {
+	float:left;
+	width: 50%;
+	height: 100%;
+	margin-left: 2%;
+  	margin-right: 2%;
+  	background-color: green;
+}
+
+**/
+
+/***********************************************************
+                   reglas media querys 
+************************************************************/
+
+/* Se aplican estan reglas si el ancho es menor que 460px */
+@media screen and (max-width:460px ) {
+	
+	#head { display: none;}
+	
+	#box2 {
+		height: 200px;
+	}
+	
+	.caja2x1 {
+		width: 23%;
+	}
+	
+}
