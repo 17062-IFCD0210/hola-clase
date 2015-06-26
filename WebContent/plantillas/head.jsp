@@ -164,6 +164,7 @@
 					<ul class="dl-submenu">
 						<li><a href="ejemplos/plugins/datatable.jsp">dataTables</a></li>
 						<li><a href="ejemplos/plugins/clipboard.jsp">ZeroClipboard</a></li>
+						<li><a href="ejemplos/plugins/grafico.jsp">Graficos - Morris.js</a></li>
 					</ul>
 				</li>
 				<li>
