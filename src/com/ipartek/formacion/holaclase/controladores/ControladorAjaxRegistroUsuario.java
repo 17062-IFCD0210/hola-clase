@@ -63,15 +63,15 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 			if ( listaUsuarios.contains( usuario ) ){
 			
 				//out.print("Usuario Existe, por favor elige otro");
-				out.print("{ \"existe\": \"false\" , \"user\": \""+usuario+"\" }");
+				out.print("{ \"existe\": true , \"user\": \""+usuario+"\" }");
 			}else{
 				//out.print("Usuario Disponible");
-				out.print("{ \"existe\": \"true\" , \"user\": \""+usuario+"\" }");
+				out.print("{ \"existe\": false , \"user\": \""+usuario+"\" }");
 			}
 					
 		}else{
 			//out.print("Usuario Disponible");
-			out.print("{ \"existe\": \"false\" , \"user\": \"pepe\" }");
+			out.print("{ \"existe\": false , \"user\": \"pepe\" }");
 		}
 		
 		//libera el buffer del PrintWriter

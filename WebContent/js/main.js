@@ -34,18 +34,78 @@ $(function() {
 	} );
   
 	
-//codigo para las pestañas
-	$('ul.tabs li:first').addClass('active');
-	$('.block div').hide();
-	$('.block div:first').show();
-	$('ul.tabs li').on('click', function() {
-		$('ul.tabs li').removeClass('active');
-		$(this).addClass('active')
+	//codigo para las pestañas
+		$('ul.tabs li:first').addClass('active');
 		$('.block div').hide();
-		var activeTab = $(this).find('a').attr('href');
-		$(activeTab).show();
-		return false;
+		$('.block div:first').show();
+		$('ul.tabs li').on('click', function() {
+			$('ul.tabs li').removeClass('active');
+			$(this).addClass('active')
+			$('.block div').hide();
+			var activeTab = $(this).find('a').attr('href');
+			$(activeTab).show();
+			return false;
+	
+		})
 
-	})
-
+		
+	/* RESGISTRO USUARIOS control de usuarios existentes */
+	
+	//seleccionar usuario del formulario
+	$("#form_new_user #usuario").blur(function(){
+		
+		//se ejecuta al perder el foco
+		console.info("llamada Ajax");
+		
+		//Url donde se encuentra el servicio Ajax
+		var url =  "ControladorAjaxRegistroUsuario";
+		
+		$.ajax( url , {
+			"type": "get", // usualmente post o get
+			"success": function(result) {
+				console.info(result);
+				$(".msg_delete").remove();
+				if ( result.existe ){
+					$("#usuario").after("<span class='msg_delete msg_error'>Usuario NO disponible</span>");
+				}else{
+					$("#usuario").after("<span class='msg_delete msg_success'>Usuario Disponible</span>");
+				}	
+				
+				
+			},
+			"error": function(result) {
+				console.error("Error ajax", result);
+			},
+			"data": { usuario: $("#usuario").val() ,
+				      email : 'elmio@mail.com' },
+			"async": true,
+		});
+		
+		
+		
+		
+		
+		
+	});
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	
+	
+		
+		
 });
