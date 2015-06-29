@@ -19,7 +19,7 @@
 </form>
 
 
-<a href="ejemplos/formularios/registro.jsp" title="Registro usuarios nuevos"> ¿No tienes Cuenta? Registrate</a>
+<a href="ejemplos/formularios/registro.jsp" title="Registro usuarios nuevos"> &iquest; No tienes Cuenta? Registrate</a>
 
 
 

@@ -1,41 +1,68 @@
 function llamadaAjax(){
-		
-		//se ejecuta al perder el foco
-		
-		console.info("aquí vamos a hacer la llamada a Ajax")
-		
-		//Url donde se encuentra el servidio Ajax
-		var url = "ControladorAjaxRegistroUsuario";
-		
-		$.ajax( url, {
-			"type": "get", // usualmente post o get
-			"success": function(result) {
-				console.info("Llego el contenido y no hubo error", result);
-				//Eliminamos los mensajes que añadimos 
-				$(".msg_delete").remove();
-				
-				if(result.existe) {
-					
-					$("#usuario").after( "<span class='msg_delete msg_error'>Usuario NO disponible</span>" );
-					$("#usuario").css({ color: "#FFFFFF", background: "#FF0000" });
-					
-				} else { 
 	
-					$("#usuario").after( "<span class='msg_delete msg_sucecess'>Usuario Disponible</span>" );
-					$("#usuario").css({ color: "#008000;", background: "#FFFFFF" });
+		
+	//se ejecuta al perder el foco
 	
-				}
+	console.info("aquí vamos a hacer la llamada a Ajax")
 	
-			},
+	//Url donde se encuentra el servidio Ajax
+	var url = "ControladorAjaxRegistroUsuario";
+	
+	$.ajax( url, {
+		"type": "get", // usualmente post o get
+		"success": function(result) {
+			console.info("Llego el contenido y no hubo error", result);
+			//Eliminamos los mensajes que añadimos 
+			$(".msg_delete").remove();
 			
-			"error": function(result) {
-			console.error("Este callback maneja los errores", result);
-			},
-			"data": { usuario: $("#usuario").val() ,
-			          email: $("#email").val() },
-			"async": true,
-		});
-	
+			if(result.existeUsuario) {
+				
+				$("#usuario").after( "<span class='msg_delete msg_error'>Usuario NO disponible</span>" );
+				$("#usuario").css({ color: "#FFFFFF", background: "#FF0000" });
+				
+			} else if(result.existeUsuario != null){ 
+
+				$("#usuario").after( "<span class='msg_delete msg_sucecess'>Usuario Disponible</span>" );
+				$("#usuario").css({ color: "#FFFFFF;", background: "#008000" });
+
+			}
+			if(result.existeEmail) {
+				
+				$("#email").after( "<span class='msg_delete msg_error'>Email NO disponible</span>" );
+				$("#email").css({ color: "#FFFFFF", background: "#FF0000" });
+				
+			} else if(result.existeEmail != null){ 
+
+				$("#email").after( "<span class='msg_delete msg_sucecess'>Email Disponible</span>" );
+				$("#email").css({ color: "#FFFFFF;", background: "#008000" });
+
+			}
+
+			if(result.passCorrecta) {
+				
+				$("#repass").after( "<span class='msg_delete msg_sucecess'>Passwd Correcta</span>" );
+				$("#pass").css({ color: "#FFFFFF;", background: "#008000" });
+				$("#repass").css({ color: "#FFFFFF;", background: "#008000" });
+				
+			} else if(result.passCorrecta != null){ 
+
+				$("#repass").after( "<span class='msg_delete msg_error'>La passwd No coincide</span>" );
+				$("#pass").css({ color: "#FFFFFF;", background: "#FF0000" });
+				$("#repass").css({ color: "#FFFFFF", background: "#FF0000" });
+
+			}
+
+		},
+		
+		"error": function(result) {
+		console.error("Este callback maneja los errores", result);
+		},
+		"data": { usuario: $("#usuario").val() ,
+		          email:   $("#email").val()   ,
+		          pass:    $("#pass").val()    ,
+		          repass:  $("#repass").val()  },
+		"async": true,
+	});
 };
 
 
@@ -99,6 +126,21 @@ $(function() {
 
 	//Determinar que el email es correcto 
 	$("#form_new_user #email").blur(function(){
+		
+		llamadaAjax();
+		
+	});
+
+
+	//Determinar que las contraseñas introducidas son iguales 
+	$("#form_new_user #repass").blur(function(){
+		
+		llamadaAjax();
+		
+	});
+
+	//Determinar que las contraseñas introducidas son iguales 
+	$("#form_new_user #pass").blur(function(){
 		
 		llamadaAjax();
 		

@@ -49,7 +49,7 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		listaUsuarios.add("callou");
 		
 		//declarar array con email de los usuarios
-		//Utilizamos una clase de java, para hacer un casting utlizamos <String>
+
 		ArrayList<String> listaEmail = new ArrayList<String>();
 		
 		listaEmail.add("ander@email.com");
@@ -66,48 +66,62 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		//variable tipo PrintWriter para escribir response
 		PrintWriter out = response.getWriter();
 		
-		//parametro usuario
+		//parametro usuario, email, pass, repass
 		String usuario = request.getParameter("usuario");
-		
-		//parametro email
-		String email = request.getParameter("email");
+		String email   = request.getParameter("email");
+		String pass    = request.getParameter("pass");
+		String repass  = request.getParameter("repass");
 
+		//Inicio de Json
+		out.print("{");
 		
-		if ( null != usuario  ){
+		if ( null != usuario && usuario.length() > 0 ){
 			//comprobar que no exista el usuario		
 			
 			if ( listaUsuarios.contains( usuario ) ){
 			
 				//out.print("Usuario Existe, por favor elige otro");
-				out.print("{ \"existe\": true , \"user\": \""+usuario+"\" }");
+				out.print("\"existeUsuario\": true , \"user\": \""+usuario+"\"");
 			}else{
 				//out.print("Usuario Disponible");
-				out.print("{ \"existe\": false , \"user\": \""+usuario+"\" }");
+				out.print("\"existeUsuario\": false , \"user\": \""+usuario+"\"");
 			}
 					
 		}else{
 			//out.print("Usuario Disponible");
-			out.print("{ \"existe\": false , \"user\": \"pepe\" }");
+			out.print("\"existeUsuario\": null , \"user\": null");
 		}
 
-		if ( null != email  ){
+		//comprobar que no exista el email
+		if ( null != email && email.length() > 0 ){
 
 			if ( listaEmail.contains( email ) ){
 				
-				//out.print("Usuario Existe, por favor elige otro");
-				out.print("{ \"email\": true , \"user\": \""+usuario+"\" }");
+				out.print(", \"existeEmail\": true , \"e-mail\": \""+email+"\"");
 			}else{
-				//out.print("Usuario Disponible");
-				out.print("{ \"email\": false , \"user\": \""+usuario+"\" }");
+				out.print(", \"existeEmail\": false , \"e-mail\": \""+email+"\"");
 			}
-
-			
 					
 		}else{
-			//out.print("Usuario Disponible");
-			out.print("{ \"email\": false , \"user\": \"pepe\" }");
+			out.print(", \"existeEmail\": null , \"e-mail\": null");
 		}
 		
+		//Comprobar la contraseña, tienes que que iguales pass y repass
+		if ( pass.length() > 0 || repass.length() > 0){
+
+			if ( pass.equals(repass) ){
+				
+				out.print(", \"passCorrecta\": true , \"pass\": \""+pass+"\"");
+			}else{
+				out.print(", \"passCorrecta\": false , \"pass\": \""+pass+"\"");
+			}
+					
+		}else{
+			out.print(", \"passCorrecta\": null , \"pass\": null");
+		}
+		
+		//Final de Json
+		out.print("}");
 		
 		//libera el buffer del PrintWriter
 		out.flush();		
