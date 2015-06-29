@@ -3,6 +3,52 @@
  *   Se carga en foot.jsp despues de incluir todas las librerias necesarias de JS 	
  */
 
+
+function llamadaAjax(){
+	console.info("llamada Ajax");
+	var usuario=$("#usuario");
+	var email=$("#email");
+	var msg_box=$("#msgbox");
+	
+	//URL donde se encuentra el servicio Ajax (servlet que hemos creado)
+	var url = "ControladorAjaxRegistroUsuario";
+	
+	$.ajax(url, {
+		"type": "get", // usualmente post o get
+		"success": function(result) {
+		console.info("Llego el contenido y no hubo error", result);
+			console.info(result);
+/*				if ((result)=="OK"){
+					console.info("Mostrado OK");
+					$("#estado_ok").css("display","inline");
+					$("#estado_error").css("display","none");			
+				}else{
+					$("#estado_ok").css("display","none");
+					$("#estado_error").css("display","inline");		
+				}
+*/
+			$(".msg_delete").remove(); // para eliminar los spans creados anteriormente
+			if (result.existe_user){
+				usuario.after("<span class='msg_delete msg_error'>Usuario NO disponible</span>");
+			}else{
+				usuario.after("<span class='msg_delete msg_success'>Usuario disponible</span>");
+			}	
+			if (result.existe_email){
+				email.after("<span class='msg_delete msg_error'>Email NO disponible</span>");
+			}else{
+				email.after("<span class='msg_delete msg_success'>Email disponible</span>");
+			}	
+		},
+		"error": function(result) {
+		console.error("Este callback maneja los errores", result);
+		},
+		"data": { usuario: $("#usuario").val(),
+					email: $("#email").val() },
+		"async": true,
+		});		
+}
+
+
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
 	
@@ -50,4 +96,19 @@ $(function() {
 	 $('pre code').each(function(i, block) {
 		    hljs.highlightBlock(block);
 		  });
-  });
+ 
+
+	/* REGISTRO USUARIOS control de usuarios existentes */
+
+	//seleccionar usuario del formulario
+	$("#form_new_user #usuario").blur(function(){
+		//se ejecuta al perder el foco
+		llamadaAjax();
+	});
+	
+	//seleccionar usuario del formulario
+	$("#form_new_user #email").blur(function(){
+		llamadaAjax();
+	});	
+	
+}); // end

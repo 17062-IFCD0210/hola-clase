@@ -427,6 +427,11 @@ form input[type="text"]:focus:required:invalid {
     Regla con selector por CLASS para usar en todas las paginas
 */
 
+/* mensajes para el usuario*/
+
+.msg_success{ border: 1px solid green;}
+.msg_error{ border: 1px solid red;}
+
 
 /* Ventana modal */
 

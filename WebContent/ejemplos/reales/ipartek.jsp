@@ -54,13 +54,13 @@
 		
 		<div id="centro">
 			<div id="col1" class="clearfix">
-				<div class="caja">e-learning</div>
-				<div class="caja">cursos presenciales</div>
-				<div class="caja">plan de formacion</div>				
+				<div class="caja"><img src="http://formacion.ipartek.com/images/banner-home-e-learning.jpg" alt="E-Learning"/></div>
+				<div class="caja"><img src="http://formacion.ipartek.com/images/banner-home-registro.jpg" alt="Cursos presenciales"/></div>
+				<div class="caja"><img src="http://formacion.ipartek.com/images/banner-home-plan-formacion.jpg" alt="Plan de formacion"/></div>				
 			</div>
 			<div id="col2" class="clearfix">
-				<div class="caja">proximos cursos</div>
-				<div id="noticias">noticias
+				<div class="caja"><img src="http://formacion.ipartek.com/images/banner-home-proximos-cursos.jpg" alt="Proximos cursos"/></div>
+				<div id="noticias">
 						bla bla<br>
 						<br>
 						<br>
