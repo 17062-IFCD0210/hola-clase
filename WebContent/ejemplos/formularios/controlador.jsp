@@ -4,7 +4,7 @@
 
 <%
 
-	//Controldor para recoger parametros del formulario de login.jsp
+	//Controlador para recoger parametros del formulario de login.jsp
 
 	//recoger parametros de la request	
 	String p1 = (String)request.getParameter("nombre");

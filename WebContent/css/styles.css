@@ -435,6 +435,12 @@ form input[type="text"]:focus:required:invalid {
 */
 
 
+/* mensajes para el usuario*/
+
+.msg_success{ border: 1px solid green;}
+.msg_error{ border: 1px solid red;}
+
+
 /* Ventana modal */
 
 .modalDialog {
