@@ -1,3 +1,44 @@
+function llamadaAjax(){
+		
+		//se ejecuta al perder el foco
+		
+		console.info("aquí vamos a hacer la llamada a Ajax")
+		
+		//Url donde se encuentra el servidio Ajax
+		var url = "ControladorAjaxRegistroUsuario";
+		
+		$.ajax( url, {
+			"type": "get", // usualmente post o get
+			"success": function(result) {
+				console.info("Llego el contenido y no hubo error", result);
+				//Eliminamos los mensajes que añadimos 
+				$(".msg_delete").remove();
+				
+				if(result.existe) {
+					
+					$("#usuario").after( "<span class='msg_delete msg_error'>Usuario NO disponible</span>" );
+					$("#usuario").css({ color: "#FFFFFF", background: "#FF0000" });
+					
+				} else { 
+	
+					$("#usuario").after( "<span class='msg_delete msg_sucecess'>Usuario Disponible</span>" );
+					$("#usuario").css({ color: "#008000;", background: "#FFFFFF" });
+	
+				}
+	
+			},
+			
+			"error": function(result) {
+			console.error("Este callback maneja los errores", result);
+			},
+			"data": { usuario: $("#usuario").val() ,
+			          email: $("#email").val() },
+			"async": true,
+		});
+	
+};
+
+
 /**
  *   JavaScript para ejecutar en todas las paginas del proyecto
  *   Se carga en foot.jsp despues de incluir todas las librerias necesarias de JS 	
@@ -48,4 +89,19 @@ $(function() {
 
 	})
 
-});
+	/* REGISTRO USUARIOS control de usuarios existentes */
+	//seleccionar usuario del formulario, evento cuando pierde el foco
+	$("#form_new_user #usuario").blur(function(){
+		
+		llamadaAjax();
+		
+	});
+
+	//Determinar que el email es correcto 
+	$("#form_new_user #email").blur(function(){
+		
+		llamadaAjax();
+		
+	});
+
+})
