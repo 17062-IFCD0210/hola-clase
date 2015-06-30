@@ -26,19 +26,7 @@ function llamadaAjax(origen){
 					$("#estado_error").css("display","inline");		
 				}
 */
-/*			
-			$(".msg_delete").remove(); // para eliminar los spans creados anteriormente
-			if (result.existe_user){
-				usuario.after("<span class='msg_delete msg_error'>Usuario NO disponible</span>");
-			}else{
-				usuario.after("<span class='msg_delete msg_success'>Usuario disponible</span>");
-			}	
-			if (result.existe_email){
-				email.after("<span class='msg_delete msg_error'>Email NO disponible</span>");
-			}else{
-				email.after("<span class='msg_delete msg_success'>Email disponible</span>");
-			}
-*/
+
 			$(".msg_delete").remove(); // para eliminar los spans creados anteriormente
 			//Si usuario != vacio escribir mensaje
 			if (result.usuario!="") {
@@ -65,6 +53,18 @@ function llamadaAjax(origen){
 					email	: input_email.val() },
 		"async": true,
 		});		
+}
+
+function comprobarPassword(){
+
+	$("#comprobar_pass").remove();
+	
+	//comprobamos que repass == pass
+	if (pass.value==repass.value){
+		$("#repass").after("<span id='comprobar_pass' class='msg_success'>Las contraseñas coinciden</span>");
+	}else{
+		$("#repass").after("<span id='comprobar_pass' class='msg_error'>Las contraseñas NO coinciden</span>");
+	}
 }
 
 
@@ -128,6 +128,14 @@ $(function() {
 	//seleccionar usuario del formulario
 	$("#form_new_user #email").blur(function(){
 		llamadaAjax();
+	});	
+	
+	$("#form_new_user #pass").blur(function(){
+		comprobarPassword();
+	});	
+	
+	$("#form_new_user #repass").blur(function(){
+		comprobarPassword();
 	});	
 	
 }); // end
