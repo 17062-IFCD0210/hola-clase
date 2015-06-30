@@ -18,6 +18,7 @@
 
 </form>
 
+<a href="ejemplos/formularios/registro.jsp" title="Registro usuarios nuevos">No tienes cuenta? Registrate</a>
 
 
 <jsp:include page="../../plantillas/foot.jsp"></jsp:include>

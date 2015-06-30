@@ -3,6 +3,46 @@
  *   Se carga en foot.jsp despues de incluir todas las librerias necesarias de JS 	
  */
 
+/******REGISTO USUARIOS Control de usuarios existentes*******/
+function llamadaAjax() {		
+//URL donde se encuentra el servicio AJAX
+var url = "ControladorAjaxRegistroUsuario";
+
+$.ajax( url , {
+	"type": "get", // usualmente post o get
+	"success": function(result) {
+		console.info("Llego el contenido y no hubo error", result);
+		$(".msg_delete").remove();
+		if(result.user != "") {
+			if(result.existe){
+				$("#usuario").after("<span id=\"non-check\" class=\"msg_delete fa-stack fa-lg c-rojo\"><i class=\"fa fa-circle-o fa-stack-1x\"></i><i class=\"fa fa-times fa-stack-1x\"></i></span>");
+			} else {
+				$("#usuario").after("<i id=\"check\" class=\"msg_delete fa fa-check-circle-o c-verde\"></i>");
+			}
+		}
+		if(result.mail != "") {
+			if(result.existe_mail){
+				$("#mail").after("<span id=\"non-check\" class=\"msg_delete fa-stack fa-lg c-rojo\"><i class=\"fa fa-circle-o fa-stack-1x\"></i><i class=\"fa fa-times fa-stack-1x\"></i></span>");
+			} else {
+				$("#mail").after("<i id=\"check\" class=\"msg_delete fa fa-check-circle-o c-verde\"></i>");
+			}
+		}
+		
+		if(result.pass != "" && result.repass != "") {
+			if(result.iguales) {
+				$("#repass").after("<i id=\"check\" class=\"msg_delete fa fa-check-circle-o c-verde\"></i>");
+			} else {
+				$("#repass").after("<span id=\"non-check\" class=\"msg_delete fa-stack fa-lg c-rojo\"><i class=\"fa fa-circle-o fa-stack-1x\"></i><i class=\"fa fa-times fa-stack-1x\"></i></span>");
+			}
+		}
+	},
+	"error": function(result) {
+		console.error("Este callback maneja los errores", result);			},
+	"data": {usuario: $("#usuario").val(), mail: $("#mail").val(), pass: $("#pass").val(), repass: $("#repass").val()},
+	"async": true,
+	});
+}
+
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
 	
@@ -47,5 +87,25 @@ $(function() {
 		return false;
 
 	})
-
+	
+	
+	//Llamada Usuario
+	$("#form_new_user #usuario").blur(function() {
+		//SE ejecuta la funcion
+		llamadaAjax();
+	});
+	
+	//Llamada Mail
+	$("#form_new_user #mail").blur(function() {
+		//SE ejecuta la funcion
+		llamadaAjax();
+	});
+	
+	$("#pass").blur(function() {
+		llamadaAjax();
+	});
+	
+	$("#repass").blur(function() {
+		llamadaAjax();
+	});
 });

@@ -773,6 +773,9 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	overflow: scroll;
 }
 
+#check { color:green;}
+#non-check { color:red;}
+
 /***********************************************************
                    reglas media querys 
 ************************************************************/
@@ -877,4 +880,4 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 		#cartelera .modalDialog .sinopsisTexto { float:left; width: 100%;}
 		#cartelera .modalDialog img { float: left; margin-left: 10%; }		
 		
-}
+}		

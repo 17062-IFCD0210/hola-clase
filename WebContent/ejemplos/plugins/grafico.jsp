@@ -1,59 +1,23 @@
-<!doctype html>
-<head>
-
-   <base href="<%=request.getContextPath()%>/">
-	
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
-  <script src="js/morris.js-0.5.1/morris.js"></script>
+<jsp:include page="../../plantillas/head.jsp"></jsp:include>
+<jsp:include page="../../plantillas/nav.jsp"></jsp:include>
   
+<section>
+	<h2>Grafico JSON</h2>
 
-
-  
-  <link rel="stylesheet" href="js/morris.js-0.5.1/morris.css">
-</head>
-<body>
-<h1>Grafico olas</h1>
-<div id="grafico"></div>
-<script>
-
-	var json_data;
-	var graph_data = [];
-	const HOUR = 7;
-	
-	$.getJSON('<%=request.getContextPath()%>/ejemplos/plugins/prevision.json', function(data) {		
-		console.info('json cargado con exito');
-		
-		$.each( data['forecasts'], function( index, value) {			
-			if ( undefined != value['forecast'][HOUR] ){					
-				graph_data.push( { d: value['day'], s: value['forecast'][HOUR]['swell']['size'] } );
-			}	
+	<article>	
+		<header>
+			<h1>Grafico Olas</h1>
+		</header>
+					
+		<div class="cnt_article">			
+			<div id="grafico"></div>						
+		</div>
 			
-		});
-		
-		
+		<footer>
+			Ejemplo de Grafico con JSON
+		</footer>
+			
+	</article>
+</section>
 
-		Morris.Area({
-			  element: 'grafico',
-			  data:graph_data,
-			  xkey: 'd',
-			  ykeys: ['s'],
-			  labels: ['Olas'],
-			  padding: 10,
-			  behaveLikeLine: true,
-			  gridEnabled: false,
-			  gridLineColor: '#DDD',
-			  axes: true,
-			  fillOpacity:.1,	    
-			  lineColors:['#6EB0C3']
-			});
-		
-		
-	});
-
-	
-	
-	
-
-</script>
-</body>
+<jsp:include page="../../plantillas/foot.jsp"></jsp:include>
