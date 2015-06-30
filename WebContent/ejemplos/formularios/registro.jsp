@@ -4,11 +4,18 @@
 <h1>Alta nuevo Usuario</h1>
 
 
+<!-- caja para mensajes al usuario -->
+<div id="msg_box"></div>
+
 <form action="ejemplos/formularios/controlador_new_user.jsp" 
       method="post" id="form_new_user">
 
 	<label for="usuario">Usuario:</label> 
 	<input type="text" name="usuario" id="usuario" value="" /> 
+	<br>
+	
+	<label for="email">Email:</label> 
+	<input type="text" name="email" id="email" value="" /> 
 	<br>
 	 
 	<label for="pass">Contrase&ntilde;a:</label> 

@@ -41,10 +41,11 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		ArrayList<String> listaUsuarios = new ArrayList<String>();
 		listaUsuarios.add("ander");
 		listaUsuarios.add("pepe");
-		listaUsuarios.add("marimotxos");
-		listaUsuarios.add("ambrosio");
-		listaUsuarios.add("doraemon");
-		listaUsuarios.add("callou");
+				
+		ArrayList<String> listaEmail = new ArrayList<String>();
+		listaEmail.add("ander@ander.com");
+		listaEmail.add("pepe@pepe.com");
+		
 				
 		
 		//respuesta tipo Json
@@ -53,29 +54,43 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		//variable tipo PrintWriter para escribir response
 		PrintWriter out = response.getWriter();
 		
-		//parametro usuario
-		String usuario = request.getParameter("usuario");
+		//parametros
+		String  usuario        = (request.getParameter("usuario")==null) ? "" : request.getParameter("usuario");
+		String  email          = (request.getParameter("email")==null)   ? "" : request.getParameter("email");
+		boolean libre_usuario  = false;
+		boolean libre_email    = false;
+		boolean email_correcto = false; // para comprobar que sea un email valido
+		
+	//comprobacion de los campos
+		
+		//Usuario No es cadena Vacia y No existe
+		if ( !"".equalsIgnoreCase(usuario) && 
+			 !listaUsuarios.contains(usuario) 
+			){		
+			libre_usuario = true;
+		}		
 		
 		
-		if ( null != usuario  ){
-			//compobar que no exista el usuario		
-			
-			if ( listaUsuarios.contains( usuario ) ){
-			
-				//out.print("Usuario Existe, por favor elige otro");
-				out.print("{ \"existe\": true , \"user\": \""+usuario+"\" }");
-			}else{
-				//out.print("Usuario Disponible");
-				out.print("{ \"existe\": false , \"user\": \""+usuario+"\" }");
+		//comprobar Email no es cadena vacia y que no exista
+		if ( !"".equalsIgnoreCase(email) && 
+				 !listaEmail.contains(email) 
+				){		
+				libre_email = true;
 			}
-					
-		}else{
-			//out.print("Usuario Disponible");
-			out.print("{ \"existe\": false , \"user\": \"pepe\" }");
-		}
 		
-		//libera el buffer del PrintWriter
-		out.flush();
+		//TODO comprobar email valido
+		
+		
+	//formatear las response	
+	out.print("{");
+		out.print("\"libre_usuario\":"+libre_usuario+",");
+		out.print("\"libre_email\":" + libre_email+",");
+		out.print("\"usuario\":\""+usuario+"\",");
+		out.print("\"email\": \""+email+"\"");
+	out.print("}");
+			
+	//libera el buffer del PrintWriter
+	out.flush();
 		
 	}
 
