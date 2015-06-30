@@ -545,6 +545,42 @@ ul.tabs li.active a {
   clear: both;
 }
 
+/* Mensajes para el usuario */
+
+.msg_success{
+	border: 1px solid green;
+	color: green;
+	margin-left: 10px;
+	padding: 5px;
+}
+
+.msg_error{
+	border: 1px solid red;
+	color: red;
+	margin-left: 10px;
+	padding: 5px;
+}
+
+/* mi opcion */
+/* #disponibilidad_usuario{ */
+/* 	display: inline; */
+/* 	position:relative; */
+/* } */
+
+/* #disponibilidad_usuario span{ */
+/* 	display: none; */
+/* 	position: absolute; */
+/* 	min-width: 300px; */
+/* } */
+
+/* .usuario_disponible{ */
+/* 	color: green; */
+/* } */
+
+/* .usuario_no_disponible{ */
+/* 	color: red; */
+/* } */
+
 /***********************************************************************************/
 
 /* contendor para columnas */

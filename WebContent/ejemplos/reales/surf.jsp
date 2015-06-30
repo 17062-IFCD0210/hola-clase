@@ -49,31 +49,26 @@
 	</div>
 	
 	<div id="content">
-		<div id="content_top">
+		<div id="content_top" class="clearfix">
 			<div class="caja_1x1"></div>
 			<div class="caja_2x1"></div>
 			<div class="caja_1x1"></div>
-			<div class="clearfix"></div>
 		</div>
-		<div id="content_middle">
+		<div id="content_middle" class="clearfix">
 			<div class="caja_1x2"></div>
-			<div id="box_container">
+			<div id="box_container" class="clearfix">
 				<div class="caja_1x1"></div>
 				<div class="caja_1x1"></div>
 				<div class="caja_1x1"></div>
 				<div class="caja_1x1"></div>
-				<div class="clearfix"></div>
 			</div>
 			<div class="caja_1x2"></div>
-			<div class="clearfix"></div>
 		</div>
-		<div id="content_bottom">
+		<div id="content_bottom" class="clearfix">
 			<div class="caja_1x1"></div>
 			<div class="caja_2x1"></div>
 			<div class="caja_1x1"></div>
-			<div class="clearfix"></div>
 		</div>
-		<div class="clearfix"></div>
 	</div><!-- content -->
 	
 	<footer>

@@ -17,7 +17,7 @@
 	<input type="submit" value="Acceder" />
 
 </form>
-
-
+	<br><br>
+	<a href="ejemplos/formularios/registro.jsp" title="Registro usuarios nuevos">¿No tienes cuenta? Regsitrate</a>
 
 <jsp:include page="../../plantillas/foot.jsp"></jsp:include>

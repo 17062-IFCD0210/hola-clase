@@ -88,11 +88,11 @@
 }			
 
 #content_top{
-	margin: 1% auto 0;
+	margin: 10px auto;
 	width: 960px;
 }			
 #content_middle{
-	margin: 1% auto;
+	margin: 0 auto 10px;
 	width: 960px;
 }			
 #content_bottom{
@@ -111,7 +111,7 @@
 			*************************************************/
 footer{
 	background-color: grey;
-	margin: 1% auto 3%;
+	margin: 10px auto 30px;
 	width: 960px;
 	height: 150px;
 }
@@ -174,7 +174,7 @@ footer p{
 		position: relative;
 		height: 505px;
 		padding: 0;
-		margin-bottom: 1%;
+		margin-bottom: 10px;
 	}
 	#content_top .caja_1x1{
 		width: 49%;
@@ -193,7 +193,7 @@ footer p{
 		position: relative;
 		height: 1025px;
 		padding: 0;
-		margin-bottom: 1%;
+		margin-bottom: 10px;
 	}
 	#content_middle .caja_1x2{
 		width: 49%;

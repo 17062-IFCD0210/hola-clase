@@ -4,6 +4,65 @@
  */
 
 //Se ejecuta cuando todo el HTML se ha cargado
+
+function llamadaAjax(origen){
+	
+	//se ejucta al perder el foco
+//	console.info("llamada Ajax");
+	
+	var url = "ControladorAjaxRegistroUsuario";
+	$(origen).css("background-color", "white");
+	$(".msg_delete").remove();
+	if ($(origen).val()!=""){
+		
+		$.ajax(url, {
+			"type": "get",
+			"success": function(result) {
+				var mensaje = "";
+				switch ($(origen).attr('id')){
+				
+				case 'usuario':
+				case 'email':
+				
+					if (!result.existe){
+						$(origen).css("background-color", "red");
+						mensaje = "<span class='msg_error msg_delete'>"+result.mensaje+"</span>" 
+					}else{
+						$(origen).css("background-color", "green");
+						mensaje = "<span class='msg_success msg_delete'>"+result.mensaje+"</span>"
+					}
+										
+					$(origen).after(mensaje);
+				break;
+				
+				case 'repass':
+				
+					if (result.igual){
+						$(origen).css("background-color", "green");
+						mensaje = "<span class='msg_success msg_delete'>"+result.mensaje+"</span>"
+					}else{
+						$(origen).css("background-color", "red");
+						mensaje = "<span class='msg_error msg_delete'>"+result.mensaje+"</span>"
+					}
+					$(origen).after(mensaje);
+					break;
+				default:
+				}
+	
+	//		console.log("Llego el contenido y no hubo error\n", result);
+			},
+			"error": function(result) {
+	//		console.error("Este callback maneja los errores\n", result);
+			},
+			"data": {val: $(origen).val(),
+					 id: $(origen).attr('id'),
+					 pass: $(pass).val()},
+			"async": true,
+			});
+	}
+}
+
+
 $(function() {
 	
 	console.debug('document ready!');	
@@ -47,5 +106,18 @@ $(function() {
 		return false;
 
 	})
+	
+/* REGISTRO USUARIOS control de usuarios existentes*/
+	
 
+	
+	$("#form_new_user #usuario").blur(function(){
+		llamadaAjax(this);
+	});
+	$("#form_new_user #email").blur(function(){
+		llamadaAjax(this);
+	});
+	$("#form_new_user #repass").blur(function(){
+		llamadaAjax(this);
+	});
 });
