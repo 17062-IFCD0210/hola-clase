@@ -4,7 +4,7 @@
 
 <h1>Alta nuevo Usuario</h1>
 
-<form action="ejemplos/formularios/controlador_new_user.jsp" method="post" id="form_new_user">
+<form action="ejemplos/formularios/controlador_new_user.jsp" method="post" id="form_new_user" onsubmit="comprobarFormulario(this); return false;">
 
 <!--  caja para mensajes al usuario -->
 	<div id="msg_box"></div>

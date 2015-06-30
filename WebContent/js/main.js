@@ -53,7 +53,7 @@ function llamadaAjax(origen){
 					email	: input_email.val() },
 		"async": true,
 		});		
-}
+} // llamadaAjax
 
 function comprobarPassword(){
 
@@ -65,7 +65,18 @@ function comprobarPassword(){
 	}else{
 		$("#repass").after("<span id='comprobar_pass' class='msg_error'>Las contraseñas NO coinciden</span>");
 	}
-}
+} // comprobarPassword
+
+
+function comprobarFormulario(formulario){
+
+//ver si hay algun span con class="msg_error"
+	if ($(".msg_error").size()==0) {
+		formulario.submit();
+		return true;
+	} else { return false;}
+	
+} // comprobarFormulario 
 
 
 //Se ejecuta cuando todo el HTML se ha cargado
@@ -138,4 +149,5 @@ $(function() {
 		comprobarPassword();
 	});	
 	
+
 }); // end
