@@ -5,10 +5,10 @@
 <h1>Nuevo Usuario </h1>
 
 
-<form action="ejemplos/formularios/controlador_new_user.jsp" 
-      method="post" 
-      id="form_new_user">
-
+<form  name="form_new_user" id="form_new_user"
+       action="ejemplos/formularios/controlador_new_user.jsp" method="post"
+       onsubmit="validar(this); return false;">
+      
 	<label for="usuario">Usuario:</label> 
 	<input type="text" name="usuario" id="usuario" value="" /> 
 	<br>
@@ -26,6 +26,7 @@
 	<br />
 	 
 	<input type="submit" value="Registrate" />
+	<input type="reset"  value="Limpiar Formulario">
 
 </form>
 

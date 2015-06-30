@@ -49,7 +49,6 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		listaUsuarios.add("callou");
 		
 		//declarar array con email de los usuarios
-
 		ArrayList<String> listaEmail = new ArrayList<String>();
 		
 		listaEmail.add("ander@email.com");
@@ -67,10 +66,13 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		PrintWriter out = response.getWriter();
 		
 		//parametro usuario, email, pass, repass
-		String usuario = request.getParameter("usuario");
-		String email   = request.getParameter("email");
-		String pass    = request.getParameter("pass");
-		String repass  = request.getParameter("repass");
+		//operador ternario  (CONDICION) ? cumpleLaCondicion : NOcumpleLaCondicion
+		String usuario = (request.getParameter("usuario")==null)?"":request.getParameter("usuario");
+		String email   = (request.getParameter("email")==null)?"":request.getParameter("email");
+		/*
+		String pass    = (request.getParameter("pass")==null)?"":request.getParameter("pass");
+		String repass  = (request.getParameter("repass")==null)?"":request.getParameter("repass");
+		*/
 
 		//Inicio de Json
 		out.print("{");
@@ -105,8 +107,11 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		}else{
 			out.print(", \"existeEmail\": null , \"e-mail\": null");
 		}
+		//TODO comprobar que el email es valido
 		
 		//Comprobar la contraseña, tienes que que iguales pass y repass
+		
+		/* Lo vamos a comprobar con javascript
 		if ( pass.length() > 0 || repass.length() > 0){
 
 			if ( pass.equals(repass) ){
@@ -119,6 +124,7 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		}else{
 			out.print(", \"passCorrecta\": null , \"pass\": null");
 		}
+		*/
 		
 		//Final de Json
 		out.print("}");

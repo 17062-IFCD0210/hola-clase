@@ -1,6 +1,60 @@
-function llamadaAjax(){
+function validar(formulario){
+	var resul=false;
+
+	var usuario = formulario.usuario.value;
+	var email   = formulario.email.value;
+	var pass    = formulario.pass.value;
+	var repass  = formulario.repass.value;
+
+	//TODO comprobar que todo es correcto para poder submitar
+	if(resul){
+		
+		if (false){
+			return false;
+			
+		}else{						
+			formulario.submit();
+		}	
+	}
+	else return resul;
+}				
+
+
+
+function comprobarPassWd(){
 	
 		
+	//se ejecuta al perder el foco
+	
+	console.info("aquí vamos a hacer la llamada a Ajax")
+	
+	//Comprobar la contraseña, tienes que que iguales pass y repass
+	var pass = $("#pass").val();
+	var repass   = $("#repass").val();
+	
+	//Eliminamos los mensajes que añadimos 
+	$(".msg_borrar").remove();
+	
+	if ( pass.length > 0 && repass.length > 0){
+
+		if ( pass == repass ){
+			
+			$("#repass").after( "<span class='msg_borrar msg_sucecess'>Passwd Correcta</span>" );
+			$("#pass").css({ color: "#FFFFFF;", background: "#008000" });
+			$("#repass").css({ color: "#FFFFFF;", background: "#008000" });
+			
+		} else { 
+
+			$("#repass").after( "<span class='msg_borrar msg_error'>La passwd No coincide</span>" );
+			$("#pass").css({ color: "#FFFFFF;", background: "#FF0000" });
+			$("#repass").css({ color: "#FFFFFF", background: "#FF0000" });
+		}
+	}
+};
+
+function llamadaAjax(){
+	
+	
 	//se ejecuta al perder el foco
 	
 	console.info("aquí vamos a hacer la llamada a Ajax")
@@ -37,6 +91,8 @@ function llamadaAjax(){
 				$("#email").css({ color: "#FFFFFF;", background: "#008000" });
 
 			}
+			
+			/* Lo hacemos en el cliente con javascript
 
 			if(result.passCorrecta) {
 				
@@ -51,6 +107,7 @@ function llamadaAjax(){
 				$("#repass").css({ color: "#FFFFFF", background: "#FF0000" });
 
 			}
+			*/
 
 		},
 		
@@ -58,13 +115,10 @@ function llamadaAjax(){
 		console.error("Este callback maneja los errores", result);
 		},
 		"data": { usuario: $("#usuario").val() ,
-		          email:   $("#email").val()   ,
-		          pass:    $("#pass").val()    ,
-		          repass:  $("#repass").val()  },
+		          email:   $("#email").val()   },
 		"async": true,
 	});
 };
-
 
 /**
  *   JavaScript para ejecutar en todas las paginas del proyecto
@@ -131,19 +185,19 @@ $(function() {
 		
 	});
 
+	//Determinar que las contraseñas introducidas son iguales 
+	$("#form_new_user #pass").blur(function(){
+		
+		comprobarPassWd();
+		
+	});
 
 	//Determinar que las contraseñas introducidas son iguales 
 	$("#form_new_user #repass").blur(function(){
 		
-		llamadaAjax();
+		comprobarPassWd();
 		
 	});
 
-	//Determinar que las contraseñas introducidas son iguales 
-	$("#form_new_user #pass").blur(function(){
-		
-		llamadaAjax();
-		
-	});
 
 })
