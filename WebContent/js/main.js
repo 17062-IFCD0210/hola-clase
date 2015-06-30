@@ -4,11 +4,10 @@
  */
 
 
-function llamadaAjax(){
+function llamadaAjax(origen){
 	console.info("llamada Ajax");
-	var usuario=$("#usuario");
-	var email=$("#email");
-	var msg_box=$("#msgbox");
+	var input_usuario=$("#usuario");
+	var input_email=$("#email");
 	
 	//URL donde se encuentra el servicio Ajax (servlet que hemos creado)
 	var url = "ControladorAjaxRegistroUsuario";
@@ -16,7 +15,7 @@ function llamadaAjax(){
 	$.ajax(url, {
 		"type": "get", // usualmente post o get
 		"success": function(result) {
-		console.info("Llego el contenido y no hubo error", result);
+			console.info("Llego el contenido y no hubo error", result);
 			console.info(result);
 /*				if ((result)=="OK"){
 					console.info("Mostrado OK");
@@ -27,6 +26,7 @@ function llamadaAjax(){
 					$("#estado_error").css("display","inline");		
 				}
 */
+/*			
 			$(".msg_delete").remove(); // para eliminar los spans creados anteriormente
 			if (result.existe_user){
 				usuario.after("<span class='msg_delete msg_error'>Usuario NO disponible</span>");
@@ -37,13 +37,32 @@ function llamadaAjax(){
 				email.after("<span class='msg_delete msg_error'>Email NO disponible</span>");
 			}else{
 				email.after("<span class='msg_delete msg_success'>Email disponible</span>");
-			}	
+			}
+*/
+			$(".msg_delete").remove(); // para eliminar los spans creados anteriormente
+			//Si usuario != vacio escribir mensaje
+			if (result.usuario!="") {
+				if (result.libre_usuario){
+					input_usuario.after("<span class='msg_delete msg_success'>Usuario disponible</span>");
+				}else{
+					input_usuario.after("<span class='msg_delete msg_error'>Usuario NO disponible</span>");
+				}
+			}
+			// gestion mensajes email
+			if (result.email!="") {
+				if (result.libre_email){
+					input_email.after("<span class='msg_delete msg_success'>Email disponible</span>");
+				}else{
+					input_email.after("<span class='msg_delete msg_error'>Email NO disponible</span>");
+				}
+			}
+			
 		},
 		"error": function(result) {
 		console.error("Este callback maneja los errores", result);
 		},
-		"data": { usuario: $("#usuario").val(),
-					email: $("#email").val() },
+		"data": { 	usuario	: input_usuario.val(),
+					email	: input_email.val() },
 		"async": true,
 		});		
 }
