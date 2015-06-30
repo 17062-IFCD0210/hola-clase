@@ -69,15 +69,19 @@ function comprobarPassword(){
 
 
 function comprobarFormulario(formulario){
-
-//ver si hay algun span con class="msg_error"
-	if ($(".msg_error").size()==0) {
-		formulario.submit();
-		return true;
-	} else { return false;}
-	
+	//comprueba si los campos estan vacios
+		if(formulario.usuario.value.length==0) return false;
+		if(formulario.email.value.length==0) return false;
+		if(formulario.pass.value.length==0) return false;
+		
+	//ver si hay algun span con class="msg_error"
+		if ($(".msg_error").size()==0) {
+			formulario.submit();
+			return true;
+		} 
+		return false;
+		
 } // comprobarFormulario 
-
 
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
