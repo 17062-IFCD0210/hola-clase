@@ -3,12 +3,13 @@
  *   Se carga en foot.jsp despues de incluir todas las librerias necesarias de JS 	
  */
 
-//Se ejecuta antes de cargar todo el HTML
+//Se ejecutaría antes de cargar todo el HTML
 
 function llamadaAjax(){
 	//Se ejecuta al perder el foco
 	console.info("Llamada Ajax");
-	var msg = "";
+	var input_usuario = $("#usuario");
+	var input_email = $("#email");
 	
 	//URL donde se encuentra el sevicio Ajax
 	var url = "ControladorAjaxRegistroUsuario";
@@ -17,22 +18,39 @@ function llamadaAjax(){
 	$.ajax( url , {
 		"type": "get", // usualmente post o get
 		"success": function(result) {
-			console.info("Llego el contenido y no hubo error", result);
+			console.info(result);
 			$(".msg_delete").remove(); //Elimino las que tenga clase .msg_delete
 			
-			if( result.existe ){
-				$("#usuario").after( "<span class='msg_delete msg_error'> Usuario NO disponible </span>");
-			} else{
-				$("#usuario").after( "<span class='msg_delete msg_success'> Usuario disponible </span>");
+			//Si usuario != vacío escribir mensaje
+			if( result.usuario != "" ){
+				if( result.libre_usuario ){
+					input_usuario.after( "<span class='msg_delete msg_success'> Usuario Disponible </span>");
+				}else{
+					input_usuario.after( "<span class='msg_delete msg_error'> Usuario NO disponible </span>");
+				}
 			}
+			
+			//Si email != vacío escribir mensaje
+			if( result.email != "" ){
+				if( result.libre_email ){
+					input_email.after( "<span class='msg_delete msg_success'> Email Disponible </span>");
+				}else{
+					input_email.after( "<span class='msg_delete msg_error'> Email NO disponible </span>");
+				}
+			}
+			
 
 		},
 		"error": function(result) {
-			console.error("Este callback maneja los errores", result);
+			console.error("Error Ajax", result);
 		},
 		//"data": {usuario: "pepe"}, //usuario es la KEY/CLAVE
-		"data": {usuario: $("#usuario").val(),
-				 email: $("#email").val()}, //usuario e email es la KEY/CLAVE. Le llamo como en css. Usuario debe ser único la página
+		"data": {usuario:input_usuario.val(),
+				 email:input_email.val()},
+			
+			
+			//input_usuario: $("#usuario").val(),
+			//	 input_email: $("#email").val()}, //usuario e email es la KEY/CLAVE. Le llamo como en css. Usuario debe ser único la página
 		"async": true,
 		});
 	
@@ -40,7 +58,23 @@ function llamadaAjax(){
 
 
 
-//Se ejecuta cuando todo el HTML se ha cargado
+function validar(formulario){
+	//Comprobar los datos si están bien introducidos
+	
+	//si no return false;
+	
+	//si si
+	formulario.submit();
+	
+}
+
+
+
+
+
+
+
+//Se ejecuta SIEMPRE cuando todo el HTML se ha cargado
 $(function() {
 	
 	console.debug('document ready!');	
@@ -71,7 +105,7 @@ $(function() {
 	} );
   
 	
-//codigo para las pestañas
+	//codigo para las pestañas
 	$('ul.tabs li:first').addClass('active');
 	$('.block div').hide();
 	$('.block div:first').show();
@@ -91,7 +125,16 @@ $(function() {
 	//Seleccionar usuario del formulario                                                                                                                                                      
 	$("#form_new_user #usuario").blur(function(){
 		llamadaAjax(); //está arriba
+	});
+	
+	$("#form_new_user #email").blur(function(){
+		llamadaAjax(); //está arriba
+	});
+	
+	$("#form_new_user").submit(function(){
+		
+		//Lo hemos controlado desde la etiqueta FORM
+		
+	});
 
-	}); //end ready
-
-});
+}); //end ready

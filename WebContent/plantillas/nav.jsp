@@ -66,6 +66,7 @@
 			<li><a href="ejemplos/reales/maquetacion1.jsp">Maquetaci&oacute;n Surf 1</a></li>
 			<li><a href="ejemplos/reales/maquetacion2.jsp">Maquetaci&oacute;n Surf 2</a></li>
 			<li><a href="ejemplos/reales/maquetacion3.jsp">Maquetaci&oacute;n Ipartek</a></li>
+			<li><a href="ejemplos/reales/maquetacion_boostrap.jsp">Maquetaci&oacute;n Bootstrap</a></li>
 		</ul>
 	</li> 
 	<li> 

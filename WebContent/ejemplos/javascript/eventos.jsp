@@ -167,7 +167,7 @@
 					//TODO validar nosotros el formulario
 					var texto_long = formulario.texto.value.length;
 					
-					if( texto_long <5 || texto_long >255){
+					if( (texto_long <5) || (texto_long >255)){
 						mensaje+="El texto de tener entre 5 y 255 caracteres <br/>";
 						formulario.texto.style.backgroundColor='red';
 					}

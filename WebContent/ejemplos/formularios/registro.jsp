@@ -5,8 +5,11 @@
 
 
 <form action="ejemplos/formularios/controlador_new_user.jsp"
-	method="post" id="form_new_user">
-
+	method="post" id="form_new_user"
+	onsubmit="validar(this);return false;"> <!-- return false para que no se autoenvíe, ya lo enviaremos desde la función -->
+	<!-- Cuando se submita va a esta página controlador_new_user.jsp -->
+	<!-- Pero antes, en main.jsp, escuchamos al evento submit para comprobar que están bien los datos antes de enviar -->
+	
 	<label for="usuario">Usuario:</label> 
 	<input type="text" name="usuario" id="usuario" value="" placeholder="Introduce nombre" /> 
 	<br/>
