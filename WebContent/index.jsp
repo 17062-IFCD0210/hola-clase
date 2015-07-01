@@ -63,6 +63,7 @@
 			<li><a href="http://librosweb.es/libro/pro_git/" target="_blank">Pro Git, el libro oficial de Git</a></li>
 			<li><a href="http://librosweb.es/libro/css/" target="_blank">CSS B&aacute;sico</a></li>
 			<li><a href="http://librosweb.es/libro/css_avanzado/" target="_blank">CSS Avzanzado</a></li>
+			<li><a href="http://getbootstrap.com/" target="_blank">bootstrap</a></li>
 		</ul>
 	
 	</aside>   

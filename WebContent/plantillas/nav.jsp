@@ -65,6 +65,7 @@
 			<li><a href="ejemplos/reales/cartelera_detalle.jsp">Detalle Cartelera</a></li>
 			<li><a href="ejemplos/reales/surf.jsp">Maqueta Surf</a></li>
 			<li><a href="ejemplos/reales/ipartek.jsp">Maqueta Ipartek</a></li>
+			<li><a href="ejemplos/reales/bootstrap.jsp">BootStrap</a></li>
 		</ul>
 	</li> 
 	<li> 
