@@ -1,3 +1,4 @@
+
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
    License: none (public domain)
@@ -121,4 +122,200 @@ table {
 .contenedor2x2{ background-color: red; float:left; width: 49.50%; margin-right: 1%;}
 	.contenedor2x2 .caja1x1 { width: 49%; margin-right: 2%;}
 	
+
+/*   
+	version:  1.0
+	author:   Mikel Alonso
+	date: 	  20150625
+		
+*/
+
+/*
+   RESET    
+   Resetear todos los estilos para cualquier navegador
+   
+http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/ 
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+/************ FIN RESET****************/  
+
+
+
+/********************* 
+      ClearFix
+***********************/
+.clearfix:before, .clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
+
+
+/*********************
+		LAYOUTS
+*********************/
+		
+#header, #wrapper_menu, #menu, #content, #footer { min-height: 100px;}
+#wrapper_menu { width: 100%; background-color: black;}
+#header, #menu, #content, #footer { width: 960px; margin:0 auto;}
+		
+		
+#header {
+	background-color: grey;
+}
+
+#wrapper_menu {
+	margin-bottom: 1%;
+}
+
+#menu {
+	background-color: green;
+}
+
+#content {
+	height: inherit;
+	background-color: grey;
+	margin-bottom: 1%;
+	overflow: hidden;
+}
+
+#footer {
+	background-color: black;
+	overflow: auto;
+}
+
+.fila1 {
+	height: 200px;
+	width: 100%;
+	margin-bottom: 1%;
+}
+
+.fila2 {
+	height: 400px;
+	width: 100%;
+	margin-bottom: 1%;
+}
+
+.fila3 {
+	height: 200px;
+	width: 100%;
+}
+
+
+.bg_color_1 {
+	background-color: #009933;
+	width: 26%;
+	height: 100%;
+	float: left;
+	margin-right: 1%;
+}
+
+.bg_color_2 {
+	background-color: black ;
+	width: 46%;
+	height: 100%;
+	float: left;
+	margin-right: 1%;
+}
+
+.bg_color_3 {
+	background-color: #EF6B00 ;
+	width: 26%;
+	height: 100%;
+	float: left;
+}
+
+.cuadro1 {
+	background-color: #660066;
+	width: 48%;
+	height: 48%;
+	float: left;
+	margin-right: 4%;
+	margin-bottom: 4%;
+}
+
+.cuadro2 {
+	background-color: #990066;
+	width: 48%;
+	height: 48%;
+	float: left;
+	margin-bottom: 4%;
+}
+
+.cuadro3 {
+	background-color: #CC0066;
+	width: 48%;
+	height: 48%;
+	float: left;
+	margin-right: 4%;
+}
+
+.cuadro4 {
+	background-color: #FF0066;
+	width: 48%;
+	height: 48%;
+	float: left;
+}
+
+
+/***********************************************************
+                   Reglas media querys 
+************************************************************/
+
+/* Se aplican estan reglas si el ancho es menor que 460px */
+
+
 

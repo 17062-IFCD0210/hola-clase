@@ -31,4 +31,30 @@
 </form>
 
 
+<h1>Alta nuevo usuario</h1>
+
+<form name="form_new_user" id="form_new_user" 
+		action="ejemplos/formularios/controlador_new_user.jsp" method="post">
+
+	<label for="usuario">Usuario:</label> 
+	<input type="text" name="usuario" id="usuario" value="" /> 
+	<br>
+	  
+	<label for="email">Email:</label> 
+	<input type="text" name="email" id="email" value="" /> 
+	<br>
+	
+	<label for="pass">Contrase&ntilde;a:</label> 
+	<input type="password" name="pass" id="pass" value="" placeholder="solo numeros y letras"/>
+	<br />
+	
+	<label for="pass">Repite Contrase&ntilde;a:</label> 
+	<input type="password" name="repass" id="repass" value="" placeholder="solo numeros y letras"/>
+	<br />
+	 
+	<input type="submit" value="Registrar" />
+
+</form>
+
+
 <jsp:include page="../../plantillas/foot.jsp"></jsp:include>
