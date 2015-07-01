@@ -8,18 +8,20 @@
 <div id="msg_box"></div>
 
 <form action="ejemplos/formularios/controlador_new_user.jsp" 
-      method="post" id="form_new_user">
+      method="post" id="form_new_user"
+	  onsubmit="validar(this); return false;">	
 
 	<label for="usuario">Usuario:</label> 
 	<input type="text" name="usuario" id="usuario" value="" /> 
-	<br>
+	<br><br>
 	
 	<label for="email">Email:</label> 
 	<input type="text" name="email" id="email" value="" /> 
-	<br>
+	<br><br>
 	 
 	<label for="pass">Contrase&ntilde;a:</label> 
 	<input type="password" name="pass" id="pass" value="" placeholder="solo numeros y letras"/>
+	<br>
 	
 	<label for="repass">Repite Contrase&ntilde;a:</label> 
 	<input type="password" name="repass" id="repass" value="" placeholder="solo numeros y letras"/>

@@ -47,6 +47,16 @@ function llamadaAjax(){
 	
 }
 
+function validar(formulario){
+	var check = $(".msg_success");
+	
+	if (check.length == 3 ){
+		formulario.submit();
+	}else{	
+		return false;
+	}
+}
+
 
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
@@ -102,11 +112,27 @@ $(function() {
 	});
 		
 	
-	$("#form_new_user #email").blur(function(){		
-		llamadaAjax();		
+	$("#form_new_user #email").blur(function(){	
+			llamadaAjax();
 	});
 	
-	
-		
+	$("#form_new_user #repass").blur(function(){
+		var pass = document.getElementById("pass").value;
+		var repass = document.getElementById("repass").value;
+		var input_repass  = $("#repass");
+
+		//gestion mensajes email
+		$(".msg_pass_delete").remove();
+		if ( pass != "" ){
+			if ( pass == repass ){
+				input_repass.after("<span class='msg_pass_delete msg_success'>Password identicos</span>");
+			}else{
+				input_repass.after("<span class='msg_pass_delete msg_error'>Password distintos</span>");
+			}	
+		}			
+	});		
 		
 });//end ready
+
+
+
