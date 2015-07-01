@@ -20,7 +20,7 @@
 	
 	<label for="repass">Repite Contrase&ntilde;a:</label> 
 	<input type="password" name="repass" id="repass" value="" placeholder="solo numeros y letras"/>
-	<br />
+	<br /> 
 	 
 	<input type="submit" value="Registrate" />
 
@@ -38,16 +38,12 @@
 		
 		if(usuario == ""){
 			formulario.usuario.style.backgroundColor = "red";
-			resul = false;
 		} else if(mail == ""){
 			formulario.mail.style.backgroundColor = "red";
-			resul = false;
 		} else if(pass == ""){
 			formulario.pass.style.backgroundColor = "red";
-			resul = false;
 		} else if(repass == ""){
 			formulario.repass.style.backgroundColor = "red";
-			resul = false;
 		} else {
 			resul = true;
 		}
@@ -95,7 +91,5 @@
 		}
 	} 
 </script>
-
-
 
 <jsp:include page="../../plantillas/foot.jsp"></jsp:include>
