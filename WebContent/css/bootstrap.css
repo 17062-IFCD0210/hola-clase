@@ -18,3 +18,28 @@ footer{
 	background:#169F86;
 	color:#fff;
 }
+
+#carousel-example-generic{
+  position: relative;
+  margin: 0px auto;
+  top: 0px;
+  left: 0px;
+  width: 800px;
+  height: 300px;
+  overflow: hidden;
+}
+.left carousel-control{
+	top: 123px;
+    left: 0px;
+	
+}
+.rigth carousel-control{
+	top: 123px;
+	right: 0px;
+}
+
+
+
+
+
+
