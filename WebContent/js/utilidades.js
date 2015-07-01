@@ -150,4 +150,3 @@ function convertirFecha(date, formato) {
 	return resul;
 
 }
-

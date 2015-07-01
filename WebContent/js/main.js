@@ -11,57 +11,57 @@ function llamadaAjax(origen){
 //	console.info("llamada Ajax");
 	
 	var url = "ControladorAjaxRegistroUsuario";
-	$(origen).css("background-color", "white");
-	$(".msg_delete").remove();
+	
+	
+	
 	if ($(origen).val()!=""){
 		
 		$.ajax(url, {
 			"type": "get",
 			"success": function(result) {
 				var mensaje = "";
-				switch ($(origen).attr('id')){
-				
-				case 'usuario':
-				case 'email':
-				
+								
+					$(origen).css("background-color", "white");
 					if (!result.existe){
 						$(origen).css("background-color", "red");
-						mensaje = "<span class='msg_error msg_delete'>"+result.mensaje+"</span>" 
+						mensaje = "<span class='msg_error msg_delete_"+$(origen).attr('id')+"'>"+result.mensaje+"</span>" 
 					}else{
 						$(origen).css("background-color", "green");
-						mensaje = "<span class='msg_success msg_delete'>"+result.mensaje+"</span>"
+						mensaje = "<span class='msg_success msg_delete_"+$(origen).attr('id')+"'>"+result.mensaje+"</span>"
 					}
-										
+					$(".msg_delete_" + $(origen).attr('id')).remove();					
 					$(origen).after(mensaje);
-				break;
-				
-				case 'repass':
-				
-					if (result.igual){
-						$(origen).css("background-color", "green");
-						mensaje = "<span class='msg_success msg_delete'>"+result.mensaje+"</span>"
-					}else{
-						$(origen).css("background-color", "red");
-						mensaje = "<span class='msg_error msg_delete'>"+result.mensaje+"</span>"
-					}
-					$(origen).after(mensaje);
-					break;
-				default:
-				}
-	
-	//		console.log("Llego el contenido y no hubo error\n", result);
 			},
 			"error": function(result) {
-	//		console.error("Este callback maneja los errores\n", result);
 			},
 			"data": {val: $(origen).val(),
-					 id: $(origen).attr('id'),
-					 pass: $(pass).val()},
+					 id: $(origen).attr('id')},
 			"async": true,
 			});
+	}else{
+		$(origen).css("background-color", "white");
+		$(".msg_delete_" + $(origen).attr('id')).remove();
 	}
 }
 
+function validarEmail(valor) {
+	if (valor.value!=""){
+		if (/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/.test(valor.value)) {
+			$(".msg_delete_" + $(valor).attr('id')).remove();	
+			return true;
+		} else {
+			$(valor).css("background-color", "red");
+			mensaje = "<span class='msg_error msg_delete_" + $(valor).attr('id')
+					+ "'>El formato de email no es correcto</span>";
+			$(".msg_delete_" + $(valor).attr('id')).remove();	
+			$(valor).after(mensaje);
+			return false;
+		}
+	}else{
+		$(valor).css("background-color", "white");
+		$(".msg_delete_" + $(valor).attr('id')).remove();
+	}
+}
 
 $(function() {
 	
@@ -115,9 +115,30 @@ $(function() {
 		llamadaAjax(this);
 	});
 	$("#form_new_user #email").blur(function(){
-		llamadaAjax(this);
+		if (validarEmail(this)){
+			llamadaAjax(this);
+		};
 	});
 	$("#form_new_user #repass").blur(function(){
-		llamadaAjax(this);
+		
+		if(($("#pass").val()!="")&&($("#repass").val()!="")){
+			$("#pass").css("background-color", "white");
+			$(this).css("background-color", "white");
+			if ($(this).val()==$("#pass").val()){
+				$(this).css("background-color", "green");
+				$("#pass").css("background-color", "green");
+				mensaje = "<span class='msg_success msg_delete_pass'>El password es valido</span>"
+			}else{
+				$(this).css("background-color", "red");
+				$("#pass").css("background-color", "red");
+				mensaje = "<span class='msg_error msg_delete_pass'>Los password no coinciden</span>"
+			}
+			$(".msg_delete_pass").remove();
+			$(this).after(mensaje);
+		}else{
+			$(".msg_delete_pass").remove();
+			$("#pass").css("background-color", "white");
+			$(this).css("background-color", "white");
+		}
 	});
 });

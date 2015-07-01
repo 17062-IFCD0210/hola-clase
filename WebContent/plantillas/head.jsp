@@ -174,6 +174,12 @@
 				</li>				
 			</ul>
 		</li>  
+		<li>
+			<h2>Bootstrap</h2>		
+			<ul>
+				<li><a href="ejemplos/bootstrap/index.jsp">Primer ejemplo bootstrap</a></li>
+			</ul>
+		</li>  
 	  </ul>
 	</div>
 		<!-- menu movil -->

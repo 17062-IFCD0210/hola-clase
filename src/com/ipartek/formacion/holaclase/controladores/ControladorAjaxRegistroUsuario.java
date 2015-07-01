@@ -64,7 +64,6 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		//parametro usuario
 		String id = request.getParameter("id");
 		String val = request.getParameter("val");
-		String pass = request.getParameter("pass");
 		
 		switch (id){
 		case "usuario":
@@ -109,37 +108,10 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 			}
 			
 			break;
-		case "repass":
-			
-			if ( null != val ){
-				if (val.equals(pass)){
-					out.print("{ \"igual\": true, \"mensaje\": \"Password valido\" }");
-				}else{
-					out.print("{ \"igual\": false ,  \"mensaje\": \"El password no coincide\" }");
-				}
-			}
-			
-			break;
+		
 		default:
 		
 		}
-		
-//		if ( null != usuario  ){
-//			//compobar que no exista el usuario		
-//			
-//			if ( listaUsuarios.contains( usuario ) ){
-//			
-//				//out.print("Usuario Existe, por favor elige otro");
-//				out.print("{ \"existe\": false , \"user\": \""+usuario+"\", \"mensaje\": \"El usuario existe, por favor elige otro\" }");
-//			}else{
-//				//out.print("Usuario Disponible");
-//				out.print("{ \"existe\": true , \"user\": \""+usuario+"\" , \"mensaje\": \"Usuario disponible\" }");
-//			}
-//					
-//		}else{
-//			//out.print("Usuario Disponible");
-//			out.print("{ \"existe\": false , \"user\": \"pepe\" }");
-//		}
 		
 		//libera el buffer del PrintWriter
 		out.flush();

@@ -1,4 +1,4 @@
-<h1>Controlador Datos Personales</h1>
+<h1>Controlador New User</h1>
 
 
 
@@ -7,49 +7,15 @@
 	
 	
 	//recoger parametros de la request
-	String p1 = (String)request.getParameter("nombre");
-	String p2 = (String)request.getParameter("apellidos");
-	String p3 = (String)request.getParameter("profesion");
-	String p4 = (String)request.getParameter("edad");
-	String p5 = (String)request.getParameter("rol");
-	String pCV = (String)request.getParameter("cv");
+	String user = (String)request.getParameter("usuario");
+	String email = (String)request.getParameter("email");
+	String pass = (String)request.getParameter("pass");
+	String repass = (String)request.getParameter("repass");
 	
-	//recoger parametro de Radio button, es un unico valor
-	String pRadio = (String)request.getParameter("sexo");
-	
-	//recoger parametro de CheckButton, Pueden ser varios valores o ninguno
-	//en este caso es un array con varios valores
-	String [] pConocimientos = request.getParameterValues("conocimientos");
-
 	
 	//pintar los parametros en el html(en pantalla)
-	out.print("<p>Nombre: "		+ p1 + "</p>");	
-	out.print("<p>Apellido: "	+ p2 + "</p>");
-	out.print("<p>Profesion: "	+ p3 + "</p>");
-	out.print("<p>Edad: "		+ p4 + "</p>");
-	out.print("<p>Rol: "		+ p5 + "</p>");
-	out.print("<p>Sexo: "		+ pRadio + "</p>");
-	out.print("<p>Conocimientos: </p>");
-	
-	//comprobar que existan conocimientos
-	if ( pConocimientos != null ){
-		out.print("<ul>");
-		for(int i=0; i < pConocimientos.length ; i++ ){
-			out.print("<li>" + pConocimientos[i] +  "</li>");
-		}
-		out.print("</ul>");
-		
-	}else{
-		out.print("Eres un paleto!!!!");
-	}
-	
-	//mostrar cv
-	out.print( "<h2>Tu Curriculum Vitae</h2>" );
-	out.print( pCV );
-	
-		
-	
-
-	
-
-%>
+	out.print("<p>Usuario: "		+ user + "</p>");	
+	out.print("<p>Email: "			+ email + "</p>");
+	out.print("<p>Pass: "			+ pass + "</p>");
+	out.print("<p>Repass: "			+ repass + "</p>");
+	%>
