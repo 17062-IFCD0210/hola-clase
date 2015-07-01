@@ -94,11 +94,13 @@
 	
 	
 	<div id="alerts" class="container">
+		
+<!-- 		
 		    <div id="alert_warning" class="alert alert-warning alert-dismissible ocultar" role="alert">
-			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+ 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			  <strong>Warning!</strong> Alerta tipo warning.
 			</div>
-			
+ 			
 			<div id="alert_info" class="alert alert-info alert-dismissible ocultar" role="alert">
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			  <strong>Info!</strong> Alerta tipo info.
@@ -112,7 +114,9 @@
 		    <div id="alert_danger" class="alert alert-danger alert-dismissible ocultar" role="alert">
 			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 			  <strong>Danger!</strong> Alerta tipo danger.
-			</div>			
+			</div>
+			
+ -->						
 	</div>
 		    
 	
@@ -250,10 +254,29 @@
 	function mostrar_alert(id_alert){
 		//aqui deberia crearse desde cero el alert en #alerts
 		var etiqueta="#"+id_alert;
-		
-		
-		$(etiqueta).css("display","block");
-		$("body container").css("display","block");
+		var contenido="";
+		var nodo="";
+		switch(id_alert){
+			case 'alert_warning':
+				contenido="<strong>Warning!</strong> Alerta tipo warning.";
+				nodo='<div id="alert_warning" class="alert alert-warning alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Warning!</strong> Alerta tipo warning.</div>';
+				break;
+			case 'alert_info':
+				contenido="<strong>Info!</strong> Alerta tipo info.";
+				nodo='			<div id="alert_info" class="alert alert-info alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Info!</strong> Alerta tipo info.</div>';
+				break;
+			case 'alert_success':
+				contenido="<strong>Success!</strong> Alerta tipo success.";
+				nodo='<div id="alert_success" class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Success!</strong> Alerta tipo success.</div>';
+				break;
+			case 'alert_danger':
+				contenido="<strong>Danger!</strong> Alerta tipo danger.";
+				nodo='<div id="alert_danger" class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><strong>Danger!</strong> Alerta tipo danger.</div>';
+				break;		
+		}
+//		nodo1='<div id="'+id_alert+'" class="alert '+id_alert+' alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>'+contenido+'</div>';
+		$("#alerts").append(nodo);
+	
 	}
 </script>
 
