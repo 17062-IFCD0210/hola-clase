@@ -130,6 +130,7 @@
 			<ul class="dl-submenu">
 				<li><a href="ejemplos/reales/cartelera.jsp">Cartelera</a></li>
 				<li><a href="ejemplos/reales/cartelera_detalle.jsp">Detalle Cartelera</a></li>
+				<li><a href="ejemplos/reales/bootstrap/index.jsp">Bootstrap grid</a></li>
 			</ul>
 		</li> 
 		<li> 
