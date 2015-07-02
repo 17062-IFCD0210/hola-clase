@@ -198,6 +198,18 @@ $(function() {
 		comprobarPassWd();
 		
 	});
+	
+	//Comprobar si soporta el almacenamiento local
+	if (window.sessionStorage && window.localStorage){ 
+		console.info('Tu navegador acepta almacenamiento local');
+		
+		//localStorage.setItem('pagina0', 'hola');
+		//sessionStorage.setItem('session0', 'hola');
+		
+		
+	} else { 
+		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
+	}
 
 
-})
+});
