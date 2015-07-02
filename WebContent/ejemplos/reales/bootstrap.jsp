@@ -24,7 +24,8 @@
   <body>
     <header>
     	<div class= "container">
-    		<h1>Header</h1>    		
+    		<h1>Header</h1>
+    		<h3>12 columnas</h3>    		
     	</div>
     	 <!-- Login -->
     	<div id="navbar" class="navbar-collapse collapse">
@@ -61,19 +62,19 @@
 		    <div class="item active">
 		      <img src="img/abstract1.jpg" alt="abstract1" class="img-responsive adaptar">
 		      <div class="carousel-caption">
-		          <h3>Imagen Abstracta Naranja</h3>
+		          <h3>Imagen Abstracta Multicolor</h3>
 		      </div>
 		    </div>
 		    <div class="item">
 		      <img src="img/abstract2.jpg" alt="abstract2" class="img-responsive adaptar">
 		      <div class="carousel-caption">
-		          <h3>Imagen Abstracta Azul</h3>
+		          <h3>Imagen Abstracta Morada</h3>
 		      </div>
 		    </div>
 		    <div class="item">
 		      <img src="img/abstract3.jpg" alt="abstract3" class="img-responsive adaptar">
 		      <div class="carousel-caption">
-		          <h3>Imagen Abstracta Morada</h3>
+		          <h3>Imagen Abstracta Azul</h3>
 		      </div>
 		    </div>
 		  </div>
@@ -92,6 +93,8 @@
     <div class="container">
     	<section class= "main row">
     		<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
+    		<h2>Article</h2>
+				<h4>9 Columnas</h4>
     			<p>
     			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     			Nulla eu lectus pharetra, auctor turpis nec, cursus mi. 
@@ -110,7 +113,7 @@
     			<div type="button" class="btn btn-info" onclick="mostrarAlerta();">
     			Mostrar alerta
     			</div>
-    			<div type="button" class="btn bt-warning" onclick="ocultarAlerta();">
+    			<div type="button" class="btn btn-warning" onclick="ocultarAlerta();">
     			Ocultar Alerta
     			</div>
     						
@@ -169,6 +172,8 @@
 				    			 		
     		</article>
     		<aside class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
+    			<h2>Aside</h2>
+				<h4>3 Columnas</h4>
     			<p>
     			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     			Nulla eu lectus pharetra, auctor turpis nec, cursus mi. 
@@ -176,7 +181,7 @@
     			Maecenas elementum metus tempus magna gravida, sed gravida massa lacinia.
     			<div class="list-group">
 				  <a class="list-group-item active">
-				    Enlaces Interesantes
+				    Enlaces de Inter&eacute;s :
 				  </a>
 				  <a href="http://lorempixel.com/" class="list-group-item">Lorem Pixel</a>
 				  <a href="http://getbootstrap.com/" class="list-group-item">Bootstrap</a>
@@ -188,8 +193,8 @@
     	</section>
     	<div class="row">
     		<div class="color1 col-xs-12 col-sm-6 col-md-3">
+    		<h3>3 Columnas</h3>
     			<p>
-    			<h3>Columna</h3>
     			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     			Nulla eu lectus pharetra, auctor turpis nec, cursus mi. 
     			Etiam at orci id turpis cursus cursus ultricies quis leo. 
@@ -201,8 +206,8 @@
     			
     		</div>
     		<div class="col-xs-12 col-sm-6 col-md-3">
+    		<h3>3 Columnas</h3>
     			<p>
-    			<h3>Columna</h3>
     			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     			Nulla eu lectus pharetra, auctor turpis nec, cursus mi. 
     			Etiam at orci id turpis cursus cursus ultricies quis leo. 
@@ -216,8 +221,8 @@
     		<!-- <div class="clearfix visible-sm-block"></div> -->
     		
     		<div class="color1 col-xs-12 col-sm-6 col-md-3">
+    		<h3>3 Columnas</h3>
     			<p>
-    			<h3>Columna</h3>
     			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     			Nulla eu lectus pharetra, auctor turpis nec, cursus mi. 
     			Etiam at orci id turpis cursus cursus ultricies quis leo. 
@@ -228,8 +233,8 @@
     			</p>
     		</div>
     		<div class="col-xs-12 col-sm-6 col-md-3">
+    		<h3>3 Columnas</h3>
     			<p>
-    			<h3>Columna</h3>
     			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     			Nulla eu lectus pharetra, auctor turpis nec, cursus mi. 
     			Etiam at orci id turpis cursus cursus ultricies quis leo. 
@@ -245,11 +250,13 @@
     	
     	<footer>
     		<div class="container">   		
-    		<h3>Footer: larius</h3>
+    		<h1>Footer</h1>
+    		<h3>12 columnas</h3>
+    		
     		
     		<!-- Panel with heading -->
     		<div class="panel panel-default">
-				  <div class="panel-heading"><strong>Boostrap</strong></div>
+				  <div class="panel-heading"><strong>Bootstrap</strong></div>
 				  <div class="panel-body">
 				    Getting Started |
 				    CSS |
@@ -286,6 +293,30 @@
 				
 				 
 			}
+			
+			
+			console.debug('Jugando con la API classList');
+			var alerta = document.getElementById('msg');
+			
+			//para sacar las clases que tiene
+			console.debug(alerta.classList.length + ' : '+ alerta.classList.toString() );
+			
+			//vamos a hacer un toggle:si tienes la clase "in" la quita y sino la pone
+			console.debug('toggle con la clase "in"');
+			alerta.classList.toggle('in');
+			
+			console.debug(alerta.classList.length + ' : ' + alerta.classList.toString() );
+			
+			//for dinamico que recorra los objetos y pinte que en la posicion'x' tengo la clase'y'
+			for(i=0; i < alerta.classList.length; i++){
+				console.debug('posicion ' + i + '' + alerta.classList.item(i) );
+			}
+			
+			console.info('contiene la clase "pepe" ' + alerta.classList.contains('pepe') );
+			console.info('contiene la clase "alert" ' + alerta.classList.contains('alert') );
+			
+
+			
 		</script>
 		
   </body>
