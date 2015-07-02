@@ -152,6 +152,20 @@ $(function() {
 	$("#form_new_user #repass").blur(function(){
 		comprobarPassword();
 	});	
-	
+	if (window.sessionStorage && window.localStorage) { 
+		 console.info('almacenamiento local Soportado');
+//		 localStorage.setItem('p0','hola');
+//		 sessionStorage.setItem('ps0','hola');
+		 
+		 //pintar todas las local storages
+		 var a_keys=Object.keys(localStorage); //array de keys
+		 for (i=0;i<a_keys.length;i++){
+			 console.debug(a_keys[i] + ' => '+ localStorage.getItem(a_keys[i]));
+		 }
+		 
+	} else { 
+		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
+	} 			 
+
 
 }); // end
