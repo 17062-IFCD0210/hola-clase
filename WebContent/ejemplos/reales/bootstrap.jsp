@@ -24,15 +24,32 @@
   <body>
     <header>
     	<div class= "container">
-    		<h1>Header</h1>
+    		<h1>Header</h1>    		
     	</div>
+    	 <!-- Login -->
+    	<div id="navbar" class="navbar-collapse collapse">
+				<form class="navbar-form navbar-right">
+		            <div class="form-group">
+		              <input type="text" placeholder="Email" class="form-control">
+		            </div>
+		            <div class="form-group">
+		              <input type="password" placeholder="Password" class="form-control">
+		            </div>
+		            <button type="submit" class="btn btn-success">Sign in</button>
+				</form>
+          	</div>
     </header>
-    <br/>
-    
+		<!-- Mensajes -->
+    	<div class="row" id="mensajes"></div>
+	    	<div id="msg" class="alert alert-warning alert-dismissible fade" role="alert"> <!-- Fade oculta fade in muestra -->
+			  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <strong>Warning!</strong> Better check yourself, you're not looking too good.
+			</div>
+		
     
    <div class="container">   
    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-		  <!-- Indicators -->
+		  <!-- Indicadores -->
 		  <ol class="carousel-indicators">
 		    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 		    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
@@ -42,26 +59,26 @@
 		  <!-- Wrapper for slides -->
 		  <div class="carousel-inner" role="listbox">
 		    <div class="item active">
-		      <img src="img/abstract1.jpg" alt="...">
+		      <img src="img/abstract1.jpg" alt="abstract1" class="img-responsive adaptar">
 		      <div class="carousel-caption">
-		          <h3>Caption Text</h3>
+		          <h3>Imagen Abstracta Naranja</h3>
 		      </div>
 		    </div>
 		    <div class="item">
-		      <img src="img/abstract2.jpg" alt="...">
+		      <img src="img/abstract2.jpg" alt="abstract2" class="img-responsive adaptar">
 		      <div class="carousel-caption">
-		          <h3>Caption Text</h3>
+		          <h3>Imagen Abstracta Azul</h3>
 		      </div>
 		    </div>
 		    <div class="item">
-		      <img src="img/abstract3.jpg" alt="...">
+		      <img src="img/abstract3.jpg" alt="abstract3" class="img-responsive adaptar">
 		      <div class="carousel-caption">
-		          <h3>Caption Text</h3>
+		          <h3>Imagen Abstracta Morada</h3>
 		      </div>
 		    </div>
 		  </div>
 		 
-		  <!-- Controls -->
+		  <!-- Controles -->
 		  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
 		    <span class="glyphicon glyphicon-chevron-left"></span>
 		  </a>
@@ -72,7 +89,6 @@
 </div>
 	
   
-    
     <div class="container">
     	<section class= "main row">
     		<article class="col-xs-12 col-sm-8 col-md-9 col-lg-9">
@@ -85,12 +101,50 @@
     			In hac habitasse platea dictumst. Maecenas vitae tempus ante. 
     			Nunc ornare pretium condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     			</p>
+    			<hr>
     			
     			<a href="http://lorempixel.com/" class="btn btn-default">Lorem Pixel</a>
     			
-    			<!-- Botón de apertura -->
-				<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">
-				  Info
+    			<!-- MENSAJE DE ALERTA -->
+    			
+    			<div type="button" class="btn btn-info" onclick="mostrarAlerta();">
+    			Mostrar alerta
+    			</div>
+    			<div type="button" class="btn bt-warning" onclick="ocultarAlerta();">
+    			Ocultar Alerta
+    			</div>
+    						
+    			<!-- Botonera/dropdown para mostrar alertas de forma dinamica -->
+				<div class="btn-group">
+				<button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				   Crear Alerts Din&aacute;micamente <span class="caret"></span>
+				    <span class="sr-only">Toggle Dropdown</span>
+				  </button>
+				  
+				  <ul class="dropdown-menu">
+				    <li><a href="ejemplos/reales/bootstrap.jsp#" onclick="crearAlerta('info');">INFO</a></li>
+				    <li><a href="ejemplos/reales/bootstrap.jsp#" onclick="crearAlerta('success');">SUCCESS</a></li>
+				    <li><a href="ejemplos/reales/bootstrap.jsp#" onclick="crearAlerta('warning');">WARNING</a></li>
+				    <li><a href="ejemplos/reales/bootstrap.jsp#" onclick="crearAlerta('danger');">ERROR</a></li>
+				  </ul>
+				  
+				</div>												  			
+				<hr>
+				
+				<!-- Progress Bar -->
+				
+				<p><strong>Progress Bar :</strong></p>
+				<div class="progress">
+				  <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+				    60%
+				  </div>
+				</div>
+				<hr>
+				
+				
+				<!-- VENTANA MODAL: Botón de apertura -->
+				<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">
+				  Ejemplo Ventana Modal
 				</button>
 				 
 				<!-- Ventana Modal -->
@@ -99,28 +153,36 @@
 				    <div class="modal-content">
 				      <div class="modal-header">
 				        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				        <h4 class="modal-title" id="myModalLabel">Mi ventana Modal</h4>
+				        <h4 class="modal-title" id="myModalLabel">Trasteando con Bootstrap</h4>
 				      </div>
 				      <div class="modal-body">
-				        <p>Aquí puedes poner un <strong>video de YouTube</strong></p>
+				        <p>Si quieres saber mas sobre Bootstrap, entra en <strong>www.getbootsrap.com</strong></p>
 				      </div>
 				      <div class="modal-footer">
-				        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
 				      </div>
 				    </div>
 				  </div>
 				</div>
-    			 		
+				<hr>
+				
+				    			 		
     		</article>
     		<aside class="col-xs-12 col-sm-4 col-md-3 col-lg-3">
     			<p>
     			Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     			Nulla eu lectus pharetra, auctor turpis nec, cursus mi. 
     			Etiam at orci id turpis cursus cursus ultricies quis leo. 
-    			Maecenas elementum metus tempus magna gravida, sed gravida massa lacinia. 
-    			Nam nec mollis libero. 
-    			In hac habitasse platea dictumst. Maecenas vitae tempus ante. 
-    			Nunc ornare pretium condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    			Maecenas elementum metus tempus magna gravida, sed gravida massa lacinia.
+    			<div class="list-group">
+				  <a class="list-group-item active">
+				    Enlaces Interesantes
+				  </a>
+				  <a href="http://lorempixel.com/" class="list-group-item">Lorem Pixel</a>
+				  <a href="http://getbootstrap.com/" class="list-group-item">Bootstrap</a>
+				  <a href="http://www.ipartek.com/" class="list-group-item">Ipartek</a>
+				  <a href="http://www.w3schools.com/" class="list-group-item">W3Schools</a>
+				</div>
     			</p> 	
     		</aside>	
     	</section>
@@ -136,6 +198,7 @@
     			In hac habitasse platea dictumst. Maecenas vitae tempus ante. 
     			Nunc ornare pretium condimentum. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     			</p>
+    			
     		</div>
     		<div class="col-xs-12 col-sm-6 col-md-3">
     			<p>
@@ -182,16 +245,48 @@
     	
     	<footer>
     		<div class="container">   		
-    		<h3>Footer</h3>
+    		<h3>Footer: larius</h3>
+    		
+    		<!-- Panel with heading -->
+    		<div class="panel panel-default">
+				  <div class="panel-heading"><strong>Boostrap</strong></div>
+				  <div class="panel-body">
+				    Getting Started |
+				    CSS |
+				    Components |
+				    JavaScript |
+				    Customize 
+				  </div>
+				</div>
     		</div>
+    		
     	</footer>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/jquery-2.1.4.min.js"></script>
-    <script>
-    $('#myModal').modal(options)
-    </script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		
+		<script type="text/javascript">
+			function mostrarAlerta(){
+				$('#msg').addClass('in');
+			}
+			function ocultarAlerta(){
+				$('#msg').removeClass('in');
+			}
+			
+			function crearAlerta( tipo ){
+				console.debug('creando alerta del tipo '+ tipo );
+				//obtener el contenedor para los mensajes
+				var contentAlerts = $('#mensajes');
+				//limpiar todo el innerHTML; el contenedor
+				contentAlerts.html('');
+				//crear alerta
+				contentAlerts.html("<div class='alert alert-"+tipo+" alert-dismissible' role='alert'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button><strong>"+tipo+"</strong> Better check yourself, you're not looking too good.</div>");
+				
+				 
+			}
+		</script>
+		
   </body>
 </html>
