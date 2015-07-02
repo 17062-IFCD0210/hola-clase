@@ -206,6 +206,14 @@ $(function() {
 		//localStorage.setItem('pagina0', 'hola');
 		//sessionStorage.setItem('session0', 'hola');
 		
+		var a_keys = Object.keys ( localStorage );
+		
+		for (i=0; i< a_keys.length; i++){
+			
+			console.info( a_keys[i] + '->' + localStorage.getItem(a_keys[i]));
+			
+		}
+		
 		
 	} else { 
 		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
