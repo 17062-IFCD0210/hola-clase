@@ -21,3 +21,11 @@ footer {
 	background: #16a085;
 	color: #fff;
 }
+
+.entero {
+	width:100%;
+}
+
+#dropdown-menu {
+	float:right;
+}
