@@ -16,24 +16,40 @@
 <h1>Tabla Previsiones</h1>
 
 
-<div id="cnt_previsiones">
+<div id="cnt_previsiones" class="grid colABC">
 <!-- dias -->
-	<div>
-	
+	<div class="cnt_selector">
+	<ul>
+		<li><a href="#" class="selector">Hoy</a></li>
+		<li><a href="#" class="selector">3 Días</a></li>
+		<li><a href="#" class="selector">7 Días</a></li>
+	</ul>	
 	</div>
 <!-- horas -->
 	<div>
-	
+		<div class="cnt_selector bg_blue2">
+			<a href="#" class="selector">Todas</a>
+			<a href="#" class="selector">3 Horas</a>
+			<a href="#" class="selector">5 Horas</a>
+		</div>
 	</div>
 <!-- tabla -->	
-	<div>
-	
+	<div >
+		<div class="cnt_selector bg_orange">
+			<a href="#" class="selector">Tabla</a>
+			<a href="#" class="selector">Grafico</a>			
+		</div>
 	</div>
+	
+	<div id="tabla"></div>
+	
 	
 </div>
 
+<br><br><hr><br><br>
 
 <div id="grafico"></div>
+
 <script>
 
 	var json_data;

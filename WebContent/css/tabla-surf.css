@@ -2916,4 +2916,28 @@ a.verMas:hover { background: #EF6B00;}
 
 #cnt_previsiones{ 
 	background-color: #0D7A9A; 
+	font-family: 'arial';
 }
+#cnt_previsiones .cnt_selector{
+  position: relative;
+  background: #0D7A9A;
+  padding: .6em .5em;
+  color: #fff;
+  font-weight: 400;
+  font-size: 1.4em;
+}  
+#cnt_previsiones .cnt_selector li {
+display: inline-block;
+  float: left;
+}  
+#cnt_previsiones .cnt_selector a { 
+  color: #FFF;
+  /*float: left;*/  
+  display: inline-block;
+  text-decoration: none;
+  padding-right: 2em;
+}
+
+
+.bg_orange {background-color: #6EB0C3 !important; }
+.bg_blue2  {background-color: #EF6B00 !important; }
