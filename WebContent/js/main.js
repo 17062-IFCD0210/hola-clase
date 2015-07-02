@@ -107,6 +107,29 @@ $(function() {
 	});
 	
 	
+	
+		 if (window.sessionStorage && window.localStorage) { 
+			 console.info('Almacenamiento local soportado');
+			 
+			 localStorage.setItem('last', window.location.href );
+			 
+			 //localStorage.setItem('p0','hola');
+			 
+			 // pintar todas las local storages
+			 var a_keys = Object.keys ( localStorage );
+			 
+			 for ( i=0; i < a_keys.length; i++ ) {
+				 console.debug ( a_keys[i] + '=>' + localStorage.getItem (a_keys[i]) );
+				 
+			 }
+			 
+			 //sessionStorage.setItem('ps0','hola');
+			 
+		 } else { 
+			 alert('Lo siento, pero tu navegador no acepta almacenamiento local');
+		 	} 
+
+
 		
 		
 });//end ready
