@@ -206,6 +206,9 @@ $(function() {
 		//localStorage.setItem('pagina0', 'hola');
 		//sessionStorage.setItem('session0', 'hola');
 		
+		//guardamos la ultima pagina visitada
+		localStorage.setItem('last', window.location.href);
+		
 		var a_keys = Object.keys ( localStorage );
 		
 		for (i=0; i< a_keys.length; i++){
