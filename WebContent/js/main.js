@@ -136,5 +136,28 @@ $(function() {
 		//Lo hemos controlado desde la etiqueta FORM
 		
 	});
+	
+	/* SESSION STORAGE Y LOCAL STORAGE compatible con el navegador */
+	if (window.sessionStorage && window.localStorage) {
+		console.info("Almacenamiento local soportado");
+		
+		localStorage.setItem('p0','hola');
+		
+		localStorage.setItem('last', window.location.href);
+		
+		//pintar todas las localStorages
+		var a_keys = Object.keys(localStorage);
+		
+		for (i=0; i<a_keys.length; i++){
+			console.debug( a_keys[i] + '=>'+ localStorage.getItem(a_keys[i]));
+		}
+		
+		
+		sessionStorage.setItem('ps0','hola');
+		
+	} else {
+		alert('Lo siento, pero tu navegador no acepta almacenamiento local');
+	}
+	
 
 }); //end ready
