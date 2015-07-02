@@ -44,8 +44,31 @@ function llamadaAjax(){
 			      email  : input_email.val() },
 		"async": true,
 	});
-	
 }
+	//LOCAL STORAGE Y SESSION STORAGE, guardando y obteniendo datos
+
+	if( window.sessionStorage && window.localStorage){
+		console.info('Almacenamiento local soportado');
+		
+		//me dara la ultima pagina que he visitado
+		localStorage.setItem('last', window.location.href );
+		
+		//Pintar todas las LocalStorages (me devolvera un array de keys)
+		var a_keys = Object.keys ( localStorage );
+		
+		for ( i=0; i < a_keys.length; i++){
+			console.debug( a_keys[i] + '=>' + localStorage.getItem( a_keys[i] ) );			
+		}
+	
+		
+		
+		//sessionStorage.setItem('ps0','hola');
+		
+	}else{
+		alert('Lo siento pero tu navegador no soporta el almacenamiento');
+	}
+	
+
 
 
 //Se ejecuta cuando todo el HTML se ha cargado
