@@ -22,10 +22,10 @@ footer {
 	color: #fff;
 }
 
-.entero {
-	width:100%;
+.login_centrado {
+	padding: 20%;
 }
 
-#dropdown-menu {
-	float:right;
+.sep {
+	margin-bottom:10%;
 }

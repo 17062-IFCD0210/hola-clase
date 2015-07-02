@@ -14,6 +14,8 @@
 <!-- Estilos -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.3.0/css/font-awesome.css">
+	<link rel="stylesheet" href="css/social-buttons.css">
 
 <!-- Icono -->	
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
@@ -23,55 +25,49 @@
 <body>
 	<header>
 		<div class="container">
-			<h1 class="container row">Header</h1>
-			<div class="row">			
-				<nav class="navbar navbar-default">
-					<div class="container-fluid">
-						<div class="navbar-header">
-							<span class="navbar-brand">Header</span>
-						</div>
-						<div class="collapse navbar-collapse"
-							id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li><a href="http://getbootstrap.com/">Bootstrap</a></li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-haspopup="true"
-									aria-expanded="false">Ejemplos<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="#">Pagina Principal</a></li>
-										<li role="separator" class="divider"></li>
-										<li><a href="#myModal" data-toggle="modal">Ventana Modal</a></li>
-										<li role="separator" class="divider"></li>
-										<li><a onclick="mostrarAlerta()">Mostrar Alerta</a></li>
-										<li role="separator" class="divider"></li>
-										<li><a onclick="ocultarAlerta()">Ocultar Alerta</a></li>
-									</ul>
-								</li>
-								<li class="dropdown"><a href="#" class="dropdown-toggle"
-									data-toggle="dropdown" role="button" aria-haspopup="true"
-									aria-expanded="false">Alertas<span class="caret"></span></a>
-									<ul class="dropdown-menu">
-										<li><a href="ejemplos/reales/bootstrap_grid.jsp#info" onclick="crearAlerta('info');">Info</a></li>
-										<li><a href="ejemplos/reales/bootstrap_grid.jsp#success" onclick="crearAlerta('success');">Success</a></li>
-										<li><a href="ejemplos/reales/bootstrap_grid.jsp#warning" onclick="crearAlerta('warning');">Warning</a></li>
-										<li><a href="ejemplos/reales/bootstrap_grid.jsp#danger" onclick="crearAlerta('danger');">Danger</a></li>
-									</ul>
-								</li>
-							</ul>
-							<form class="navbar-form navbar-right" role="login">
+			<div class="row">
+				<h1 class="container row">Header</h1>
+				<ul class="nav nav-tabs">
+					<li><a href="#"><span class="glyphicon glyphicon-home"></span> Pagina Principal</a></li>
+					<li><a href="http://getbootstrap.com/">Bootstrap</a></li>
+					<li class="dropdown">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false">
+								Alertas<span class="caret"></span>
+						</a>
+						<ul class="dropdown-menu">
+							<li><a href="ejemplos/reales/bootstrap_grid.jsp#info" onclick="crearAlerta('info');">Info</a></li>
+	 						<li><a href="ejemplos/reales/bootstrap_grid.jsp#success" onclick="crearAlerta('success');">Success</a></li>
+	 						<li><a href="ejemplos/reales/bootstrap_grid.jsp#warning" onclick="crearAlerta('warning');">Warning</a></li> 
+							<li><a href="ejemplos/reales/bootstrap_grid.jsp#danger" onclick="crearAlerta('danger');">Danger</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="ejemplos/reales/bootstrap_grid.jsp#" onclick="mostrarAlerta()">Mostrar Alerta</a></li>
+							<li><a href="ejemplos/reales/bootstrap_grid.jsp#" onclick="ocultarAlerta()">Ocultar Alerta</a></li>
+						</ul>
+					</li>
+					<li class="dropdown pull-right">
+						<a class="dropdown-toggle" data-toggle="dropdown" href="#"
+							role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user"></span>
+							<span class="caret"></span>
+						</a>
+						<div class="dropdown-menu login_centrado">
+							<form class="form" role="login">
 								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Usuario">
+									<input type="text" class="form-control sep" placeholder="Usuario">
 									<input type="password" class="form-control"
 										placeholder="Password">
 								</div>
-								<button type="submit" class="btn btn-success">Login</button>
+								<button type="submit" class="btn btn-success center-block sep">Login</button>
+								<button class="btn btn-block btn-xs btn-facebook"><i class="fa fa-facebook"></i> | Login with Facebook</button>
+								<button class="btn btn-block btn-xs btn-twitter"><i class="fa fa-twitter"></i> | Login with Twitter</button>
+								<button class="btn btn-block btn-xs btn-instagram"><i class="fa fa-camera-retro"></i> | Login with Instagram</button>
+								<button class="btn btn-block btn-xs btn-youtube"><i class="fa fa-youtube"></i> | Login with Youtube</button>
 							</form>
 						</div>
-					</div>
-				</nav>
-			</div>
-		</div>
-		
+					</li>
+				</ul> <!-- .nav .nav-tabs -->
+			</div> <!-- .row -->
+		</div> <!-- .container -->
 	</header>
 	<div class="container">
 		<div id="alerts" class="row"></div> <!-- Alertas Info... -->
@@ -92,11 +88,21 @@
 					<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 				</ol>
 	
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
+						<div class="jumbotron">
+							<h1>Bienvenido a Header!</h1>
+							<p>Esto es un Jumbotron de prueba</p>
+							<p>
+								<button class="btn btn-lg btn-success center-block">Leer Mas</button>
+							</p>
+						</div>
+					</div>
+					<div class="item">
 						<img src="img/lorempixel1.jpg" alt="Imagen 1" class="responsive-image">
 						<div class="carousel-caption">Imagen 1</div>
 					</div>
