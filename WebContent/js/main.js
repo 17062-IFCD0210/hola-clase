@@ -83,17 +83,58 @@ function comprobarFormulario(formulario){
 		
 } // comprobarFormulario 
 
-//Se ejecuta cuando todo el HTML se ha cargado
-$(function() {
-	
-	console.debug('document ready!');	
+
+//http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
+var troll = {			 
+		nombre: 'PepeGrog',
+		apellido:'mokerf',
+		
+		init:function(nombre){
+			this.nombre=nombre;
+		},
+		saluda: function(){
+			console.info('soy un troll y me llamo '+this.nombre);
+		}//este al ser el ultimo no lleva coma
+	};
+
+var visitas = {
+		url:'url',
+		titulo:'titulo',
+		fecha:'fecha',
+		
+		init:function(p_url,p_titulo,p_fecha){
+			url=p_url;
+			titulo=p_titulo;
+			fecha=p_fecha;
+		}
+}
+
+
+function ultimas_visitas(){
 	
 	if (window.sessionStorage && window.localStorage) { 
 		var fecha = new Date();
 		
 		 console.info('almacenamiento local Soportado');
-		 localStorage.setItem("last_page",location.href);
-		 localStorage.setItem("last_time",fecha.toLocaleString());
+		 
+		 
+		 //Muestra las paginas guardadas
+		 var a_keys=Object.keys(localStorage); //array de keys
+		 for (i=0;i<a_keys.length;i++){
+			 url=localStorage.getItem(a_keys[i]);
+			 if(url==null)break;
+			 paginas=url.split('/');
+			 pagina=paginas[paginas.length-1];
+			 if (pagina=='') pagina=paginas[paginas.length-2];
+			 nodo='<li><a href="'+ url +'"</a>'+pagina+'</li>';
+			 $('#ultimas_visitas').append(nodo);
+			 
+		 }
+		 
+
+//		 localStorage.setItem("last_time",fecha.toLocaleString());
+		 
+//		 visitas.init(location.href,'titulo',fecha.toLocaleString());
 //		 sessionStorage.setItem("ps0","hola");
 		 
 		 //pintar todas las local storages
@@ -101,15 +142,36 @@ $(function() {
 		 for (i=0;i<a_keys.length;i++){
 			 console.debug(a_keys[i] + ' => '+ localStorage.getItem(a_keys[i]));
 		 }
-*/		 
-		 nodo='<li><a href="'+ localStorage.getItem("last_page")+'"</a>'+localStorage.getItem("last_page")+'</li>';
- 		 $('#ultimas_visitas').append(nodo);
+*/
+		 //Recorre todas las visitas una posicion
+		 for (i=0;i<5;i++){
+			 if(localStorage.getItem('v'+i)==null)break;
+			 indice=i+1;
+			 localStorage.setItem('v'+i,localStorage.getItem('v'+indice));
+		 }
+		 
+		 //Anotar la visita actual en ultima posicion
+		 if(i>0){i=i+1;}
+		 localStorage.setItem('v'+i,location.href);		 
+		 
+		 
 		 
 	} else { 
 		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
-	} 			 
+	} 			 	
 	
+}
+
+//Se ejecuta cuando todo el HTML se ha cargado
+$(function() {
 	
+	console.debug('document ready!');	
+	troll.init('ander');
+	troll.saluda();
+
+	ultimas_visitas();
+	
+
 	
 	$('#select').filterByText($('#textbox'), false);
 
@@ -176,5 +238,6 @@ $(function() {
 	$("#form_new_user #repass").blur(function(){
 		comprobarPassword();
 	});	
+
 
 }); // end
