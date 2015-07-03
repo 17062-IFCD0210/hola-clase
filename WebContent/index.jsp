@@ -65,6 +65,13 @@
 			<li><a href="http://librosweb.es/libro/css_avanzado/" target="_blank">CSS Avzanzado</a></li>
 			<li><a href="https://www.youtube.com/watch?v=nug1pMke-y4" target="_blank">Videotutorial Bootstrap</a></li>
 		</ul>
+		
+		<br><br>
+		
+		<h3>Ultimas Visita <span id="last_time"></span></h3>
+		<ul id="visitas">			
+			<li>Sin visitas</li>		
+		</ul>
 	
 	</aside>   
 	   

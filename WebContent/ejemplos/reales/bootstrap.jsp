@@ -247,7 +247,8 @@
     		
     	</div> <!-- Row -->
     	</div> <!-- Container -->
-    	
+
+		 
     	<footer>
     		<div class="container">   		
     		<h1>Footer</h1>
