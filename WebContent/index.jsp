@@ -1,6 +1,7 @@
 <jsp:include page="plantillas/head.jsp"></jsp:include>
 <jsp:include page="plantillas/nav.jsp"></jsp:include>
-
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 <div id="home" class="clearfix">
 	 
 	 <!-- Contenido principal de la pagina -->
@@ -66,13 +67,20 @@
 			<li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
 			<li><a href="https://www.youtube.com/watch?v=nug1pMke-y4" target="_blank">Videotutorial Bootstrap</a></li>
 		</ul>
+		
+		<h3>Ultimas Paginas Visitadas</h3>
+		<ul class="lista_pags">
+		
+		</ul>
 	
 	</aside>   
 	   
-<script type="text/javascript" src="js/index.js"></script>
+
 <script>
 	//llamada a  la funcion init() de index.js
+	var pag=0;
 	init();
+	
 </script>
 
 

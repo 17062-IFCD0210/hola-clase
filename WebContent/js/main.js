@@ -110,20 +110,21 @@ $(function() {
 	});
 	
 	
+	
 		 if (window.sessionStorage && window.localStorage) { 
 			 console.info('Almacenamiento local soportado');
 			 //localStorage.setItem('p0','hola');
 			 //sessionStorage.setItem('p0','hola');
 			 
-			 localStorage.setItem('last',window.location.href);
-			 
-			 //Pintar todas las localstorages
+			//Pintar todas las localstorages
 			 var a_keys = Object.keys(localStorage);
 			 
 			 for(i=0;i<a_keys.length;i++) {
 				 console.debug(a_keys[i] + ' tiene el valor de ' + localStorage.getItem(a_keys[i]));
 			 }
+			 
+	
 		 } else { 
 			 console.info('Almacenamiento local NO soportado'); 
-		 } 
+		 }
 });
