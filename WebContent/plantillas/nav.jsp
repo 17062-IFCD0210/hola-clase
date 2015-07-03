@@ -13,6 +13,7 @@
 	<li>
 		<h2>Nuevos Elementos HTML5</h2>
 		<ul>
+			<li><a href="ejemplos/html5/canvaspaint.jsp">Canvas</a></li>
 			<li><a href="ejemplos/html5/figure.jsp">Figure</a></li>
 			<li><a href="ejemplos/html5/hgroup.jsp">Hgroup</a></li>
 			<li><a href="ejemplos/html5/hgroup.jsp">Time</a></li>
