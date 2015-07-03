@@ -1,7 +1,5 @@
 <jsp:include page="plantillas/head.jsp"></jsp:include>
 <jsp:include page="plantillas/nav.jsp"></jsp:include>
-<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
 <div id="home" class="clearfix">
 	 
 	 <!-- Contenido principal de la pagina -->
@@ -78,7 +76,6 @@
 
 <script>
 	//llamada a  la funcion init() de index.js
-	var pag=0;
 	init();
 	
 </script>

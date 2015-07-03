@@ -54,30 +54,6 @@ function init(){
 //	var listado_keys = Object.keys(localStorage);
 	
 }
-
-var pagsVisitadas = {
-		 maxPags: 5,
-		 aPags: new Array(5),
-		 
-		 obtenerPag: function() {
-			localStorage.setItem(window.location.href,window.location.href);
-		 },
-
-		sacarPag: function() {
-			for(i=0; i<this.maxPags;i++) {
-				if(i==pag) {
-					$('.lista_pags').html('<li><a href="'+localStorage.getItem(window.location.href)+'">aaaa</a></li>');
-				}
-				
-			}
-		}
-}
-
-$( document ).ready(function() {		
-	pagsVisitadas.obtenerPag();
-	pagsVisitadas.sacarPag();
-});
-	
 	
 	
 //function allStorage(){

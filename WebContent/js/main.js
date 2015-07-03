@@ -109,7 +109,23 @@ $(function() {
 		llamadaAjax();
 	});
 	
-	
+	var pagsVisitadas = {
+			 maxPags: 5,
+			 aPags: new Array(5),
+			 
+			 obtenerPag: function() {
+				localStorage.setItem(window.location.href,window.location.href);
+			 },
+
+			sacarPag: function() {
+				for(i=0; i<this.maxPags;i++) {
+					if(i==pag) {
+						$('.lista_pags').html('<li><a href="'+localStorage.getItem(window.location.href)+'">aaaa</a></li>');
+					}
+					
+				}
+			}
+	}
 	
 		 if (window.sessionStorage && window.localStorage) { 
 			 console.info('Almacenamiento local soportado');
