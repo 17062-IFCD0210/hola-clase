@@ -58,12 +58,72 @@ function validar(formulario){
 }
 
 
+function ultimasVisitas(){
+	
+	 if (window.sessionStorage && window.localStorage) { 
+			console.info('Almacenamiento local Soportado');
+			
+			//limpiar listado visitas
+			$('#visitas').html('');
+			
+			//cargar pagina visitada
+			if ( localStorage.getItem('last') != undefined ){
+				
+				var pagina = "ultima";
+				
+				//crear elemento de la lista
+				var last = "<li><a href='" + localStorage.getItem('last') + "'>"+pagina+"</a></li>";
+				$('#visitas').append( last );
+				
+			}
+			
+			//guardar ultima pagina visitada
+			localStorage.setItem('last', window.location.href );
+			
+			//pintar todas las LocalStorages
+			var a_keys = Object.keys ( localStorage );
+			
+			for ( i=0; i < a_keys.length; i++ ){
+				console.debug( a_keys[i] + '=>' + localStorage.getItem(a_keys[i]) );
+			}
+			
+			
+		 } else { 
+			 alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
+		 } 
+		
+}
+
+
+//http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
+var troll = {
+		 
+	    nombre: 'PepeGrog',
+	    apellido: 'mokerf',
+	 
+	    init: function( nombre ){
+	    	this.nombre = nombre;
+	    },
+	    saluda: function () {
+	      console.info ('soy un Troll y me llamo ' + this.nombre );
+	    }// este al ser el ultimi no lleva coma
+};
+
+
+
+
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
+	
+	troll.init('ander');
+	troll.saluda();
+	
 	
 	console.debug('document ready!');	
 	$('#select').filterByText($('#textbox'), false);
 
+	
+	ultimasVisitas();
 	
 	console.warn ('tinymce deshabilitado');
  	//tinymce.init({selector:'textarea'});
