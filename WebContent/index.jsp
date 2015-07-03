@@ -4,8 +4,12 @@
 <div id="home" class="clearfix">
 	 
 	 <!-- Contenido principal de la pagina -->
-	 <section> 
+	 <section>
 
+
+	   <p id=fechaVisita>Ultima Visita: </p>	  
+	   <ul id=visitas></ul>
+		
 	   <h2>El afortunado en leer es:</h2>
 	   <label for="btn_ganador" class="numero" id="afortunado" >0</label>
 	  

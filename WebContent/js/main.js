@@ -1,3 +1,5 @@
+var last_page = [];
+
 function validar(formulario){
 	var resul=false;
 
@@ -120,6 +122,95 @@ function llamadaAjax(){
 	});
 };
 
+
+function ultimasVisitas(){
+	
+	//Comprobar si soporta el almacenamiento local 
+	if (window.sessionStorage && window.localStorage) { 
+			console.info('Almacenamiento local Soportado');
+			
+			//limpiar listado visitas
+			//$('#visitas').html('');
+			$('#fechaVisita').html('');
+			
+			//cargar pagina visitada
+			/**
+			if ( localStorage.getItem('last_page') != undefined ){
+				
+				var pagina = "Enlace a la ultima pagina visitada";
+				
+				//crear elemento de la lista
+				var last = "<li><a href='" + localStorage.getItem('last_page') + "'>"+pagina+"</a></li>";
+				$('#visitas').append( last );
+				
+			}
+			**/
+			
+			
+			//last_page = JSON.parse(localStorage.getItem("last_page"));
+			
+			last_page.push(window.location.href);
+			
+			localStorage.setItem("last_page", JSON.stringify(last_page));
+			
+
+			//cargar la fecha 
+			if ( localStorage.getItem('last_time') != undefined ){
+				
+				$('#fechaVisita').append( "Ultima Visita: ");
+				$('#fechaVisita').append( localStorage.getItem('last_time'));
+				
+			}
+			
+			//var last_page =new Array(); 
+			//guardar ultima pagina visitada
+			//localStorage.setItem('last_page', window.location.href );
+
+			//la fecha de la ultima visita
+			var fecha = new Date();
+			localStorage.setItem('last_time', fecha.toLocaleString());
+
+
+			//pintar todas las LocalStorages
+			var a_keys = Object.keys ( localStorage );
+			
+			for ( i=0; i < a_keys.length; i++ ){
+				console.debug( a_keys[i] + '=>' + localStorage.getItem(a_keys[i]) );
+			}
+
+			//pintar todas las LocalStorages
+			var a_keys = Object.keys ( localStorage );
+			
+			for ( i=0; i < a_keys.length; i++ ){
+				console.debug( a_keys[i] + '=>' + localStorage.getItem(a_keys[i]) );
+			}
+			
+			
+		 } else { 
+			 alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
+		 } 
+		
+}
+/*
+ * JavaScript Module Patterm
+ * http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
+ */
+var troll = {
+ 
+    nombre: 'NOMBRE',
+    apellido: 'APELLIDO',
+    
+    init: function ( name , firtName ) {
+    	this.nombre = name;
+    	this.apellido = firtName;
+    },
+    saluda: function () {
+
+    	console.info("soy un troll y me llamo " + this.nombre + " " + this.apellido);
+    }
+};
+
+
 /**
  *   JavaScript para ejecutar en todas las paginas del proyecto
  *   Se carga en foot.jsp despues de incluir todas las librerias necesarias de JS 	
@@ -127,6 +218,15 @@ function llamadaAjax(){
 
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
+	
+	//Registrar las ultimas visitas
+	
+	ultimasVisitas();
+	
+	//Ejemplo de utilizacion de javascript module patterm
+	troll.init("Cristina", "Martin");
+	troll.saluda();
+	
 	
 	console.debug('document ready!');	
 	$('#select').filterByText($('#textbox'), false);
@@ -199,28 +299,7 @@ $(function() {
 		
 	});
 	
-	//Comprobar si soporta el almacenamiento local
-	if (window.sessionStorage && window.localStorage){ 
-		console.info('Tu navegador acepta almacenamiento local');
-		
-		//localStorage.setItem('pagina0', 'hola');
-		//sessionStorage.setItem('session0', 'hola');
-		
-		//guardamos la ultima pagina visitada
-		localStorage.setItem('last', window.location.href);
-		
-		var a_keys = Object.keys ( localStorage );
-		
-		for (i=0; i< a_keys.length; i++){
-			
-			console.info( a_keys[i] + '->' + localStorage.getItem(a_keys[i]));
-			
-		}
-		
-		
-	} else { 
-		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
-	}
+
 
 
 });
