@@ -3,6 +3,7 @@
  *   Se carga en foot.jsp despues de incluir todas las librerias necesarias de JS 	
  */
 
+// Funciones de ámbito global
 //Se ejecutaría antes de cargar todo el HTML
 
 function llamadaAjax(){
@@ -56,26 +57,106 @@ function llamadaAjax(){
 	
 }
 
-
-
 function validar(formulario){
-	//Comprobar los datos si están bien introducidos
+	var check = $(".msg_success");
 	
-	//si no return false;
-	
-	//si si
-	formulario.submit();
-	
+	if (check.length == 3 ){
+		formulario.submit();
+	}else{	
+		return false;
+	}
 }
 
+// http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
+var troll = {
+		nombre : 'PepeGrog',
+		apellido : 'Moko',
+		
+		init : function (nombre){
+			this.nombre = nombre;
+		},
+		saluda : function () {
+			console.info('soy un Troll ' + 'y me llamo ' + troll.nombre);
+		}// éste al ser el último no lleva coma
+};
 
 
+/**
+ * Objeto para gestionar las ultimas visitas y fecha
+ * 
+ *  Necesario tener una maquetacion de este modo:
+ *  
+ *  <h3>Ultimas Visita <span id="last_time"></span></h3>
+ *	<ul id="visitas">			
+ *		<li>Sin visitas</li>		
+ *	</ul>
+ *  
+ */
+var ultimasVisitas = {
+		
+		selec_contenedor: '#visitas',
+		selec_fecha:  '#last_time',	
+		selec_url  :   '#last_url',
+		
+		//Inicializa el objeto
+		init: function(){
+			console.debug('init');
+			this.saveFecha();
+			this.saveUrl();
+		},
 
+		//Muestra la Url guardada en localStorage#selec_url
+		setUrl: function(){
+			console.debug('setUrl');
+			$(this.selec_url).html( localStorage.getItem('last_url') );
+		},
+		
+		//Muestra la Fecha guardada en localStorage#selec_fecha
+		setFecha: function(){
+			console.debug('setFecha');
+			$(this.selec_fecha).html( localStorage.getItem('last_time') );
+		},
+		
+		//Guarda la fecha actual en localStorage#selec_fecha
+		saveFecha:function(){
+			console.debug('saveFecha');
+			 var today = new Date();
+			 var dd = today.getDate();
+			 var mm = today.getMonth()+1; //January is 0!
 
-
+			 var yyyy = today.getFullYear();
+			 if(dd<10){
+			      dd='0'+dd
+			 } 
+			 if(mm<10){
+			      mm='0'+mm
+			 } 
+			 var today = dd+'/'+mm+'/'+yyyy;
+			localStorage.setItem('last_time', today ); 
+		},
+		
+		//Guarda la la página Web actual en localStorage#selec_url
+		saveUrl:function(url){
+			console.debug('saveurl');
+			this.selec_url = url;
+		}
+		
+};
 
 //Se ejecuta SIEMPRE cuando todo el HTML se ha cargado
 $(function() {
+	
+	//ultimasVisitas();
+	ultimasVisitas.init();
+	ultimasVisitas.setFecha();
+	// Añadir a la lista las últimas visitas
+	
+	//crear elemento de la lista
+	var last = "<li><a href='" + localStorage.getItem('last') + "'>"+pagina+"</a></li>";
+	$('#visitas').append( last );
+	
+	troll.init('Unai');
+	troll.saluda();
 	
 	console.debug('document ready!');	
 	$('#select').filterByText($('#textbox'), false);
@@ -158,6 +239,5 @@ $(function() {
 	} else {
 		alert('Lo siento, pero tu navegador no acepta almacenamiento local');
 	}
-	
 
 }); //end ready

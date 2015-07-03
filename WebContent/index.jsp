@@ -64,7 +64,15 @@
 			<li><a href="http://librosweb.es/libro/css/" target="_blank">CSS B&aacute;sico</a></li>
 			<li><a href="http://librosweb.es/libro/css_avanzado/" target="_blank">CSS Avzanzado</a></li>
 		</ul>
-	
+		
+		<br><br>
+		
+		<h3>Ultimas Visita <span id="last_time"></span></h3>
+		<ul id="visitas">	
+		
+		<!-- #selec_url -->		
+			<li>Sin visitas</li>		
+		</ul>
 	</aside>   
 	   
 <script type="text/javascript" src="js/index.js"></script>
