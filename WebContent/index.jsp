@@ -67,6 +67,9 @@
 			<li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
 			<li><a href="https://www.youtube.com/watch?v=nug1pMke-y4" target="_blank">Video tutorial de Bootstrap</a></li>
 		</ul>
+		<h3>Ultimas visitas</h3>
+		<ul id="ultimas_visitas">
+		</ul>
 	
 	</aside>   
 	   

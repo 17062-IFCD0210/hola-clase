@@ -87,6 +87,30 @@ function comprobarFormulario(formulario){
 $(function() {
 	
 	console.debug('document ready!');	
+	
+	if (window.sessionStorage && window.localStorage) { 
+		var fecha = new Date();
+		
+		 console.info('almacenamiento local Soportado');
+		 localStorage.setItem("last_page",location.href);
+		 localStorage.setItem("last_time",fecha.toLocaleString());
+//		 sessionStorage.setItem("ps0","hola");
+		 
+		 //pintar todas las local storages
+/*		 var a_keys=Object.keys(localStorage); //array de keys
+		 for (i=0;i<a_keys.length;i++){
+			 console.debug(a_keys[i] + ' => '+ localStorage.getItem(a_keys[i]));
+		 }
+*/		 
+		 nodo='<li><a href="'+ localStorage.getItem("last_page")+'"</a>'+localStorage.getItem("last_page")+'</li>';
+ 		 $('#ultimas_visitas').append(nodo);
+		 
+	} else { 
+		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
+	} 			 
+	
+	
+	
 	$('#select').filterByText($('#textbox'), false);
 
 	
@@ -152,20 +176,5 @@ $(function() {
 	$("#form_new_user #repass").blur(function(){
 		comprobarPassword();
 	});	
-	if (window.sessionStorage && window.localStorage) { 
-		 console.info('almacenamiento local Soportado');
-//		 localStorage.setItem('p0','hola');
-//		 sessionStorage.setItem('ps0','hola');
-		 
-		 //pintar todas las local storages
-		 var a_keys=Object.keys(localStorage); //array de keys
-		 for (i=0;i<a_keys.length;i++){
-			 console.debug(a_keys[i] + ' => '+ localStorage.getItem(a_keys[i]));
-		 }
-		 
-	} else { 
-		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
-	} 			 
-
 
 }); // end

@@ -33,7 +33,7 @@ var afortunados = [
 function init(){
 	//alert( 'onload body ok');
 	
-	
+/*	
 	//set o guardar valor
 	localStorage["l1"] = "pepe";
 	localStorage.setItem ("l2", "pepa");
@@ -52,7 +52,7 @@ function init(){
 	
 	
 	var listado_keys = Object.keys(localStorage);
-	
+*/	
 }
 
 	
