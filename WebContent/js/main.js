@@ -47,9 +47,77 @@ function llamadaAjax(){
 	
 }
 
+//http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
+var troll = {
+		 
+		nombre: 'PepeGrog',
+		apellido: 'mokerf',
+		
+		init: function( nombre ) {
+			this.nombre = nombre;
+		},
+
+		saluda: function() {
+			console.info ('soy un Troll y me llamo ' + this.nombre );
+		}
+	};
+
+
+
+/**
+ * Objeto para gestionar las ultimas visitas y fecha
+ * 
+ *  Necesario tener una maquetacion de este modo:
+ *  
+ *  <h3>Ultimas Visita <span id="last_time"></span></h3>
+ *	<ul id="visitas">			
+ *		<li>Sin visitas</li>		
+ *	</ul>
+ *  
+ */
+var ultimasVisitas = {
+		
+		selec_contenedor: '#visitas',
+		selec_fecha:  '#last_time',	
+		
+		//Inicializa el objeto
+		init: function(){
+			console.debug('init');
+			this.saveFecha();
+		},
+		
+		//Muestra la Fecha guardada en localStorage#selec_fecha
+		setFecha: function(){
+			console.debug('setFecha');
+			$(this.selec_fecha).html( localStorage.getItem('last_time') );
+		},
+		
+		//Guarda la fecha actual en localStorage#selec_fecha
+		saveFecha:function(){
+			console.debug('saveFecha');
+			 var today = new Date();
+			 var dd = today.getDate();
+			 var mm = today.getMonth()+1; //January is 0!
+
+			 var yyyy = today.getFullYear();
+			 if(dd<10){
+			      dd='0'+dd
+			 } 
+			 if(mm<10){
+			      mm='0'+mm
+			 } 
+			 var today = dd+'/'+mm+'/'+yyyy;
+			localStorage.setItem('last_time', today ); 
+		}
+		
+};
+
 
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
+	
+	troll.init('ander');
+	troll.saluda();
 	
 	console.debug('document ready!');	
 	$('#select').filterByText($('#textbox'), false);
@@ -129,7 +197,11 @@ $(function() {
 			 alert('Lo siento, pero tu navegador no acepta almacenamiento local');
 		 	} 
 
+		 
+		
 
 		
-		
 });//end ready
+
+
+
