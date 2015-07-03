@@ -120,7 +120,8 @@ function ultimas_visitas(){
 		 
 		 //Muestra las paginas guardadas
 		 var a_keys=Object.keys(localStorage); //array de keys
-		 for (i=0;i<a_keys.length;i++){
+//		 for (i=0;i<a_keys.length;i++){
+		 for (i=0;i<5;i++){		 
 			 url=localStorage.getItem(a_keys[i]);
 			 if(url==null)break;
 			 paginas=url.split('/');
@@ -144,15 +145,19 @@ function ultimas_visitas(){
 		 }
 */
 		 //Recorre todas las visitas una posicion
-		 for (i=0;i<5;i++){
-			 if(localStorage.getItem('v'+i)==null)break;
+		 for (i=0;i<4;i++){
+/*			 if(localStorage.getItem("v"+i)==null)break;
 			 indice=i+1;
-			 localStorage.setItem('v'+i,localStorage.getItem('v'+indice));
+			 localStorage.setItem("v"+i,localStorage.getItem("v"+indice));
+*/
+			 indice=i+1;
+			 if(localStorage.getItem("v"+indice)==null)break;
+			 localStorage.setItem("v"+i,localStorage.getItem("v"+indice));
+			 localStorage.removeItem("v"+indice);
 		 }
 		 
 		 //Anotar la visita actual en ultima posicion
-		 if(i>0){i=i+1;}
-		 localStorage.setItem('v'+i,location.href);		 
+		 localStorage.setItem("v"+indice,location.href);		 
 		 
 		 
 		 
