@@ -109,64 +109,46 @@ var visitas = {
 		}
 }
 
-
 function ultimas_visitas(){
 	
 	if (window.sessionStorage && window.localStorage) { 
-		var fecha = new Date();
+		var a_visitadas=[''];
+		var a_keys=Object.keys(localStorage); //array de keys
 		
-		 console.info('almacenamiento local Soportado');
+		console.info('almacenamiento local Soportado');
+		//Carga los valores en el array
+		for (i=0;i<5;i++){
+			a_visitadas[i]=localStorage.getItem(a_keys[i]);		 
+		}
+		
+		//muestra el array en el aside
+		for (i=0;i<a_visitadas.length;i++){
+			if(a_visitadas[i]!=null){
+				paginas=a_visitadas[i].split('/');
+				pagina=paginas[paginas.length-1];
+				pagina=pagina.substring(0,pagina.lastIndexOf(".")); //para quitar la extension
+				if (pagina=='') pagina=paginas[paginas.length-2];
+				nodo='<li><a href="'+ a_visitadas[i] +'"</a>'+pagina+'</li>';
+				$('#ultimas_visitas').append(nodo);
+			}
+		}
 		 
-		 
-		 //Muestra las paginas guardadas
-		 var a_keys=Object.keys(localStorage); //array de keys
-//		 for (i=0;i<a_keys.length;i++){
-		 for (i=0;i<5;i++){		 
-			 url=localStorage.getItem(a_keys[i]);
-			 if(url==null)break;
-			 paginas=url.split('/');
-			 pagina=paginas[paginas.length-1];
-			 if (pagina=='') pagina=paginas[paginas.length-2];
-			 nodo='<li><a href="'+ url +'"</a>'+pagina+'</li>';
-			 $('#ultimas_visitas').append(nodo);
-			 
-		 }
-		 
-
-//		 localStorage.setItem("last_time",fecha.toLocaleString());
-		 
-//		 visitas.init(location.href,'titulo',fecha.toLocaleString());
-//		 sessionStorage.setItem("ps0","hola");
-		 
-		 //pintar todas las local storages
-/*		 var a_keys=Object.keys(localStorage); //array de keys
-		 for (i=0;i<a_keys.length;i++){
-			 console.debug(a_keys[i] + ' => '+ localStorage.getItem(a_keys[i]));
-		 }
-*/
-		 //Recorre todas las visitas una posicion
-		 for (i=0;i<4;i++){
-/*			 if(localStorage.getItem("v"+i)==null)break;
-			 indice=i+1;
-			 localStorage.setItem("v"+i,localStorage.getItem("v"+indice));
-*/
-			 indice=i+1;
-			 if(localStorage.getItem("v"+indice)==null)break;
-			 localStorage.setItem("v"+i,localStorage.getItem("v"+indice));
-			 localStorage.removeItem("v"+indice);
-		 }
-		 
-		 //Anotar la visita actual en ultima posicion
-		 localStorage.setItem("v"+indice,location.href);		 
-		 
-		 
+		//guarda la pagina actual en el array y elimina la mas antigua
+		a_visitadas.push(location.href);
+		if(a_visitadas.length>5){
+			a_visitadas.shift();
+		}
+		
+		//guarda el array en el localStorage
+		for(i=0;i<a_visitadas.length;i++){
+			localStorage.setItem('v'+i,a_visitadas[i]);
+		}
 		 
 	} else { 
 		alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
 	} 			 	
 	
 }
-
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
 	
