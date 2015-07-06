@@ -127,27 +127,51 @@ var ultimasVisitas = {
 		
 		selec_contenedor: '#visitas',
 		selec_fecha:  '#last_time',	
+		json_visita: { "url": undefined,"nombre": undefined,"fecha": undefined	},
 		num_visitas: 5, //numero maximo de vistas a guardar
 		
 		//Inicializa el objeto
 		init: function(){
 			console.debug('init');
 			this.limpiar();
-			this.loadVisita();	
-			this.setFecha();
-			this.saveFecha();
+			//recupera datos de LocalStorage
+			this.loadStorageData();
+			//gestion de ultima pagina visitada
+			this.loadVisita();
 			this.saveVisita();			
+			//gestion fecha ultima visita
+			this.loadFecha();
+			this.saveFecha();
+			//salva datos de LocalStorage
+			this.saveStorageData();
+			
+			console.debug('end:init');
+			
+		},
+		
+		//Carga los datos de Storage en el atributo this.json_visita
+		loadStorageData: function(){
+			
+			if ( localStorage.getItem('last') != undefined ){
+				 this.json_visita = JSON.parse( localStorage.getItem('last'));
+			}	 
+			
+		},
+		
+		saveStorageData: function(){
+			localStorage.setItem('last', JSON.stringify(this.json_visita));
 		},
 		
 		//Muestra la Fecha guardada en localStorage#selec_fecha
-		setFecha: function(){
-			console.debug('setFecha');
-			$(this.selec_fecha).html( localStorage.getItem('last_time') );
+		loadFecha: function(){			
+			console.debug(' loadFecha');
+			$(this.selec_fecha).html( this.json_visita.fecha );
+			console.debug(' end:loadFecha');
 		},
 		
 		//Guarda la fecha actual en localStorage#selec_fecha
 		saveFecha:function(){
-			console.debug('saveFecha');
+			console.debug(' saveFecha');			
 			 var today = new Date();
 			 var dd = today.getDate();
 			 var mm = today.getMonth()+1; //January is 0!
@@ -160,20 +184,24 @@ var ultimasVisitas = {
 			      mm='0'+mm
 			 } 
 			 var today = dd+'/'+mm+'/'+yyyy;
-			localStorage.setItem('last_time', today ); 
+			//localStorage.setItem('last_time', today );
+			this.json_visita.fecha = today;
+			console.debug(' end:saveFecha');		
 		},
 		
 		//limpiar listado de visitas
 		limpiar: function (){
+			console.debug(' limpiar');		
 			$(this.selec_contenedor).html('');
+			console.debug(' end:limpiar');		
 		},
 		
 		//salva la ultima visita en localStorage en formato Json
 		saveVisita: function(){
-			
-			var url    = window.location.href;
-			
+			console.debug(' saveVisita');	
+			var url    = window.location.href;			
 			var nombre = 'home';			
+			
 			var array_url = url.split("/");
 			//si no es mayor uno estamos en la HOME
 			if ( array_url.length > 1 ){
@@ -187,30 +215,36 @@ var ultimasVisitas = {
 				}	
 			}
 			
-			var json_visita = {
+			/*
+			this.json_visita = {
 									"url": url,
 									"nombre": nombre
 							   };
+			*/
 			
-			localStorage.setItem('last', JSON.stringify(json_visita) );
 			
+			this.json_visita.url    = url;
+			this.json_visita.nombre = nombre;
 			
+			//localStorage.setItem('last', JSON.stringify(json_visita) );
+			
+			console.debug(' end:saveVisita');	
 			
 		},
 		
 		//carga la ultima visita en el listado		
 		loadVisita: function(){
+			console.debug(' loadVisita');
 			
 			var visita = undefined;
-			if ( localStorage.getItem('last') != undefined ){
-				 visita = JSON.parse( localStorage.getItem('last'));
+			if ( this.json_visita != undefined ){
 				 
 			
-				 var li = "<li><a href='"+visita.url+"'>"+ visita.nombre + "</a></li>";
+				 var li = "<li><a href='"+ this.json_visita.url+"'>"+ this.json_visita.nombre + "</a></li>";
 				 $(this.selec_contenedor).append( li );
 			
 			}
-			
+			console.debug(' end:loadVisita');
 		}
 		
 };
