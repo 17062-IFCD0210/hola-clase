@@ -14,7 +14,8 @@
 					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}"	 
 				       placeholder="Escribe tu nombre"
 				       title="Por favor escribe tu nombre"				       
-				       >
+				       autofocus
+				       tabindex="1">
 			</p>
 			
 			<p>
@@ -23,13 +24,13 @@
 					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256} ([a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}?)"	  
 				       value="" placeholder="Tus dos apellidos"
 				       title="Por favor escribe tus dos apellidos" 
-				       >
+				       tabindex="3">
 			</p>
 			
 			<p>
 				<label for="profesion">Profesi&oacute;n:</label><br>
 				<input type="text" id="profesion" name="profesion" value="Actor" 
-					   readonly >
+					   readonly>
 			</p>
 			
 			<p>
@@ -37,7 +38,8 @@
 				<input type="text" id="edad" name="edad" value=""
 				       placeholder="0-99"
 				       required pattern="[0-9]{1,2}"				        
-					   size="2" >
+					   size="2"
+					   tabindex="2">
 			</p>
 			
 			<p>
