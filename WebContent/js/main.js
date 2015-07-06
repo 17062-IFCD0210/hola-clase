@@ -183,7 +183,7 @@ var ultimasVisitas = {
 			 if(mm<10){
 			      mm='0'+mm
 			 } 
-			 var today = dd+'/'+mm+'/'+yyyy;
+			 var today = dd+'/'+mm+'/'+yyyy+' ' + today.getHours()+':'+today.getMinutes()+':'+today.getSeconds();
 			//localStorage.setItem('last_time', today );
 			this.json_visita.fecha = today;
 			console.debug(' end:saveFecha');		
