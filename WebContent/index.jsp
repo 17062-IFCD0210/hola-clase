@@ -67,10 +67,17 @@
 			<li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
 			<li><a href="https://www.youtube.com/watch?v=nug1pMke-y4" target="_blank">Video tutorial de Bootstrap</a></li>
 		</ul>
+<!-- maquetacion para mi solucion
 		<h3>Ultimas visitas</h3>
 		<ul id="ultimas_visitas">
 		</ul>
-	
+ -->			
+ <!-- maquetacion para la solucion del profe -->
+		<h3>Ultimas Visita <span id="last_time"></span></h3>
+		<ul id="visitas">			
+			<li>Sin visitas</li>		
+		</ul>
+		
 	</aside>   
 	   
 <script type="text/javascript" src="js/index.js"></script>
