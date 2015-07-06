@@ -68,9 +68,7 @@
 		<br><br>
 		
 		<h3>Ultimas Visita <span id="last_time"></span></h3>
-		<ul id="visitas">	
-		
-		<!-- #selec_url -->		
+		<ul id="visitas">			
 			<li>Sin visitas</li>		
 		</ul>
 	</aside>   

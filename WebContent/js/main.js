@@ -96,49 +96,127 @@ var ultimasVisitas = {
 		
 		selec_contenedor: '#visitas',
 		selec_fecha:  '#last_time',	
-		selec_url  :   '#last_url',
+		json_visita: { "url": undefined,"nombre": undefined,"fecha": undefined	},
+		num_visitas: 5, //numero maximo de vistas a guardar
 		
 		//Inicializa el objeto
 		init: function(){
 			console.debug('init');
+			this.limpiar();
+			//recupera datos de LocalStorage
+			this.loadStorageData();
+			//gestion de ultima pagina visitada
+			this.loadVisita();
+			this.saveVisita();			
+			//gestion fecha ultima visita
+			this.loadFecha();
 			this.saveFecha();
-			this.saveUrl();
+			//salva datos de LocalStorage
+			this.saveStorageData();
+			
+			console.debug('end:init');
+			
 		},
-
-		//Muestra la Url guardada en localStorage#selec_url
-		setUrl: function(){
-			console.debug('setUrl');
-			$(this.selec_url).html( localStorage.getItem('last_url') );
+		
+		//Carga los datos de Storage en el atributo this.json_visita
+		loadStorageData: function(){
+			
+			if ( localStorage.getItem('last') != undefined ){
+				 this.json_visita = JSON.parse( localStorage.getItem('last'));
+			}	 
+			
+		},
+		
+		saveStorageData: function(){
+			localStorage.setItem('last', JSON.stringify(this.json_visita));
 		},
 		
 		//Muestra la Fecha guardada en localStorage#selec_fecha
-		setFecha: function(){
-			console.debug('setFecha');
-			$(this.selec_fecha).html( localStorage.getItem('last_time') );
+		loadFecha: function(){			
+			console.debug(' loadFecha');
+			$(this.selec_fecha).html( this.json_visita.fecha );
+			console.debug(' end:loadFecha');
 		},
 		
 		//Guarda la fecha actual en localStorage#selec_fecha
 		saveFecha:function(){
-			console.debug('saveFecha');
+			console.debug(' saveFecha');			
 			 var today = new Date();
 			 var dd = today.getDate();
 			 var mm = today.getMonth()+1; //January is 0!
-
 			 var yyyy = today.getFullYear();
+			 var hh = today.getHours();
+			 var mn = today.getMinutes();
+			 var ss = today.getSeconds();
+			 
 			 if(dd<10){
 			      dd='0'+dd
 			 } 
 			 if(mm<10){
 			      mm='0'+mm
 			 } 
-			 var today = dd+'/'+mm+'/'+yyyy;
-			localStorage.setItem('last_time', today ); 
+			 var today = dd+'/'+mm+'/'+yyyy+' '+hh+':'+mn+':'+ss;
+			//localStorage.setItem('last_time', today );
+			this.json_visita.fecha = today;
+			console.debug(' end:saveFecha');		
 		},
 		
-		//Guarda la la página Web actual en localStorage#selec_url
-		saveUrl:function(url){
-			console.debug('saveurl');
-			this.selec_url = url;
+		//limpiar listado de visitas
+		limpiar: function (){
+			console.debug(' limpiar');		
+			$(this.selec_contenedor).html('');
+			console.debug(' end:limpiar');		
+		},
+		
+		//salva la ultima visita en localStorage en formato Json
+		saveVisita: function(){
+			console.debug(' saveVisita');	
+			var url    = window.location.href;			
+			var nombre = 'home';			
+			
+			var array_url = url.split("/");
+			//si no es mayor uno estamos en la HOME
+			if ( array_url.length > 1 ){
+				//obtener ultima posicion de la url
+				nombre = array_url [(array_url.length-1)];
+				if ( nombre == "" ){
+					nombre = 'home';		
+				}else{
+					//limpiar .jsp
+					nombre = nombre.replace(".jsp","");
+				}	
+			}
+			
+			/*
+			this.json_visita = {
+									"url": url,
+									"nombre": nombre
+							   };
+			*/
+			
+			
+			this.json_visita.url    = url;
+			this.json_visita.nombre = nombre;
+			
+			//localStorage.setItem('last', JSON.stringify(json_visita) );
+			
+			console.debug(' end:saveVisita');	
+			
+		},
+		
+		//carga la ultima visita en el listado		
+		loadVisita: function(){
+			console.debug(' loadVisita');
+			
+			var visita = undefined;
+			if ( this.json_visita != undefined ){
+				 
+			
+				 var li = "<li><a href='"+ this.json_visita.url+"'>"+ this.json_visita.nombre + "</a></li>";
+				 $(this.selec_contenedor).append( li );
+			
+			}
+			console.debug(' end:loadVisita');
 		}
 		
 };
@@ -148,12 +226,14 @@ $(function() {
 	
 	//ultimasVisitas();
 	ultimasVisitas.init();
-	ultimasVisitas.setFecha();
+	
 	// Añadir a la lista las últimas visitas
 	
+	/*
 	//crear elemento de la lista
 	var last = "<li><a href='" + localStorage.getItem('last') + "'>"+pagina+"</a></li>";
 	$('#visitas').append( last );
+	*/
 	
 	troll.init('Unai');
 	troll.saluda();
@@ -224,7 +304,7 @@ $(function() {
 		
 		localStorage.setItem('p0','hola');
 		
-		localStorage.setItem('last', window.location.href);
+		localStorage.setItem('ultima', window.location.href);
 		
 		//pintar todas las localStorages
 		var a_keys = Object.keys(localStorage);

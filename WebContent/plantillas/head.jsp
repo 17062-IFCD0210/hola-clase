@@ -54,11 +54,6 @@
   <a href="#">¿Como solucionarlo?</a>
 </noscript>
 
-<script type="text/javascript">
-	//Añade la url actual
-	$('#selec_url').html( localStorage.getItem('last_url') );
-</script>
-
 <header id="head">	
 
 	

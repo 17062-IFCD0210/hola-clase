@@ -120,7 +120,9 @@
 				
 				<!-- TABS / FICHAS -->
 				<div>
+				
 				<!-- TODO Falta el login de Bootstrap y el controlador .jsp--> 
+				
 				  <!-- Nav tabs -->
 				  <ul class="nav nav-tabs" role="tablist">
 				    <li role="presentation" class="active"><a href="#home_enlaces" aria-controls="enlaces" role="tab" data-toggle="tab">Enlaces</a></li>
