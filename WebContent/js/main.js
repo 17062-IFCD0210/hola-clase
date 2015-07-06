@@ -307,8 +307,8 @@ $(function() {
 	troll.init('ander');
 	troll.saluda();
 
-	ultimas_visitas();
-	
+//	ultimas_visitas();
+	ultimasVisitas.init();
 
 	
 	$('#select').filterByText($('#textbox'), false);
