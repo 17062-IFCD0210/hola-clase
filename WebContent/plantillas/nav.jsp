@@ -13,6 +13,7 @@
 	<li>
 		<h2>Nuevos Elementos HTML5</h2>
 		<ul>
+			<li><a href="ejemplos/html5/canvaspaint.jsp">Canvas</a></li>
 			<li><a href="ejemplos/html5/figure.jsp">Figure</a></li>
 			<li><a href="ejemplos/html5/hgroup.jsp">Hgroup</a></li>
 			<li><a href="ejemplos/html5/hgroup.jsp">Time</a></li>
@@ -64,6 +65,9 @@
 			<li><a href="ejemplos/reales/cartelera.jsp">Cartelera</a></li>
 			<li><a href="ejemplos/reales/cartelera_detalle.jsp">Detalle Cartelera</a></li>
 			<li><a href="ejemplos/reales/bootstrap/index.jsp">Bootstrap grid</a></li>
+			<li><a href="ejemplos/reales/ipartek.jsp">Ipartek</a></li>
+			<li><a href="ejemplos/reales/surf.jsp">surf</a></li>			
+			<li><a href="ejemplos/reales/bootstrap/bootstrap.jsp" target="_blank"">Bootstrap</a></li>
 		</ul>
 	</li> 
 	<li> 
@@ -110,6 +114,7 @@
 		</ul>
 	</li>  
   </ul>
+
 
 </nav>
 

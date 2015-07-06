@@ -10,6 +10,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.text.html.HTML;
 
+import com.ipartek.formacion.holaclase.Utilidades;
+
 /**
  * Servlet implementation class ControladorAjaxRegistroUsuario
  */
@@ -70,15 +72,14 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 			libre_usuario = true;
 		}		
 		
-		
-		//comprobar Email no es cadena vacia y que no exista
-		if ( !"".equalsIgnoreCase(email) && 
-				 !listaEmail.contains(email) 
-				){		
-				libre_email = true;
-			}
-		
+			
 		//TODO comprobar email valido
+		if ( Utilidades.isEmail(email) ){
+			if ( !"".equalsIgnoreCase(email) &&
+				!listaEmail.contains(email)){		
+					libre_email = true;
+			}
+		}
 		
 		
 	//formatear las response	

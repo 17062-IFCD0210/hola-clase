@@ -2,7 +2,7 @@
 <head>
 
    <base href="<%=request.getContextPath()%>/">
-	
+	<meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
   <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
   <script src="js/morris.js-0.5.1/morris.js"></script>
