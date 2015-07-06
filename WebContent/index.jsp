@@ -66,7 +66,7 @@
 			<li><a href="https://www.youtube.com/watch?v=nug1pMke-y4" target="_blank">Videotutorial Bootstrap</a></li>
 		</ul>
 		
-		<h3>Ultimas Paginas Visitadas</h3>
+		<h3>Ultimas Paginas Visitadas <span id="last_time"></span></h3></h3>
 		<ul id="visitas">
 		
 		</ul>
