@@ -96,7 +96,7 @@ var troll = {
 			console.info('soy un troll y me llamo '+this.nombre);
 		}//este al ser el ultimo no lleva coma
 	};
-
+/*
 var visitas = {
 		url:'url',
 		titulo:'titulo',
@@ -108,7 +108,7 @@ var visitas = {
 			fecha=p_fecha;
 		}
 }
-
+*/
 function ultimas_visitas(){
 	
 	if (window.sessionStorage && window.localStorage) { 

@@ -6,8 +6,8 @@
 		<h2>B&aacute;sicos</h2>
 		<ul>
 			<li><a href="ejemplos/basicos/parrafos.jsp">Parrafos y enlaces internos</a></li>
-			<li><a href="#">Block e inline</a></li>
-			<li><a href="#">Listas</a></li>
+			<li><a href="ejemplos/basicos/block_inline.jsp">Block e inline</a></li>
+			<li><a href="ejemplos/basicos/listas.jsp">Listas</a></li>
 		</ul>
 	</li>
 	<li>
