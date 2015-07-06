@@ -133,8 +133,10 @@ var ultimasVisitas = {
 		init: function(){
 			console.debug('init');
 			this.limpiar();
+			this.loadVisita();	
+			this.setFecha();
 			this.saveFecha();
-			this.saveVisita();
+			this.saveVisita();			
 		},
 		
 		//Muestra la Fecha guardada en localStorage#selec_fecha
@@ -172,13 +174,17 @@ var ultimasVisitas = {
 			var url    = window.location.href;
 			
 			var nombre = 'home';			
-			var array_url = url.split("\\");
+			var array_url = url.split("/");
 			//si no es mayor uno estamos en la HOME
 			if ( array_url.length > 1 ){
 				//obtener ultima posicion de la url
-				nombre = array_url [array_url.length];
-				//limpiar .jsp
-				nombre = nombre.replace(".jsp","");
+				nombre = array_url [(array_url.length-1)];
+				if ( nombre == "" ){
+					nombre = 'home';		
+				}else{
+					//limpiar .jsp
+					nombre = nombre.replace(".jsp","");
+				}	
 			}
 			
 			var json_visita = {
@@ -187,10 +193,23 @@ var ultimasVisitas = {
 							   };
 			
 			localStorage.setItem('last', JSON.stringify(json_visita) );
+			
+			
+			
 		},
 		
 		//carga la ultima visita en el listado		
 		loadVisita: function(){
+			
+			var visita = undefined;
+			if ( localStorage.getItem('last') != undefined ){
+				 visita = JSON.parse( localStorage.getItem('last'));
+				 
+			
+				 var li = "<li><a href='"+visita.url+"'>"+ visita.nombre + "</a></li>";
+				 $(this.selec_contenedor).append( li );
+			
+			}
 			
 		}
 		
@@ -207,7 +226,7 @@ $(function() {
 	
 	//ultimasVisitas();
 	ultimasVisitas.init();
-	ultimasVisitas.setFecha();
+	
 	
 	
 	console.debug('document ready!');	
