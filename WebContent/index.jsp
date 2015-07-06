@@ -67,7 +67,7 @@
 		</ul>
 		
 		<h3>Ultimas Paginas Visitadas</h3>
-		<ul class="lista_pags">
+		<ul id="visitas">
 		
 		</ul>
 	
