@@ -20,6 +20,7 @@
 			<li><a href="ejemplos/html5/proges_y_meter.jsp">Progress y Meter</a></li>
 			<li><a href="ejemplos/html5/datalist.jsp">DataList</a></li>
 			<li><a href="ejemplos/html5/canvaspaint.jsp">Canvas Paint</a></li>
+			<li><a href="ejemplos/html5/geolocation.jsp">Geolocalizaci&oacute;n</a></li>
 		</ul>
 	</li>
 	
