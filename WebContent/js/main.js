@@ -146,7 +146,7 @@ var ultimasVisitas = {
 							   };
 			*/
 			
-			for(i=0;i<num_visitas;i++) {
+			for(i=0;i<this.num_visitas;i++) {
 				if(this.json_visita.url != url) {
 					this.json_visita.url    = url;
 					this.json_visita.nombre = nombre;
