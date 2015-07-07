@@ -68,7 +68,7 @@
 		
 		<br><br>
 		
-		<h3>Ultimas Visita <span id="last_time"></span></h3>
+		<h3>Ultimas Visitas <span id="last_time"></span></h3>
 		<ul id="visitas">			
 			<li>Sin visitas</li>		
 		</ul>
