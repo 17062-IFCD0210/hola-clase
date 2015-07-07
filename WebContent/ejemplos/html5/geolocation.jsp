@@ -12,17 +12,28 @@
 		<style>
 	      #map {
 	        height: 300px; //Altura para que se vea el mapa, sino puede que no se vea
-	        width: 100%;
+	        width: 60%;
 	        margin: 0px;
 	        padding: 0px
 	      }
+	      
+	      #pano{
+	        height: 300px; //Altura para que se vea el mapa, sino puede que no se vea
+	        width: 40%;
+	        margin: 0px;
+	        padding: 0px
+
+	      }
+	      
 	    </style>					
 			
 		<div class="cnt_article">
 		
 			<!--  Div sobre el que se cargara el mapa de google -->
 			<div id="map"></div>
-
+			
+			<!-- Div sobre el que se cargará el street view -->
+			<div id="pano"></div>
 
 		</div>
 		
@@ -42,10 +53,41 @@
 					
 				//Inicializar mapa
 				  map = new google.maps.Map(document.getElementById('map'), {
-				    zoom: 12,
+				    zoom: 15,
 				    center: {lat: lat, lng: lng},
-
+				    mapTypeId: google.maps.MapTypeId.SATELLITE
 				  });
+
+				//Agregar un marcador
+				  var lugar = new google.maps.LatLng(lat,lng);
+				  var marker = new google.maps.Marker({
+				        position: lugar,
+				        title: 'Ipartek',
+				        map: map
+				  });
+				  var mi_casa = new google.maps.LatLng( 43.319731, -2.987762 );
+				  marker = new google.maps.Marker({
+				        position: mi_casa,
+				        title: 'Mi casa',
+				        map: map
+				  });
+				//Foto de streetview delante de Ipartek
+				  var ipartek = new google.maps.LatLng( 43.256435, -2.913502);
+				  marker = new google.maps.Marker({
+				        position: ipartek,
+				        title: 'Ipartek de verdad',
+			    	    map: map
+			  	});
+				  var panoramaOptions = {
+						position: ipartek,
+						pov: {
+						      heading:-100,
+						      pitch: 1
+						}
+					};
+					var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
+					map.setStreetView(panorama);
+
 			}
 
 
