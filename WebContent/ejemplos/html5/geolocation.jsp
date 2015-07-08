@@ -27,32 +27,39 @@
 		var map;
 		var lat = 0;
 		var lng = 0;
+	
+		/* Mostrar en Google Maps nuestra localizacion */
+		function show_map( localizacion ) {
+			
+			// obtener localizacion
+			lat = localizacion.coords.latitude;
+			lng = localizacion.coords.longitude;
+			console.debug('lat: ' + lat);
+			console.debug('lng: ' + lng);
+		
+			
+			// inicializar mapa
+			  map = new google.maps.Map(document.getElementById('map'), {
+				    zoom: 20,
+				    center: {lat: lat, lng: lng}
+				  });
+
+		}
 		
 		function geolocalizarme(){
+			
 			if (navigator.geolocation) {
 				console.debug('Geolocalizando...');
 				navigator.geolocation.getCurrentPosition(show_map);
 			} else {
 				console.error('Geolocation NO soportado');
 			}
-			
-			/* Mostrar en Google Maps nuestra localizacion */
-			function show_map( localizacion ) {
-				// obtener localizacion
-				lat = localizacion.coords.latitude;
-				lng = localizacion.coords.longitude;
-				console.debug('lat: ' + lat);
-				console.debug('lng: ' + lng);
-				
-				// inicializar mapa
-				  map = new google.maps.Map(document.getElementById('map'), {
-					    zoom: 8,
-					    center: {lat: lat, lng: lng}
-					  });
-			}
 		}
-		
+
 		google.maps.event.addDomListener(window, 'load', geolocalizarme);
+		
+
+		
 	</script>
 	
 	<footer>
