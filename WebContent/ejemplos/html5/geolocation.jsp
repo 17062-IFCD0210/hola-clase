@@ -27,8 +27,9 @@
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		<script>
 			var map;
-			var lat = 0;
-			var lng = 0;
+			var latitud = 0;
+			var longitud = 0;
+			var rectangle;
 			
 			function show_map(localizacion) {
 				
@@ -38,30 +39,23 @@
 				console.debug('lat: ' + latitud);
 				console.debug('lng: ' + longitud);
 				
+				var myLatLng = new google.maps.LatLng(latitud,longitud);
+				
 				//inicializar Mapa
 				map = new google.maps.Map(document.getElementById('map'), {
-				   zoom: 8,
-				   center: {lat: latitud, lng: longitud}
+				   zoom: 20,
+				   center: myLatLng,
+				   mapTypeId: google.maps.MapTypeId.SATELLITE
 				});
 				
 				var marker = new google.maps.Marker({
 				    map: map,
-				    // Define the place with a location, and a query string.
-				    place: {
-				      location: {lat: latitud, lng: longitud},
-				      query: 'Google, Getxo, Spain'
-
-				    },
-				    // Attributions help users find your site again.
-				    attribution: {
-				      source: 'Google Maps JavaScript API',
-				      webUrl: 'https://developers.google.com/maps/'
-				    }
+				    position: myLatLng
 				});
 				
 				// Construct a new InfoWindow.
 				var infowindow = new google.maps.InfoWindow({
-				    content: 'Google Getxo'
+				    content: 'Google Bilbao'
 				});
 
 				// Opens the InfoWindow when marker is clicked.
@@ -69,6 +63,25 @@
 				    infowindow.open(map, marker);
 				});
 
+				
+				rectangle = new google.maps.Rectangle();
+				 
+				google.maps.event.addListener(map, 'zoom_changed', function() {
+
+				    // Get the current bounds, which reflect the bounds before the zoom.
+				    var rectOptions = {
+				      strokeColor: '#00FF00',
+				      strokeOpacity: 0.8,
+				      strokeWeight: 2,
+				      fillColor: '#00FF00',
+				      fillOpacity: 0.35,
+				      map: map,
+				      bounds: map.getBounds()
+				    };
+				    rectangle.setOptions(rectOptions);
+				});				 
+				 
+				 
 			}
 			
 			function geolocalizarme(){

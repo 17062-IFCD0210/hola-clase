@@ -1,5 +1,12 @@
 var last_page = [];
 
+function contarCaracteres(event){
+
+	var contenido   = $("textArea").val();
+	
+	$("span").html("Caracteres: " + contenido.length);
+}
+
 function validar(formulario){
 	var resul=false;
 
@@ -53,6 +60,7 @@ function comprobarPassWd(){
 		}
 	}
 };
+
 
 function llamadaAjax(){
 	
@@ -354,7 +362,15 @@ $(function() {
 	
 	//ultimasVisitasProfe();
 	//ultimasVisitasProfe.init();
+	
+	
+	
 
+    $("textarea[data-role='observaciones']").keyup(function(event){
+		
+		contarCaracteres(event);
+		
+	});
 	
 	
 	console.debug('document ready!');	
