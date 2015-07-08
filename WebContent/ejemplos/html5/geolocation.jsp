@@ -25,6 +25,22 @@
 
 	      }
 	      
+	      .infoWindow h1, .infoWindow p{
+				margin: 0;
+				padding: 0;
+				border: 0;
+				font-size: 100%;
+				font: inherit;
+				vertical-align: baseline;	
+				color:black;
+				background-color:white;      
+		  }
+	      
+	      .infoWindow h1{
+	      		font-size: large;
+	      		font-weight: bold;
+	      		padding_bottom:10px;
+	      }
 	    </style>					
 			
 		<div class="cnt_article">
@@ -53,7 +69,7 @@
 					
 				//Inicializar mapa
 				  map = new google.maps.Map(document.getElementById('map'), {
-				    zoom: 15,
+				    zoom: 11,
 				    center: {lat: lat, lng: lng},
 				    mapTypeId: google.maps.MapTypeId.SATELLITE
 				  });
@@ -71,13 +87,30 @@
 				        title: 'Mi casa',
 				        map: map
 				  });
-				//Foto de streetview delante de Ipartek
+				  
+				//Marcador en Ipartek
 				  var ipartek = new google.maps.LatLng( 43.256435, -2.913502);
 				  marker = new google.maps.Marker({
 				        position: ipartek,
 				        title: 'Ipartek de verdad',
 			    	    map: map
 			  	});
+				  
+				  //circulo
+				  var circuloOptions={
+						strokeColor:'#0000FF',
+						strokeOpacity:0.5,
+						strokeWeight:2,
+						fillColor:'#000000',
+						fillOpacity:0.35,
+						map:map,
+						center:ipartek,
+						radius:500
+				  }
+				  
+				  cityCircle=new google.maps.Circle(circuloOptions);
+				  
+				//Foto de streetview delante de Ipartek
 				  var panoramaOptions = {
 						position: ipartek,
 						pov: {
@@ -87,8 +120,25 @@
 					};
 					var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
 					map.setStreetView(panorama);
+					
+					//Prueba de InfoWindow
+					var contentString = '<div class="infoWindow">'+
+				      '<h1>Ipartek</h1>'+
+				      '<p><b>Ipartek</b>, es el centro de formación ' +
+				      'donde estamos realizando el curso.'+
+				      '</div>';
 
-			}
+				  var infowindow = new google.maps.InfoWindow({
+				      content: contentString
+				  });
+
+				  google.maps.event.addListener(marker, 'click', function() {
+					    infowindow.open(map,marker);
+					  });
+
+				  
+
+			} // function show_map
 
 
 
@@ -102,6 +152,7 @@
 				}
 			}
 
+			
 			google.maps.event.addDomListener(window, 'load', geolocalizarme);
 		console.debug('Estamos Geolocalizados');
 			

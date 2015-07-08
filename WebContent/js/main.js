@@ -377,5 +377,20 @@ $(function() {
 		comprobarPassword();
 	});	
 
-
+	/* textarea observaciones */
+	$("textarea[data-role='observaciones']").keyup(function(event){
+		var longitud=event.target.textLength;
+		console.info('tecla pulsada ');
+		
+		if ($('#span_observaciones').length){
+			//Si ya existe el span lo actualiza
+			$("#span_observaciones").html(longitud + "/256");
+		}else{
+			//Si no existe lo crea y lo actualiza
+			$("<span id='span_observaciones'>"+longitud + "/256"+"</span>").insertAfter($("textarea[data-role='observaciones']"));
+		}
+	});
+	
+	
+	
 }); // end
