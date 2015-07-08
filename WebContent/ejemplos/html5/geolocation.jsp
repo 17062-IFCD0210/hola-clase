@@ -14,7 +14,7 @@
 				padding: 0px
 			}
 		</style>
-		<div class="cnt_article">
+		<div class="cnt_article clearfix">
 			<!-- div sobre el que cargara el mapa de google -->
 			<div id="map"></div>
 		</div>
@@ -34,14 +34,16 @@
 				console.debug('lng: ' + lng);
 				map = new google.maps.Map(
 						document.getElementById('map'), {
-							zoom : 8,
-							center : myLatLng 
+							zoom : 18,
+							center : myLatLng,
+							mapTypeId: google.maps.MapTypeId.HYBRID
 				});
+				
 				marker = new google.maps.Marker({
 				      position: myLatLng,
 				      map: map,
-				      title: 'Posicion actual'
-				  });
+				      title: 'Posicion Actual',
+				 });
 			}
 			
 			function geolocalizarme() {

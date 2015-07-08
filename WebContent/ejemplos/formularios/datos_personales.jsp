@@ -121,8 +121,9 @@
 	<fieldset>
 	<legend>CV</legend>
 	
-		<textarea name="cv" cols="60" rows="10"  
-		          placeholder="Introduce tu cv en texto plano(minimo 50 caracteres)"></textarea>
+		<textarea id="cv" name="cv" cols="60" rows="10" maxlength="256" 
+		          placeholder="Introduce tu cv en texto plano(maximo 256 caracteres)"></textarea>
+		 
 			         			
 	</fieldset>	
 		
@@ -136,5 +137,7 @@
 </form>
 
 <br>
+
+
 			
 <jsp:include page="../../plantillas/foot.jsp"></jsp:include>			

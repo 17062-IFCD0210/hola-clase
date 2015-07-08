@@ -72,18 +72,20 @@ var ultimasVisitas = {
 		
 		//Carga los datos de Storage en el atributo this.json_visita
 		loadStorageData: function(){
-			
-			if ( localStorage.getItem('last') != undefined ){
-				 this.json_visita = JSON.parse( localStorage.getItem('last'));
-			}	 
+				 this.json_visita = JSON.parse( localStorage.getItem('li1'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li2'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li3'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li4'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li5'));
 			
 		},
 		
 		saveStorageData: function(){
-			for(i=0;i<this.num_visitas;i++) {
-				localStorage.setItem('last'+i, JSON.stringify(this.json_visita));
-				this.aVisitas.push(localStorage.getItem('last'+i))
-			}
+				localStorage.setItem('li1', JSON.stringify(this.json_visita));
+				localStorage.setItem('li2', JSON.stringify(this.json_visita));
+				localStorage.setItem('li3', JSON.stringify(this.json_visita));
+				localStorage.setItem('li4', JSON.stringify(this.json_visita));
+				localStorage.setItem('li5', JSON.stringify(this.json_visita));
 		},
 		
 		//Muestra la Fecha guardada en localStorage#selec_fecha
@@ -166,18 +168,38 @@ var ultimasVisitas = {
 			
 			var visita = undefined;
 			if ( this.json_visita != undefined ){
-				 
-			
 				 var li = "<li><a href='"+ this.json_visita.url+"'>"+ this.json_visita.nombre + "</a></li>";
-				 for(i=0; i<=this.aVisitas.length;i++) {
-					 $(this.selec_contenedor).append( );
-				 }
-				 $(this.selec_contenedor).append( li );
+				 var li1, li2, li3, li4, li5;
+				 li5=li4;
+				 li4=li3;
+				 li3=li2;
+				 li2=li1;
+				 li1=li;
+				 $(this.selec_contenedor).append( li1 );
+				 $(this.selec_contenedor).append( li2 );
+				 $(this.selec_contenedor).append( li3 );
+				 $(this.selec_contenedor).append( li4 );
+				 $(this.selec_contenedor).append( li5 );
 			}
 			console.debug(' end:loadVisita');
 		}
 		
 };
+
+
+var maxLength = 256;
+$('#cv').keyup(function() {
+	//parseamos a un entero el valor maximo de caracteres
+	var limit = parseInt($(this).attr('maxlength'));
+	//Cogemos la longitud de caracteres del texto
+	var length = $(this).val().length;
+	//Si el tamaño es mayor de 256, dejamos que no meta más
+	if(length>256) {
+		var new_text = text.substr(0,length);
+		$(this).val(new_text); 
+	}
+});
+$('#cv').after('<span id="valor">'+maxLength+ '/256</span>');
 
 //function ultimasVisitas(){
 //	
