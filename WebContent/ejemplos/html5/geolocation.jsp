@@ -27,8 +27,9 @@
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		<script>
 			var map;
-			var lat = 0;
-			var lng = 0;
+			var lat  = 0;
+			var lng  = 0;
+			var zoom = 15;
 			
 			function show_map(localizacion) {
 				
@@ -37,13 +38,36 @@
 				lng = localizacion.coords.longitude;
 				console.debug('lat: ' + lat);
 				console.debug('lng: ' + lng);
+				var myLatlng = new google.maps.LatLng(lat,lng);
 				
 				//inicializar Mapa
 				map = new google.maps.Map(document.getElementById('map'), {
-				   zoom: 8,
-				   center: {lat: lat, lng: lng}
+				   zoom: zoom,
+				   center: myLatlng,
+				   mapTypeId: google.maps.MapTypeId.SATELLITE
 				});
 				
+				//marcador
+				var marker = new google.maps.Marker({
+				      position: myLatlng,
+				      map: map,
+				      title: 'Estas Aqui!'
+				  });
+				
+				
+				//circulo
+			    var circuloOptions = {
+			    	      strokeColor: '#0000FF',
+			    	      strokeOpacity: 0.5,
+			    	      strokeWeight: 2,
+			    	      fillColor: '#0000FF',
+			    	      fillOpacity: 0.35,
+			    	      map: map,
+			    	      center: myLatlng,
+			    	      radius: 500 
+			    	    };
+			   // Add the circle for this city to the map.
+			   cityCircle = new google.maps.Circle(circuloOptions);
 				
 			}
 			
