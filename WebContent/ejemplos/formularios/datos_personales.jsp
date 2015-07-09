@@ -125,6 +125,15 @@
 		          placeholder="Introduce tu cv en texto plano(maximo 256 caracteres)"></textarea>
 		 
 			         			
+	</fieldset>
+	
+	<fieldset>
+	<legend>Observaciones</legend>
+	
+		<textarea data-role="observaciones" name="observaciones" cols="60" rows="10" maxlength="256" 
+		          placeholder="Observaciones (Maximo 256 caracteres)"></textarea>
+		 
+			         			
 	</fieldset>	
 		
 	

@@ -189,17 +189,17 @@ var ultimasVisitas = {
 
 var maxLength = 256;
 $('#cv').keyup(function() {
-	//parseamos a un entero el valor maximo de caracteres
-	var limit = parseInt($(this).attr('maxlength'));
 	//Cogemos la longitud de caracteres del texto
 	var length = $(this).val().length;
 	//Si el tamaño es mayor de 256, dejamos que no meta más
-	if(length>256) {
+	if(length>maxLength) {
 		var new_text = text.substr(0,length);
 		$(this).val(new_text); 
 	}
+	$('#valor').empty();
+	$('#cv').after('<span id="valor">'+length+ '/256</span>');
 });
-$('#cv').after('<span id="valor">'+maxLength+ '/256</span>');
+
 
 //function ultimasVisitas(){
 //	
