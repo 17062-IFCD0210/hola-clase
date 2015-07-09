@@ -130,7 +130,8 @@
 	<legend>Observaciones</legend>
 	
 		<textarea name="observaciones" cols="60" rows="10" data-role="observaciones" 
-		          placeholder="Escribe las observaciones (maximo 256 caracteres)"></textarea>
+		          placeholder="Escribe las observaciones (maximo 256 caracteres)"
+		          maxlength="256"></textarea>
 			         			
 	</fieldset>	
 		

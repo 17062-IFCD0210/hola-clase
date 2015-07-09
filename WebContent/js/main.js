@@ -381,7 +381,7 @@ $(function() {
 	$("textarea[data-role='observaciones']").keyup(function(event){
 		var longitud=event.target.textLength;
 		console.info('tecla pulsada ');
-		
+
 		if ($('#span_observaciones').length){
 			//Si ya existe el span lo actualiza
 			$("#span_observaciones").html(longitud + "/256");
@@ -389,6 +389,15 @@ $(function() {
 			//Si no existe lo crea y lo actualiza
 			$("<span id='span_observaciones'>"+longitud + "/256"+"</span>").insertAfter($("textarea[data-role='observaciones']"));
 		}
+		
+		//Dar estilos al span
+		$('#span_observaciones').css("display","block");
+		$('#span_observaciones').css("background-color","#BCBCBC");
+		$('#span_observaciones').css("color","white");
+		//misma anchura que el textarea
+		var anchura=event.target.clientWidth;
+		$('#span_observaciones').css("width",anchura);
+		
 	});
 	
 	
