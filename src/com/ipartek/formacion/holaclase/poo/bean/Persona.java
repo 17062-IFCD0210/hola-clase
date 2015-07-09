@@ -41,7 +41,7 @@ public class Persona {
 	 * @param edad edad de la Persona
 	 */
 	public Persona(String nombre, int edad) {
-		this(); //LLamada al constructor por defecto
+		this(); //LLamada al constructor por defecto para tener los valores definidos por defecto
 		this.setNombre(nombre);
 		this.setEdad(edad);
 	}
