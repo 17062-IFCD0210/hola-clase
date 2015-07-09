@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="C:\Desarrollo\apache-tomcat-6.0.44\lib\tomcat-i18n-es.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\tomcat-dbcp.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\catalina.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\ecj-4.3.1.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\jsp-api.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\el-api.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\tomcat-i18n-ja.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\tomcat-i18n-fr.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\servlet-api.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\annotations-api.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\tomcat-coyote.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\jasper.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\catalina-ha.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\catalina-tribes.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\catalina-ant.jar;C:\Desarrollo\apache-tomcat-6.0.44\lib\jasper-el.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="com.ipartek.formacion.holaclase.poo.bean,com.ipartek.formacion.holaclase.poo" source="1.7" sourcepath="src" splitindex="true" use="true" version="true"/>
+    </target>
+</project>

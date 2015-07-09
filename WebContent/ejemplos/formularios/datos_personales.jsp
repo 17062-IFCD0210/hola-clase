@@ -11,7 +11,7 @@
 			<p>
 				<label for="nombre">Nombre:</label><br>
 				<input type="text" id="nombre" name="nombre" value=""
-					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}"	 
+					   required pattern="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃÃÃÃÃ]{2,256}"	 
 				       placeholder="Escribe tu nombre"
 				       title="Por favor escribe tu nombre"	
 				       autofocus
@@ -22,7 +22,7 @@
 			<p>
 				<label for="apellidos">Apellidos:</label><br>
 				<input type="text" id="apellidos" name="apellidos"
-					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256} ([a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}?)"	  
+					   required pattern="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃÃÃÃÃ]{2,256} ([a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃÃÃÃÃ]{2,256}?)"	  
 				       value="" placeholder="Tus dos apellidos"
 				       title="Por favor escribe tus dos apellidos"
 				       tabindex="3"	 
@@ -124,19 +124,51 @@
 	
 	<fieldset>
 	<legend>CV</legend>
-	
-		<textarea name="cv" cols="60" rows="10"  
-		          placeholder="Introduce tu cv en texto plano(minimo 50 caracteres)"></textarea>
+		
+		<textarea  id="taComentario" maxlength="256" cols="60" rows="10"  
+		          placeholder="Maximo 256 caracteres"></textarea>
+		<p id="contadorTaComentario">0/256</p>
 			         			
 	</fieldset>	
-		
+	<script>
 	
+	init_contadorTa("taComentario","contadorTaComentario", 256);
+
+	function init_contadorTa(idtextarea, idcontador,max)
+	{
+	    $("#"+idtextarea).keyup(function()
+	            {
+	                updateContadorTa(idtextarea, idcontador,max);
+	            });
+	    
+	    $("#"+idtextarea).change(function()
+	    {
+	            updateContadorTa(idtextarea, idcontador,max);
+	    });
+	    
+	}
+
+	function updateContadorTa(idtextarea, idcontador,max)
+	{
+	    var contador = $("#"+idcontador);
+	    var ta =     $("#"+idtextarea);
+	    contador.html("0/"+max);
+	    
+	    contador.html(ta.val().length+"/"+max);
+	    if(parseInt(ta.val().length)>max)
+	    {
+	        ta.val(ta.val().substring(0,max-1));
+	        contador.html(max+"/"+max);
+	    }
+
+	}
+	</script>	
 	<br> 
 	<br>
 	
 	<input type="submit" value="Guardar">
 	<input type="reset"  value="Limpiar Formulario">
-
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
 </form>
 
 <br>
