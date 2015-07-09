@@ -122,11 +122,23 @@
 			
 	</fieldset>
 	
+	
+	
 	<fieldset>
 	<legend>CV</legend>
 	
 		<textarea name="cv" cols="60" rows="10"  
 		          placeholder="Introduce tu cv en texto plano(minimo 50 caracteres)"></textarea>
+			         			
+	</fieldset>
+	
+	<fieldset>
+	<legend>Observaciones</legend>
+	
+		<textarea data-role="observaciones"
+		          name="observaciones" 
+		          cols="60" rows="10"  
+		          placeholder="Observaciones (max 255 caracteres)"></textarea>
 			         			
 	</fieldset>	
 		

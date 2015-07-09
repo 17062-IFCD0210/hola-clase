@@ -12,3 +12,6 @@
 /.settings/
 /.classpath
 /.project
+
+#javadoc
+/doc/

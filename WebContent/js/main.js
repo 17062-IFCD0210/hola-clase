@@ -250,12 +250,46 @@ var ultimasVisitas = {
 };
 
 
+var textarea_observaciones = {
+		
+		selector: "[data-role='observaciones']",
+		max_char: 255,
+		
+		init: function(){
+			console.debug('textarea_observaciones: init');
+			$(this.selector).bind( "keyup", this.leerTecla );			
+		},
+		
+		leerTecla: function(){
+			console.debug('textarea_observaciones: leerTecla');
+			var chars = $(this.selector).length;				  
+			//check if there are more characters then allowed  
+				if(chars > this.max_char){  
+					//and if there are use substr to get the text before the limit  
+					var new_text = text.substr(0, this.max_char);  		  
+					//and change the current text with the new text  
+					$(this).val(new_text);  
+				}
+						
+			this.mostrar(chars);
+		},
+		
+		mostrar: function(chars){
+			console.debug('textarea_observaciones: mostrar');
+			$(this.selector).after("<span>"+ chars +"/"+this.max_char+"</span>");
+		}
+}
+
+
 
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
 	
 	troll.init('ander');
 	troll.saluda();
+	
+	//control de caracteres para TextArea
+	textarea_observaciones.init();
 	
 	
 	//ultimasVisitas();
