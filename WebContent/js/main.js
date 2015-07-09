@@ -366,9 +366,13 @@ $(function() {
 	
 	
 
-    $("textarea[data-role='observaciones']").keyup(function(event){
+    $("textarea[data-role='observaciones']").keyup(function(){
 		
-		contarCaracteres(event);
+		//contarCaracteres(event);
+		
+		var contenido   = $("textArea").val();
+		
+		$("span").html("Caracteres: " + contenido.length);
 		
 	});
 	
