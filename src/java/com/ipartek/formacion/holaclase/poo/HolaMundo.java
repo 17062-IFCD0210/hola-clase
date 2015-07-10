@@ -10,9 +10,9 @@ public class HolaMundo {
 		
 	//crear una instancia, objeto
 	
-	//Constructor vacio
+	//Utilizando el Constructor vacio
 	Persona pepe     = new Persona();
-	//Constructor con parametros
+	//Utilizando Constructor con parametros
 	Persona persona2 = new Persona("Fran de la Jungla", 78);
 	
 	//pepe.nombre  = "Pepito";
@@ -26,6 +26,8 @@ public class HolaMundo {
 	System.out.println(pepe.toString());
 	
 	System.out.println(persona2.toString());
+	
+	//
 	
 	}
 	
