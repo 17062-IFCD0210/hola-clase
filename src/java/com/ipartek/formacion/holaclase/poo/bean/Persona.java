@@ -12,8 +12,8 @@ public class Persona {
 	public static final int EDAD_MIN = 18;
 	public static final int EDAD_MAX = 99;
 
-	public final long NOTA_MIN = (long)0.0;
-	public final long NOTA_MAX = (long)10.0;
+	public static final long NOTA_MIN = (long)0.0;
+	public static final long NOTA_MAX = (long)10.0;
 	
 	//Atributos
 	private String nombre = "Anonimo";

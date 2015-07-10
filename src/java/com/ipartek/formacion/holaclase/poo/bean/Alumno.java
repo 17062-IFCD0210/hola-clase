@@ -7,13 +7,13 @@ import com.ipartek.formacion.holaclase.poo.bean.Persona;
 
 public class Alumno extends Persona{
 	//Atributos	
-	private Nota nota;
+	//private Nota nota;
 	private ArrayList<String> curso;
 	
 	//Constructores
 	public Alumno(Nota nota, ArrayList<String> curso) {
 		super();
-		this.nota = nota;
+		//this.nota = nota;
 		this.curso = curso;
 	}
 

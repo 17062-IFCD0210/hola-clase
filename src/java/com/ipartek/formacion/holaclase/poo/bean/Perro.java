@@ -111,6 +111,10 @@ public class Perro {
 	public String ladrar() {
 		return ("Guau Guau");
 	}
+	
+	public void saltar(int metros) {
+		System.out.println(this.nombre + " ha saltado " + metros + " metros.");
+	}
 
 	@Override
 	public String toString() {
