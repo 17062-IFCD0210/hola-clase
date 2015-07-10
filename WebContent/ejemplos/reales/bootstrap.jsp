@@ -188,7 +188,7 @@
 				  <a href="http://www.ipartek.com/" class="list-group-item">Ipartek</a>
 				  <a href="http://www.w3schools.com/" class="list-group-item">W3Schools</a>
 				</div>
-    			</p> 	
+    			 	
     		</aside>	
     	</section>
     	<div class="row">

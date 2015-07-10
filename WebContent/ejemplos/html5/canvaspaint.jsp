@@ -59,8 +59,7 @@ Particula.prototype.draw=function(context){
   </script>
  </head>
 
- <body>
-  <div>
+   <div>
    <header>
     <h1>Animacion Canvas de Una Particula/Senoidal</h1>
    </header>
@@ -93,5 +92,4 @@ window.onload = function() {
     </p>
    </footer>
   </div>
- </body>
 </html>

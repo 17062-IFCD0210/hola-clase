@@ -31,7 +31,7 @@
 			<h3><a href="#p3" title="Ir a sección X3">Hola clase!!3</a></h3>  
 			<h4><a href="#p4" title="Ir a sección X4">Hola clase!!4</a></h4>
 			<h5><a href="#p5" title="Ir a sección X5">Hola clase!!5</a></h5>
-			<h5><a href="#p6" title="Ir a sección X6">Hola clase!!6</a></h6>
+			<h5><a href="#p6" title="Ir a sección X6">Hola clase!!6</a></h5>
 		
 			<a href="#ej1">Ejemplo Etiquetas de Linea y Bloque</a>
 			<a href="#ej2">Ejemplo Listas</a>

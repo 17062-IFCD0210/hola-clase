@@ -12,9 +12,10 @@
 <body>
 <h1>Updating data</h1>
 <div id="graph"></div>
-<div id="reloadStatus">
+<div id="reloadStatus"></div>
 <pre id="code" class="prettyprint linenums">
 
+<script>
 var nReloads = 0;
 function data(offset) {
   var ret = [];
@@ -45,5 +46,6 @@ function update() {
   $('#reloadStatus').text(nReloads + ' reloads');
 }
 setInterval(update, 100);
+</script>
 </pre>
 </body>

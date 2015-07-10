@@ -156,7 +156,7 @@
 				</li>		
 				<li>
 					<a href="ejemplos/javascript/eventos.jsp">
-						<h3>Eventos</h3>
+						Eventos
 					</a> 			
 				</li>
 				<li>
