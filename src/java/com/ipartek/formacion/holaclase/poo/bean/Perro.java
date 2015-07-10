@@ -155,5 +155,14 @@ public class Perro {
 	}
 	
 	
+	/**
+	 * saltar
+	 * @metros 
+	 */
+	public void saltar ( int metros ){
+		
+		System.out.println(this.nombre + " ha saltado " + metros + " metros");
+		
+	}
 
 }
