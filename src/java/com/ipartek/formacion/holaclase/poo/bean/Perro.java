@@ -1,5 +1,7 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
+import com.ipartek.formacion.holaclase.poo.bean.Persona;
+
 /**
  * Clase perro
  * @author Raul
@@ -9,27 +11,40 @@ package com.ipartek.formacion.holaclase.poo.bean;
 public class Perro {
 	//Atributos
 	private String nombre = "";
-	private String raza = "";
-	private Persona dueno;
-	private int patas = 0;
+	private String raza = "Desconocida";
+	private Persona dueno = new Persona();
+	private int patas = 4;
 	private boolean vacunado = false;
-	long peso = (long)0.0;
-	
+	private long peso = (long)0.0;
+	private int edad = 0;
+
 	//Constructores
 	public Perro() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
+
+	public Perro(String nombre) {
+		super();
+		this.setNombre(nombre);
+		this.setRaza(raza);
+		this.setDueno(new Persona("Abandonado", Persona.EDAD_MIN));
+		this.setPatas(patas);
+		this.setVacunado(vacunado);
+		this.setPeso(peso);
+		this.setEdad(edad);
+	}
+
+
 
 	public Perro(String nombre, String raza, Persona dueno, int patas,
 			boolean vacunado, long peso) {
 		super();
-		this.nombre = nombre;
-		this.raza = raza;
-		this.dueno = dueno;
-		this.patas = patas;
-		this.vacunado = vacunado;
-		this.peso = peso;
+		this.setNombre(nombre);
+		this.setRaza(raza);
+		this.setDueno(dueno);
+		this.setPatas(patas);
+		this.setVacunado(vacunado);
+		this.setPeso(peso);
 	}
 	
 	//Getters y Setters
@@ -81,9 +96,26 @@ public class Perro {
 		this.peso = peso;
 	}
 	
+	public int getEdad() {
+		return edad;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+	
 	
 	//Metodos
-	public void ladrar() {
-		System.out.println("Guau Guau");
+	
+	
+	public String ladrar() {
+		return ("Guau Guau");
+	}
+
+	@Override
+	public String toString() {
+		return "Perro [nombre=" + nombre + ", raza=" + raza + ", dueno="
+				+ dueno + ", patas=" + patas + ", vacunado=" + vacunado
+				+ ", peso=" + peso + ", edad=" + edad + "]";
 	}
 }

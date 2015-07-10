@@ -9,9 +9,9 @@ package com.ipartek.formacion.holaclase.poo.bean;
 
 public class Persona {
 	//Constantes
-	public final int EDAD_MIN = 18;
-	public final int EDAD_MAX = 99;
-	
+	public static final int EDAD_MIN = 18;
+	public static final int EDAD_MAX = 99;
+
 	public final long NOTA_MIN = (long)0.0;
 	public final long NOTA_MAX = (long)10.0;
 	
@@ -40,34 +40,22 @@ public class Persona {
 			boolean aprobado, long nota) {
 		super();
 		//Nombre
-		this.nombre = nombre;
+		this.setNombre(nombre);
 		
 		//Apellido
-		this.apellido = apellido;
+		this.setApellido(apellido);
 		
 		//Edad
-		if(edad < EDAD_MIN) {
-			this.edad = EDAD_MIN;
-		} else if(edad > EDAD_MAX) {
-			this.edad = EDAD_MAX;
-		} else {
-			this.edad = edad;
-		}
+		this.setEdad(edad);
 		
 		//Email
-		this.email = email;
+		this.setEmail(email);
 		
 		//Aprobado
-		this.aprobado = aprobado;
+		this.setAprobado(aprobado);
 		
 		//Nota
-		if(nota < NOTA_MIN) {
-			this.nota = NOTA_MIN;
-		} else if(nota > NOTA_MAX) {
-			this.nota = NOTA_MAX;
-		} else {
-			this.nota = nota;
-		}
+		this.setNota(nota);
 	}
 	
 	//Getters y Setters
