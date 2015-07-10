@@ -4,6 +4,7 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 /**
+ * Bean para modelar un Alumno
  * @author Mikel
  *
  */

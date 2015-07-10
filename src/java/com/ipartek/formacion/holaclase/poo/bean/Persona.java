@@ -4,14 +4,14 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 /**
- * Bean para modelar una PErsona fisica
+ * Bean para modelar una Persona fisica
  * @author Mikel
  *
  */
 public class Persona {
 	
 	//Constantes
-	public final int EDAD_MINIMA = 18; //final indica que no se puede modificar
+	public static final int EDAD_MINIMA = 18; //final indica que no se puede modificar
 	public final int EDAD_MAXIMA = 99; 
 	
 			
