@@ -11,8 +11,8 @@ package com.ipartek.formacion.holaclase.poo.bean;
 public class Persona {
 
 	//constantes
-	public final int EDAD_MINIMA = 18;
-	public final int EDAD_MAXIMA = 99;
+	public static final int EDAD_MINIMA = 18;
+	public static final int EDAD_MAXIMA = 99;
 	
 	//Atributos
 	private String  nombre;
