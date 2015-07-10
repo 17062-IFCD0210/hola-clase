@@ -32,8 +32,9 @@ public class HolaMundo {
 			System.out.println(pepe.toString());
 			
 			
-			Perro perro1 = new Perro();
+			Perro perro1 = new Perro("lagun");
 			System.out.println(perro1.toString());
+			System.out.println(perro1.ladrar());
 			
 		}
 }

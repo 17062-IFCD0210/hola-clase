@@ -68,7 +68,7 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		String email			= (request.getParameter("email")==null) ? "" : request.getParameter("email");
 		boolean libre_usuario 	= false;
 		boolean libre_email 	= false;
-		boolean email_correcto	= false; // para comprobar que sea un email falso
+		//boolean email_correcto	= false; // para comprobar que sea un email falso
 
 		//comprobacion de los campos
 

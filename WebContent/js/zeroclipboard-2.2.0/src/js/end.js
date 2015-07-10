@@ -15,7 +15,7 @@ else {
   window.ZeroClipboard = ZeroClipboard;
 }
 
-})((function() {
+((function() {
   /*jshint strict: false */
   return this || window;
 })());

@@ -13,8 +13,10 @@ public class Persona {
 	//Constantes
 	//se declara public para poder usarlos desde fuera
 	//se declara final pq su valor no cambiara, son constantes
-	public final int EDAD_MINIMA = 18; 
-	public final int EDAD_MAXIMA = 99;
+	//se declara static para poder usarlo desde fuera accediendo directamente 
+	//al nombre de la clase Persona.EDAD_MINIMA
+	public static final int EDAD_MINIMA = 18; 
+	public static final int EDAD_MAXIMA = 99;
 	
 	//Atributos
 	private String 	nombre;
