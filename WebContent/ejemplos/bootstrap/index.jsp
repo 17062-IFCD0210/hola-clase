@@ -47,59 +47,67 @@
 							<label> <input type="checkbox"> Remember me
 							</label>
 						</div>
-						<button type="submit" class="btn btn-default btn-sm">Sign in</button>
+						<button type="submit" class="btn btn-default btn-sm">Sign
+							in</button>
 					</form>
 				</div>
 			</div>
-			
 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
+			<nav class="navbar navbar-default">
+				<div class="container-fluid">
+					<!-- Brand and toggle get grouped for better mobile display -->
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle collapsed"
+							data-toggle="collapse"
+							data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+							<span class="sr-only">Toggle navigation</span> <span
+								class="icon-bar"></span> <span class="icon-bar"></span> <span
+								class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Brand</a>
+					</div>
+
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse"
+						id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<li class="active"><a href="#">Link <span
+									class="sr-only">(current)</span></a></li>
+							<li><a href="#">Link</a></li>
+							<li class="dropdown"><a href="#" class="dropdown-toggle"
+								data-toggle="dropdown" role="button" aria-haspopup="true"
+								aria-expanded="false">Dropdown <span class="caret"></span></a>
+								<ul class="dropdown-menu">
+									<li><a href="#">Action</a></li>
+									<li><a href="#">Another action</a></li>
+									<li><a href="#">Something else here</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">Separated link</a></li>
+									<li role="separator" class="divider"></li>
+									<li><a href="#">One more separated link</a></li>
+								</ul></li>
+						</ul>
 						<form class="navbar-form navbar-right" role="search">
 							<div class="form-group">
 								<div class="input-group">
-									<input type="text" class="form-control"	placeholder="Buscando...">
-									<span class="input-group-btn">
+									<input type="text" class="form-control"
+										placeholder="Buscando..."> <span
+										class="input-group-btn">
 										<button class="btn btn-default" type="button">
-										<span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+											<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+										</button>
 									</span>
 								</div>
 								<!-- /input-group -->
 
 							</div>
 						</form>
-					</div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+					</div>
+					<!-- /.navbar-collapse -->
+				</div>
+				<!-- /.container-fluid -->
+			</nav>
 
 
 
@@ -109,47 +117,46 @@
 	</header>
 
 	<div class="container">
-		<div class="row">
-			<div class="alert alert-warning alert-dismissible fade in hidden"
-				role="alert" id="alerta">
-				<button type="button" class="close" data-dismiss="alert"
-					aria-label="Close">
-					<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
-				</button>
-				<strong>Soy una alert!</strong>
-			</div>
+		<!-- ALERTS -->
+		<div id="row_alertas" class="row">
+			<!-- Las alerts se generan dinamicamente -->
 		</div>
 
+		<!-- SLIDER -->
 		<section class="row">
 			<div id="carousel-example-generic" class="carousel slide"
-				data-ride="carousel">
+				data-ride="carousel" data-interval="3000">
 				<!-- Indicators -->
 				<ol class="carousel-indicators">
 					<li data-target="#carousel-example-generic" data-slide-to="0"
 						class="active"></li>
 					<li data-target="#carousel-example-generic" data-slide-to="1"></li>
 					<li data-target="#carousel-example-generic" data-slide-to="2"></li>
+					<li data-target="#carousel-example-generic" data-slide-to="3"></li>
 				</ol>
-
 				<!-- Wrapper for slides -->
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
-						<img class="img-responsive center-block"
-							src="http://lorempixel.com/output/nature-q-c-1100-480-3.jpg"
-							alt="...">
-						<div class="carousel-caption"></div>
+						<img class="img-responsive center-block wd100"
+							src="../../img/nature-q-c-1100-480-3.jpg" alt="...">
+						<div class="carousel-caption">Bruma marina</div>
 					</div>
 					<div class="item">
-						<img class="img-responsive center-block"
-							src="http://lorempixel.com/output/sports-q-c-1100-480-4.jpg"
-							alt="...">
-						<div class="carousel-caption"></div>
+						<img class="img-responsive center-block  wd100"
+							src="../../img/nature-q-c-1100-480-5.jpg" alt="...">
+						<div class="carousel-caption">Palmeras</div>
 					</div>
 					<div class="item">
-						<img class="img-responsive center-block"
-							src="http://lorempixel.com/output/nature-q-c-1100-480-5.jpg"
-							alt="...">
-						<div class="carousel-caption"></div>
+						<img class="img-responsive center-block  wd100"
+							src="../../img/nature-q-c-1100-480-2.jpg" alt="...">
+						<div class="carousel-caption">Atardecer</div>
+					</div>
+					<div class="item">
+						<div class="jumbotron adaptar_carusel">
+						  <h1>JUMBOTRON</h1>
+						  <p>Prueba de un jumbotron dentro de un carusel</p>
+						  <p><a class="btn btn-primary btn-lg" href="http://www.getbootstrap.com" target="_blank" role="button">Bootstrap</a></p>
+						</div>
 					</div>
 				</div>
 
@@ -163,8 +170,16 @@
 					class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
 					<span class="sr-only">Next</span>
 				</a>
+				
+<!-- 				<a id="pause" class="center carousel-control" href="#carousel-example-generic" -->
+<!-- 					role="button" data-slide="pause" onclick="tooglePause()"> <span -->
+<!-- 					class="glyphicon glyphicon-pause" aria-hidden="true"></span> -->
+<!-- 					<span class="sr-only">Next</span> -->
+<!-- 				</a> -->
 			</div>
+			<!-- SLIDER -->
 
+			<!-- MAIN -->
 		</section>
 		<section class="main row">
 			<article class="col-xs-12 col-sm-8 col-md-9">
@@ -216,24 +231,24 @@
 
 					</div>
 					<div class="col-md-4">
-
-						<!-- Split button -->
-						<div class="btn-group">
-							<button type="button" class="btn btn-info">Action</button>
-							<button type="button" class="btn btn-info dropdown-toggle"
-								data-toggle="dropdown" aria-haspopup="true"
-								aria-expanded="false">
-								<span class="caret"></span> <span class="sr-only">Toggle
-									Dropdown</span>
-							</button>
-							<ul class="dropdown-menu">
-								<li><a href="#" onclick="lanzarAlerta('alert-info')">Info</a></li>
-								<li><a href="#" onclick="lanzarAlerta('alert-success')">Success</a></li>
-								<li><a href="#" onclick="lanzarAlerta('alert-warning')">Warning</a></li>
-								<li><a href="#" onclick="lanzarAlerta('alert-danger')">Error</a></li>
-							</ul>
+						<div class="center-block" style="width: 90px">
+							<!-- Split button -->
+							<div class="btn-group">
+								<button type="button" class="btn btn-info">Action</button>
+								<button type="button" class="btn btn-info dropdown-toggle"
+									data-toggle="dropdown" aria-haspopup="true"
+									aria-expanded="false">
+									<span class="caret"></span> <span class="sr-only">Toggle
+										Dropdown</span>
+								</button>
+								<ul class="dropdown-menu">
+									<li><a href="#" onclick="lanzarAlerta('alert-info')">Info</a></li>
+									<li><a href="#" onclick="lanzarAlerta('alert-success')">Success</a></li>
+									<li><a href="#" onclick="lanzarAlerta('alert-warning')">Warning</a></li>
+									<li><a href="#" onclick="lanzarAlerta('alert-danger')">Error</a></li>
+								</ul>
+							</div>
 						</div>
-
 					</div>
 				</div>
 			</article>
@@ -250,6 +265,9 @@
 					blandit rhoncus ligula a gravida.</p>
 			</aside>
 		</section>
+		<!-- MAIN -->
+
+		<!-- FILA INFERIOR -->
 		<div class="row">
 			<div class="color1 col-xs-12 col-sm-6 col-md-3">
 				<h3>Columna</h3>
@@ -300,7 +318,11 @@
 					blandit rhoncus ligula a gravida.</p>
 			</div>
 		</div>
+		<!-- FILA INFERIOR -->
+
 	</div>
+	<!-- CONTAINER -->
+
 	<footer>
 		<div class="container">
 			<h1>Footer</h1>
@@ -310,13 +332,19 @@
 
 	<script>
 		function lanzarAlerta(tipo) {
-			$("#alerta").removeClass('alert-info');
-			$("#alerta").removeClass('alert-success');
-			$("#alerta").removeClass('alert-warning');
-			$("#alerta").removeClass('alert-danger');
-			$("#alerta").removeClass('hidden');
+			$("#row_alertas").empty();
+			$("#row_alertas").append("<div class='alert alert-dismissible fade in'	role='alert' id='alerta'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span class='glyphicon glyphicon-remove' aria-hidden='true'></span></button><strong>Soy una alert!</strong></div>");
 			$("#alerta").addClass(tipo);
 		}
+		
+// 		function tooglePause(){
+// 			if ($("#pause").attr('data-slide')=='pause'){
+// 				$("#pause").attr('data-slide','cycle');
+				
+// 			}else{
+// 				$("#pause").attr('data-slide','pause');
+// 			}
+// 		}
 	</script>
 
 

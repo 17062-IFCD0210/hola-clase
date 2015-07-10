@@ -141,4 +141,37 @@ $(function() {
 			$(this).css("background-color", "white");
 		}
 	});
+	
+	/* Registrar ultimas visitas */
+	if (window.sessionStorage && window.localStorage){
+
+		$("#ultima_visita").attr('href',localStorage.getItem('last_page'));
+		$("#ultima_visita").html(localStorage.getItem('last_time'));
+		
+		localStorage.setItem('last_page',window.location.href);
+		localStorage.setItem('last_time',new Date().toLocaleString());
+		
+	}
+	
+	/* Textareas observaciones maximo 256 caracteres */
+	
+	var textos = $('*[data-role="observaciones"]');
+	var textarea = "";
+	
+	for (i=0; i<textos.length; i++){
+		textarea = textos[i];
+		$(textarea).after("<span class='observ_car'>0/256</span>");
+		$(textarea).keyup(function limita_caracteres(){
+			$("#"+textarea.id+"~span").html((textarea.value.length)+"/256");
+			if (this.value.length>=255){
+				
+				
+			}
+			
+			
+		});
+		
+	}
+	
+	
 });
