@@ -4,21 +4,29 @@ public class Libro {
 
 	private int numeroPaginas;
 	private String dimensiones;
-	private Persona autor;
+	private String autor;
+	private String titulo;
 	private String colorPortada;
 	private int marcador;
 	
 	//Constructores
-	public Libro(){
+
+	/**
+	 * Constructor para Libro
+	 * @param titulo
+	 */
+	public Libro(String titulo) {
 		super();
+		this.titulo = titulo;
 		this.numeroPaginas=0;
-		this.dimensiones="10x10";
-		this.autor = new Persona ("Anonimo",Persona.EDAD_MINIMA);
-		this.colorPortada="Negra";
-		this.setMarcador(0);
+		this.dimensiones="";
+		this.autor = "anonimo";
+		this.colorPortada="";
+		this.marcador=0;		
 	}
-	
-	
+
+
+
 	//Setters y Getters
 	/**
 	 * @return the numeroPaginas
@@ -51,15 +59,29 @@ public class Libro {
 	/**
 	 * @return the autor
 	 */
-	public Persona getAutor() {
+	public String getAutor() {
 		return autor;
 	}
 
 	/**
 	 * @param autor the autor to set
 	 */
-	public void setAutor(Persona autor) {
+	public void setAutor(String autor) {
 		this.autor = autor;
+	}
+	
+	/**
+	 * @return the Titulo
+	 */
+	public String getTitulo() {
+		return titulo;
+	}
+
+	/**
+	 * @param Titulo the Titulo to set
+	 */
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	/**
@@ -99,27 +121,43 @@ public class Libro {
 	
 	/**
 	 * Abre el libro por la pagina que indique el marcador
+	 * @return marcador
 	 */
-	public void abrir(){
-		
+	public int abrir(){
+		return this.getMarcador();
 	}
 	
 	/**
-	 * Actualiza el marcador avanzando una posicion
+	 * Leer una pagina del libro, se actualiza el marcador avanzando una posicion,
+	 * no se puede leer mas del numero de paginas
+	 * @return pagina actual
 	 */
-	public void leer(){
-		this.setMarcador(this.getMarcador()+1);
+	public int leer(){
+		int resul = this.getMarcador();
+		if (resul < this.getNumeroPaginas()){
+			resul++;			
+			this.setMarcador(resul);
+		}
+		return resul;
 	}
 	
-	
-	public void escribir(){
+	/**
+	 * Aumenta el numero de paginas
+	 * @return el numero de paginas total 
+	 */
+	public int escribir(){
+		int resul = this.getNumeroPaginas();
+		resul++;
+		this.setNumeroPaginas(resul);
+		return resul;
 	}
 	
 	/**
 	 * Devuelve las paginas restantes por leer
+	 * @return numero de paginas restantes 
 	 */
 	public int cerrar(){
-		return this.getNumeroPaginas();
+		return this.getNumeroPaginas()-this.getMarcador();
 	}
 
 }
