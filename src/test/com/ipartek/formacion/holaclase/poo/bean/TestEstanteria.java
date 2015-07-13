@@ -28,6 +28,8 @@ public class TestEstanteria {
 		
 		//test extraer libro por titulo
 		assertSame( libro1, e.extraer(titulo1) );
+				
+		assertSame( null, e.extraer(null) );
 		
 		
 		
