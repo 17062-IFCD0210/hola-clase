@@ -8,7 +8,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.swing.text.html.HTML;
+
 
 import com.ipartek.formacion.holaclase.Utilidades;
 
@@ -61,7 +61,7 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		String  email          = (request.getParameter("email")==null)   ? "" : request.getParameter("email");
 		boolean libre_usuario  = false;
 		boolean libre_email    = false;
-		boolean email_correcto = false; // para comprobar que sea un email valido
+		//boolean email_correcto = false; // para comprobar que sea un email valido
 		
 	//comprobacion de los campos
 		

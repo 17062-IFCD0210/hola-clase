@@ -2,6 +2,7 @@ package com.ipartek.formacion.holaclase.poo;
 
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
 
+
 public class HolaMundo {
 
 	

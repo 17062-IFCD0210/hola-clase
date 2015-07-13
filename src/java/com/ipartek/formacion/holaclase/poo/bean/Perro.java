@@ -129,6 +129,10 @@ public class Perro {
 		return "GUA gua gua GUA!!!!";
 	}	
 	
+	public void saltar( int metros, int altura ){
+		
+		System.out.println( this.nombre + " ha saltado " + metros + " metros"  );
+		
+	}
 	
-
 }
