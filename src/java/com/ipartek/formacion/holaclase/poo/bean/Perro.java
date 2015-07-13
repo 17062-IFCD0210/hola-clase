@@ -106,11 +106,13 @@ public class Perro {
 	}
 	
 	/**
-	 * Larido del Perro
+	 * Ladrido del Perro
 	 * @return String con el ladrido
 	 */
 	public String ladrar(){
 		return "GUAU guau guau GUAU!!!";
 	}
-
+	public void saltar( int metros){
+		System.out.println(this.nombre + " ha saltado" + metros + " metros");
+	}
 }

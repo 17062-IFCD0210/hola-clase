@@ -1,6 +1,5 @@
 package com.ipartek.formacion.holaclase.poo;
 
-import com.ipartek.formacion.holaclase.poo.bean.Perro;
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
 
 public class HolaMundo {
@@ -12,12 +11,13 @@ public class HolaMundo {
 		
 		//CREAR o INSTANCIAR objeto;sale al ppio error porque hay que importar Persona(desde el fallo o desde Sourde-Organice import)
 		//Constructor vacio
-		Persona pepe 	 = new Persona();
+		Persona pepe 	  = new Persona();
 		
 		
 		//Constructor con parametros
 		Persona persona2 = new Persona( "Frank de la Jungla", 1 );
 		System.out.println(persona2.toString() );
+		
 		
 				
 		// Tenemos que cogerlos con GET y SET : ENCAPSULAR
