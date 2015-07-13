@@ -19,6 +19,7 @@ public class Libro {
 		private int		numPaginas;
 		private String  dimensiones;
 		private String	autor;
+		private String	titulo;
 		private String	colorPortada;
 		private int		marcador;
 		
@@ -28,13 +29,14 @@ public class Libro {
 		/**
 		 * @param autor
 		 */
-		public Libro(String autor) {
+		public Libro(String titulo) {
 			super();
-			this.numPaginas		= MIN_PAGINAS;
-			this.dimensiones	= "50x50";
+			this.numPaginas		= 0;
+			this.dimensiones	= "";
 			this.autor			= "anonimo";
-			this.colorPortada	= "marron";
-			this.marcador		= 1;
+			this.titulo			= titulo;
+			this.colorPortada	= "";
+			this.marcador		= 0;
 
 		}
 
@@ -49,24 +51,18 @@ public class Libro {
 
 
 		/**
+		 * @return the numPaginas
+		 */
+		public String getTitulo() {
+			return titulo;
+		}
+
+
+		/**
 		 * @param numPaginas the numPaginas to set
 		 */
 		public void setNumPaginas(int numPaginas) {
 			this.numPaginas = numPaginas;
-			
-			if( numPaginas < MIN_PAGINAS) {
-				
-				this.numPaginas = MIN_PAGINAS;
-			
-			} else if ( numPaginas > MAX_PAGINAS) {
-			
-				this.numPaginas = MAX_PAGINAS;
-				
-			} else {
-			
-				this.numPaginas = numPaginas;
-			}
-
 		}
 
 
@@ -102,6 +98,10 @@ public class Libro {
 		}
 
 
+		public void setTitutlo(String titulo) {
+			this.titulo = titulo;
+		}
+
 		/**
 		 * @return the colorPortada
 		 */
@@ -131,43 +131,67 @@ public class Libro {
 		 */
 		public void setMarcador(int marcador) {
 			
-			//Si acabamos el libro, el marcador lo ponemos de nuevo a 1 (pagina 1)
+			this.marcador = marcador;
+		}
+
+		/**
+		 * Leer una pagina del libro, se actualiza marcador
+		 * @return pagina actual o marcador
+		 */
+		public int leer(){
 			
-			if (marcador > MAX_PAGINAS) {
-				
-				this.marcador = 1;
-			} else {
-				this.marcador = marcador;
+			int resul = this.getMarcador();
+
+			//tope de paginas que se pueden  leer
+			if ( resul < this.getNumPaginas()) {
+				resul++;
+				this.setMarcador(resul);
 			}
-				
-				
-		}
-
-		public void leer(){
 			
-			this.getMarcador();
+			return resul;
 			
 		}
 
-		public void escribir(){
+		/**
+		 * Aumenta el numero de paginas del libro
+		 * @return numero de paginas
+		 */
+		public int escribir(){
+			int resul = this.getMarcador();
+			resul++;
+			this.setNumPaginas(resul);
+			return resul;
+			
+		}
+		/**
+		 * Abre el libro y retorna el marcador con la pagina actual
+		 * 
+		 * @return marcador
+		 */
+		public int abrir(){
+			return this.getMarcador();
+			
+		}
+		
+		/**
+		 * 
+		 * @return paginas que quedan por leer
+		 */
+		public int cerrar(){
+			return this.getNumPaginas() - this.getMarcador();
 			
 		}
 
-		public void abrir(){
-			
+		/* (non-Javadoc)
+		 * @see java.lang.Object#toString()
+		 */
+		@Override
+		public String toString() {
+			return "Libro [numPaginas=" + numPaginas + ", dimensiones="
+					+ dimensiones + ", autor=" + autor + ", titulo=" + titulo
+					+ ", colorPortada=" + colorPortada + ", marcador="
+					+ marcador + "]";
 		}
-
-		public void cerrar(){
-			
-		}
 		
 		
-		
-		
-		//metodos
-
-		//Metodos y Utilidades
-		//@Override, sobreescribimos el método de el padre
-		
-
 }
