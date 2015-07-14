@@ -20,7 +20,11 @@
 			<li><a href="ejemplos/html5/video.jsp">Video</a></li>
 			<li><a href="ejemplos/html5/proges_y_meter.jsp">Progress y Meter</a></li>
 			<li><a href="ejemplos/html5/datalist.jsp">DataList</a></li>
+
 			<li><a href="ejemplos/html5/geolocation.jsp">Geolocalización</a></li>
+
+			<li><a href="ejemplos/html5/geolocation.jsp">Geolocation</a></li>
+
 		</ul>
 	</li>
 	
