@@ -29,15 +29,20 @@ public class Utilidades {
 		
 			ordenado = true;
 			//Primero comprobar si ya está ordenado
-			for (int i=0; i<aSinOrdenar.length; i++) {
+			for (int i=0; i<aSinOrdenar.length -1; i++) {
 				
-				for(int j=i+1; j <aSinOrdenar.length -1; j++) {
+				for(int j=i+1; j <aSinOrdenar.length -2; j++) {
 					
 					if (aSinOrdenar[i] > aSinOrdenar[j]) {
 						
 						ordenado = false;
+						break;
 					}
 					
+				}
+				
+				if(!ordenado) {
+					break;
 				}
 			}
 			
