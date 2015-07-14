@@ -48,13 +48,13 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		listaUsuarios.add("pirulin");
 		
 		ArrayList<String> listaEmail = new ArrayList<String>();
-		listaUsuarios.add("ander@hotmail.com");
-		listaUsuarios.add("pepe@hotmail.com");
-		listaUsuarios.add("marimototx@hotmail.com");
-		listaUsuarios.add("ambrosio@hotmail.com");
-		listaUsuarios.add("doraemon@hotmail.com");
-		listaUsuarios.add("callou@hotmail.com");
-		listaUsuarios.add("pirulin@hotmail.com");
+		listaEmail.add("ander@hotmail.com");
+		listaEmail.add("pepe@hotmail.com");
+		listaEmail.add("marimototx@hotmail.com");
+		listaEmail.add("ambrosio@hotmail.com");
+		listaEmail.add("doraemon@hotmail.com");
+		listaEmail.add("callou@hotmail.com");
+		listaEmail.add("pirulin@hotmail.com");
 		
 		//Hay que declarar el tipo de respuesta antes del PrintWriter porque éste utiliza text/html
 		//Respuesta tipo Json. Por defecto un servlet envía un text/html
@@ -72,7 +72,7 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		String email = (request.getParameter("email")==null)?"":request.getParameter("email");
 		boolean libre_usuario = false;
 		boolean libre_email = false;
-		boolean email_correcto = false; //Para comprobar que esté bien escrito
+		//boolean email_correcto = false; //Para comprobar que esté bien escrito
 		
 		//Comparación de cadenas. Si está en blanco y además no existe en el arrayList
 		if ( !"".equalsIgnoreCase(usuario) && !listaUsuarios.contains(usuario) ){

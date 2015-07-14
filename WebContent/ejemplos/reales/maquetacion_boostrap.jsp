@@ -118,11 +118,13 @@
 				  <div role="tabpanel" class="tab-pane fade" id="ventana_modal">...</div>
 				</div>
 				
-				<!-- TABS / FICHAS -->
-				<div>
-				
+								
 				<!-- TODO Falta el login de Bootstrap y el controlador .jsp--> 
 				
+				
+				<!-- TABS / FICHAS -->
+				<div >
+
 				  <!-- Nav tabs -->
 				  <ul class="nav nav-tabs" role="tablist">
 				    <li role="presentation" class="active"><a href="#home_enlaces" aria-controls="enlaces" role="tab" data-toggle="tab">Enlaces</a></li>
@@ -131,7 +133,7 @@
 				    <li role="presentation"><a href="#ventana_modal" aria-controls="ventana_modal" role="tab" data-toggle="tab">Ventana Modal</a></li>
 				  </ul>
 				
-				 <!-- Tab panes -->
+				  <!-- Tab panes -->
 				  <div class="tab-content">
 				    <div role="tabpanel" class="tab-pane active" id="home_enlaces">
 			    		<!-- Botón Enlace -->
@@ -161,7 +163,9 @@
 						    <li><a href="#" onclick="crearAlerta('danger');">DANGER</a></li>
 						  </ul>
 						</div>	
+				      </div>
 				    </div>
+
 				    
 				    <div role="tabpanel" class="tab-pane" id="ventana_modal">
 						<!-- Botón Ventana modal -->
@@ -191,8 +195,7 @@
 						  </div>
 						</div>
 					</div>
-				  </div>
-				
+					
 				</div>
 				
 				<!-- BOTONES -->

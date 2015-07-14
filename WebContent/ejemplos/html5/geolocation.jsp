@@ -26,12 +26,12 @@
 		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 		
 		<script>
-			//Por orden de ejecución. Se escribe así
-		
+			//Por orden de ejecución pero se escribe así		
 			//1.-
 			var map;
 			var lat = 0;
 			var lng = 0;
+			var zoom = 15;
 			
 			//4.-
 			function show_map(localizacion) {
@@ -42,16 +42,40 @@
 				lng = localizacion.coords.longitude;
 				console.debug('latitud : '+ lat);
 				console.debug('longitud : '+ lng);
+				var myLatlng = new google.maps.LatLng(lat,lng); //La var con la que trabaja Google Maps
 				
 				//Inicializar mapa
 			  	map = new google.maps.Map(document.getElementById('mapa'), {
-			    	zoom: 8,
-			    	center: {lat: lat, lng: lng}
+			    	zoom: zoom,
+			    	center: {lat: lat, lng: lng},
+			    	zoomControlOptions: { style: google.maps.ZoomControlStyle.LARGE },
+			    	mapTypeId: google.maps.MapTypeId.HYBRID
 			  	});
-			}
 			
-			//2.-
-			google.maps.event.addDomListener(window, 'load', geolocalizarme);
+			
+			//marcador
+			var marker = new google.maps.Marker({
+			      position: myLatlng,
+			      map: map,
+			      title: 'Aquí estoy yo'
+			  });
+			
+			
+			//circulo
+		    var circuloOptions = {
+		    	      strokeColor: '#0000FF',
+		    	      strokeOpacity: 0.5,
+		    	      strokeWeight: 2,
+		    	      fillColor: '#0000FF',
+		    	      fillOpacity: 0.35,
+		    	      map: map,
+		    	      center: myLatlng,
+		    	      radius: 500 
+		    	    };
+		   // Add the circle for this city to the map.
+		   cityCircle = new google.maps.Circle(circuloOptions);
+			
+		}
 			
 			//3.-
 			//Geolocalizarme
@@ -63,6 +87,9 @@
 					console.error('Geolocation NO Soportado');
 				}
 			}
+
+			//2.-
+			google.maps.event.addDomListener(window, 'load', geolocalizarme);
 			
 		</script>
 		
