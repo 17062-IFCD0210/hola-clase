@@ -1,5 +1,8 @@
 package com.ipartek.formacion.holaclase.poo;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
+
 /**
  * Objeto para calcular las vueltas de un cobro de forma mas optima posible
  * 
@@ -11,17 +14,17 @@ public class Calculadora {
 	/**
 	 * precio de la compra
 	 */
-	float precio;
+	private float precio;
 
 	/**
 	 * pago realizado o dinero entregado
 	 */
-	float pago;
+	private float pago;
 
 	/**
 	 * Array con las vueltas
 	 */
-	int[] aVueltas;
+	private int[] aVueltas;
 
 	/**
 	 * Array con tipos de Monedas y Billetes
@@ -43,7 +46,10 @@ public class Calculadora {
 	static final int BILLETE_MINIMO = 5;
 
 	public Calculadora() {
-		
+		super();
+		this.pago = 0;
+		this.precio = 0;
+		this.aVueltas = new int[BILLETES_MONEDAS.length];
 	}
 
 	/**
@@ -54,7 +60,7 @@ public class Calculadora {
 	 * @return {@code array} de {@code int} con las vueltas
 	 */
 	public int[] getVueltas() {
-		return aVueltas;
+		return this.aVueltas;
 	}
 
 	/**
@@ -67,15 +73,49 @@ public class Calculadora {
 	 *            {@code float} precio a cobrar
 	 */
 	public void calcular(float pago, float precio) {
-		
+		this.pago = pago;
+		this.precio = precio;
+		float resto = this.pago - this.precio;
+
+		for (int i = 0; i < aVueltas.length; i++) {
+			aVueltas[i] = (int) (resto / BILLETES_MONEDAS[i]);
+			resto %= BILLETES_MONEDAS[i];		
+			resto = round(resto, 2);
+			
+		}
+
 	}
+	
+	/**
+     * Round redondea numeros decimales
+     * 
+     * @param d numero decimal a redondear
+     * @param decimalPlace numero de decimales
+     * @return numero redondeado
+     */
+
+    public static float round(float d, int decimalPlace) {
+         return BigDecimal.valueOf(d).setScale(decimalPlace,BigDecimal.ROUND_HALF_UP).floatValue();
+    }
 
 	/**
 	 * Imprimir por pantalla las vueltas del cobro
 	 */
 	public void imprimirVueltas() {
-		
+		System.out.println("Nos devuelven " + (this.pago - this.precio)
+				+ " Euros");
+		String imprimir = "";
+		for (int i = 0; i < aVueltas.length; i++) {
+
+			imprimir = aVueltas[i] + " ";
+			if (BILLETE_MINIMO <= BILLETES_MONEDAS[i]) {
+				imprimir += "Billetes " + (int) BILLETES_MONEDAS[i] + " €";
+			} else {
+				imprimir += "Monedas " + BILLETES_MONEDAS[i] + " €";
+			}
+
+			System.out.println(imprimir);
+		}
 	}
 
-	
 }
