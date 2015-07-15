@@ -1,4 +1,4 @@
-package com.ipartek.formacion.holaclase.poo.bean;
+package com.ipartek.formacion.holaclase.poo;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
