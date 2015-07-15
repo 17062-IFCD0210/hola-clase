@@ -39,7 +39,7 @@ public class TestPersona {
 		assertEquals(Persona.EDAD_MINIMA, personaVacia.getEdad());
 		assertEquals("", personaVacia.getEmail());
 		assertEquals((long)0.0, personaVacia.getNota());
-		assertFalse("Suspendido", personaVacia.isAprobado());
+		assertFalse("Esta aprobado", personaVacia.isAprobado());
 	}
 
 	@Test
@@ -51,6 +51,12 @@ public class TestPersona {
 		assertEquals("", personaParametros.getEmail());
 		assertEquals((long)0.0, personaParametros.getNota());
 		assertFalse("Suspendido", personaParametros.isAprobado());
+		
+		Persona pEdadMinima = new Persona("", -1);
+		assertEquals(Persona.EDAD_MINIMA, pEdadMinima.getEdad());
+		
+		Persona pEdadMaxima = new Persona("", 150);
+		assertEquals(Persona.EDAD_MAXIMA, pEdadMaxima.getEdad());
 	}
 
 	@Test

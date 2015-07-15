@@ -163,4 +163,8 @@ public class Perro {
 	public String ladrar(){
 		return ("Guau! Guau!");
 	}
+	
+	public void saltar(int metros){
+		System.out.println(this.getNombre() + " ha saltado "+ metros + " metros.");
+	}
 }

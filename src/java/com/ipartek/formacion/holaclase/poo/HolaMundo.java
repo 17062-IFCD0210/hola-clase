@@ -12,7 +12,7 @@ public class HolaMundo {
 		
 		Persona pepe = new Persona();
 		Persona persona2 = new Persona( "Frank de la Jungla", 78);
-		
+
 		//pepe.nombre = "Peperoni"
 		pepe.setNombre("Peperoni");
 		
@@ -20,11 +20,11 @@ public class HolaMundo {
 		pepe.setEdad(3);
 		
 		//System.out.println ("pepe = "+ pepe.nombre + " " + pepe.edad);
-		//System.out.println(pepe.getNombre() + " "+ pepe.getEdad());
-		//System.out.println(pepe.toString());
+		System.out.println(pepe.getNombre() + " "+ pepe.getEdad());
+		System.out.println(pepe.toString());
 		
-		//System.out.println(persona2.getNombre() + " "+ persona2.getEdad());
-		//System.out.println(persona2.toString());
+		System.out.println(persona2.getNombre() + " "+ persona2.getEdad());
+		System.out.println(persona2.toString());
 		
 		System.out.println(new Perro("Aska").ladrar());
 	}
