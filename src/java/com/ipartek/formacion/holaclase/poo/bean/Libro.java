@@ -8,7 +8,8 @@ package com.ipartek.formacion.holaclase.poo.bean;
  *
  */
 
-public class Libro {
+//Ponemos implements cloneable para indicar que el objeto se puede clonar
+public class Libro implements Cloneable {
 
 		//Constantes (final indica que es una constante)
 		static final int MIN_PAGINAS = 50;
@@ -192,6 +193,12 @@ public class Libro {
 					+ ", colorPortada=" + colorPortada + ", marcador="
 					+ marcador + "]";
 		}
+
 		
-		
+		@Override
+		public Libro clone() throws CloneNotSupportedException{
+			
+			return (Libro)super.clone();
+			
+		}
 }

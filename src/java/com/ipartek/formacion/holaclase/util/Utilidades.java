@@ -16,57 +16,76 @@ public class Utilidades {
 	public static int[] ordenar(int[] aSinOrdenar, int orden){
 		
 		int[] aOrdenado;  
-		int primero;
-		int segundo;
+		int auxiliar;
 		
-		aOrdenado= new int[aSinOrdenar.length];
+		aOrdenado = new int[aSinOrdenar.length];
 		
-		boolean ordenado = false;
 		
-		//orden indica si se ordena de forma ascendente o descendente
+		switch (orden) {
 		
-		while (!ordenado) {
+		case O_ASC:
+			aOrdenado = aSinOrdenar.clone();
 		
-			ordenado = true;
-			//Primero comprobar si ya está ordenado
-			for (int i=0; i<aSinOrdenar.length -1; i++) {
-				
-				for(int j=i+1; j <aSinOrdenar.length -2; j++) {
+			for (int i=0; i<aOrdenado.length; i++) {
 					
-					if (aSinOrdenar[i] > aSinOrdenar[j]) {
+				for(int j=1; j <aOrdenado.length -1; j++) {
+	
+					if(aOrdenado[j] > aOrdenado[j-1]) {
 						
-						ordenado = false;
-						break;
+						auxiliar = aOrdenado[j]; 
+						
+						aOrdenado[j]   = aOrdenado[j-1];
+						aOrdenado[j-1] = auxiliar;
+						
 					}
 					
 				}
-				
-				if(!ordenado) {
-					break;
-				}
 			}
+			break;
 			
-			//Si  no está ordenado lo ordenamos
-			
-			if(!ordenado) {
-			
-				for (int i=0; i<aSinOrdenar.length -1; i++) {
-			
-					if(aSinOrdenar[i] > aSinOrdenar[i+1]) {
+		case O_DES:
+			aOrdenado = aSinOrdenar.clone();
+			for (int i=0; i<aOrdenado.length; i++) {
+				
+				for(int j=1; j <aOrdenado.length -1; j++) {
+	
+					if(aOrdenado[j] < aOrdenado[j-1]) {
 						
-						primero = aSinOrdenar[i+1]; 
-						segundo = aSinOrdenar[i];
+						auxiliar = aOrdenado[j]; 
 						
-						aSinOrdenar[i+1] = primero; 
-						aSinOrdenar[i] = segundo;
+						aOrdenado[j]   = aOrdenado[j-1];
+						aOrdenado[j-1] = auxiliar;
 						
 					}
+					
 				}
 			}
-		
+			break;
+			
+		default:
+			
+			aOrdenado = null;
+			
 		}
 
-		return aSinOrdenar;
+		System.out.println("------------Sin Ordenar-------------------");
+		for(int i=0; i<aSinOrdenar.length; i++) {
+			
+				System.out.println(aSinOrdenar[i]);
+
+		}
+		System.out.println("---------------------------------------------");
+		
+
+		System.out.println("------------Ordenado -------------------");
+		for(int i=0; i<aOrdenado.length; i++) {
+			
+				System.out.println(aOrdenado[i]);
+
+		}
+		System.out.println("---------------------------------------------");
+
+		return aOrdenado;
 		
 	}
 }

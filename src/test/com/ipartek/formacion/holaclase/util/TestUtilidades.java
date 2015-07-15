@@ -20,7 +20,9 @@ public class TestUtilidades {
 	public void testOrdenar() {
 		
 		int[] aOrdenado = new int[A_AORDENAR.length];
-		aOrdenado = Utilidades.ordenar(A_AORDENAR, 0);
+		aOrdenado = Utilidades.ordenar(A_AORDENAR, Utilidades.O_ASC);
+		
+		
 		
 		
 		
