@@ -1,6 +1,6 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
-public class Libro {
+public class Libro implements Cloneable{
 	
 	private int    numeroPaginas;
 	private String dimensiones;
@@ -134,6 +134,12 @@ public class Libro {
 		return this.getNumeroPaginas() - this.getMarcador();
 	}
 	
-	
+	/**
+	 * Realiza un clon del Libro para que en lugar de paso por referencia sea paso por valor
+	 */
+	@Override
+	public Libro clone() throws CloneNotSupportedException{
+		return (Libro)super.clone();
+	}
 
 }
