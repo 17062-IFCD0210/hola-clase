@@ -6,7 +6,7 @@ import com.ipartek.formacion.holaclase.poo.bean.Persona;
 public class HolaMundo {
 
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		
 		System.out.println("Hola Mundo");
 		

@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
+
 public class TestPersona {
 
 	Persona personaVacia;
@@ -48,7 +50,7 @@ public class TestPersona {
 	}
 
 	@Test
-	public void testPersonaStringInt() {
+	public void testPersonaStringInt() throws Exception {
 		
 		assertEquals("Ander", personaParametros.getNombre() );
 		assertEquals("Sin Determinar", personaParametros.getApellido() );
@@ -66,7 +68,7 @@ public class TestPersona {
 	}
 
 	@Test
-	public void testSetEdad() {
+	public void testSetEdad() throws PersonaException {
 		
 		personaVacia.setEdad(-1);
 		assertEquals( Persona.EDAD_MINIMA , personaVacia.getEdad() );

@@ -15,7 +15,7 @@ public class Perro {
 	
 	//constructores
 	
-	public Perro(String nombre) {
+	public Perro(String nombre) throws Exception {
 		super();
 		this.nombre = nombre;
 		this.patas  = 4;
