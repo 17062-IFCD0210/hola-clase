@@ -9,8 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
-import com.ipartek.formacion.holaclase.Utilidades;
+import com.ipartek.formacion.holaclase.util.Utilidades;
 
 /**
  * Servlet implementation class ControladorAjaxRegistroUsuario
