@@ -1,6 +1,6 @@
 package com.ipartek.formacion.holaclase.poo.bean;
-
-public class Libro {
+//Implementamos la interfaz cloneable para el ejemplo de TestPorReferencia
+public class Libro implements Cloneable {
 
 	//Constantes
 	
@@ -137,5 +137,10 @@ public class Libro {
 	 */
 	public int cerrar(){
 		return this.getNumeroPaginas() - this.getMarcador();
+	}
+	
+	@Override
+	public Libro clone() throws CloneNotSupportedException {
+		return (Libro)super.clone();
 	}
 }
