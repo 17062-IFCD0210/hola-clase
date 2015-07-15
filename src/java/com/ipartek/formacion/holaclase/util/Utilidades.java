@@ -19,7 +19,7 @@ public class Utilidades {
 	    /**
 	     * Ordena Array de forma acedendente y descendente
 	     */ 
-	    public static ordenar(array,orden){
+	    public static ordenar{
 	    	for (int i = 0; i < numeros.length; i++){
 	    		
 	    	}

@@ -18,7 +18,7 @@ public class TestUtilidades {
 	
 	@Test
 	public void testOrdenar() {
-		//int [] numeros = {3, 55, 0, 9, -2, 14};
+		int [] numeros = {3, 55, 0, 9, -2, 14};
 		//int [] numeros2 = {-2, 0, 3, 9, 14, 55};
 		
 		

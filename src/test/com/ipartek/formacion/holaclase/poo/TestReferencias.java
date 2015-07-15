@@ -1,0 +1,64 @@
+package com.ipartek.formacion.holaclase.poo;
+
+import static org.junit.Assert.*;
+
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+
+import com.ipartek.formacion.holaclase.poo.bean.Libro;
+
+public class TestReferencias {
+
+	@Test
+	public void testPasoParametroPorValor() {
+		
+		//Todas las variables primitivas se pasan por valor o,
+		//mejor dicho, se pasa una 'copia' de la variable.
+		int x = 0;
+		int y = sumar(x);
+		
+		assertEquals( 0, x );
+		assertEquals( 1, y );
+		
+	}
+	
+	@Test
+	public void testPasoParametroPorReferencia() {
+
+		Libro libroX = new Libro("mock");
+		Libro libroY = null;
+		//Al pasar un objeto, se pasa el parametro por referencia. 
+		//Por lo cual si lo modificamos dentro de un metodo, el objeto cambia.
+		libroY = sumar(libroX);
+		
+		assertEquals( 1, libroX.getNumPaginas() );
+		assertEquals( 1, libroY.getNumPaginas() );
+		
+		//Para pasar un objeto como parametro y que no se modifique, 
+		//podemos clonarlo.
+		Libro libroZ = new Libro("mock");
+		try {
+			sumar( libroZ.clone() );
+		} catch (CloneNotSupportedException e) {
+			fail("No se puede clonar");
+			e.printStackTrace();
+		}
+		assertEquals( 0, libroZ.getNumPaginas() );
+		
+	}
+
+	private int sumar( int parametroValor ) {
+		return ++parametroValor;
+	}
+	
+	
+	private Libro sumar ( Libro libro ) {
+		Libro resul = libro;
+		libro.setNumPaginas ( (libro.getNumPaginas()+1) );
+		
+		return resul;
+	}
+	
+}
