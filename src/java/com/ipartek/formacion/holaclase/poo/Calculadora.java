@@ -1,6 +1,6 @@
 package com.ipartek.formacion.holaclase.poo;
 
-import java.math.BigDecimal;
+import com.ipartek.formacion.holaclase.util.Utilidades;
 
 /**
  * Objeto para calcular las vueltas de un cobro de forma mas optima posible
@@ -74,7 +74,7 @@ public class Calculadora {
 		for(int i=0; i<BILLETES_MONEDAS.length; i++) {
 			aVueltas[i] = (int) (resto/BILLETES_MONEDAS[i]);
 			resto %= BILLETES_MONEDAS[i];
-			resto = round(resto,2);
+			resto = Utilidades.round(resto,2);
 		}
 	}
 
@@ -91,15 +91,4 @@ public class Calculadora {
 			}
 		}
 	}
-	/**
-	 * Funcion que redondea los decimales largos
-	 * @param d numero decimal a redondear
-	 * @param decimalPlace numero de decimales a redondear
-	 * @return el valor decimal con los decimales deseados
-	 */
-	public static float round(float d, int decimalPlace) {
-        BigDecimal bd = new BigDecimal(Float.toString(d));
-        bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
-        return bd.floatValue();
-    }
 }
