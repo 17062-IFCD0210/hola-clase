@@ -18,8 +18,9 @@ public class TestUtilidades {
 	@Test
 	public void testOrdenar() {
 		int[] n = new int[]{3, 55, 0, 9, -2, 14};
-		int[] nAscendente = Utilidades.ordenar(n, 0);
-		int[] nDescendente = Utilidades.ordenar(n, 1);
+		
+		int[] nAscendente = Utilidades.ordenar( n.clone() , Utilidades.ASCENDENTE);
+		int[] nDescendente = Utilidades.ordenar( n.clone() , Utilidades.DESCENDENTE );
 
 		assertEquals(-2, nAscendente[0]);
 		assertEquals( 0, nAscendente[1]);

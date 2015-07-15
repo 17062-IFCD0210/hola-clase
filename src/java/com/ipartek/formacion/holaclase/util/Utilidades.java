@@ -28,7 +28,7 @@ public class Utilidades {
     public static int[] ordenar(int[] array, int orden){
 		
     	//clonar array para evitar que array y arrayOrdenado apunten al mismo sitio de memoria
-    	int[] arrayOrdenado = array.clone();
+    	int[] arrayOrdenado = array;
     	
     	//Variable para comparar los valores del array de dos en dos.
     	int ayudante1 = 0;
@@ -50,8 +50,8 @@ public class Utilidades {
 	    		switch (orden){
 	    			case ASCENDENTE:
 	    				if(ayudante1 < ayudante2){
-	    					arrayOrdenado[i] = ayudante1;
-	    					arrayOrdenado[j] = ayudante2;
+	    					//arrayOrdenado[i] = ayudante1;
+	    					//arrayOrdenado[j] = ayudante2;
 	    				}else{
 	    					arrayOrdenado[i] = ayudante2;
 	    					arrayOrdenado[j] = ayudante1;
@@ -59,8 +59,8 @@ public class Utilidades {
 	    				break;
 	    			case DESCENDENTE:
 	    				if(ayudante1 > ayudante2){
-	    					arrayOrdenado[i] = ayudante1;
-	    					arrayOrdenado[j] = ayudante2;
+	    					//arrayOrdenado[i] = ayudante1;
+	    					//arrayOrdenado[j] = ayudante2;
 	    				}else{
 	    					arrayOrdenado[i] = ayudante2;
 	    					arrayOrdenado[j] = ayudante1;
