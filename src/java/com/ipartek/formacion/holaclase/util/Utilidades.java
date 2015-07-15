@@ -29,7 +29,7 @@ public class Utilidades {
 	/**
 	 * Funcion que ordena ascendentemente o descendentemente un array de enteros
 	 * @param array array desordenado que hay que ordenar
-	 * @param orden numero que se le pasa (0 == Ascendente, 1== Descendente)
+	 * @param orden numero que se le pasa (0 == ASC, 1== DESC)
 	 * @return array ordenado
 	 */
 	public static int[] ordenar (int array[], int orden) {

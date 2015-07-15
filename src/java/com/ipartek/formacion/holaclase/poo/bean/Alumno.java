@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import com.ipartek.formacion.holaclase.poo.bean.Nota;
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona;
 
 public class Alumno extends Persona{
 	//Atributos	
@@ -22,7 +23,7 @@ public class Alumno extends Persona{
 		// TODO Auto-generated constructor stub
 	}
 
-	public Alumno(String nombre, int edad) {
+	public Alumno(String nombre, int edad) throws ExcepcionPersona {
 		super(nombre, edad);
 		// TODO Auto-generated constructor stub
 	}

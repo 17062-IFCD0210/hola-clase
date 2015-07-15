@@ -1,6 +1,7 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona;
 
 /**
  * Clase perro
@@ -23,7 +24,7 @@ public class Perro {
 		super();
 	}
 
-	public Perro(String nombre) {
+	public Perro(String nombre) throws ExcepcionPersona {
 		super();
 		this.setNombre(nombre);
 		this.setRaza(raza);

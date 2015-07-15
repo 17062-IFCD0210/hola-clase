@@ -1,10 +1,11 @@
 package com.ipartek.formacion.holaclase.poo;
 
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona;
 
 public class HolaMundo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws ExcepcionPersona {
 		System.out.println("Hola Mundo");
 		
 		//Creamos o instanciamos objeto
