@@ -42,7 +42,7 @@ public class Persona {
 	 * @param edad edad de la Persona
 	 */
 	public Persona(String nombre, int edad) {		
-		this(); // llamada al constructor por defecto
+		this(); // llamada al constructor por defecto		
 		this.setNombre(nombre);
 		this.setEdad(edad);
 	}
