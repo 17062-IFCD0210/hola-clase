@@ -3,6 +3,8 @@
  */
 package com.ipartek.formacion.holaclase.poo.bean;
 
+import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
+
 /**
  * @author Curso
  *
@@ -20,7 +22,7 @@ public class Perro {
 	private int 	edad;
 	
 	//Constructores
-	public Perro(String nombre) {
+	public Perro(String nombre) throws PersonaException{
 		super();  //lama al objeto padre
 		this.nombre=nombre;
 		this.patas=4;

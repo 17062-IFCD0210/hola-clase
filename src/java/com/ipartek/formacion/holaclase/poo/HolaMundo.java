@@ -2,11 +2,12 @@ package com.ipartek.formacion.holaclase.poo;
 
 import com.ipartek.formacion.holaclase.poo.bean.Perro;
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
 
 public class HolaMundo {
 
 	
-		public static void main(String[] args) {
+		public static void main(String[] args) throws PersonaException {
 			System.out.println("Hola Mundo");
 			
 			

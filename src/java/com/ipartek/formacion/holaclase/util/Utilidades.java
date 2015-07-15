@@ -23,12 +23,13 @@ public class Utilidades {
 	    }
 	    
 	    /**
+	     * <b>ORDENACION POR EL METODO DE LA BURBUJA</b><br>  
 	     * Ordena el array en sentido ascendente o descendente
 	     * @param array el array a ordenar
 	     * @param orden ASCENDENTE o DESCENDENTE
 	     * @return array ordenado
 	     */
-	    public static int[] ordenar(int[] array, int orden){
+	    public static int[] ordenarNoEficiente(int[] array, int orden){
 	    	int[] resul=array;
 	    	int auxiliar=0;
 	    	    	
@@ -40,6 +41,35 @@ public class Utilidades {
     					resul[j]=auxiliar;
     				}
     			}
+    		}
+	    	return resul;
+	    }
+	    
+	    
+	    /**
+	     * <b>ORDENACION POR EL METODO DE LA BURBUJA MEJORADO</b><br> 
+	     * Ordena el array en sentido ascendente o descendente
+	     * mas eficientemente que el metodo de la burbuja
+	     * @param array el array a ordenar
+	     * @param orden ASCENDENTE o DESCENDENTE
+	     * @return array ordenado
+	     */	    
+	    public static int[] ordenar(int[] array, int orden){
+	    	int[] resul=array; 
+	    	int auxiliar=0;
+	    	int bandera = 0;
+	    	
+    		for(int i=0;i<array.length;i++){	
+    			bandera = 0;
+    			for(int j=i;j<array.length;j++){
+    				if((resul[i]>resul[j] && orden==ASCENDENTE)||(resul[i]<resul[j] && orden==DESCENDENTE)){
+    					auxiliar=resul[i];
+    					resul[i]=resul[j];
+    					resul[j]=auxiliar;
+    					bandera = 1;
+    				}
+    			}
+    			if (bandera == 0) break;
     		}
 	    	return resul;
 	    }

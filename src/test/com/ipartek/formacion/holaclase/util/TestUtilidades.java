@@ -19,7 +19,7 @@ public class TestUtilidades {
 		int[] aDesordenado = {3,55,0,9,-2,14};
 		int[] aOrdenado;
 		
-		aOrdenado=Utilidades.ordenar(aDesordenado,Utilidades.ASCENDENTE);
+		aOrdenado=Utilidades.ordenar(aDesordenado.clone(),Utilidades.ASCENDENTE);
 		assertTrue(-2 == aOrdenado[0]);
 		assertTrue(0 == aOrdenado[1]);
 		assertTrue(3 == aOrdenado[2]);
@@ -30,7 +30,7 @@ public class TestUtilidades {
 		int[] aEsperado={-2,0,3,14,55};
 		assertArrayEquals(aEsperado, aOrdenado);
 */		
-		aOrdenado=Utilidades.ordenar(aDesordenado,Utilidades.DESCENDENTE);
+		aOrdenado=Utilidades.ordenar(aDesordenado.clone(),Utilidades.DESCENDENTE);
 		assertTrue(55 == aOrdenado[0]);
 		assertTrue(14 == aOrdenado[1]);
 		assertTrue(9 == aOrdenado[2]);
@@ -40,14 +40,13 @@ public class TestUtilidades {
 		
 		int[] aDesordenado1={1,2,4,3,5,6};
 		int[] aOrdenado1;
-		aOrdenado1=Utilidades.ordenar(aDesordenado1,Utilidades.DESCENDENTE);
+		aOrdenado1=Utilidades.ordenar(aDesordenado1.clone(),Utilidades.DESCENDENTE);
 		assertTrue(6 == aOrdenado1[0]);
 		assertTrue(5 == aOrdenado1[1]);
 		assertTrue(4 == aOrdenado1[2]);
 		assertTrue(3 == aOrdenado1[3]);
 		assertTrue(2 == aOrdenado1[4]);
-		assertTrue(1 == aOrdenado1[5]);		
-		
+		assertTrue(1 == aOrdenado1[5]);			
 	}
 	
 	

@@ -9,7 +9,9 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-public class TestPersona {
+import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
+
+public class TestPersona{
 	
 	Persona personaVacia;
 	Persona personaParametros;
@@ -48,7 +50,7 @@ public class TestPersona {
 	}
 
 	@Test
-	public void testPersonaStringInt() {
+	public void testPersonaStringInt() throws PersonaException {
 		//Test del constructor con parametros
 		assertEquals("Pepe", personaParametros.getNombre());
 		assertEquals("Sin Determinar", personaParametros.getApellido());
@@ -64,7 +66,7 @@ public class TestPersona {
 	}
 
 	@Test
-	public void testSetEdad() {
+	public void testSetEdad() throws PersonaException {
 		//menor de EDAD_MINIMA 
 		personaVacia.setEdad(-1);
 		assertEquals(Persona.EDAD_MINIMA, personaVacia.getEdad());
