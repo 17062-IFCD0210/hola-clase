@@ -1,28 +1,29 @@
 package com.ipartek.formacion.holaclase.poo.ejemplos;
 
+/**
+ * Excepcion de Persona que controlara las edades metidas
+ * @author Raul
+ *
+ */
 public class ExcepcionPersona extends Exception{
+
+	/**
+	 * Numero de version serial
+	 */
+	private static final long serialVersionUID = 2875765634289207183L;
+
 	private String message;
-	private int codigo;
-	
-	public static final int CODIGO_EDAD_NEGATIVA = 0;
-	public static final int CODIGO_EDAD_MENOR = 1;
-	public static final int CODIGO_EDAD_MAYOR = 2;
 	
 	public static final String MESSAGE_EDAD_NEGATIVA = "Rango de edad no valido";
 	public static final String MESSAGE_EDAD_MENOR = "Es menor de edad";
 	public static final String MESSAGE_EDAD_MAYOR = "Es mayor de edad";
 	
-	public ExcepcionPersona(String message, int codigo) {
+	public ExcepcionPersona(String message) {
 		super();
 		this.message = message;
-		this.codigo = codigo;
 	}
 	
 	public String getMessage() {
 		return this.message;
-	}
-	
-	public int getCodigo() {
-		return this.codigo;
 	}
 }

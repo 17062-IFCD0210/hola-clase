@@ -129,7 +129,7 @@ public class Libro implements Cloneable {
 	}
 	
 	public Libro clone() throws CloneNotSupportedException {
-        return this.clone();
+        return (Libro)super.clone();
 }
 	
 }

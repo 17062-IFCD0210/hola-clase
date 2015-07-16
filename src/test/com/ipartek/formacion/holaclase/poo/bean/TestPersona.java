@@ -47,7 +47,7 @@ public class TestPersona {
 	}
 
 	@Test
-	public void testPersonaStringInt() throws ExcepcionPersona {
+	public void testPersonaStringInt() {
 		//fail("Not yet implemented");
 		assertEquals("BlaBla",personaParametros.getNombre());
 		assertEquals("Sin Determinar",personaParametros.getApellido());
@@ -56,33 +56,70 @@ public class TestPersona {
 		assertFalse("Aprobado",personaParametros.isAprobado());
 		assertEquals(Persona.NOTA_MIN,personaParametros.getNota());
 		
-		Persona pEdadMin = new Persona("",-1);
-		Persona pEdadMax = new Persona("",333);
+		Persona pEdadMin;
+		try {
+			pEdadMin = new Persona("",-1);
+		} catch (ExcepcionPersona e) {
+			assertEquals("No lanza correctamente la excepcion de MESSAGE_EDAD_NEGATIVA", e.getMessage(), ExcepcionPersona.MESSAGE_EDAD_NEGATIVA);
+		}
 		
-		assertEquals(Persona.EDAD_MIN,pEdadMin.getEdad());
-		assertEquals(Persona.EDAD_MAX,pEdadMax.getEdad());
+		Persona pEdadMax;
+		try {
+			pEdadMax = new Persona("",333);
+		} catch (ExcepcionPersona e) {
+			assertEquals("No lanza correctamente la excepcion de MESSAGE_EDAD_MAYOR", e.getMessage(), ExcepcionPersona.MESSAGE_EDAD_MAYOR);
+		}
 		
 	}
 
 	@Test
-	public void testSetEdad() throws ExcepcionPersona {
+	public void testSetEdad() {
 		//fail("Not yet implemented");
-		personaVacia.setEdad(17);
-		assertEquals(Persona.EDAD_MIN,personaVacia.getEdad());
+		try {
+			personaVacia.setEdad(17);
+			fail("No lanza excepcion");
+		} catch (ExcepcionPersona e) {
+			assertEquals("No lanza correctamente la excepcion de MESSAGE_EDAD_MENOR", e.getMessage(), ExcepcionPersona.MESSAGE_EDAD_MENOR);
+		}
 		
-		personaVacia.setEdad(18);
-		assertEquals(Persona.EDAD_MIN,personaVacia.getEdad());
 		
-		personaVacia.setEdad(19);
-		assertEquals(19,personaVacia.getEdad());
+		try {
+			personaVacia.setEdad(18);
+			assertEquals(Persona.EDAD_MIN,personaVacia.getEdad());
+		} catch (ExcepcionPersona e) {
+			fail("No deberia haber excepcion");
+		}
 		
-		personaVacia.setEdad(98);
-		assertEquals(98,personaVacia.getEdad());
 		
-		personaVacia.setEdad(99);
-		assertEquals(Persona.EDAD_MAX,personaVacia.getEdad());
+		try {
+			personaVacia.setEdad(19);
+			assertEquals(19,personaVacia.getEdad());
+		} catch (ExcepcionPersona e) {
+			fail("No deberia haber excepcion");
+		}
 		
-		personaVacia.setEdad(100);
-		assertEquals(Persona.EDAD_MAX,personaVacia.getEdad());
+		
+		try {
+			personaVacia.setEdad(98);
+			assertEquals(98,personaVacia.getEdad());
+		} catch (ExcepcionPersona e) {
+			fail("No deberia haber excepcion");
+		}
+		
+		
+		try {
+			personaVacia.setEdad(99);
+			assertEquals(Persona.EDAD_MAX,personaVacia.getEdad());
+		} catch (ExcepcionPersona e) {
+			fail("No deberia haber excepcion");
+		}
+		
+		
+		try {
+			personaVacia.setEdad(100);
+			fail("No deberia haber excepcion");
+		} catch (ExcepcionPersona e) {
+			assertEquals("No lanza correctamente la excepcion de MESSAGE_EDAD_MAYOR", e.getMessage(), ExcepcionPersona.MESSAGE_EDAD_MAYOR);
+		}
 	}
 }

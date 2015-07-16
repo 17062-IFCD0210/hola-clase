@@ -81,20 +81,22 @@ public class Persona {
 		return edad;
 	}
 	/**
-	 * Edad comprendida entre 18 y 99, casos:
+	 * Comprobacion de edades segun su rango
 	 * <ul>
-	 * 	<li>Si es menor de 18 seteamos a 18</li>
-	 * 	<li>Si es mayor de 99 seteamos a 99</li>
+	 *  <li>Si es menor de 0 lanzamos excepcion de menor de 0</li>
+	 * 	<li>Si es menor de 18 lanzamos excepcion de menor de 18</li>
+	 * 	<li>Si es mayor de 99 lanzamos excepcion de mayor de 99</li>
 	 * </ul>
-	 * @param edad
+	 * @param edad devuelve la edad correcta (Entre 18 y 99)
+	 * @throws ExcepcionPersona puede lanzar excepciones para casos excepcionales
 	 */
 	public void setEdad(int edad) throws ExcepcionPersona{
 		if(edad < 0) {
-			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_EDAD_NEGATIVA,ExcepcionPersona.CODIGO_EDAD_NEGATIVA);
+			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_EDAD_NEGATIVA);
 		} else if(edad > EDAD_MAX) {
-			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_EDAD_MAYOR,ExcepcionPersona.CODIGO_EDAD_MAYOR);
+			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_EDAD_MAYOR);
 		} else if(edad < EDAD_MIN && edad >=0){
-			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_EDAD_MENOR,ExcepcionPersona.CODIGO_EDAD_MENOR);
+			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_EDAD_MENOR);
 		} else {
 			this.edad = edad;
 		}

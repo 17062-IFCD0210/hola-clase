@@ -24,11 +24,15 @@ public class Perro {
 		super();
 	}
 
-	public Perro(String nombre) throws ExcepcionPersona {
+	public Perro(String nombre) {
 		super();
 		this.setNombre(nombre);
 		this.setRaza(raza);
-		this.setDueno(new Persona("Abandonado", Persona.EDAD_MIN));
+		try {
+			this.setDueno(new Persona("Abandonado", Persona.EDAD_MIN));
+		} catch (ExcepcionPersona e) {
+			e.printStackTrace();
+		}
 		this.setPatas(patas);
 		this.setVacunado(vacunado);
 		this.setPeso(peso);

@@ -16,11 +16,14 @@ public class Excepcion1 {
 			// fuera de los límites del array.
 			System.out.println(".hay una excepcion por acceso incorrecto");
 			try {
-				throw new ArithmeticException();
+				array_corto[10] = 10/0;
 			} catch (ArithmeticException er) {
 				// se captura una excepción aritmética.
 				System.out.println(".hay una excepcion por error aritmetico");
 			}
+		} catch (ArithmeticException er) {
+			// se captura una excepción aritmética.
+			System.out.println(".hay una excepcion por error aritmetico");
 		}
 		finally {
 			// después del try catch...
