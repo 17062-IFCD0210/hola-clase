@@ -54,16 +54,17 @@ public class TestVariablesPrimitivas {
 		char caracter9		= '9';
 		
 		assertEquals( 65, (int)caracterAmayus );
+		
 		assertEquals( 10, Character.getNumericValue(caracterAminus) );
 		assertEquals( 10, Character.getNumericValue(caracterAmayus) );
 		assertEquals( 9,  Character.getNumericValue(caracter9) );
 	
 	//Convertir primera letra de un string a Mayuscula
-		String titulo = "don quijote de ...";
+		String titulo = "don Quijote de ...";
 		//cojer primer carater
 		char letraInicial = titulo.charAt(0);
-		//Convertirlo a minuscula
-		Character.toUpperCase(letraInicial);
+		//Convertirlo a mayuscula
+		letraInicial = Character.toUpperCase(letraInicial);
 		//Reemplazar en la cadena la primera letra
 		titulo = letraInicial + titulo.substring(1);
 		assertEquals("Don Quijote de ...", titulo );

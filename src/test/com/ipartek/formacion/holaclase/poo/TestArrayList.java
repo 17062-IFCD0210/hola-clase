@@ -22,7 +22,7 @@ public class TestArrayList {
 		
 		//comprobar que se insertan hasta el final
 		
-		assertTrue("Comprobar que se insertan al final", 2 == listaEnteros.get(listaEnteros.size() -1) );
+		assertTrue("Comprobar que se insertan al final", 2 == listaEnteros.get( (listaEnteros.size()-1) ));
 		
 		//quiero meter en la posicion 1 el elemento 4
 		//insertar en una posicion concreta

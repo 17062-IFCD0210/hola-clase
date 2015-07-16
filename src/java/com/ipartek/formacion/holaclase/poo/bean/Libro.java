@@ -18,10 +18,10 @@ public class Libro implements Cloneable {
 		super();
 		//inicializamos los atributos para que no esten a null; con this accedemos al atributo de a ppia clase
 		
+		this.titulo		    = titulo;
 		this.numeroPaginas	= 0;
 		this.dimensiones    = "";
-		this.autor	        = "anonimo";
-		this.titulo		    = titulo;	
+		this.autor	        = "anonimo";	
 		this.colorPortada	= "";	
 		this.marcador 		= 0;
 	
