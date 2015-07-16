@@ -1,7 +1,6 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.*;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -50,7 +49,7 @@ public class TestPersona{
 	}
 
 	@Test
-	public void testPersonaStringInt() throws PersonaException {
+	public void testPersonaStringInt(){
 		//Test del constructor con parametros
 		assertEquals("Pepe", personaParametros.getNombre());
 		assertEquals("Sin Determinar", personaParametros.getApellido());
@@ -59,34 +58,86 @@ public class TestPersona{
 		assertFalse("Est� aprobado", personaParametros.isAprobado());
 		assertEquals(0,personaParametros.getNota());
 		
+/*		Esto ya esta probado abajo en testExcepcionEdadConstructor
 		Persona pEdadMinima = new Persona("",-1);
 		Persona pEdadMaxima = new Persona("",333);
 		assertEquals(Persona.EDAD_MINIMA,pEdadMinima.getEdad());
-		assertEquals(Persona.EDAD_MAXIMA,pEdadMaxima.getEdad());		
+		assertEquals(Persona.EDAD_MAXIMA,pEdadMaxima.getEdad());
+*/
+		
 	}
 
 	@Test
-	public void testSetEdad() throws PersonaException {
+	public void testSetEdad() {
 		//menor de EDAD_MINIMA 
-		personaVacia.setEdad(-1);
-		assertEquals(Persona.EDAD_MINIMA, personaVacia.getEdad());
+		try {
+			personaVacia.setEdad(-1);
+			assertEquals(-1, personaVacia.getEdad());
+		} catch (PersonaException e) {
+			assertTrue("No lanza correctamente la excepcion de edad no valida",PersonaException.EDAD_NO_VALIDA.equals(e.getMessage()));
+		}
+
 		
 		//igual a EDAD_MINIMA
-		personaVacia.setEdad(18);
-		assertEquals(Persona.EDAD_MINIMA, personaVacia.getEdad());
+		try {
+			personaVacia.setEdad(18);
+			assertEquals(18, personaVacia.getEdad());
+		} catch (PersonaException e) {
+			fail("No deberia lanzar excepcion");
+		}
+		
 		
 		//entre EDAD_MINIMA y EDAD_MAXIMA
-		personaVacia.setEdad(45);
-		assertEquals(45, personaVacia.getEdad());
+		try {
+			personaVacia.setEdad(45);
+			assertEquals(45, personaVacia.getEdad());
+		} catch (PersonaException e) {
+			fail("No deberia lanzar excepcion");
+		}
+		
 		
 		// igual a EDAD_MAXIMA
-		personaVacia.setEdad(99);
-		assertEquals(Persona.EDAD_MAXIMA, personaVacia.getEdad());
-
+		try {
+			personaVacia.setEdad(99);
+			assertEquals(Persona.EDAD_MAXIMA, personaVacia.getEdad());
+		} catch (PersonaException e) {
+			fail("No deberia lanzar excepcion");			
+		}
+		
 		// mayor que EDAD_MAXIMA
-		personaVacia.setEdad(100);
-		assertEquals(Persona.EDAD_MAXIMA, personaVacia.getEdad());
+		try {
+			personaVacia.setEdad(100);
+			assertEquals(Persona.EDAD_MAXIMA, personaVacia.getEdad());
+		} catch (PersonaException e) {
+			assertTrue("No lanza correctamente la excepcion de edad mayor",PersonaException.MAYOR_DE_EDAD.equals(e.getMessage()));			
+		}
+		
 		
 	}
 
+	@Test
+	public void testExcepcionEdadConstructor(){
+		try{
+			new Persona("menor",12);
+			fail("No lanza PersonaException");
+		}catch(PersonaException e){
+			assertTrue("No lanza correctamente la excepcion de edad menor",PersonaException.MENOR_DE_EDAD.equals(e.getMessage()));
+		}
+		
+		try{
+			new Persona("menor",112);
+			fail("No lanza PersonaException");
+		}catch(PersonaException e){
+			assertTrue("No lanza correctamente la excepcion de edad mayor",PersonaException.MAYOR_DE_EDAD.equals(e.getMessage()));
+		}
+		
+		try{
+			new Persona("menor",-2);
+			fail("No lanza PersonaException");
+		}catch(PersonaException e){
+			assertTrue("No lanza correctamente la excepcion de edad no valida",PersonaException.EDAD_NO_VALIDA.equals(e.getMessage()));
+		}
+	}
+	
+	
 }

@@ -98,22 +98,21 @@ public class Persona{
 	 *   <li>Si es mayor que 99 seteamos a 99</li>
 	 * </ul>
 	 * @param edad the edad to set
+	 * @throws PersonaException 
 	 */
-	public void setEdad(int edad) throws PersonaException {
-		try{
-			if (edad < EDAD_MINIMA ){
-				this.edad=EDAD_MINIMA;
-				throw new PersonaException(PersonaException.MENOR_DE_EDAD);
-			}else if (edad > EDAD_MAXIMA) {
-				this.edad=EDAD_MAXIMA;
-				throw new PersonaException(PersonaException.MAYOR_DE_EDAD);				
-			} else{
-				this.edad = edad;
-				if(this.edad<0) throw new PersonaException(PersonaException.EDAD_NO_VALIDA);
-			}
-		}catch (PersonaException e){
-			System.out.println(e.getMensaje());
+	public void setEdad(int edad) throws PersonaException  {
+		this.edad = edad;			
+		if(this.edad < 0) {
+			this.edad=EDAD_MINIMA;
+			throw new PersonaException(PersonaException.EDAD_NO_VALIDA);
 		}
+		if (edad < EDAD_MINIMA ){
+			this.edad=EDAD_MINIMA;
+			throw new PersonaException(PersonaException.MENOR_DE_EDAD);
+		}else if (edad > EDAD_MAXIMA) {
+			this.edad=EDAD_MAXIMA;
+			throw new PersonaException(PersonaException.MAYOR_DE_EDAD);				
+		} 
 	}
 
 	/**

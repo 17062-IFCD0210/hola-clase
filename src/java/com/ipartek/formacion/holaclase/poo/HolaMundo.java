@@ -7,10 +7,10 @@ import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
 public class HolaMundo {
 
 	
-		public static void main(String[] args) throws PersonaException {
+		public static void main(String[] args) {
 			System.out.println("Hola Mundo");
 			
-			
+		  try{			
 			//crear o instanciar objeto
 			
 			//constructor vacio
@@ -36,6 +36,7 @@ public class HolaMundo {
 			Perro perro1 = new Perro("lagun");
 			System.out.println(perro1.toString());
 			System.out.println(perro1.ladrar());
+		  }catch(Exception e){}
 			
 		}
 }

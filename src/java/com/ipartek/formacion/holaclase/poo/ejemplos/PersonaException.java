@@ -1,14 +1,16 @@
 package com.ipartek.formacion.holaclase.poo.ejemplos;
 
-import com.ipartek.formacion.holaclase.poo.bean.Persona;
 
 public class PersonaException extends Exception{
 
+	//generado al pinchar en el warning de la linea de public class (2ª opcion)
+	private static final long serialVersionUID = -8910411735964941392L;
 	
-	//codigos de excepciones
-		public static final String  MENOR_DE_EDAD = "Es menor de edad";
-		public static final String  MAYOR_DE_EDAD = "Es mayor de edad";
-		public static final String  EDAD_NO_VALIDA = "Rango de edad no valido";
+	
+	//mensajes de excepciones
+	public static final String  MENOR_DE_EDAD = "Es menor de edad";
+	public static final String  MAYOR_DE_EDAD = "Es mayor de edad";
+	public static final String  EDAD_NO_VALIDA = "Rango de edad no valido";
 		
 	//atributos
 		String mensaje;
@@ -24,7 +26,8 @@ public class PersonaException extends Exception{
 	
 	//getters
 	
-	public String getMensaje(){
+	public String getMessage(){
 		return this.mensaje;
 	}
+	
 }

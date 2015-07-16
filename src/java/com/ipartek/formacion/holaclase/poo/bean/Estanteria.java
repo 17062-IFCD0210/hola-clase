@@ -57,7 +57,7 @@ public class Estanteria {
 			}
 			libro=null;
 		}
-		return null;
+		return resul;
 	}
 
 	public int numeroLibros(){
