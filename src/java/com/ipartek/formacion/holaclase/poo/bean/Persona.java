@@ -3,6 +3,8 @@
  */
 package com.ipartek.formacion.holaclase.poo.bean;
 
+import com.ipartek.formacion.holaclase.poo.excepciones.PersonaException;
+
 /**
  * Bean para modelar una persona fisica
  * @author David
@@ -43,8 +45,9 @@ public class Persona {
 	 * Constructor con parametros
 	 * @param nombre nombre de la persona
 	 * @param edad edad de la persona
+	 * @throws PersonaException 
 	 */
-	public Persona(String nombre, int edad) {
+	public Persona(String nombre, int edad) throws PersonaException {
 		this();
 		this.setNombre(nombre);
 		this.setEdad(edad);
@@ -85,15 +88,18 @@ public class Persona {
 	 * <li>Si es mayor que 99 seteamos a 99</li>
 	 * </ul>
 	 * @param edad
+	 * @throws PersonaException 
 	 */
-	public void setEdad(int edad) {
+	public void setEdad(int edad) throws PersonaException {
 		
-		if (edad < EDAD_MINIMA){
-			this.edad=EDAD_MINIMA;
-		}else if (edad>EDAD_MAXIMA){
-			this.edad=EDAD_MAXIMA;
+		if (edad<0){
+			throw new PersonaException(PersonaException.COD_EDAD_NEGATIVA);
+		}else if (edad>=0 && edad<EDAD_MINIMA){
+			throw new PersonaException(PersonaException.COD_MENOR_EDAD);
+		}else if (edad>=EDAD_MINIMA && edad<EDAD_MAXIMA){
+			this.edad=edad;
 		}else{
-			this.edad = edad;
+			throw new PersonaException(PersonaException.COD_EDAD_ALTA);
 		}
 	}
 

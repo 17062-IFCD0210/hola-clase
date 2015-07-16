@@ -3,6 +3,8 @@
  */
 package com.ipartek.formacion.holaclase.poo.bean;
 
+import com.ipartek.formacion.holaclase.poo.excepciones.PersonaException;
+
 /**
  * Bean para modelar un perro fisico
  * 
@@ -26,7 +28,7 @@ public class Perro {
 
 	// constructores
 
-	public Perro(String nombre) {
+	public Perro(String nombre) throws PersonaException {
 		super();
 		this.nombre = nombre;
 		this.patas = 4;

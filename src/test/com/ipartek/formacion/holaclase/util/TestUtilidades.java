@@ -35,6 +35,15 @@ public class TestUtilidades {
 		assertEquals( 3, n[3]);
 		assertEquals( 0, n[4]);
 		assertEquals(-2, n[5]);
+		
+		n=new int[]{1,5,5,1,-1,1};
+		Utilidades.ordenar(n, 1);
+		assertEquals(5, n[0]);
+		assertEquals(5, n[1]);
+		assertEquals(1, n[2]);
+		assertEquals(1, n[3]);
+		assertEquals(1, n[4]);
+		assertEquals(-1, n[5]);
 	}
 	
 }
