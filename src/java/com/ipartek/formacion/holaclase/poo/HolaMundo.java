@@ -8,8 +8,9 @@ public class HolaMundo {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+	
+	try{	
 		System.out.println("Hola Mundo");
-		
 		//Instanciar o crear objeto
 		
 		//constructor vacio
@@ -28,7 +29,9 @@ public class HolaMundo {
 		
 		//System.out.println( "pepe = "+ pepe.nombre + " " + pepe.edad );
 		System.out.println( pepe.toString() );
-		
+	}catch ( Exception e){
+		e.printStackTrace();
+	}	
 		
 		
 	}

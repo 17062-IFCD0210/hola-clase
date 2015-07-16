@@ -42,8 +42,9 @@ public class Persona {
 	 * Constructor con parametros
 	 * @param nombre: nombre de la Persona
 	 * @param edad: edad de la Persona
+	 * @throws PersonaException 
 	 */
-	public Persona(String nombre, int edad) {
+	public Persona(String nombre, int edad) throws PersonaException {
 		this(); // llamamos al constructor por defecto //Persona.
 		this.setNombre(nombre);
 		this.setEdad(edad);
@@ -80,16 +81,22 @@ public class Persona {
 	 * 	Si es null seteamos a 18 //El valor null de un entero es 0
 	 * </ul>
 	 * @param edad
+	 * @throws PersonaException
 	 */
-	public void setEdad(int edad) {
+	public void setEdad(int edad) throws PersonaException {
 		
-		if ( edad < EDAD_MINIMA ) {
-			this.edad = EDAD_MINIMA;
-		} else if ( edad > EDAD_MAXIMA ){
-			this.edad = EDAD_MAXIMA;
-		} else {
-			this.edad = edad;
-		}
+		 if( edad < 0 ){
+			   this.edad = EDAD_MINIMA;
+			   throw new PersonaException( PersonaException.MSG_EDAD_RANGO );
+		   }else if ( edad < EDAD_MINIMA ){
+				this.edad = EDAD_MINIMA;
+				throw new PersonaException( PersonaException.MSG_EDAD_MENOR );
+			}else if ( edad > EDAD_MAXIMA ){
+				this.edad = EDAD_MAXIMA;
+				throw new PersonaException( PersonaException.MSG_EDAD_MAYOR );
+			}else{
+				this.edad = edad;
+			}
 	}
 
 	public String getEmail() {

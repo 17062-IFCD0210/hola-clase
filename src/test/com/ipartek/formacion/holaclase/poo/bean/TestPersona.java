@@ -38,7 +38,7 @@ public class TestPersona {
 	public void testPersona() {
 		
 		assertEquals("Anonimo", personaVacia.getNombre() );
-		assertEquals("Sin Determinar", personaVacia.getApellido() );
+		 assertEquals("Sin Determinar", personaVacia.getApellido() );
 		assertEquals( Persona.EDAD_MINIMA , personaVacia.getEdad() );
 		assertEquals( "", personaVacia.getEmail() );
 		assertFalse("Esta aprobado", personaVacia.isAprobado() );		
