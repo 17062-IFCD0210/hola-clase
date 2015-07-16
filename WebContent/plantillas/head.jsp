@@ -138,6 +138,7 @@
 			<ul class="dl-submenu">
 				<li><a href="ejemplos/formularios/login.jsp">Login</a></li>			
 				<li><a href="ejemplos/formularios/datos_personales.jsp">Datos Personales</a></li>
+				<li><a href="includes/persona/persona_form.jsp">Alta Persona</a></li>
 			</ul>
 		</li>  
 		<li>

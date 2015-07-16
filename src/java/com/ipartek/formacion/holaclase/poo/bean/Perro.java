@@ -28,12 +28,16 @@ public class Perro {
 
 	// constructores
 
-	public Perro(String nombre) throws PersonaException {
+	public Perro(String nombre){
 		super();
 		this.nombre = nombre;
 		this.patas = 4;
 		this.raza = "desconocida";
+		try{
 		this.amo = new Persona("Abandonado", Persona.EDAD_MINIMA);
+		}catch(PersonaException e){
+			e.printStackTrace();
+		}
 		this.vacunado = false;
 		this.peso = 0;
 		this.edad = 0;

@@ -542,24 +542,32 @@ ul.tabs li.active a {
 }
 
 .clr {
-  clear: both;
+	clear: both;
 }
 
 /* Mensajes para el usuario */
-
-.msg_success{
+.msg_success {
 	border: 1px solid green;
 	color: green;
 	margin-left: 10px;
 	padding: 5px;
 }
 
-.msg_error{
+.msg_error {
 	border: 1px solid red;
 	color: red;
 	margin-left: 10px;
 	padding: 5px;
 }
+
+.msg_error_alta_persona {
+	border: 1px solid red;
+	color: red;
+	margin: 10px;
+	padding: 5px;
+	display: inline-block;
+}
+
 
 /* mi opcion */
 /* #disponibilidad_usuario{ */
@@ -834,9 +842,23 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 	overflow: scroll;
 }
 
-#openModal{
-	float:left;
-	
+#openModal {
+	float: left;
+}
+
+#alta_persona div {
+	width: 100%;
+	margin: 10px auto;
+	text-align: justify;
+}
+
+#alta_persona input {
+	margin: 1%;
+}
+
+#guardar_alta_personas {
+	text-align: center !important;
+	margin: 20px auto !important;
 }
 
 /***********************************************************
@@ -900,12 +922,10 @@ table.tabla_azul, .tabla_azul tr, .tabla_azul td {
 		background-color: transparent !important;
 	}	
 	*/
-	
 	.dl-trigger img {
- 		width: 50px;
-  		height: 50px;
+		width: 50px;
+		height: 50px;
 	}
-
 	#dado {
 		display: none;
 	}

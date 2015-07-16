@@ -8,6 +8,8 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.ipartek.formacion.holaclase.poo.excepciones.PersonaException;
+
 public class TestPerro {
 
 	Perro perro1;
@@ -60,4 +62,24 @@ public class TestPerro {
 		assertEquals("Guau! Guau!", perro1.ladrar());
 	}
 
+	@Test
+	public void testPerroPersona(){
+		Persona abandonado = new Persona();
+		abandonado.setNombre("Abandonado");
+		Persona persona1 = new Persona();
+		Perro perro1 = new Perro("Aska");
+		perro1.setAmo(persona1);
+		assertTrue(perro1.getAmo()==persona1);
+		
+		Persona persona2 = new Persona();
+		Perro perro2=new Perro("Hartz");
+		try {
+			persona2.setEdad(100);
+		} catch (PersonaException e) {
+			persona2= abandonado;
+			//e.printStackTrace();
+		}
+		perro2.setAmo(persona2);
+		assertTrue(perro2.getAmo()==persona2);
+	}
 }

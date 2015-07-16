@@ -96,7 +96,7 @@ public class Persona {
 			throw new PersonaException(PersonaException.COD_EDAD_NEGATIVA);
 		}else if (edad>=0 && edad<EDAD_MINIMA){
 			throw new PersonaException(PersonaException.COD_MENOR_EDAD);
-		}else if (edad>=EDAD_MINIMA && edad<EDAD_MAXIMA){
+		}else if (edad>=EDAD_MINIMA && edad<=EDAD_MAXIMA){
 			this.edad=edad;
 		}else{
 			throw new PersonaException(PersonaException.COD_EDAD_ALTA);
