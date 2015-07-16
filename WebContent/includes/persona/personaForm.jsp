@@ -1,10 +1,15 @@
+<%@page import="com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona"%>
 <jsp:include page="../../plantillas/head.jsp"></jsp:include>
 <jsp:include page="../../plantillas/nav.jsp"></jsp:include>
 
-<h1>Datos personales</h1>
-
-<form name="formPersona" id="formPersona" 
-      action="#" method="post" >
+<h1>Alta Nueva Persona</h1>
+<%
+	String msg = (String)request.getAttribute("msg");
+	if(msg !=null) {
+		out.print("<h2>" + msg + "</h2>");
+	}
+%>
+<form action="personaControlador" method="post" novalidate>
 
 		<fieldset>
 		<legend>Datos Personales</legend>
@@ -45,8 +50,8 @@
 		<fieldset>
 			<legend>Notas</legend>
 			<p>
-				<input type="checkbox" name="conocimientos" id="datospersonalesConocimientos1" value="0">
-				<label for="datospersonalesConocimientos1">Aprobado</label>
+				<input type="checkbox" name="aprobado" id="aprobado" value="0">
+				<label for="aprobado">Aprobado</label>
 			<br>
 			</p>
 			<br>
@@ -61,12 +66,9 @@
 	<br>
 	
 	<input type="submit" value="Guardar">
-	<input type="reset"  value="Limpiar Formulario">
 
 </form>
 
 <br>
-
-
-			
+	
 <jsp:include page="../../plantillas/foot.jsp"></jsp:include>			
