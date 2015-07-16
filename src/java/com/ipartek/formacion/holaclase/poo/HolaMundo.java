@@ -5,8 +5,10 @@ import com.ipartek.formacion.holaclase.poo.bean.Persona;
 public class HolaMundo {
 
 	
-	
+	//metodo
 	public static void main(String[] args) {
+		
+	try{	
 		System.out.println("Hola Mundo");
 		
 		//CREAR o INSTANCIAR objeto;sale al ppio error porque hay que importar Persona(desde el fallo o desde Sourde-Organice import)
@@ -29,6 +31,10 @@ public class HolaMundo {
 		
 		//System.out.println("pepe = " + pepe.nombre + " " + pepe.edad );
 		System.out.println( pepe.toString() );
+	}catch( Exception e){
+		e.printStackTrace();
+		
+	}
 	}
 	
 }

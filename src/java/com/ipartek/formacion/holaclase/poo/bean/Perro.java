@@ -11,13 +11,13 @@ public class Perro {
 	//Constantes
 	
 	//Atributos
-	int		 patas;
-	String   nombre;
-	int	     edad;
-	String	 raza;
-	Persona  amo;
-	boolean  vacunado;
-	long	 peso;
+	private int     patas;
+	private String  nombre;
+	private String  raza;
+	private Persona amo;
+	private boolean vacunado;
+	private long    peso;
+	private int     edad;
 	
 	//Constructores
 	public Perro(String nombre){
@@ -25,7 +25,12 @@ public class Perro {
 		this.nombre = nombre;
 		this.patas  = 4;
 		this.raza   = "Desconocida";
-		this.amo	= new Persona ("Abandonado" , Persona.EDAD_MINIMA );
+		try {
+			this.amo	= new Persona ( "Abandonado" , Persona.EDAD_MINIMA );
+		} catch (PersonaException e) {
+			this.amo = null;
+			e.printStackTrace();
+		}
 		this.vacunado = false;
 		this.peso = 0;
 		this.edad = 0;

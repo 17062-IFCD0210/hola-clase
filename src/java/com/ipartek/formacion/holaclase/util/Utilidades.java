@@ -60,8 +60,8 @@ public class Utilidades {
 	    				break;
 	    			case DESCENDENTE:
 	    				if(ayudante1 > ayudante2){
-	    					arrayOrdenado[i] = ayudante1;
-	    					arrayOrdenado[j] = ayudante2;
+	    					//arrayOrdenado[i] = ayudante1;
+	    					//arrayOrdenado[j] = ayudante2;
 	    				}else{
 	    					arrayOrdenado[i] = ayudante2;
 	    					arrayOrdenado[j] = ayudante1;
