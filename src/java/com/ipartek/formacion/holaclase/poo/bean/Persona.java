@@ -93,12 +93,12 @@ public class Persona {
 		
 		if( edad < 0 ){
 			throw new PersonaException(PersonaException.CODIGO_EXCEPCION_RANGO_EDAD_NO_VALIDO);
-		}else if ( edad < EDAD_MINIMA ){
+		}else if ( edad < EDAD_MINIMA ){			
+			this.edad = EDAD_MINIMA;
 			throw new PersonaException(PersonaException.CODIGO_EXCEPCION_MENOR_EDAD);
-//			this.edad = EDAD_MINIMA;
 		}else if ( edad > EDAD_MAXIMA ){
+			this.edad = EDAD_MAXIMA;
 			throw new PersonaException(PersonaException.CODIGO_EXCEPCION_MAYOR_EDAD);
-//			this.edad = EDAD_MAXIMA;
 		}else{
 			this.edad = edad;
 		}

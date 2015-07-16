@@ -1,12 +1,12 @@
 package com.ipartek.formacion.holaclase.poo.ejemplos;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.ipartek.formacion.holaclase.poo.bean.Libro;
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
 
 public class TestPersonaException {
@@ -28,7 +28,6 @@ public class TestPersonaException {
 		try{ 
 			Persona persona = new Persona("pepe", 25);
 			persona1.setEdad(25);
-			fail("Exception no lanzada");
 		} catch(PersonaException e) {
 			fail(".hay una excepcion por: " + e.getMessage());
 		}
@@ -40,7 +39,10 @@ public class TestPersonaException {
 			Persona persona = new Persona("pepe", 10);
 			fail("Exception no lanzada");
 		} catch(PersonaException e) {
-			fail(".hay una excepcion por: " + e.getMessage());
+			assertTrue( 
+				"No lanza correctamente la excepcion de MSG_EDAD_MENOR",
+				PersonaException.MENSAJE_EXCEPCION_MENOR_EDAD.equals(e.getMessage()) 
+			);
 		} 
 	}
 	@Test 
@@ -49,7 +51,10 @@ public class TestPersonaException {
 			persona1.setEdad(10);
 			fail("Exception no lanzada");
 		} catch(PersonaException e) {
-			fail(".hay una excepcion por: " + e.getMessage());
+			assertTrue( 
+				"No lanza correctamente la excepcion de MSG_EDAD_MENOR",
+				PersonaException.MENSAJE_EXCEPCION_MENOR_EDAD.equals(e.getMessage()) 
+			);
 		} 
 	}
 	
@@ -59,7 +64,10 @@ public class TestPersonaException {
 			Persona persona = new Persona("pepe", 333);
 			fail("Exception no lanzada");
 		} catch(PersonaException e) {
-			fail(".hay una excepcion por: " + e.getMessage());
+			assertTrue( 
+				"No lanza correctamente la excepcion de MSG_EDAD_MAYOR",
+				PersonaException.MENSAJE_EXCEPCION_MAYOR_EDAD.equals(e.getMessage()) 
+			);
 		}  
 	}
 	
@@ -69,7 +77,10 @@ public class TestPersonaException {
 			persona1.setEdad(333);
 			fail("Exception no lanzada");
 		} catch(PersonaException e) {
-			fail(".hay una excepcion por: " + e.getMessage());
+			assertTrue( 
+				"No lanza correctamente la excepcion de MSG_EDAD_MAYOR",
+				PersonaException.MENSAJE_EXCEPCION_MAYOR_EDAD.equals(e.getMessage()) 
+			);
 		} 
 	}
 	
@@ -79,7 +90,10 @@ public class TestPersonaException {
 			Persona persona = new Persona("pepe", -50);
 			fail("Exception no lanzada");
 		} catch(PersonaException e) {
-			fail(".hay una excepcion por: " + e.getMessage());
+			assertTrue( 
+				"No lanza correctamente la excepcion de MSG_EDAD_RANGO",
+				PersonaException.MENSAJE_EXCEPCION_RANGO_EDAD_NO_VALIDO.equals(e.getMessage()) 
+			);
 		}
 	}
 	
@@ -89,7 +103,10 @@ public class TestPersonaException {
 			persona1.setEdad(-50);
 			fail("Exception no lanzada");
 		} catch(PersonaException e) {
-			fail(".hay una excepcion por: " + e.getMessage());
+			assertTrue( 
+				"No lanza correctamente la excepcion de MSG_EDAD_RANGO",
+				PersonaException.MENSAJE_EXCEPCION_RANGO_EDAD_NO_VALIDO.equals(e.getMessage()) 
+			);
 		}
 	}
 
