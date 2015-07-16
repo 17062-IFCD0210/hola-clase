@@ -24,7 +24,7 @@ public class Perro {
 		super();
 	}
 
-	public Perro(String nombre) {
+	public Perro(String nombre)  {
 		super();
 		this.setNombre(nombre);
 		this.setRaza(raza);
@@ -42,7 +42,7 @@ public class Perro {
 
 
 	public Perro(String nombre, String raza, Persona dueno, int patas,
-			boolean vacunado, long peso) {
+			boolean vacunado, long peso) throws ExcepcionPersona {
 		super();
 		this.setNombre(nombre);
 		this.setRaza(raza);
@@ -73,8 +73,9 @@ public class Perro {
 		return dueno;
 	}
 
-	public void setDueno(Persona dueno) {
+	public void setDueno(Persona dueno){
 		this.dueno = dueno;
+		
 	}
 
 	public int getPatas() {
