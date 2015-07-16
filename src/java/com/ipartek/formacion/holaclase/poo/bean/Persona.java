@@ -12,7 +12,7 @@ public class Persona {
 	
 	//Constantes
 	public static final int EDAD_MINIMA = 18; //final indica que no se puede modificar
-	public final int EDAD_MAXIMA = 99; 
+	public final static int EDAD_MAXIMA = 99; 
 	
 			
 	//Atributos

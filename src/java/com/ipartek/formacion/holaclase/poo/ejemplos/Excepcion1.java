@@ -12,34 +12,30 @@ public class Excepcion1 {
 	 
 		 try {
 			 System.out.println();
-			 System.out.println(".antes de la excepcion");
+			 System.out.println(".antes de la primera excepcion");
 			 array_corto[10] = 10;
 			 
-			 int b = 0;
-		     int a = 23/b;
-		     
-			 System.out.println(".no hay una excepcion");
+			 System.out.println(".no hay primera excepcion");
 		 }
-		 
-	
 		 catch (ArrayIndexOutOfBoundsException e) {
 			 // se captura una excepción por intentar acceder a una posición
 			 // fuera de los límites del array.
-
 			 System.out.println(".hay una excepcion por acceso incorrecto");
+		 } 
+		 
+		 
+		 try {
+			System.out.println(".antes de la segunda excepcion");
+		 	int b = 0;
+		 	int a = 23/b;
+		 	System.out.println(".no hay segunda excepcion");
+		 } catch (ArithmeticException e) {
+		 		// se captura una excepción aritmética.
+			 	System.out.println(".hay una excepcion por error aritmetico");
 		 }
-	 
-
-		 catch (ArithmeticException e) {
-	 		// se captura una excepción aritmética.
-	 
-			 System.out.println(".hay una excepcion por error aritmetico");
-		 }
-	 
 
 		 finally {
 			 // después del try catch...
-			 
 			 System.out.println(".siempre se ejecuta [finally]");
 		 }
 

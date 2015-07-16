@@ -56,11 +56,12 @@ public class Excepciones {
 		objeto.metodoA();
 		
 		try{
-			throw new ExcepcionPersonalizada("Lanzando Excepcion", 0);
+			throw new ExcepcionPersonalizada( "Otra excepcion", 12);
+			//throw new ExcepcionPersonalizada("Lanzando Excepcion");
 		
 		}catch (ExcepcionPersonalizada e ){
 			System.out.println("Excepcion capturada");
-			System.out.println("Codigo: "+ e.getCodigo() );
+			System.out.println("Codigo: "+ e.getcodigo() );
 			System.out.println("Mensaje: "+ e.getMessage() );
 		}
 	}
