@@ -1,6 +1,8 @@
 package com.ipartek.formacion.holaclase.util;
 
 import java.math.BigDecimal;
+import java.text.NumberFormat;
+import java.text.ParsePosition;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -89,5 +91,29 @@ public class Utilidades {
             return false;
         }        
     }
+    
+    /**
+     * Comprueba si el String es null o esta vacio
+     * @param s String a analizar
+     * @return retorna true String vacio o null, false en caso contrario.
+     */
+    public static boolean IsNullOrEmpty( String s){
+    	boolean resul;
+    	String empty = "";   	
+    	resul = s == null || s.equals(empty);   	
+    	return resul;
+    }
 	
+    /**
+     * Comprueba si el String es numerico o no
+     * @param str  String a analizar
+     * @return retorna true si el String es un numero, false en caso contrario.
+     */
+    public static boolean isNumeric(String str)
+    {
+      NumberFormat formatter = NumberFormat.getInstance();
+      ParsePosition pos = new ParsePosition(0);
+      formatter.parse(str, pos);
+      return str.length() == pos.getIndex();
+    }
 }

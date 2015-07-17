@@ -2,6 +2,8 @@ package com.ipartek.formacion.holaclase.poo.ejemplos;
 
 public class PersonaException extends Exception{
 	
+	private static final long serialVersionUID = 6549469421562880250L;
+	
 	private String message;
 	private int codigoError;
 
@@ -14,7 +16,8 @@ public class PersonaException extends Exception{
 	public static final String MENSAJE_EXCEPCION_SIN_DEFINIR 		  = "Excepcion sin definir";
 	public static final String MENSAJE_EXCEPCION_MENOR_EDAD 		  = "Es menor de edad";
 	public static final String MENSAJE_EXCEPCION_MAYOR_EDAD 		  = "Es mayor de edad";
-	public static final String MENSAJE_EXCEPCION_RANGO_EDAD_NO_VALIDO = "Rango de edad no valido";
+	public static final String MENSAJE_EXCEPCION_RANGO_EDAD_NO_VALIDO = "Rango de edad no valido de 18 a 99";
+	public static final String MENSAJE_EXCEPCION_RANGO_NOTA_NO_VALIDO = "Rango de nota no valido, de 0 a 10";
 	
 	
 

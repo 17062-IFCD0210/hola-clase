@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
 import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
+import com.ipartek.formacion.holaclase.util.Utilidades;
 
 /**
  * Servlet implementation class ControladorPersona
@@ -17,6 +18,16 @@ import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
 public class ControladorPersona extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	RequestDispatcher dispatcher;
+	
+	String pNombre;
+	String pApellido;
+	String pEmail;
+	String pEdad;
+	String pAprobado;
+	String pNota;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,55 +49,72 @@ public class ControladorPersona extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//recoger paametros del formulario
-		String pNombre = request.getParameter("nombre");
-		String pApellido = request.getParameter("apellido");
-		String pEmail = request.getParameter("email");
-		int pEdad = 0 ;
-		
-		if("".equals(request.getParameter("edad"))){
-		}else{
-			pEdad = Integer.parseInt(request.getParameter("edad"));
-		}
-//		boolean pAprobado = Boolean.parseBoolean(request.getParameter("aprobado"));
-//		int pNota = Integer.parseInt(request.getParameter("nota"));
-		
-		
+		try{
+			//recoger parametros del formulario
+			getParameters(request);
+					
+			//validar los datos
+			
+			//crear Persona
+			Persona p = new Persona();
+			p.setNombre( pNombre );
+			p.setApellido(pApellido);
+			p.setEmail(pEmail);			
+			if(!Utilidades.IsNullOrEmpty(pEdad) && Utilidades.isNumeric(pNota)){
+				p.setEdad( Integer.parseInt(pEdad) );
+			} else {
+				throw new PersonaException("Edad vacia o no valida");
+			}
+			if("true".equals(pAprobado)||"false".equals(pAprobado)){
+				p.setAprobado(Boolean.parseBoolean(pAprobado));
+			} else {
+				throw new PersonaException("Aprobado o Suspendido??");
+			}			
+			if(Utilidades.isNumeric(pNota) && !Utilidades.IsNullOrEmpty(pNota)){
+				p.setNota( Integer.parseInt(pNota));
+			} else {
+				throw new PersonaException("Nota no valida");
+			}
 
-		
-		//validar los datos
-		
-		//crear Persona
-		Persona p = new Persona();
-		p.setNombre(pNombre);
-		p.setApellido(pApellido);
-		p.setEmail(pEmail);
-		try {
-			p.setEdad(pEdad);
-		} catch (PersonaException e) {
-			request.setAttribute("msg", "No se a podido dar de alta la Persona: " + e.getMessage());
 			
-			RequestDispatcher dispatcher = request.getRequestDispatcher("includes/persona/personaFormulario.jsp");
-			dispatcher.forward(request, response);
+			//guardamos en la BBDD		
+			
+			//enviar attributo para mensaje
+			request.setAttribute("msg", "Zorionak te has dado de alta");
+			//enviar attributo Persona
+			request.setAttribute("persona", p );
+			
+
+			
+			//Ir a => personaDetalle.jsp
+			dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
+		
+		}catch ( PersonaException e){
 			e.printStackTrace();
-		}
-//		p.setAprobado(pAprobado);
-//		p.setNota(pNota);
-		
-		
-		//guardar en la BBDD
-		
-		
-		
-		//enviar atributo para mensaje
-		request.setAttribute("msg", "Zorionak " + pNombre +", te has dado de alta");
-		//enviar atributo para Persona
-		request.setAttribute("persona", p);
-		
-		//Ir a => personaDetalle.jsp
-		RequestDispatcher dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
-		dispatcher.forward(request, response);
+			request.setAttribute("msg", "No se a podido dar de alta la Persona: " + e.getMessage());
+			dispatcher = request.getRequestDispatcher("includes/persona/personaFormulario.jsp");
 			
+		}catch( Exception e ){
+			e.printStackTrace();
+			request.setAttribute("msg", e.getMessage() );
+			dispatcher = request.getRequestDispatcher("plantillas/error.jsp");
+			
+		}finally{
+			//despachar
+			dispatcher.forward(request, response );			
+		}
+	}
+	/**
+	 * Recoger los parametros enviados
+	 * @param request
+	 */
+	private void getParameters(HttpServletRequest request) {
+		pNombre = request.getParameter("nombre");
+		pApellido = request.getParameter("apellido");
+		pEmail = request.getParameter("apellido");
+		pEdad = request.getParameter("edad");
+		pAprobado = request.getParameter("aprobado");
+		pNota = request.getParameter("nota");		
 	}
 
 }

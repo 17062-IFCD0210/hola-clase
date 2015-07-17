@@ -15,6 +15,7 @@ public class Persona {
 	//constantes
 	public static final int EDAD_MINIMA = 18;
 	public static final int EDAD_MAXIMA = 99;
+	public static final long NOTA_MEDIA = 5;
 	
 	//Atributos
 	private String  nombre;
@@ -130,13 +131,21 @@ public class Persona {
 		return nota;
 	}
 
-
-	public void setNota(long nota) {
-		this.nota = nota;
+	/**
+	 * Nota comprendida entre 0 y 10 en caso contrario seteamos a 5
+	 * @param nota
+	 * @throws PersonaException
+	 */
+	public void setNota(long nota) throws PersonaException {
+		if( nota < 0 || nota > 10){
+			this.nota = NOTA_MEDIA;
+			throw new PersonaException(PersonaException.MENSAJE_EXCEPCION_RANGO_NOTA_NO_VALIDO);
+		} else {
+			this.nota = nota;
+		}
 	}
 
 
-	
 	
 	//Metodos y Utlidades
 	
