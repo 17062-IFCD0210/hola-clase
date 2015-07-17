@@ -1,7 +1,7 @@
-/**
- * 
- */
+
 package com.ipartek.formacion.holaclase.poo.bean;
+
+import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaExcepcion;
 
 /**
  * Bean para modelar una persona física
@@ -20,7 +20,7 @@ public class Persona {
 	private int edad; //Así se puede acceder desde fuera de la clase. Ya no está encapsulado. Debería ser con un getter
 	private String email;
 	private boolean aprobado;
-	private long nota;
+	private float nota;
 
 	
 	//Constructores
@@ -31,16 +31,16 @@ public class Persona {
 		this.edad     = EDAD_MINIMA;
 		this.email    = "";
 		this.aprobado = false;
-		this.nota     = (long)0.0; //hay que castear el valor con el propio long
+		this.nota     = (float)0.0; //hay que castear el valor con el propio long
 	}
-
 
 	/**
 	 * Constructor con parámetros
 	 * @param nombre Nombre de la Persona
 	 * @param edad de la Persona
+	 * @throws PersonaExcepcion 
 	 */
-	public Persona(String nombre, int edad) {
+	public Persona(String nombre, int edad) throws PersonaExcepcion {
 		//super(); quitamos la llamada al constructor por defecto y ponemos el nuestro
 		this(); //Llamamos al constructor por defecto (Persona) con los atributos inicializados
 		this.setNombre(nombre);
@@ -83,17 +83,22 @@ public class Persona {
 	 *  <li>Null no existe en un entero si es 0 seteamos a 18 </li>
 	 * </ul>
 	 * @param edad
+	 * @throws PersonaExcepcion 
 	 */
-	public int setEdad(int edad) {
+	public void setEdad(int edad) throws PersonaExcepcion {
 
-		if ( edad < EDAD_MINIMA ){
+		if (edad < 0){
 			this.edad=EDAD_MINIMA;
-		}else if ( edad > EDAD_MAXIMA ){
-			this.edad = EDAD_MAXIMA;
-		}else{
-			this.edad = edad;
-		}
-		return this.edad;
+			throw new PersonaExcepcion(PersonaExcepcion.EXCEPCION_RANGO_NO_VALIDO);
+		}else if ( edad < EDAD_MINIMA ){			
+				this.edad=EDAD_MINIMA;
+				throw new PersonaExcepcion(PersonaExcepcion.MSG_EDAD_MENOR);
+			}else if ( edad > EDAD_MAXIMA ){
+				this.edad = EDAD_MAXIMA;
+				throw new PersonaExcepcion(PersonaExcepcion.MSG_EDAD_MAYOR);
+			} else{
+				this.edad = edad;
+			}
 	}
 
 	
@@ -117,12 +122,12 @@ public class Persona {
 	}
 
 
-	public long getNota() {
+	public float getNota() {
 		return nota;
 	}
 
 
-	public void setNota(long nota) {
+	public void setNota(float nota) {
 		this.nota = nota;
 	}
 	

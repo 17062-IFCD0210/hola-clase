@@ -2,6 +2,7 @@ package com.ipartek.formacion.holaclase.poo;
 
 //import com.ipartek.formacion.holaclase.poo.bean.*; Mejor no hacer esta práctica por posibles conflictos
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaExcepcion;
 
 /**
  * @author Curso
@@ -15,8 +16,9 @@ public class HolaMundo {
 
 	
 	
-	public static void main(String[] args){
+	public static void main(String[] args) throws PersonaExcepcion{
 		
+		try{
 		System.out.println("Hola Mundo");
 		
 		//Crear o instanciar un objeto
@@ -41,7 +43,9 @@ public class HolaMundo {
 		
 		//System.out.println("pepe " + pepe.nombre + " " + pepe.edad);
 		System.out.println(pepe.toString()); //Insertado mediante Sources -> to String en la clase Persona.java y muestra 
-		
+		}catch(Exception e){
+			e.printStackTrace();
+		}
 	}
 	
 	

@@ -7,7 +7,7 @@ package com.ipartek.formacion.holaclase.poo.bean;
  * @author Curso
  *
  */
-public class Libro {
+public class Libro implements Cloneable {
 
 	
 	//Atributos encapsulados
@@ -130,4 +130,9 @@ public class Libro {
 	public int cerrar(){
 		return this.getNumeroPaginas() - this.getMarcador();
 	}
+	
+	@Override
+	public Libro clone() throws CloneNotSupportedException  {
+        return (Libro)super.clone();
+    }
 }

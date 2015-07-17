@@ -3,6 +3,8 @@
  */
 package com.ipartek.formacion.holaclase.poo.bean;
 
+import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaExcepcion;
+
 class Perro {
 	
 	//Constantes
@@ -18,12 +20,17 @@ class Perro {
 	private int edad;
 	
 	// Constructores
-	public Perro(String nombre) {
+	public Perro(String nombre){
 		super();
 		this.nombre   = nombre;
 		this.patas    = NUM_PATAS;
 		this.raza     = "desconocida";
-		this.amo      = new Persona("Abandonado", Persona.EDAD_MINIMA);
+		try{ //Aunque nunca falle te JAVA obliga a capturarlo
+			this.amo      = new Persona("Abandonado", Persona.EDAD_MINIMA);
+		}catch(PersonaExcepcion e){
+			this.amo = null; //No haría falta ya que por defecto mete valores correctos 
+			e.printStackTrace();
+		}
 		this.vacunado = false;
 		this.peso     = 0;
 		this.edad     = 0;

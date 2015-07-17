@@ -77,6 +77,7 @@
 			<li><a href="ejemplos/formularios/login.jsp">Login</a></li>
 			<li><a href="ejemplos/formularios/datos_personales.jsp">Datos Personales</a></li>
 			<li><a href="ejemplos/formularios/registro.jsp">Login AJAX</a></li>
+			<li><a href="includes/personaFormulario.jsp">Formulario Persona</a></li>
 		</ul>
 	</li>  
 	<li>
