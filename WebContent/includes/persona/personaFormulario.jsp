@@ -12,8 +12,8 @@
 		
 			<form action="personaControlador" method="post" novalidate>
 				<fieldset>
-		
-					<label for="mensaje">  </label><br>
+
+					<label for="mensaje">${requestScope.msg}</label><br>
 		
 					<p>
 					<label for="nombre">Nombre:</label><br>
@@ -32,7 +32,7 @@
 					       placeholder="Escribe tu apellido"
 					       title="Por favor escribe tu apellido"	
 					       autofocus
-					       tabindex="1">
+					       tabindex="2">
 					</p>
 				
 				<p>
@@ -42,7 +42,7 @@
 					       placeholder="Escribe tu email"
 					       title="Por favor escribe tu email"	
 					       autofocus
-					       tabindex="1">
+					       tabindex="3">
 					</p>
 				
 				<p>
@@ -50,16 +50,16 @@
 					<input type="text" id="edad" name="edad" value=""
 					       placeholder="0-99"
 					       required pattern="[0-9]{1,2}"	
-					       tabindex="2"					        
+					       tabindex="4"					        
 						   size="2" >
 				</p>
 				
 				<p>
 					<span>Aprobado:</span><br>
-					<input type="radio" name="aprobado" id="personaAprobado" value="si" >
+					<input type="radio" name="aprobado" id="personaAprobado" value="si" tabindex="5">
 					<label for="personaAprobadoS">Aprobado</label>
 					<br>
-					<input type="radio" name="aprobado" id="personaAprobadoN" value="no" >
+					<input type="radio" name="aprobado" id="personaAprobadoN" value="no" tabindex="6">
 					<label for="personaAprobadoN" checked="checked">Suspendido</label>
 					<br>
 				</p>
@@ -69,7 +69,7 @@
 					<input type="text" id="nota" name="nota" value=""
 					       placeholder="0-10"
 					       required pattern="[0-9]{1,2}"	
-					       tabindex="2"					        
+					       tabindex="7"					        
 						   size="2" >
 				</p>
 				

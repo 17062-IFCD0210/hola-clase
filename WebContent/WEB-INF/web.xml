@@ -24,4 +24,14 @@
     <servlet-name>ControladorPersona</servlet-name>
     <url-pattern>/personaControlador</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Borrar</display-name>
+    <servlet-name>Borrar</servlet-name>
+    <servlet-class>com.ipartek.formacion.holaclase.controladores.Borrar</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Borrar</servlet-name>
+    <url-pattern>/Borrar</url-pattern>
+  </servlet-mapping>
 </web-app>
