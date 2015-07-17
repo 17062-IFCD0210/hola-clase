@@ -8,9 +8,9 @@
 	<title>ERROR</title>
 </head>
 
-<body>
+<body id="error_page">
 	
-	<div id="error_page">
+	<div>
 	
 		<h1>Error Inesperado</h1>
 		

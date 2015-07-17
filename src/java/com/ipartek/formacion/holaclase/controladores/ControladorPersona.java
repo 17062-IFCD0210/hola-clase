@@ -21,8 +21,12 @@ public class ControladorPersona extends HttpServlet {
 	RequestDispatcher dispatcher;
 	
 	//parametros
-	String pNombre;
-	String pEdad;
+	String  pNombre;
+	String  pApellido;
+	String  pEmail;	
+	int     pEdad;
+	boolean pAprobado = false;
+	float   pNota;
 	
        
     /**
@@ -48,14 +52,20 @@ public class ControladorPersona extends HttpServlet {
 		try{
 			//recoger parametros del formulario
 			getParameters(request);
-					
-			
+						
 			//validar los datos
 			
 			//crear Persona
 			Persona p = new Persona();
 			p.setNombre( pNombre );
-			p.setEdad( Integer.parseInt(pEdad) );
+			p.setApellido(pApellido);
+			p.setEmail(pEmail);
+			p.setEdad( pEdad );
+			p.setAprobado(pAprobado);
+			p.setNota(pNota);
+			
+			p=null;
+			p.setApellido("");
 			
 			//guardamos en la BBDD		
 			
@@ -77,7 +87,8 @@ public class ControladorPersona extends HttpServlet {
 			request.setAttribute("msg", e.getMessage() );
 			dispatcher = request.getRequestDispatcher("plantillas/error.jsp");
 			
-		}finally{
+		}
+		finally{
 			
 			//despachar
 			dispatcher.forward(request, response );			
@@ -89,10 +100,33 @@ public class ControladorPersona extends HttpServlet {
 	/**
 	 * Recoger los parametros enviados
 	 * @param request
+	 * @throws PersonaException 
 	 */
-	private void getParameters(HttpServletRequest request) {
+	private void getParameters(HttpServletRequest request) throws PersonaException {
 
-		pNombre = request.getParameter("nombre");
+		pNombre   = request.getParameter("nombre");
+		pApellido = request.getParameter("apellido");
+		pEmail    = request.getParameter("email");
+		
+		try{
+			pEdad  =  Integer.parseInt(request.getParameter("edad"));
+		}catch(Exception e){
+			throw new PersonaException( PersonaException.MSG_EDAD_RANGO );
+		}
+		
+		if ( "si".equalsIgnoreCase( request.getParameter("aprobado")) ){
+			pAprobado=true;
+		}
+		
+		try{
+			pNota = Float.parseFloat(request.getParameter("nota"));
+		}catch(Exception e){
+			throw new PersonaException( PersonaException.MSG_NOTA_RANGO );
+		}	
+		
+		
+		
+		
 		
 	}
 
