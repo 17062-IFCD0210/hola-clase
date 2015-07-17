@@ -3,20 +3,18 @@
 <jsp:include page="../../plantillas/nav.jsp"></jsp:include>
 
 <h1>Alta Nueva Persona</h1>
-<%
-	String msg = (String)request.getAttribute("msg");
-	if(msg !=null) {
-		out.print("<h2>" + msg + "</h2>");
-	}
-%>
-<form action="personaControlador" method="post" novalidate>
+
+<label for="mensaje">${requestScope.msg}</label><br>
+<form action="personaControlador" method="post">
 
 		<fieldset>
 		<legend>Datos Personales</legend>
 			<p>
 				<label for="nombre">Nombre:</label><br>
 				<input type="text" id="nombre" name="nombre" value=""
-					   required	 
+					   required	pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}"
+					   autofocus
+					   tabindex="1"
 				       placeholder="Escribe tu nombre"
 				       title="Por favor escribe tu nombre"				       
 				       >
@@ -25,9 +23,10 @@
 			<p>
 				<label for="apellido">Apellido:</label><br>
 				<input type="text" id="apellido" name="apellido"
-					   required 	  
+					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}"	  
 				       value="" placeholder="Tu apellido"
-				       title="Por favor escribe tu apellido" 
+				       title="Por favor escribe tu apellido"
+				       tabindex="1" 
 				       >
 			</p>
 			<br>
@@ -35,7 +34,8 @@
 				<label for="edad">Edad:</label><br>
 				<input type="text" id="edad" name="edad" value=""
 				       placeholder="18-99"
-				       required				        
+				       required
+				       tabindex="1"				        
 					   size="2" >
 			</p>
 			<br>
@@ -43,14 +43,15 @@
 				<label for="mail">E-mail:</label><br>
 				<input type="email" id="mail" name="mail" value=""
 				       required				        
-					   title="Por favor, escriba su e-mail">
+					   title="Por favor, escriba su e-mail"
+					   tabindex="1">
 			</p>
 		</fieldset>
 		<br><br>
 		<fieldset>
 			<legend>Notas</legend>
 			<p>
-				<input type="checkbox" name="aprobado" id="aprobado" value="0">
+				<input type="checkbox" name="aprobado" id="aprobado" value="0" tabindex="1">
 				<label for="aprobado">Aprobado</label>
 			<br>
 			</p>
@@ -58,8 +59,10 @@
 			<p>
 				<label for="nota">Nota:</label><br>
 				<input type="text" id="nota" name="nota" value=""
-				       placeholder="0.0-10.0"			        
-					   size="3" >
+				       placeholder="0-10"
+				       required			        
+					   size="3"
+					   tabindex="1" >
 			</p>	
 		</fieldset>
 	<br> 

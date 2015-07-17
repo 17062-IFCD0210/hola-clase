@@ -16,6 +16,14 @@ import com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona;
  */
 public class ControladorPersona extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	RequestDispatcher dispatcher;
+	
+	String pNombre;
+	String pApellido;
+	String pEdad;
+	String pEmail;
+	String pAprobado;
+	String pNota;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -38,44 +46,76 @@ public class ControladorPersona extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		//Recoger parametros del formulario
-		String pNombre = request.getParameter("nombre");
-		String pApellido = request.getParameter("apellido");
-		String pEdad = request.getParameter("edad");
-		String pEmail = request.getParameter("mail");
-		String pAprobado = request.getParameter("aprobado");
-		String pNota = request.getParameter("nota");
-		
+		this.getParameters(request);
+		boolean todoBien = false;
 		//Validar los datos
-		
-		//Crear Persona
-		Persona p = new Persona();
-		p.setNombre(pNombre);
-		p.setApellido(pApellido);
 		try {
+			//Crear Persona
+			Persona p = new Persona();
+			p.setNombre(pNombre);
+			p.setApellido(pApellido);
 			p.setEdad(Integer.parseInt(pEdad));
+			p.setEmail(pEmail);
+			p.setNota(Float.parseFloat(pNota));
+			
+			if((pAprobado ==null && (p.getNota()>=5)) || (pAprobado !=null && (p.getNota()<5))  ) {
+				request.setAttribute("msg", "Atributo Aprobado o nota no valida.");
+				dispatcher = request.getRequestDispatcher("includes/persona/personaForm.jsp");
+			} else if(pAprobado !=null) {
+				p.setAprobado(true);
+				todoBien = true; //Validando que todo este bien
+			} else {
+				p.setAprobado(false);
+				todoBien = true; //Validando que todo este bien
+			}
+			
+			//Comprobamos las validaciones
+			if(todoBien) {
+				//Guardamos en la BBDD
+				
+				//Enviar atributo para mensaje
+				request.setAttribute("msg", "Zorionak, te has dado de alta");
+				
+				//Enviar atributo persona
+				request.setAttribute("persona", p);
+				
+				//Ir a => personaDetalle.jsp
+				dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
+			}			
+			
 		} catch (ExcepcionPersona e) {
+			//Excepcion persona para cuando la edad es menor, mayor, o negativa
+			e.printStackTrace();
 			request.setAttribute("msg", e.getMessage());
-			RequestDispatcher atras = request.getRequestDispatcher("includes/persona/personaForm.jsp");
-			atras.forward(request, response);
+			dispatcher = request.getRequestDispatcher("includes/persona/personaForm.jsp");
+		} catch (NumberFormatException e) {
+			//Excepcion numerica cuando la edad o la nota son letras
+			e.printStackTrace();
+			request.setAttribute("msg", "Error de formato. La Edad y/o la nota deben ser numericos");
+			dispatcher = request.getRequestDispatcher("includes/persona/personaForm.jsp");
+		} catch  (Exception e) {
+			//Excepcion global para cualquier error
+			e.printStackTrace();
+			request.setAttribute("msg", e.getMessage());
+			dispatcher = request.getRequestDispatcher("plantillas/error.jsp");
+		} finally {
+			//Lanzamos el dispatcher
+			dispatcher.forward(request, response);
 		}
-		p.setEmail(pEmail);
-		p.setAprobado(Boolean.parseBoolean(pAprobado));
-		p.setNota(Long.parseLong(pNota));
 		
-		//Guardamos en la BBDD
-		
-		
-		//Enviar atributo para mensaje
-		request.setAttribute("msg", "Zorionak, te has dado de alta");
-		
-		//Enviar atributo persona
-		request.setAttribute("persona", p);
-		
-		
-		
-		//Ir a => personaDetalle.jsp
-		RequestDispatcher dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
-		dispatcher.forward(request, response);
+	}
+	/**
+	 * Cogemos los valores de los parametros en un metodo
+	 * @param request
+	 */
+	private void getParameters(HttpServletRequest request) {
+		//Recogemos parametros de la clase Persona
+		pNombre = request.getParameter("nombre");
+		pApellido = request.getParameter("apellido");
+		pEdad = request.getParameter("edad");
+		pEmail = request.getParameter("mail");
+		pAprobado = request.getParameter("aprobado");
+		pNota = request.getParameter("nota");
 	}
 
 }

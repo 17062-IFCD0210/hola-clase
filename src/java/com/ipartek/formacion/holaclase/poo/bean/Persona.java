@@ -23,7 +23,7 @@ public class Persona {
 	private int edad = EDAD_MIN;
 	private String email = "";
 	private boolean aprobado = false;
-	private long nota = NOTA_MIN;
+	private float nota = NOTA_MIN;
 	
 	//Constructores
 	public Persona() {
@@ -118,7 +118,7 @@ public class Persona {
 		this.aprobado = aprobado;
 	}
 
-	public long getNota() {
+	public float getNota() {
 		return nota;
 	}
 	
@@ -129,12 +129,13 @@ public class Persona {
 	 * 	<li>Si es mayor de 10 seteamos a 10</li>
 	 * </ul>
 	 * @param nota
+	 * @throws ExcepcionPersona 
 	 */
-	public void setNota(long nota) {
+	public void setNota(float nota) throws ExcepcionPersona {
 		if(nota < NOTA_MIN) {
-			this.nota = NOTA_MIN;
+			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_NOTA_MENOR);
 		} else if(nota > NOTA_MAX) {
-			this.nota = NOTA_MAX;
+			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_NOTA_MAYOR);
 		} else {
 			this.nota = nota;
 		}

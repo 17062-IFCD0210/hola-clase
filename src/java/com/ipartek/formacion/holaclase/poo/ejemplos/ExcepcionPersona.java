@@ -18,6 +18,9 @@ public class ExcepcionPersona extends Exception{
 	public static final String MESSAGE_EDAD_MENOR = "Es menor de edad";
 	public static final String MESSAGE_EDAD_MAYOR = "Es mayor de edad";
 	
+	public static final String MESSAGE_NOTA_MAYOR = "Nota mayor de 10";
+	public static final String MESSAGE_NOTA_MENOR = "Nota menor de 0";
+	
 	public ExcepcionPersona(String message) {
 		super();
 		this.message = message;
