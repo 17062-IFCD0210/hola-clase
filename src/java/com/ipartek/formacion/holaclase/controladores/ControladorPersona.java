@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.bean.PersonaException;
 
 /**
  * Servlet implementation class ControladorPersona
@@ -16,6 +17,13 @@ import com.ipartek.formacion.holaclase.poo.bean.Persona;
 public class ControladorPersona extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
+	
+	RequestDispatcher dispatcher;
+	
+	//parametros
+	String pNombre;
+	String pEdad;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -37,30 +45,56 @@ public class ControladorPersona extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		//recoger parametros del formulario
-		String pNombre = request.getParameter("nombre");
+		try{
+			//recoger parametros del formulario
+			getParameters(request);
+					
+			
+			//validar los datos
+			
+			//crear Persona
+			Persona p = new Persona();
+			p.setNombre( pNombre );
+			p.setEdad( Integer.parseInt(pEdad) );
+			
+			//guardamos en la BBDD		
+			
+			//enviar attributo para mensaje
+			request.setAttribute("msg", "Zorionak te has dado de alta");
+			//enviar attributo Persona
+			request.setAttribute("persona", p );
+			
+			
+			
+			//Ir a => personaDetalle.jsp
+			dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
 		
-		
-		//validar los datos
-		
-		//crear Persona
-		Persona p = new Persona();
-		p.setNombre( pNombre );
-		
-		//guardamos en la BBDD
-		
-		
-		//enviar attributo para mensaje
-		request.setAttribute("msg", "Zorionak te has dado de alta");
-		//enviar attributo Persona
-		request.setAttribute("persona", p );
-		
-		
-		
-		//Ir a => personaDetalle.jsp
-		RequestDispatcher dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
-		dispatcher.forward(request, response );
+		}catch ( PersonaException e){
+			e.printStackTrace();
+			request.setAttribute("msg", e.getMessage() );
+			dispatcher = request.getRequestDispatcher("pantillas/error.jsp");
+			
+		}catch( Exception e ){
+			e.printStackTrace();
+			request.setAttribute("msg", e.getMessage() );
+			dispatcher = request.getRequestDispatcher("pantillas/error.jsp");
+			
+		}finally{
+			
+			//despachar
+			dispatcher.forward(request, response );			
+		}	
 				
+		
+	}
+
+	/**
+	 * Recoger los parametros enviados
+	 * @param request
+	 */
+	private void getParameters(HttpServletRequest request) {
+
+		pNombre = request.getParameter("nombre");
 		
 	}
 
