@@ -15,9 +15,15 @@
 		  <form action="personaControlador" method="post" novalidate>
 		  
 			<fieldset>
-	
-				<label for="mensaje">  </label><br>
-	
+				<% 
+					String msg = (String)request.getAttribute("msg"); 
+					if (msg == null ){ msg="";}
+				%>
+				<label for="mensaje"><%=msg%></label><br>
+
+<!--  otra forma mas abreviada de hacerlo
+				<label for="mensaje">${requestScope.msg}</label><br>
+ -->	
 				<p>
 				<label for="nombre">Nombre:</label><br>
 				<input type="text" id="nombre" name="nombre" value="" 
@@ -55,10 +61,10 @@
 			
 			<p>
 				<span>Aprobado:</span><br>
-				<input type="radio" name="aprobado" id="personaAprobado" value="si" >
+				<input type="radio" name="aprobado" id="personaAprobado" value="si" tabindex="2">
 				<label for="personaAprobadoS">Aprobado</label>
 				<br>
-				<input type="radio" name="aprobado" id="personaAprobadoN" value="no" >
+				<input type="radio" name="aprobado" id="personaAprobadoN" value="no" tabindex="2">
 				<label for="personaAprobadoN" checked="checked">Suspendido</label>
 				<br>
 			</p>

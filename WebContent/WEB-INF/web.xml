@@ -24,4 +24,14 @@
     <servlet-name>ControladorPersona</servlet-name>
     <url-pattern>/personaControlador</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ControladorEjercicioFormulario</display-name>
+    <servlet-name>ControladorEjercicioFormulario</servlet-name>
+    <servlet-class>com.ipartek.formacion.holaclase.controladores.ControladorEjercicioFormulario</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorEjercicioFormulario</servlet-name>
+    <url-pattern>/ejercicioFormularioControlador</url-pattern>
+  </servlet-mapping>
 </web-app>
