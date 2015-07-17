@@ -44,7 +44,6 @@ public class ControladorPersona extends HttpServlet {
 		String pEmail = request.getParameter("email");
 		int pEdad = 0 ;
 		
-		
 		if("".equals(request.getParameter("edad"))){
 		}else{
 			pEdad = Integer.parseInt(request.getParameter("edad"));
