@@ -13,21 +13,18 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class ControladorEjercicioFormulario extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
+       
 	RequestDispatcher dispatcher;
 	
 	//parametros
 	private String pTexto;
 	private int pRepeticiones;
 	
-       
     /**
      * @see HttpServlet#HttpServlet()
      */
     public ControladorEjercicioFormulario() {
         super();
-
     }
 
 	/**
@@ -40,14 +37,17 @@ public class ControladorEjercicioFormulario extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+
 		String salida="";
 		pTexto=request.getParameter("texto");
-		pRepeticiones = Integer.parseInt(request.getParameter("repeticiones"));
-		for(i=0;i<pRepeticiones;i++){
-				salida=salida+pTexto;
-			
+		if ("".equals(request.getParameter("repeticiones"))) pRepeticiones=0;
+		else pRepeticiones = Integer.parseInt(request.getParameter("repeticiones"));
+		for(int i=0;i<pRepeticiones;i++) {
+			salida=salida+pTexto+"<br/>"; 
 		}
+		request.setAttribute("salida", salida);
+		dispatcher = request.getRequestDispatcher("includes/ejercicioFormulario.jsp");
+		dispatcher.forward(request, response);		
 	}
 
 }

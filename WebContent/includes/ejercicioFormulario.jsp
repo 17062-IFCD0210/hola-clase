@@ -1,5 +1,5 @@
-<jsp:include page="../../plantillas/head.jsp"></jsp:include>
-<jsp:include page="../../plantillas/nav.jsp"></jsp:include>
+<jsp:include page="../plantillas/head.jsp"></jsp:include>
+<jsp:include page="../plantillas/nav.jsp"></jsp:include>
   
 <section>
 
@@ -30,6 +30,8 @@
 				<input type="submit" value="Guardar">
 		  </form>
 		</div>
+ 		<label for="salida">${requestScope.salida}</label><br>
+
 			
 		<footer></footer>
 			
@@ -37,4 +39,4 @@
 	
 </section>
 
-<jsp:include page="../../plantillas/foot.jsp"></jsp:include>
+<jsp:include page="../plantillas/foot.jsp"></jsp:include>
