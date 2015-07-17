@@ -63,21 +63,19 @@ public class ControladorPersona extends HttpServlet {
 			request.setAttribute("msg", "Zorionak te has dado de alta");
 			//enviar attributo Persona
 			request.setAttribute("persona", p );
-			
-			
-			
 			//Ir a => personaDetalle.jsp
 			dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
+			
 		
 		}catch ( PersonaException e){
 			e.printStackTrace();
 			request.setAttribute("msg", e.getMessage() );
-			dispatcher = request.getRequestDispatcher("pantillas/error.jsp");
+			dispatcher = request.getRequestDispatcher("includes/persona/personaFormulario.jsp");
 			
 		}catch( Exception e ){
 			e.printStackTrace();
 			request.setAttribute("msg", e.getMessage() );
-			dispatcher = request.getRequestDispatcher("pantillas/error.jsp");
+			dispatcher = request.getRequestDispatcher("plantillas/error.jsp");
 			
 		}finally{
 			
