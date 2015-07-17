@@ -13,8 +13,9 @@
 		<form action = "personaControlador" method="post" novalidate>
 	
 			<fieldset>
-	
-				<label for="mensaje">  </label><br>
+				
+				
+				<label for="mensaje">${requestScope.msg}</label><br><!--forma rapida de hacer request.getatributemsg  -->
 	
 				<p>
 				<label for="nombre">Nombre:</label><br>

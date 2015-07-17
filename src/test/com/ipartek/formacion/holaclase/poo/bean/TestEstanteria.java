@@ -16,20 +16,22 @@ public class TestEstanteria {
 		String titulo1 = "Don Quijote de la Mancha";		
 		String titulo2 = "Java 7";
 		
-		//Inicializar estanteria
+		//inicializar estanteria
 		assertEquals("No deben existir libros", 0, e.numeroLibros() );
 		assertNull("Si no existe Libro null", e.extraer(titulo1) );
 		
-		//Guardamos 2 libros
+		//Guardamos 2 llibros
 		Libro libro1 = new Libro(titulo1);
 		e.guardar( libro1 );		
 		e.guardar( new Libro(titulo2) );
 		
+		assertEquals( 0, e.numeroLibros() );
 		
 		//test extraer libro por titulo
 		assertSame( libro1, e.extraer(titulo1) );
 				
 		assertSame( null, e.extraer(null) );
+		
 		
 		
 	}

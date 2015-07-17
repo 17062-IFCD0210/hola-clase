@@ -20,7 +20,7 @@ public class Persona {
 	private int	     edad;
 	private String   email;
 	private boolean  aprobado;
-	private long	 nota;
+	private float	 nota;
 		
 	//Constructores (se llama igual que la clase)
 	public Persona() {
@@ -31,7 +31,7 @@ public class Persona {
 		this.edad	  = EDAD_MINIMA;
 		this.email	  = "";
 		this.aprobado = false;
-		this.nota	  = (long)0.0; //CASTEAR, para poder inicializarlo		
+		this.nota	  = (float)0.0; //CASTEAR, para poder inicializarlo		
 	
 	}
 	// Constructor con parametros
@@ -126,12 +126,12 @@ public class Persona {
 	}
 
 
-	public long getNota() {
+	public float getNota() {
 		return nota;
 	}
 
 
-	public void setNota(long nota) {
+	public void setNota(float nota) {
 		this.nota = nota;
 	}
 

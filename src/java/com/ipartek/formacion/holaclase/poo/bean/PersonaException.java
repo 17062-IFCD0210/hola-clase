@@ -10,6 +10,7 @@ public class PersonaException extends Exception{
 	public static final String MSG_EDAD_MENOR = "Es menor de edad";
 	public static final String MSG_EDAD_MAYOR = "Es mayor de edad";
 	public static final String MSG_EDAD_RANGO = "Rango de edad no valido";
+	public static final String MSG_NOTA_RANGO = "El formato de la nota no es valido";
 
 	/**
 	 * 
