@@ -20,6 +20,7 @@ public class ControladorPersona extends HttpServlet {
 	
 	RequestDispatcher dispatcher;
 	
+	
 	//parametros
 	String pNombre;
 	String pApellido;
@@ -96,18 +97,19 @@ public class ControladorPersona extends HttpServlet {
 			p.setApellido ( pApellido );
 			p.setEmail( pEmail );
 			p.setEdad ( pEdad );
-			p.setAprobado(pAprobado);
-			p.setNota( pNota );
+			
+			//TODO cambiar Persona por Alumno
+			//p.setAprobado(pAprobado);
+			//p.setNota( pNota );
 		
 			//guardamos en la BBDD		
 			
 			
-			//enviar attributo para mensaje
+			//enviar atributo para mensaje
 			request.setAttribute("msg", "Zorionak te has dado de alta");
-			//enviar attributo Persona
+			//enviar atributo Persona
 			request.setAttribute("persona", p );
-			
-			
+
 			
 			//Ir a => personaDetalle.jsp
 			dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");

@@ -38,26 +38,20 @@ public class TestPersona {
 	public void testPersona() {
 		
 		assertEquals("Anonimo", personaVacia.getNombre() );
-		 assertEquals("Sin Determinar", personaVacia.getApellido() );
+		assertEquals("Sin determinar", personaVacia.getApellido() );
 		assertEquals( Persona.EDAD_MINIMA , personaVacia.getEdad() );
 		assertEquals( "", personaVacia.getEmail() );
-		assertFalse("Esta aprobado", personaVacia.isAprobado() );		
-		assertEquals( 0 , personaVacia.getNota() );
 		
-
 	}
 
 	@Test
 	public void testPersonaStringInt() {
 		
 		assertEquals("Ander", personaParametros.getNombre() );
-		assertEquals("Sin Determinar", personaParametros.getApellido() );
+		assertEquals("Sin determinar", personaParametros.getApellido() );
 		assertEquals( 35 , personaParametros.getEdad() );
 		assertEquals( "", personaParametros.getEmail() );
-		assertFalse("Esta aprobado", personaParametros.isAprobado() );		
-		assertEquals( 0 , personaParametros.getNota() );
 	
-		
 	}
 
 	@Test
