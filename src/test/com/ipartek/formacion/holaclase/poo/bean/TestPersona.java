@@ -54,13 +54,19 @@ public class TestPersona {
 		try {
 			Persona pEdadMinima = new Persona("", -1);
 		} catch (PersonaException e){
-//			assertEquals( Persona.EDAD_MINIMA , pEdadMinima.getEdad() );
+			assertEquals( e.MENSAJE_EXCEPCION_RANGO_EDAD_NO_VALIDO , e.getMessage() );
+		}
+		
+		try {
+			Persona pEdadMaxima = new Persona("", 8 );
+		} catch (PersonaException e){
+			assertEquals( e.MENSAJE_EXCEPCION_MENOR_EDAD , e.getMessage() );
 		}
 		
 		try {
 			Persona pEdadMaxima = new Persona("", 333 );
 		} catch (PersonaException e){
-//			assertEquals( Persona.EDAD_MAXIMA , pEdadMaxima.getEdad() );
+			assertEquals( e.MENSAJE_EXCEPCION_MAYOR_EDAD , e.getMessage() );
 		}
 	
 	}
