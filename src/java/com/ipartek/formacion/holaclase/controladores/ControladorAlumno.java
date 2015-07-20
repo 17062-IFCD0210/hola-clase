@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.holaclase.poo.bean.Alumno;
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
 import com.ipartek.formacion.holaclase.poo.bean.PersonaException;
 import com.ipartek.formacion.holaclase.util.Utilidades;
@@ -15,7 +16,7 @@ import com.ipartek.formacion.holaclase.util.Utilidades;
 /**
  * Servlet implementation class ControladorPersona
  */
-public class ControladorPersona extends HttpServlet {
+public class ControladorAlumno extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
@@ -32,7 +33,7 @@ public class ControladorPersona extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ControladorPersona() {
+    public ControladorAlumno() {
         super();
        
     }
@@ -56,22 +57,21 @@ public class ControladorPersona extends HttpServlet {
 			//validar los datos
 			
 			//crear Persona
-			Persona p = new Persona();
-			p.setNombre(pNombre);
-			p.setApellido(pApellido);
-			p.setEmail(pEmail);			
-			p.setEdad(pEdad);
+			Alumno a = new Alumno();
+			a.setNombre(pNombre);
+			a.setApellido(pApellido);
+			a.setEmail(pEmail);			
+			a.setEdad(pEdad);
 			
-			//TODO cambiar Persona por Alumno
-			//p.setAprobado(pAprobado)
-			//p.setNota(pNota)
+			a.setAprobado(pAprobado);
+			a.setNota(pNota);
 			
 			//guardamos en la BBDD		
 			
 			//enviar attributo para mensaje
-			request.setAttribute("msg", "Zorionak" + pNombre + "te has dado de alta");
+			request.setAttribute("msg", "Zorionak " + pNombre + "! te has dado de alta");
 			//enviar attributo Persona
-			request.setAttribute("persona", p );
+			request.setAttribute("alumno", a );
 			
 
 			

@@ -20,13 +20,13 @@
   
   <servlet>
     <description>Controlador para Persona, soporta las operaciones de CRUD</description>
-    <display-name>ControladorPersona</display-name>
-    <servlet-name>ControladorPersona</servlet-name>
-    <servlet-class>com.ipartek.formacion.holaclase.controladores.ControladorPersona</servlet-class>
+    <display-name>ControladorAlumno</display-name>
+    <servlet-name>ControladorAlumno</servlet-name>
+    <servlet-class>com.ipartek.formacion.holaclase.controladores.ControladorAlumno</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ControladorPersona</servlet-name>
-    <url-pattern>/personaControlador</url-pattern>
+    <servlet-name>ControladorAlumno</servlet-name>
+    <url-pattern>/alumnoControlador</url-pattern>
   </servlet-mapping>
   
 </web-app>

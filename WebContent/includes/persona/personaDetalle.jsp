@@ -1,4 +1,4 @@
-<%@page import="com.ipartek.formacion.holaclase.poo.bean.Persona"%>
+<%@page import="com.ipartek.formacion.holaclase.poo.bean.Alumno"%>
 
 <jsp:include page="../../plantillas/head.jsp"></jsp:include>
 <jsp:include page="../../plantillas/nav.jsp"></jsp:include>
@@ -12,9 +12,9 @@
 	}
 	
 	//recoger el atributo persona de la request
-	Persona p = (Persona)request.getAttribute("persona");
-	if (p != null){
-		out.print("<p>" + p.toString() + "</p>");
+	Alumno a = (Alumno)request.getAttribute("alumno");
+	if (a != null){
+		out.print("<p>" + a.toString() + "</p>");
 	}
 	
 %>

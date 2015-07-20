@@ -76,7 +76,7 @@
 		<ul>
 			<li><a href="ejemplos/formularios/login.jsp">Login</a></li>			
 			<li><a href="ejemplos/formularios/datos_personales.jsp">Datos Personales</a></li>
-			<li><a href="includes/persona/personaFormulario.jsp">Alta Persona</a></li>
+			<li><a href="includes/persona/personaFormulario.jsp">Alta Alumno</a></li>
 		</ul>
 	</li>  
 	<li>

@@ -9,7 +9,7 @@
 			
 		<div class="cnt_article">
 				
-			<form action="personaControlador" method="post" novalidate>
+			<form action="alumnoControlador" method="post" novalidate>
 			
 				<fieldset>	
 					
