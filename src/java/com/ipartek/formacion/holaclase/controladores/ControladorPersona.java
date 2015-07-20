@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.holaclase.poo.bean.Alumno;
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
 import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
 
@@ -62,8 +63,10 @@ public class ControladorPersona extends HttpServlet {
 			p.setApellido(pApellido);
 			p.setEdad(pEdad);
 			p.setEmail(pEmail);
-			p.setNota(pNota);
-			p.setAprobado(pAprobado);	
+			
+			//TODO cambiar Persona por Alumno
+			//p.setNota(pNota);
+			//p.setAprobado(pAprobado);	
 			
 			//guardar Persona en la BBDD
 			

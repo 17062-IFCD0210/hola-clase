@@ -44,8 +44,7 @@ public class TestPersona{
 		assertEquals("Sin Determinar", personaVacia.getApellido());
 		assertEquals(Persona.EDAD_MINIMA,personaVacia.getEdad());
 		assertEquals("",personaVacia.getEmail());
-		assertFalse("Est� aprobado", personaVacia.isAprobado());
-		assertEquals(0,personaVacia.getNota());
+
 	}
 
 	@Test
@@ -55,8 +54,7 @@ public class TestPersona{
 		assertEquals("Sin Determinar", personaParametros.getApellido());
 		assertEquals(20,personaParametros.getEdad());
 		assertEquals("",personaParametros.getEmail());
-		assertFalse("Est� aprobado", personaParametros.isAprobado());
-		assertEquals(0,personaParametros.getNota());
+
 		
 /*		Esto ya esta probado abajo en testExcepcionEdadConstructor
 		Persona pEdadMinima = new Persona("",-1);
