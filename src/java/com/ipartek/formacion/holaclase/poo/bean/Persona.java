@@ -23,7 +23,7 @@ public class Persona {
 	private int     edad;
 	private String  email;
 	private boolean aprobado;
-	private long    nota;
+	private float    nota;
 	 
 	
 	//Constructores
@@ -127,7 +127,7 @@ public class Persona {
 	}
 
 
-	public long getNota() {
+	public float getNota() {
 		return nota;
 	}
 
@@ -136,7 +136,7 @@ public class Persona {
 	 * @param nota
 	 * @throws PersonaException
 	 */
-	public void setNota(long nota) throws PersonaException {
+	public void setNota(float nota) throws PersonaException {
 		if( nota < 0 || nota > 10){
 			this.nota = NOTA_MEDIA;
 			throw new PersonaException(PersonaException.MENSAJE_EXCEPCION_RANGO_NOTA_NO_VALIDO);

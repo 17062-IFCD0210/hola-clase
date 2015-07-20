@@ -24,9 +24,9 @@ public class ControladorPersona extends HttpServlet {
 	String pNombre;
 	String pApellido;
 	String pEmail;
-	String pEdad;
-	String pAprobado;
-	String pNota;
+	int pEdad;
+	boolean pAprobado = false;
+	float pNota;
 	
        
     /**
@@ -57,30 +57,17 @@ public class ControladorPersona extends HttpServlet {
 			
 			//crear Persona
 			Persona p = new Persona();
-			p.setNombre( pNombre );
+			p.setNombre(pNombre);
 			p.setApellido(pApellido);
 			p.setEmail(pEmail);			
-			if(!Utilidades.IsNullOrEmpty(pEdad) && Utilidades.isNumeric(pNota)){
-				p.setEdad( Integer.parseInt(pEdad) );
-			} else {
-				throw new PersonaException("Edad vacia o no valida");
-			}
-			if("true".equals(pAprobado)||"false".equals(pAprobado)){
-				p.setAprobado(Boolean.parseBoolean(pAprobado));
-			} else {
-				throw new PersonaException("Aprobado o Suspendido??");
-			}			
-			if(Utilidades.isNumeric(pNota) && !Utilidades.IsNullOrEmpty(pNota)){
-				p.setNota( Integer.parseInt(pNota));
-			} else {
-				throw new PersonaException("Nota no valida");
-			}
-
+			p.setEdad(pEdad);
+			p.setAprobado(pAprobado);
+			p.setNota(pNota);
 			
 			//guardamos en la BBDD		
 			
 			//enviar attributo para mensaje
-			request.setAttribute("msg", "Zorionak te has dado de alta");
+			request.setAttribute("msg", "Zorionak" + pNombre + "te has dado de alta");
 			//enviar attributo Persona
 			request.setAttribute("persona", p );
 			
@@ -107,14 +94,31 @@ public class ControladorPersona extends HttpServlet {
 	/**
 	 * Recoger los parametros enviados
 	 * @param request
+	 * @throws PersonaException 
 	 */
-	private void getParameters(HttpServletRequest request) {
+	private void getParameters(HttpServletRequest request) throws PersonaException {
 		pNombre = request.getParameter("nombre");
 		pApellido = request.getParameter("apellido");
 		pEmail = request.getParameter("apellido");
-		pEdad = request.getParameter("edad");
-		pAprobado = request.getParameter("aprobado");
-		pNota = request.getParameter("nota");		
+		
+		if(Utilidades.isNumeric(request.getParameter("edad")) && !Utilidades.IsNullOrEmpty(request.getParameter("edad"))){
+			pEdad = Integer.parseInt(request.getParameter("edad"));
+		} else {
+			throw new PersonaException(PersonaException.MENSAJE_EXCEPCION_EDAD_INVALIDO);
+		}
+		if("true".equalsIgnoreCase(request.getParameter("aprobado"))){
+			pAprobado = true;
+		} else if ("false".equalsIgnoreCase(request.getParameter("aprobado"))){
+			pAprobado = false;
+		} else {
+			throw new PersonaException(PersonaException.MENSAJE_EXCEPCION_APROBADO_INVALIDO);
+		}
+				
+		if(Utilidades.isNumeric(request.getParameter("nota")) && !Utilidades.IsNullOrEmpty(request.getParameter("nota"))){
+			pNota = Float.parseFloat(request.getParameter("nota"));
+		} else {
+			throw new PersonaException(PersonaException.MENSAJE_EXCEPCION_NOTA_INVALIDO);
+		}
 	}
 
 }

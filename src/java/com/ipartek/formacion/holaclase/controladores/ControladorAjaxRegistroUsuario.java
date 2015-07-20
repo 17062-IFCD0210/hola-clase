@@ -72,7 +72,7 @@ public class ControladorAjaxRegistroUsuario extends HttpServlet {
 		}		
 		
 			
-		//TODO comprobar email valido
+		//comprobar email valido
 		if ( Utilidades.isEmail(email) ){
 			if ( !"".equalsIgnoreCase(email) &&
 				!listaEmail.contains(email)){		
