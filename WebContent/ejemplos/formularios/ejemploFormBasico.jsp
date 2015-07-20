@@ -27,7 +27,7 @@
 
 <%
 
-String msg[];
+String msg[] = (String[])request.getAttribute("num");
 
 
 if(msg != null) {

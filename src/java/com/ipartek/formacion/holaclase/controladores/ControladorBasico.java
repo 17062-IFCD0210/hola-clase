@@ -11,8 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class ControladorBasico
  */
+
 public class ControladorBasico extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	public static int num;
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -36,7 +38,7 @@ public class ControladorBasico extends HttpServlet {
 		String pTexto = (String)request.getParameter("texto");
 		String pNumero = (String)request.getParameter("numero");
 		
-		int num = Integer.parseInt(pNumero);
+		num = Integer.parseInt(pNumero);
 		
 		for(int i=0; i<num; i++) {
 			request.setAttribute("num"+i, pTexto);

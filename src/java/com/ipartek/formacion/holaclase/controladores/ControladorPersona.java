@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ipartek.formacion.holaclase.poo.bean.Alumno;
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
 import com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona;
 
@@ -51,7 +52,7 @@ public class ControladorPersona extends HttpServlet {
 		//Validar los datos
 		try {
 			//Crear Persona
-			Persona p = new Persona();
+			Alumno p = new Alumno();
 			p.setNombre(pNombre);
 			p.setApellido(pApellido);
 			p.setEdad(Integer.parseInt(pEdad));

@@ -42,8 +42,6 @@ public class TestPersona {
 		assertEquals("Sin Determinar",personaVacia.getApellido());
 		assertEquals(Persona.EDAD_MIN,personaVacia.getEdad());
 		assertEquals("",personaVacia.getEmail());
-		assertFalse("Aprobado",personaVacia.isAprobado());
-		assertEquals(Persona.NOTA_MIN,personaVacia.getNota());
 	}
 
 	@Test
@@ -53,8 +51,6 @@ public class TestPersona {
 		assertEquals("Sin Determinar",personaParametros.getApellido());
 		assertEquals(25,personaParametros.getEdad());
 		assertEquals("",personaParametros.getEmail());
-		assertFalse("Aprobado",personaParametros.isAprobado());
-		assertEquals(Persona.NOTA_MIN,personaParametros.getNota());
 		
 		Persona pEdadMin;
 		try {

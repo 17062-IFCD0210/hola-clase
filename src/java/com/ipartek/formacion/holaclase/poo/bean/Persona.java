@@ -14,16 +14,11 @@ public class Persona {
 	public static final int EDAD_MIN = 18;
 	public static final int EDAD_MAX = 99;
 
-	public static final long NOTA_MIN = (long)0.0;
-	public static final long NOTA_MAX = (long)10.0;
-	
 	//Atributos
 	private String nombre = "Anonimo";
 	private String apellido = "Sin Determinar";
 	private int edad = EDAD_MIN;
 	private String email = "";
-	private boolean aprobado = false;
-	private float nota = NOTA_MIN;
 	
 	//Constructores
 	public Persona() {
@@ -36,10 +31,7 @@ public class Persona {
 		this.setEdad(edad);
 	}
 
-
-
-	public Persona(String nombre, String apellido, int edad, String email,
-			boolean aprobado, long nota) throws ExcepcionPersona {
+	public Persona(String nombre, String apellido, int edad, String email) throws ExcepcionPersona {
 		super();
 		//Nombre
 		this.setNombre(nombre);
@@ -52,12 +44,6 @@ public class Persona {
 		
 		//Email
 		this.setEmail(email);
-		
-		//Aprobado
-		this.setAprobado(aprobado);
-		
-		//Nota
-		this.setNota(nota);
 	}
 	
 	//Getters y Setters
@@ -109,45 +95,13 @@ public class Persona {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public boolean isAprobado() {
-		return aprobado;
-	}
-
-	public void setAprobado(boolean aprobado) {
-		this.aprobado = aprobado;
-	}
-
-	public float getNota() {
-		return nota;
-	}
-	
-	/**
-	 * Nota comprendida entre 0 y 10, casos:
-	 * <ul>
-	 * 	<li>Si es menor de 0 seteamos a 0</li>
-	 * 	<li>Si es mayor de 10 seteamos a 10</li>
-	 * </ul>
-	 * @param nota
-	 * @throws ExcepcionPersona 
-	 */
-	public void setNota(float nota) throws ExcepcionPersona {
-		if(nota < NOTA_MIN) {
-			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_NOTA_MENOR);
-		} else if(nota > NOTA_MAX) {
-			throw new ExcepcionPersona(ExcepcionPersona.MESSAGE_NOTA_MAYOR);
-		} else {
-			this.nota = nota;
-		}
-	}
 	
 	//Metodos y utilidades
 	
 	@Override
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", apellido=" + apellido
-				+ ", edad=" + edad + ", email=" + email + ", aprobado="
-				+ aprobado + ", nota=" + nota + "]";
+				+ ", edad=" + edad + ", email=" + email + "]";
 	}
 	
 	
