@@ -14,15 +14,12 @@ public class Persona {
 	//constantes
 	public static final int EDAD_MINIMA = 18;
 	public static final int EDAD_MAXIMA = 99;
-	public static final long NOTA_MEDIA = 5;
 	
 	//Atributos
 	private String  nombre;
 	private String  apellido;
 	private int     edad;
 	private String  email;
-	private boolean aprobado;
-	private float    nota;
 	 
 	
 	//Constructores
@@ -32,12 +29,9 @@ public class Persona {
 		this.apellido = "Sin Determinar";
 		this.edad     = EDAD_MINIMA;
 		this.email    = "";
-		this.aprobado = false;
-		this.nota     = (long)0.0;
 	}
 
 	//consructor con parametros
-	
 	/**
 	 * Constructor con parametros
 	 * @param nombre nombre de la Persona
@@ -50,31 +44,22 @@ public class Persona {
 	}
 
 	
-	
-	
-
-	
 	//Getters y Setters
-	
 	public String getNombre() {
 		return nombre;
 	}
-
 
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-
 	public String getApellido() {
 		return apellido;
 	}
 
-
 	public void setApellido(String apellido) {
 		this.apellido = apellido;
 	}
-
 
 	public int getEdad() {
 		return edad;
@@ -105,43 +90,12 @@ public class Persona {
 		
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
 
-
 	public void setEmail(String email) {
 		this.email = email;
-	}
-
-
-	public boolean isAprobado() {
-		return aprobado;
-	}
-
-
-	public void setAprobado(boolean aprobado) {
-		this.aprobado = aprobado;
-	}
-
-
-	public float getNota() {
-		return nota;
-	}
-
-	/**
-	 * Nota comprendida entre 0 y 10 en caso contrario seteamos a 5
-	 * @param nota
-	 * @throws PersonaException
-	 */
-	public void setNota(float nota) throws PersonaException {
-		if( nota < 0 || nota > 10){
-			this.nota = NOTA_MEDIA;
-			throw new PersonaException(PersonaException.MENSAJE_EXCEPCION_RANGO_NOTA_NO_VALIDO);
-		} else {
-			this.nota = nota;
-		}
 	}
 
 
@@ -151,10 +105,7 @@ public class Persona {
 	@Override
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", apellido=" + apellido
-				+ ", edad=" + edad + ", email=" + email + ", aprobado="
-				+ aprobado + ", nota=" + nota + "]";
+				+ ", edad=" + edad + ", email=" + email + "]";
 	}  
-	
-	
-	
+
 }

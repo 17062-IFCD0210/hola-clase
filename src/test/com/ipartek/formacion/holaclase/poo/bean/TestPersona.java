@@ -41,36 +41,39 @@ public class TestPersona {
 		assertEquals("Sin Determinar", personaVacia.getApellido() );
 		assertEquals( Persona.EDAD_MINIMA , personaVacia.getEdad() );
 		assertEquals( "", personaVacia.getEmail() );
-		assertFalse("Esta aprobado", personaVacia.isAprobado() );		
-		assertEquals( 0 , personaVacia.getNota() );
-		
-
 	}
 
 	@Test
-	public void testPersonaStringInt() throws Exception {
+	public void testPersonaStringInt() throws PersonaException {
 		
 		assertEquals("Ander", personaParametros.getNombre() );
 		assertEquals("Sin Determinar", personaParametros.getApellido() );
 		assertEquals( 35 , personaParametros.getEdad() );
 		assertEquals( "", personaParametros.getEmail() );
-		assertFalse("Esta aprobado", personaParametros.isAprobado() );		
-		assertEquals( 0 , personaParametros.getNota() );
 	
-		Persona pEdadMinima = new Persona("", -1);
-		Persona pEdadMaxima = new Persona("", 333 );
-		assertEquals( Persona.EDAD_MINIMA , pEdadMinima.getEdad() );
-		assertEquals( Persona.EDAD_MAXIMA , pEdadMaxima.getEdad() );
-	
+		try {
+			Persona pEdadMinima = new Persona("", -1);
+		} catch (PersonaException e){
+//			assertEquals( Persona.EDAD_MINIMA , pEdadMinima.getEdad() );
+		}
 		
+		try {
+			Persona pEdadMaxima = new Persona("", 333 );
+		} catch (PersonaException e){
+//			assertEquals( Persona.EDAD_MAXIMA , pEdadMaxima.getEdad() );
+		}
+	
 	}
 
 	@Test
 	public void testSetEdad() throws PersonaException {
 		
-		personaVacia.setEdad(-1);
-		assertEquals( Persona.EDAD_MINIMA , personaVacia.getEdad() );
-		
+		try {
+			personaVacia.setEdad(-1);
+		} catch (PersonaException e) {
+			assertEquals( Persona.EDAD_MINIMA , personaVacia.getEdad() );
+		}
+
 		personaVacia.setEdad(18);
 		assertEquals( Persona.EDAD_MINIMA , personaVacia.getEdad() );
 		
@@ -80,10 +83,11 @@ public class TestPersona {
 		personaVacia.setEdad(99);
 		assertEquals( Persona.EDAD_MAXIMA , personaVacia.getEdad() );
 		
-		personaVacia.setEdad(333);
-		assertEquals( Persona.EDAD_MAXIMA , personaVacia.getEdad() );
-		
-		
-		
+		try {
+			personaVacia.setEdad(333);
+		} catch (PersonaException e) {
+			assertEquals( Persona.EDAD_MAXIMA , personaVacia.getEdad() );
+		}
+	
 	}
 }
