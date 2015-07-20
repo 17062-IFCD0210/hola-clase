@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ipartek.formacion.holaclase.poo.bean.Persona;
-import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
+import com.ipartek.formacion.holaclase.poo.bean.PersonaException;
 import com.ipartek.formacion.holaclase.util.Utilidades;
 
 /**

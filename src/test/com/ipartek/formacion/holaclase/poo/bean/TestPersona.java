@@ -8,8 +8,6 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
-
 public class TestPersona {
 
 	Persona personaVacia;

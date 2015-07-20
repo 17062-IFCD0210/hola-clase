@@ -3,7 +3,6 @@
  */
 package com.ipartek.formacion.holaclase.poo.bean;
 
-import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
 
 /**
  * Bean para modelar una Persona fisica

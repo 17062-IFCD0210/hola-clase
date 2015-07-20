@@ -1,4 +1,4 @@
-package com.ipartek.formacion.holaclase.poo.ejemplos;
+package com.ipartek.formacion.holaclase.poo.bean;
 
 public class PersonaException extends Exception{
 	
