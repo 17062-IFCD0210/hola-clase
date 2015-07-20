@@ -62,8 +62,7 @@ public class ControladorPersona extends HttpServlet {
 			p.setApellido(pApellido);
 			p.setEmail(pEmail);
 			p.setEdad( pEdad );
-			p.setAprobado(pAprobado);
-			p.setNota(pNota);
+
 			
 			p=null;
 			p.setApellido("");

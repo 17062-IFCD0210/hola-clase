@@ -41,8 +41,7 @@ public class TestPersona {
 		assertEquals("Sin determinar", personaVacia.getApellido() );
 		assertEquals(Persona.EDAD_MINIMA, personaVacia.getEdad() );
 		assertEquals("", personaVacia.getEmail() );
-		assertFalse("Esta Aprobado", personaVacia.isAprobado() );		
-		assertEquals( 0, personaVacia.getNota() );
+
 		
 
 	}
@@ -53,8 +52,6 @@ public class TestPersona {
 		assertEquals("Sin determinar", personaParametros.getApellido() );
 		assertEquals( 35 , personaParametros.getEdad() );
 		assertEquals("", personaParametros.getEmail() );
-		assertFalse("Esta Aprobado", personaParametros.isAprobado() );		
-		assertEquals( 0, personaParametros.getNota() );
 		
 
 	}

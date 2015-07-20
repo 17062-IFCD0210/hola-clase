@@ -19,8 +19,7 @@ public class Persona {
 	private String   apellido;
 	private int	     edad;
 	private String   email;
-	private boolean  aprobado;
-	private float	 nota;
+	
 		
 	//Constructores (se llama igual que la clase)
 	public Persona() {
@@ -30,8 +29,7 @@ public class Persona {
 		this.apellido = "Sin determinar";
 		this.edad	  = EDAD_MINIMA;
 		this.email	  = "";
-		this.aprobado = false;
-		this.nota	  = (float)0.0; //CASTEAR, para poder inicializarlo		
+			
 	
 	}
 	// Constructor con parametros
@@ -115,36 +113,13 @@ public class Persona {
 		this.email = email;
 	}
 
-
-	public boolean isAprobado() {
-		return aprobado;
-	}
-
-
-	public void setAprobado(boolean aprobado) {
-		this.aprobado = aprobado;
-	}
-
-
-	public float getNota() {
-		return nota;
-	}
-
-
-	public void setNota(float nota) {
-		this.nota = nota;
-	}
-
-
-	
 	
 	//Metodos y Utilidades
 	
 	@Override
 	public String toString() {
 		return "Persona [nombre=" + nombre + ", apellido=" + apellido
-				+ ", edad=" + edad + ", email=" + email + ", aprobado="
-				+ aprobado + ", nota=" + nota + "]";
+				+ ", edad=" + edad + ", email=" + email + "]";
 	}
 
 }
