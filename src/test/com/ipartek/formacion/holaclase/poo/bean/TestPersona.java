@@ -53,6 +53,9 @@ public class TestPersona {
 		assertEquals( 35 , personaParametros.getEdad() );
 		assertEquals("", personaParametros.getEmail() );
 		
+		//assertFalse("Esta Aprobado", a.isAprobado() );		
+		//assertEquals(0.0, a.getNota() );
+		
 
 	}
 

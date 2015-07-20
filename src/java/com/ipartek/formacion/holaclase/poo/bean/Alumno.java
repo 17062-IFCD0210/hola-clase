@@ -11,6 +11,13 @@ public class Alumno extends Persona {
 			this.nota	  = (float)0.0; //CASTEAR, para poder inicializarlo	
 		}
 
+		public Alumno(String nombre, int edad) throws PersonaException {
+			super(nombre, edad);
+			this.aprobado = false;
+			this.nota	  = (float)0.0;
+		}
+
+
 		public boolean isAprobado() {
 			return aprobado;
 		}
@@ -29,7 +36,8 @@ public class Alumno extends Persona {
 
 		@Override
 		public String toString() {
-			return "Alumno [aprobado=" + aprobado + ", nota=" + nota + "]";
+			return "Alumno [aprobado=" + aprobado + ", nota=" + nota + "] extends " + super.toString();
+			//hacemos llamada a super para que nos coja los datos de la persona
 		}
 
 

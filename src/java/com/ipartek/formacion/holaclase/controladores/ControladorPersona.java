@@ -62,6 +62,10 @@ public class ControladorPersona extends HttpServlet {
 			p.setApellido(pApellido);
 			p.setEmail(pEmail);
 			p.setEdad( pEdad );
+			
+			//TODO cambiamos persona por alumno
+			//p.setAprobado(pAprobado);
+			//p.setNota(pNota);
 
 			
 			p=null;
