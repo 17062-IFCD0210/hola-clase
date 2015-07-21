@@ -4,11 +4,21 @@ public class Cuadrado extends ObjetoGrafico {
 	
 	int largo;
 	
+
+	/**
+	 * Constructor que crea un punto (el cuadrado menor posible)
+	 */
 	public Cuadrado(){
 		super();
 		largo=0;
 	}
 
+	/**
+	 * Constructor que crea un cuadrado
+	 * @param x: coordenada x del centro
+	 * @param y: coordenada y del centro
+	 * @param largo: longitud del lado del cuadrado
+	 */
 	public Cuadrado(int x, int y, int largo){
 		super();
 		super.setX(x);

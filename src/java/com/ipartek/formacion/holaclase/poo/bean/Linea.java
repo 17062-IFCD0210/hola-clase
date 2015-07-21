@@ -1,51 +1,45 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
-
 public class Linea extends ObjetoGrafico {
 
-	int xFinal,yFinal;
-	
-	public Linea(){
-		super();
-		xFinal=0;
-		yFinal=0;
+	// private int xFinal,yFinal;
+	private Punto puntoFinal;
+
+	/**
+	 * Construye un objeto {@code Linea} que extiende de {@code ObjetoGrafico} y
+	 * necesitamos indicarle el punto de inicio y fin
+	 *
+	 * @param x
+	 *            coordenada x de inicio
+	 * @param y
+	 *            coordenada y de inicio
+	 * @param xFin
+	 *            coordenada x de fin
+	 * @param yFin
+	 *            coordenada y de fin
+	 * @throws CloneNotSupportedException
+	 */
+	public Linea(Punto pInicio, Punto pFin) throws CloneNotSupportedException {
+		super(pInicio);
+		this.puntoFinal = pFin;
 	}
 
-	public Linea(int x, int y, int xFinal, int yFinal){
-		super();
-		super.setX(x);
-		super.setY(y);
-		this.xFinal=xFinal;
-		this.yFinal=yFinal;
-	}
-	
-	
-	public int getxFinal() {
-		return xFinal;
+	public Punto getPuntoFinal() {
+		return puntoFinal;
 	}
 
-	public void setxFinal(int xFinal) {
-		this.xFinal = xFinal;
-	}
-
-	public int getyFinal() {
-		return yFinal;
-	}
-
-	public void setyFinal(int yFinal) {
-		this.yFinal = yFinal;
-	}
-	
-	@Override
-	protected String dibujar() {
-		return ("Dibujando linea");
-
+	public void setPuntoFinal(Punto puntoFinal) {
+		this.puntoFinal = puntoFinal;
 	}
 
 	@Override
-	protected String redimensionar() {
-		return ("Redimensionando linea");
+	public String dibujar() {
+		return Linea.class.getName() + " dibujada";
+	}
 
+	@Override
+	public String redimensionar() {
+		return Linea.class.getName() + " redimensionada";
 	}
 
 }
