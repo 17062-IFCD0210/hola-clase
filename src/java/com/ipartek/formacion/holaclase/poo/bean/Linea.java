@@ -1,16 +1,20 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
+
 public class Linea extends ObjetoGrafico {
 
 	private int distanciaX;
 	private int distanciaY;
 
 	/**
-	 * @param distanciaX
-	 * @param distanciaY
+	 * Creamos una {@code Linea extends ObjetoGrafico} que se inicia en un punto y termina en otro
+	 * @param x coordenada de inicio x
+	 * @param y coordenada de inicio y
+	 * @param distanciaX coordenada de fin x
+	 * @param distanciaY coordenada de fin y
 	 */
-	public Linea(int distanciaX, int distanciaY) {
-		super();
+	public Linea(int x, int y, int distanciaX, int distanciaY) {
+		super(x,y);
 		this.setDistanciaX(distanciaX);
 		this.setDistanciaY(distanciaY);
 	}
@@ -41,7 +45,7 @@ public class Linea extends ObjetoGrafico {
 
 	@Override
 	public String Redimensionar() {
-		return "Linea redimensionada";
+		return Linea.class.getName() + " redimensionada";
 	}
 
 }

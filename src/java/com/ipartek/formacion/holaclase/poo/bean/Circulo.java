@@ -6,10 +6,13 @@ public class Circulo extends ObjetoGrafico {
 
 	
 	/**
+	 * 
+	 * @param x
+	 * @param y
 	 * @param radio
 	 */
-	public Circulo(int radio) {
-		super();
+	public Circulo(int x, int y, int radio) {
+		super(x,y);
 		this.setRadio(radio);
 	}
 
@@ -28,7 +31,7 @@ public class Circulo extends ObjetoGrafico {
 
 	@Override
 	public String Redimensionar() {
-		return "Circulo redimensionado";
+		return Circulo.class.getName() + " redimensionado";
 	}
 
 }

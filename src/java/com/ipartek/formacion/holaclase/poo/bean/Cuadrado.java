@@ -6,11 +6,14 @@ public class Cuadrado extends ObjetoGrafico {
 	private int ancho;
 	
 	/**
+	 * 
+	 * @param x
+	 * @param y
 	 * @param alto
 	 * @param ancho
 	 */
-	public Cuadrado(int alto, int ancho) {
-		super();
+	public Cuadrado(int x, int y, int alto, int ancho) {
+		super(x,y);
 		this.setAlto(alto);
 		this.setAncho(ancho);
 	}
@@ -38,7 +41,7 @@ public class Cuadrado extends ObjetoGrafico {
 
 	@Override
 	public String Redimensionar() {
-		return "Cuadrado redimensionado";
+		return Cuadrado.class.getName() + " redimensionado";
 	}
 
 }
