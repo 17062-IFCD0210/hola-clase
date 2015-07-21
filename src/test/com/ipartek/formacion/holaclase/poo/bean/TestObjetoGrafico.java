@@ -4,8 +4,6 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-import com.ipartek.formacion.holaclase.poo.bean.ObjetoGrafico.Punto;
-
 public class TestObjetoGrafico {
 
 	@Test

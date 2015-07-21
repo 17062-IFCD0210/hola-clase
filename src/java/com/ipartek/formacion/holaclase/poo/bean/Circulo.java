@@ -2,44 +2,34 @@ package com.ipartek.formacion.holaclase.poo.bean;
 
 public class Circulo extends ObjetoGrafico {
 
-	int radio;
+	float radio;
 	
 	/**
-	 * Constructor que crea un punto (el cirulo menor posible)
-	 */
-	public Circulo(){
-		super();
-		radio=0;
-	}
-
-	/**
-	 * Constructor que crea un circulo
-	 * @param x: coordenada x del centro
-	 * @param y: coordenada y del centro
+	 * Constructor que crea un punto 
+	 * @param pInicio: punto del centro
 	 * @param radio: radio del circulo
+	 * @throws CloneNotSupportedException 
 	 */
-	public Circulo(int x, int y, int radio){
-		super();
-		super.setX(x);
-		super.setY(y);
+	public Circulo(Punto pInicio, float radio) throws CloneNotSupportedException{
+		super(pInicio);
 		this.radio=radio;
 	}
-	
-	public int getRadio() {
+
+	public float getRadio() {
 		return radio;
 	}
 
-	public void setRadio(int radio) {
+	public void setRadio(float radio) {
 		this.radio = radio;
 	}
 
 	@Override
-	protected String dibujar() {
+	public String dibujar() {
 		return ("Dibujando circulo");
 	}
 
 	@Override
-	protected String redimensionar() {
+	public String redimensionar() {
 		return ("Redimensionando circulo");
 	}
 
