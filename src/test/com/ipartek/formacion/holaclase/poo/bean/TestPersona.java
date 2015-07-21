@@ -42,8 +42,10 @@ public class TestPersona {
 		assertEquals(Persona.EDAD_MINIMA, personaVacia.getEdad());
 		assertEquals("Sin Determinar", personaVacia.getApellido());
 		assertEquals("", personaVacia.getEmail());
-		assertFalse("Está Aprobado", personaVacia.isAprobado());
-		assertEquals(0, personaVacia.getNota());
+		
+		//Métodos en Alumno que hereda de Persona
+		//assertFalse("Está Aprobado", personaVacia.isAprobado());
+		//assertEquals(0, personaVacia.getNota());
 		
 		
 	}
@@ -55,8 +57,10 @@ public class TestPersona {
 		assertEquals("Sin Determinar", personaParametros.getApellido());
 		assertEquals(35, personaParametros.getEdad());
 		assertEquals("", personaParametros.getEmail());
-		assertFalse("Está Aprobado", personaParametros.isAprobado());
-		assertEquals(0, personaParametros.getNota());
+		
+		//Métodos en Alumno que hereda de Persona
+		//assertFalse("Está Aprobado", personaParametros.isAprobado());
+		//assertEquals(0, personaParametros.getNota());
 		
 	}
 
