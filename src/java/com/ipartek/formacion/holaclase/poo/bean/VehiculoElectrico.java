@@ -10,7 +10,7 @@ public class VehiculoElectrico extends Vehiculo {
 	/* Hemos usado el polimorfismo para que al construir un 
 	 * VehiculoElectrico la potencia minima sea 100 en vez de 0 */
 	public VehiculoElectrico() {
-		super();
+		super();		
 		this.setPotencia(100); 
 		this.capacidadBaterias = 300;
 	}

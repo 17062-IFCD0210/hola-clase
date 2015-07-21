@@ -64,7 +64,6 @@ public class Vehiculo {
 				+ "]";
 	}
 	
-	
 	public String arrancar(){
 		return "Vehiculo arrancado";
 	}
