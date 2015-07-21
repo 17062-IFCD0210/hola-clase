@@ -1,39 +1,40 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
+import com.ipartek.formacion.holaclase.poo.bean.ObjetoGrafico.Punto;
+
 public class Linea extends ObjetoGrafico {
-
-
-	@Override
-	void dibujar() {
-		System.out.println("Linea dibujada");
-
-	}
-
-	@Override
-	void redimensionar() {
-		System.out.println("Linea redimensionada");
+	
+	private Punto p2;
+	
+	/**
+	 * Costruye un objeto {@code Linea extends ObjetoGrafico} y necesitamos indicarle el punto de inicio y fin
+	 * @throws CLoneNotSupportedException  			
+	 */
+	public Linea(Punto pInicio, Punto pFin) {
+		super(pInicio);
+		this.p2 = pFin;
 	}
 	
-	/*
-	 class Line extends GraphObj
-		{
-		  // x e y se heredan
-		  int ix, iy;
-		  GraphObj(int aix, int aiy,
-		           int afx, int afy)
-		  {
-		    super((aix+afx)/2, (aiy+afy)/2);
-		    ix= aix; iy= aiy;
-		  }
-		  void Paint(Graphics g)
-		  { g.DrawLine(xi,yi,x+(x-xi),y+(y-yi)); }
-		  // Move se hereda de GraphObj
-		}
-		
-		// Ahora sí!
-		Line line= new Line(0,0, 10,20); 
-			 
-	 * */
+
+	public Punto getP2() {
+		return p2;
+	}
+
+	public void setP2(Punto p2) {
+		this.p2 = p2;
+	}
+
+
+	@Override
+	String dibujar() {
+		return Linea.class.getName() + " dibujada";
+
+	}
+
+	@Override
+	String redimensionar() {
+		return Linea.class.getName() + " redimensionada";
+	}
 	
 }
 
