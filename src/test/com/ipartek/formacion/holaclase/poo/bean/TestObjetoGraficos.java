@@ -1,6 +1,7 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -29,24 +30,38 @@ public class TestObjetoGraficos {
 	@Test
 	public void testLinea() {
 
-		// No de puede instanciar una clase abstracta
-		// ObjetoGrafico og = new ObjetoGrafico(0,0);
+		try {
+			// No de puede instanciar una clase abstracta
+			// ObjetoGrafico og = new ObjetoGrafico(0,0);
 
-		// Se puede instancuiar una Linea, puesto que tiene todos los metodos
-		// implementados del padre
-		com.ipartek.formacion.holaclase.poo.bean.Linea linea = new Linea(0, 0,
-				10, 10);
+			// Se puede instancuiar una Linea, puesto que tiene todos los
+			// metodos
+			// implementados del padre
 
-		linea.mover(20, 25);
-		assertEquals("No se ha movido correctamente en X", 20, linea.getX());
+			Punto pInicio = new Punto(0, 0);
+			Punto pFin = new Punto(10, 10);
 
-		assertEquals("No se ha movido correctamente en Y", 25, linea.getY());
+			Linea linea = new Linea(pInicio, pFin);
 
-		assertEquals("com.ipartek.formacion.holaclase.poo.bean.Linea dibujada",
-				linea.dibujar());
-		assertEquals(
-				"com.ipartek.formacion.holaclase.poo.bean.Linea redimensionada",
-				linea.redimensionar());
+			Punto pMover = new Punto(20, 25);
+			linea.mover(pMover);
+			assertEquals("No se ha movido correctamente en X", 20, linea
+					.getP1().getX());
+
+			assertEquals("No se ha movido correctamente en Y", 25, linea
+					.getP1().getY());
+
+			assertEquals(
+					"com.ipartek.formacion.holaclase.poo.bean.Linea dibujada",
+					linea.dibujar());
+			assertEquals(
+					"com.ipartek.formacion.holaclase.poo.bean.Linea redimensionada",
+					linea.redimensionar());
+
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			fail("No se puede clonar el Objeto");
+		}
 
 	}
 

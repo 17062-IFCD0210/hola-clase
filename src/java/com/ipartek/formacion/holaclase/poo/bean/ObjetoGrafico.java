@@ -1,65 +1,58 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 /**
- * Clase abstracta para representar un {@code ObjetoGrafico} 
- * Atributos {@code x} e {@code y} para representar la posicion en 2D del objeto
+ * Clase abstracta para representar un {@code ObjetoGrafico} Atributos {@code x}
+ * e {@code y} para representar la posicion en 2D del objeto
+ *
  * @author ur00
  *
  */
 public abstract class ObjetoGrafico {
 
-	private int x;
-	private int y;
-	
-	
+	private Punto p1;
+
 	/**
-	 * Creamos un objeto {@code ObjetoGrafico} en un punto concreto (x,y) 
-	 * @param x
-	 * @param y
+	 * Creamos un objeto {@code ObjetoGrafico} en un {@code Punto}
+	 *
+	 * @param Punto
+	 * @throws CloneNotSupportedException
 	 */
-	public ObjetoGrafico(int x, int y) {
+	public ObjetoGrafico(Punto p) throws CloneNotSupportedException {
 		super();
-		this.x = x;
-		this.y = y;
+		this.p1 = p.clone();
 	}
-	
-	
-	//getters y setters
-	public int getX() {
-		return x;
+
+	public Punto getP1() {
+		return p1;
 	}
-	public void setX(int x) {
-		this.x = x;
+
+	public void setP1(Punto p1) {
+		this.p1 = p1;
 	}
-	public int getY() {
-		return y;
-	}
-	public void setY(int y) {
-		this.y = y;
-	}
-	
+
 	/**
 	 * Mover el {@code ObjetoGrafico} a una nueva posicion
-	 * @param x nueva posicion x
-	 * @param y nueva posicion y
+	 *
+	 * @param pMober
+	 *            {@code Punto} a mover
+	 * @throws CloneNotSupportedException
 	 */
-	void mover( int x, int y){
-		this.x = x;
-		this.y = y;
+	public void mover(Punto pMover) throws CloneNotSupportedException {
+		this.p1 = pMover.clone();
 	}
-	
+
 	/**
 	 * Dibuja el {@code ObjetoGrafico}
+	 *
 	 * @return cadena de texto diciendo que se ha dibujado
 	 */
-	abstract String dibujar();
-	
-	
+	public abstract String dibujar();
+
 	/**
 	 * Redimensiona el {@code ObjetoGrafico}
+	 *
 	 * @return cadena de texto diciendo que se ha redimensionado
 	 */
-	abstract String redimensionar();
-	
-	
+	public abstract String redimensionar();
+
 }
