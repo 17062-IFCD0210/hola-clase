@@ -1,48 +1,65 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
+/**
+ * Clase abstracta para representar un {@code ObjetoGrafico} Atributos {@code x}
+ * e {@code y} para representar la posicion en 2D del objeto
+ *
+ * @author Raul
+ *
+ */
 public abstract class ObjetoGrafico {
-	//Atributos
-	private int x;
-	private int y;
-	
-	//Constructores
+	// Atributos
+	private Punto p1;
+
+	// Constructores
 	public ObjetoGrafico() {
 		super();
-		this.setX(0);
-		this.setY(0);
 	}
-	
-	public ObjetoGrafico(int x, int y) {
+
+	/**
+	 * Creamos un {@code ObjetoGrafico} en un punto concreto
+	 *
+	 * @param x
+	 * @param y
+	 * @throws CloneNotSupportedException
+	 */
+	public ObjetoGrafico(Punto p1) throws CloneNotSupportedException {
 		super();
-		this.setX(x);
-		this.setY(y);
+		this.p1 = p1.clone();
 	}
 
-
-	//Getters y Setters
-	public int getX() {
-		return x;
+	// Getters y Setters
+	public Punto getP1() {
+		return p1;
 	}
 
-	public void setX(int x) {
-		this.x = x;
+	public void setP1(Punto p1) {
+		this.p1 = p1;
 	}
 
-	public int getY() {
-		return y;
+	// Metodos
+	/**
+	 * Mover el {@code ObjetoGrafico} a una nueva posicion
+	 *
+	 * @param pMover
+	 *            {@code Punto}
+	 */
+	public void mover(Punto pMover) {
+		this.p1 = pMover;
 	}
 
-	public void setY(int y) {
-		this.y = y;
-	}
-	
-	//Metodos
-	public String mover(int nuevaX, int nuevaY) {
-		return "Me he movido a la posicion X: " + nuevaX + " Y: " + nuevaY; 
-	}
-	
+	/**
+	 * Dibuja el {@code ObjetoGrafico}
+	 *
+	 * @return retorna una cadena de texto diciendo que se ha dibujado
+	 */
 	public abstract String dibujar();
-	public abstract String redimensionar();
 
+	/**
+	 * Redimensiona el {@code ObjetoGrafico}
+	 *
+	 * @return retorna una cadena de texto diciendo que se ha redimensionado
+	 */
+	public abstract String redimensionar();
 
 }

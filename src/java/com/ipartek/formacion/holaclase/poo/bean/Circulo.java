@@ -1,22 +1,21 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 public class Circulo extends ObjetoGrafico {
-	//Atributos
-	
-	//Constructores
+	// Atributos
+
+	// Constructores
 	public Circulo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Circulo(int x, int y) {
-		super(x, y);
-		// TODO Auto-generated constructor stub
+	public Circulo(Punto p1) throws CloneNotSupportedException {
+		super(p1);
 	}
-	
-	//Getters y Setters
-	
-	//Metodos
+
+	// Getters y Setters
+
+	// Metodos
 	@Override
 	public String dibujar() {
 		return "Voy a dibujar un circulo";
