@@ -1,21 +1,33 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
+
+/**
+ * Clase abstracta para representar un {@code ObjetoGrafico}
+ * Atributos {@code x} e {@code y} para representar la posicion en 2D del objeto
+ * @author Curso
+ *
+ */
 public abstract class ObjetoGrafico {
 	
-	int x;
-	int y;
+	private int x;
+	private int y;
 	
 	
-	
-	public ObjetoGrafico() {
+
+	/**
+	 * Creamos un {@code ObjetoGrafico} en un punto concreto
+	 * @param x
+	 * @param y
+	 */
+	public ObjetoGrafico(int x, int y) {
 		super();
-		this.x = 0;
-		this.y = 0;
+		this.x = x;
+		this.y = y;
 	}
 
 	
 	
-	
+	//Getters y setters
 	public int getX() {
 		return x;
 	}
@@ -38,13 +50,28 @@ public abstract class ObjetoGrafico {
 		return "ObjetoGrafico [x=" + x + ", y=" + y + "]";
 	}
 	
-	public String mover(int x, int y){
-		return "Elemento movido";  
+	
+	/**
+	 * Mover el {@code ObjetoGrafico} a una nueva posicion
+	 * @param x
+	 * @param y
+	 */
+	void mover(int x, int y){
+		this.x = x;
+		this.y = y;
 	}
 	
+	/**
+	 * Dibuja el {@code ObjetoGrafico}
+	 * @return una cadena de texto diciendo que se ha dibujado
+	 */
+	abstract String dibujar();
 	
-	abstract void dibujar();
-	abstract void redimensionar();
+	/**
+	 * Redimensiona el {@code ObjetoGrafico}
+	 * @return una cadena de texto diciendo que se ha redimensionado
+	 */
+	abstract String redimensionar();
 	
 	
 }
