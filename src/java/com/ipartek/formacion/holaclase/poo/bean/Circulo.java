@@ -10,9 +10,10 @@ public class Circulo extends ObjetoGrafico {
 	 * @param x
 	 * @param y
 	 * @param radio
+	 * @throws CloneNotSupportedException 
 	 */
-	public Circulo(int x, int y, int radio) {
-		super(x,y);
+	public Circulo(Punto p, int radio) throws CloneNotSupportedException {
+		super(p);
 		this.setRadio(radio);
 	}
 
@@ -26,7 +27,7 @@ public class Circulo extends ObjetoGrafico {
 	
 	@Override
 	public String dibujar() {
-		return "Dibujado un circulo desde (" + this.getX() + "," + this.getY() + ") con radio " + this.getRadio();
+		return "Dibujado un circulo desde (" + this.getP1().getX() + "," + this.getP1().getY() + ") con radio " + this.getRadio();
 	}
 
 	@Override

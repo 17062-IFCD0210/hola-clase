@@ -11,9 +11,10 @@ public class Cuadrado extends ObjetoGrafico {
 	 * @param y
 	 * @param alto
 	 * @param ancho
+	 * @throws CloneNotSupportedException 
 	 */
-	public Cuadrado(int x, int y, int alto, int ancho) {
-		super(x,y);
+	public Cuadrado(Punto p, int alto, int ancho) throws CloneNotSupportedException {
+		super(p);
 		this.setAlto(alto);
 		this.setAncho(ancho);
 	}
@@ -36,7 +37,7 @@ public class Cuadrado extends ObjetoGrafico {
 
 	@Override
 	public String dibujar() {
-		return "Dibujado un cuadrado desde (" + this.getX() + "," + this.getY() + ") con altura " + this.getAlto() + " y anchura " + this.getAncho();
+		return "Dibujado un cuadrado desde (" + this.getP1().getX() + "," + this.getP1().getY() + ") con altura " + this.getAlto() + " y anchura " + this.getAncho();
 	}
 
 	@Override

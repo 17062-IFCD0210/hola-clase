@@ -8,58 +8,55 @@ package com.ipartek.formacion.holaclase.poo.bean;
  */
 public abstract class ObjetoGrafico {
 	
-	private int x;
-	private int y;
+	private Punto p1;
 	
 	/**
 	 * Creamos un {@code ObjetoGrafico} en un punto concreto
 	 * @param x coordenada x
 	 * @param y coordenada y
+	 * @throws CloneNotSupportedException 
 	 */
-	public ObjetoGrafico(int x, int y) {
+	public ObjetoGrafico(Punto p) throws CloneNotSupportedException {
 		super();
-		this.setX(x);
-		this.setY(y);
+		this.p1 = p.clone();
 	}
 	
-	
-	//getters y setters	
-	public int getX() {
-		return x;
-	}
-	public void setX(int x) {
-		this.x = x;
-	}
-	public int getY() {
-		return y;
-	}
-	public void setY(int y) {
-		this.y = y;
+		
+	//getters y setters
+	public Punto getP1() {
+		return p1;
 	}
 
+	public void setP1(Punto p) throws CloneNotSupportedException {
+		this.p1 = p.clone();
+	}
+	
+	
 	/**
 	 * Mover el {@code ObjetoGrafico} a una nueva posicion
-	 * @param nuevaX nueva posicion X
-	 * @param nuevaY nueva posicion Y
+	 * @param pMover {@code Punto} a mover
 	 * @return retorna un String con la descripcion del movimiento.
+	 * @throws CloneNotSupportedException 
 	 */
-	public String moverA (int nuevaX, int nuevaY){
-		this.setX(nuevaX);
-		this.setY(nuevaY);
+	public String moverA (Punto pMover) throws CloneNotSupportedException{
+		this.p1 = pMover.clone();
 		
-		return "Objeto Grafico movido a: x=" + this.getX() + " y=" + this.getY();
+		return "Objeto Grafico movido a: x=" + this.p1.getX() + " y=" + this.p1.getY();
 	}
 	
 	/**
 	 * Dibuja el {@code ObjetoGrafico}
 	 * @return retorna un String con la descripcion del {@code ObjetoGrafico} dibujado
 	 */
-	protected abstract String dibujar();
+	public abstract String dibujar();
 	
 	/**
 	 * Redimensiona el {@code ObjetoGrafico}
 	 * @return retorna un String diciendo que se ha redimensionado
 	 */
-	protected abstract String Redimensionar();
+	public abstract String Redimensionar();
+	
+	
+	
 
 }
