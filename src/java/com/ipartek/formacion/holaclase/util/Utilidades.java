@@ -116,4 +116,11 @@ public class Utilidades {
       formatter.parse(str, pos);
       return str.length() == pos.getIndex();
     }
+    
+    /**
+     * Metodo tonto para pruebas de exportar JAR
+     */
+    public static void cantar() {
+		System.out.println("LALALALALALA");
+	}
 }
