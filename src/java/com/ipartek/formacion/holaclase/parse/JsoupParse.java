@@ -15,7 +15,7 @@ import org.jsoup.select.Elements;
 
 public class JsoupParse {
 
-	public static final String URL = "http://www.iana.org/";
+	public static final String URL = "http://caniuse.com/";
 	
 	public static void main(String[] args) {
 
@@ -27,7 +27,7 @@ public class JsoupParse {
 		String contenidoPagina = "";
 		
 		try {
-			doc = Jsoup.connect(URL).get();
+			doc = Jsoup.connect(URL).userAgent("Mozilla").get();
 			System.out.println("Conectado");
 					
 //			System.out.println(doc.html());		//obtener el codigo fuente
@@ -42,44 +42,39 @@ public class JsoupParse {
 			System.out.println("Enlaces encontrados= " + enlaces.size());
 //			System.out.println(enlaces);	//Mostrar enlaces
 			
-			escribirEnArchivo(titlePagina, enlaces.toString());
+//			escribirEnArchivo(titlePagina, enlaces.toString());
 			
 			Element enlace = null;
 			String urlSalto = null;
 			
-//			for (int i = 0; i < enlaces.size(); i++) {
-//				enlace = enlaces.get(i);
-//				urlSalto = enlace.attr("href");
-//				//System.out.println(urlSalto);
-//				if(urlSalto != null && !"".equals(urlSalto)){
-//					doc = Jsoup.connect(urlSalto).get();
-//					
-//					titlePagina = doc.title();
-//					contenidoPagina = doc.html();
-//					
-//					escribirEnArchivo(titlePagina, contenidoPagina);
-//					
-//					System.out.println("    title= " + titlePagina);
-//				} else {
-//					System.out.println("    *No se a encontrado la url");					
-//				}
-//			}
-			
-			
-			
+			for (int i = 0; i < enlaces.size(); i++) {
+				enlace 	 = enlaces.get(i);
+				urlSalto = enlace.attr("href");
+				//System.out.println(urlSalto);
+				if(urlSalto != null && !"".equals(urlSalto)){
+					doc = Jsoup.connect(URL + urlSalto).userAgent("Mozilla").get();
+					
+					titlePagina = doc.title();
+					contenidoPagina = doc.html();
+					
+					escribirEnArchivo(titlePagina, contenidoPagina);
+					
+					System.out.println("    title= " + titlePagina);
+				} else {
+					System.out.println("    *No se a encontrado la url");					
+				}
+			}
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 
-		
 
-
-		
-		
 		
 		System.out.println("Terminamos parseo");
+	
 	}
 	
 	public static void escribirEnArchivo(String nombre, String contenido) {
