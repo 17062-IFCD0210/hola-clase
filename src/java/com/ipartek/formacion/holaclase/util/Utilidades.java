@@ -11,7 +11,7 @@ public class Utilidades {
 
 	/**
      * Round redondea numeros decimales
-     * 		@param d numero decimal a redondear
+     * 		@param de numero decimal a redondear
      * 		@param decimalPlace numero de decimales
      * 		@return numero redondeado
      */
@@ -89,6 +89,12 @@ public class Utilidades {
         }else{
             return false;
         }        
+    }
+    /**
+     * Metodo tonto para pruebas(import export .jar)
+     */
+    public static void cantar(){
+    	System.out.println("Cantanndoooo");
     }
 	
 }

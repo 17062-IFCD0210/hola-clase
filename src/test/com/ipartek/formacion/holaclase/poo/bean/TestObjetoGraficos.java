@@ -28,43 +28,40 @@ public class TestObjetoGraficos {
 
 	@Test
 	public void testLinea() {
-		
-		//NO se puede INSTANCIAR una clase abstracta
-		//ObjetoGrafico og = new ObjetoGrafico(0,0);
-		
-		
-		//Se puede instanciar una Linea, puesto que tiene todos los metodos del padre implementados
-		Punto pInicio = new Punto (0 ,0);
-		Punto pFin 	  = new Punto (10 ,10);
-		
-		Linea linea = new Linea(pInicio, pFin);
-		
-		Punto pMover = new Punto(20, 25);
-		linea.mover(pMover);
-		assertEquals("No se ha movido correctamente en X",
-				20, linea.getX() 
-				);
-		assertEquals("No se ha movido correctamente en Y", 
-				25, linea.getY() 
-				);
-		
-		assertEquals("com.ipartek.formacion.holaclase.poo.bean.Linea dibujada",
+	
+		try {
+			// No de puede instanciar una clase abstracta
+			// ObjetoGrafico og = new ObjetoGrafico(0,0);
+	
+			// Se puede instancuiar una Linea, puesto que tiene todos los
+			// metodos
+			// implementados del padre
+	
+			Punto pInicio = new Punto(0, 0);
+			Punto pFin = new Punto(10, 10);
+	
+			Linea linea = new Linea(pInicio, pFin);
+	
+			Punto pMover = new Punto(20, 25);
+			linea.mover(pMover);
+			assertEquals("No se ha movido correctamente en X", 20, linea
+					.getP2().getX() );
+	
+			assertEquals("No se ha movido correctamente en Y", 25, linea
+					.getP2().getY() );
+	
+			assertEquals(
+					"com.ipartek.formacion.holaclase.poo.bean.Linea dibujada",
 					linea.dibujar() );
-		assertEquals("com.ipartek.formacion.holaclase.poo.bean.Linea redimensionada",
+			assertEquals(
+					"com.ipartek.formacion.holaclase.poo.bean.Linea redimensionada",
 					linea.redimensionar() );
-			
+	
+		} catch (CloneNotSupportedException e) {
+			e.printStackTrace();
+			fail("No se puede clonar el Objeto");
+		}
+	
 	}
 	
-	@Test
-	public void testCuadrado() {
-		Cuadrado cuadrado = new Cuadrado (10, 10, 10, 10);
-		
-		cuadrado.mover(15, 15);
-		assertEquals("No se ha movido correctamente en X",
-				15, cuadrado.getLX() 
-				);
-		assertEquals("No se ha movido correctamente en Y", 
-				15, cuadrado.getLY() 
-				);
 	}
-}
