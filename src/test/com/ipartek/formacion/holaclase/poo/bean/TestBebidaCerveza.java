@@ -17,10 +17,16 @@ public class TestBebidaCerveza {
 	public void testServir() {
 		
 		Vaso katxi = Vaso.KATXI;
-		BebidaCerveza.MarcaCerveza marca = BebidaCerveza.MarcaCerveza.KELER; 
-		BebidaCerveza katxiKeler = new BebidaCerveza( marca , katxi );
+		BebidaCerveza.MarcaCerveza marca = 
+				BebidaCerveza.MarcaCerveza.KELER; 
 		
-		assertEquals( "Sirviendo 1000cc. de cerveza KELER", katxiKeler.servir() );
+		BebidaCerveza katxiKeler = 
+				new BebidaCerveza( marca , katxi );
+		
+		assertEquals( 
+				"Sirviendo 1000cc. de cerveza KELER", 
+				katxiKeler.servir() 
+			);
 		
 	}
 
