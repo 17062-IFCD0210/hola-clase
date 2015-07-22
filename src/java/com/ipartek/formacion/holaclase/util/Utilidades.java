@@ -132,5 +132,13 @@ public class Utilidades {
 	    	return vector;
 	    }
 	    
+	    /*
+	     * Canta
+	     * @param persona
+	     * @return
+	     */
+	    public static String cantar(String persona){
+	    	return (persona + " está cantando");
+	    }
 
 }
