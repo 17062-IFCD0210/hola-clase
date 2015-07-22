@@ -2,6 +2,8 @@ package com.ipartek.formacion.holaclase.poo.bean;
 
 import static org.junit.Assert.*;
 
+import java.io.Serializable;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -10,8 +12,12 @@ import org.junit.Test;
 
 import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
 
-public class TestPersona{
+public class TestPersona implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Persona personaVacia;
 	Persona personaParametros;
 
