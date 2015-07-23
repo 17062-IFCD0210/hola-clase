@@ -10,8 +10,12 @@ import com.ipartek.formacion.holaclase.poo.ejemplos.PersonaException;
  * @author Javi
  *
  */
-public class Persona{
+public class Persona implements java.io.Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//Constantes
 	//se declara public para poder usarlos desde fuera
 	//se declara final pq su valor no cambiara, son constantes
