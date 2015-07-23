@@ -17,6 +17,8 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.ipartek.formacion.holaclase.util.Utilidades;
+
 public class TestFicheros {
 
 	static final String PATH_FILES = "files/";
@@ -111,6 +113,7 @@ public class TestFicheros {
 		}
 	}
 	
+		
 	
 	@Test
 	public void testCopiar() {
@@ -239,6 +242,40 @@ public class TestFicheros {
 		
 	}
 	
-	
+	@Test 
+	@Ignore
+	public void testListarDirectorioNORecursivamente(){
 
+		
+		final String PATH_APP_HTML = "C:\\desarrollo\\html";
+		File app = new File (PATH_APP_HTML);
+		
+		Utilidades.listarDirectorio(app, " ");
+		
+		/*
+		if ( app.exists() ){
+			
+			for ( File f : app.listFiles()){
+				
+				System.out.println( f.getName() );
+				
+				if ( f.isDirectory() ){
+					
+					for (File pHijo : f.listFiles() ){
+						System.out.println( "    " + pHijo.getName() );
+					}
+					
+				}
+				
+			}
+			
+		}else{
+			fail("No existe " + PATH_APP_HTML );
+		}
+		*/
+		
+	}
+
+	
+	
 }
