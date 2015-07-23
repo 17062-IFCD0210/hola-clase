@@ -11,7 +11,7 @@
 			<p>
 				<label for="texto">Texto:</label><br>
 				<input type="text" id="texto" name="texto" value=""
-					   pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}">
+					   pattern="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃ‰ÃÃ“ÃšÃ‘]{2,256}">
 			</p>			
 			<p>
 				<label for="numero">Numero:</label><br>
@@ -26,14 +26,19 @@
 </form>
 
 <%
+
 String msg[] = (String[])request.getAttribute("num");
+
+
 if(msg != null) {
 	out.print("<h2>" + msg + "</h2>");
 }
+
+
 %>
 
 <br>
 
 
 			
-<jsp:include page="../../plantillas/foot.jsp"></jsp:include>	
+<jsp:include page="../../plantillas/foot.jsp"></jsp:include>			

@@ -36,8 +36,10 @@
 }
 
 /* 
+
    ETIQUETAS 
    dar un estilo general o base a toda la Web	
+
 */
 body {
 	background-image: url('../img/back2.jpg');
@@ -61,6 +63,7 @@ a:hover {
 }
 
 /* recomendable para CSS impresion
+
     a:after { content: " (" attr(href) ") "; }
 */
 ol {
@@ -641,6 +644,7 @@ h2 .rojo {
 /*
 	PAGINAS
 	Tendremos una seccion por cada pagina de nuestra Web
+
 */
 
 /* HOME */

@@ -1,4 +1,8 @@
 /**
- * Package con utilidades genericas a reutilizar en todo el proyecto
+ * 
+ */
+/**
+ * @author Curso
+ *
  */
 package com.ipartek.formacion.holaclase.util;

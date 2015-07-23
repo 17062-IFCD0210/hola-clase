@@ -1,6 +1,8 @@
 /**
- * Constantes para la App
- * @author ur00
+ * 
+ */
+/**
+ * @author Curso
  *
  */
 package com.ipartek.formacion.holaclase.constantes;

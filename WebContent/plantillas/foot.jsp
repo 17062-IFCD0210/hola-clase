@@ -69,6 +69,7 @@
 <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
 <script src="js/morris.js-0.5.1/morris.js"></script>
 <script>
+
 	var json_data;
 	var graph_data = [];
 	const HOUR = 7;
@@ -84,6 +85,7 @@
 		});
 		
 		
+
 		Morris.Area({
 			  element: 'grafico',
 			  data:graph_data,
@@ -101,6 +103,7 @@
 		
 		
 	});
+
 </script>
  
  <!--  Custom JavaScript despues de cargar todas las librerias  -->

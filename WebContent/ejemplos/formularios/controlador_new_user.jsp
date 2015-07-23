@@ -10,4 +10,5 @@
     out.print("<p>Usuario: " + user + " </p>");
     out.print("<p>Mail: " + mail + " </p>");
     out.print("<p>Pass: "   + pass + " </p>");
+
 %>

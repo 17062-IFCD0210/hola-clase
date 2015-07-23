@@ -11,7 +11,7 @@
 			<p>
 				<label for="nombre">Nombre:</label><br>
 				<input type="text" id="nombre" name="nombre" value=""
-					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}"	 
+					   required pattern="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃ‰ÃÃ“ÃšÃ‘]{2,256}"	 
 				       placeholder="Escribe tu nombre"
 				       title="Por favor escribe tu nombre"				       
 				       >
@@ -20,7 +20,7 @@
 			<p>
 				<label for="apellidos">Apellidos:</label><br>
 				<input type="text" id="apellidos" name="apellidos"
-					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256} ([a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}?)"	  
+					   required pattern="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃ‰ÃÃ“ÃšÃ‘]{2,256} ([a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃ‰ÃÃ“ÃšÃ‘]{2,256}?)"	  
 				       value="" placeholder="Tus dos apellidos"
 				       title="Por favor escribe tus dos apellidos" 
 				       >
@@ -149,4 +149,4 @@
 
 
 			
-<jsp:include page="../../plantillas/foot.jsp"></jsp:include>
+<jsp:include page="../../plantillas/foot.jsp"></jsp:include>			

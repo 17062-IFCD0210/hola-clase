@@ -14,9 +14,8 @@
     <servlet-name>ControladorAjaxRegistroUsuario</servlet-name>
     <url-pattern>/ControladorAjaxRegistroUsuario</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-    <description>Controlador para Persona, soporta las operaciones de CRUD</description>
+    <description>Controlador para Persona. Soporta las operaciones de CRUD</description>
     <display-name>ControladorPersona</display-name>
     <servlet-name>ControladorPersona</servlet-name>
     <servlet-class>com.ipartek.formacion.holaclase.controladores.ControladorPersona</servlet-class>
@@ -25,5 +24,14 @@
     <servlet-name>ControladorPersona</servlet-name>
     <url-pattern>/personaControlador</url-pattern>
   </servlet-mapping>
-  
+  <servlet>
+    <description>Controlador basico para un ejemplo de formulario</description>
+    <display-name>ControladorBasico</display-name>
+    <servlet-name>ControladorBasico</servlet-name>
+    <servlet-class>com.ipartek.formacion.holaclase.controladores.ControladorBasico</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ControladorBasico</servlet-name>
+    <url-pattern>/ejemploControlador</url-pattern>
+  </servlet-mapping>
 </web-app>

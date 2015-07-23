@@ -1,6 +1,5 @@
 package com.ipartek.formacion.holaclase.util;
 
-import java.io.File;
 import java.math.BigDecimal;
 
 public class Utilidades {
@@ -16,7 +15,7 @@ public class Utilidades {
 
 	/**
 	 * Funcion que redondea los decimales largos
-	 *
+	 * 
 	 * @param d
 	 *            numero decimal a redondear
 	 * @param decimalPlace
@@ -31,7 +30,7 @@ public class Utilidades {
 
 	/**
 	 * Funcion que ordena ascendentemente o descendentemente un array de enteros
-	 *
+	 * 
 	 * @param array
 	 *            array desordenado que hay que ordenar
 	 * @param orden
@@ -63,26 +62,6 @@ public class Utilidades {
 
 	public static String cantar() {
 		return "Estoy cantando";
-	}
-
-	/**
-	 * Lista de forma recursiva todos los ficheros deun directorio
-	 *
-	 * @param directorio
-	 *            {@code File} directorio a recorrer
-	 * @param separador
-	 *            {@code String} separador niveles de directorios para mostrar
-	 *            por pantalla
-	 */
-	public static void listarDirectorio(File directorio, String separador) {
-
-		File[] ficheros = directorio.listFiles();
-		for (int i = 0; i < ficheros.length; i++) {
-			System.out.println(separador + ficheros[i].getName());
-			if (ficheros[i].isDirectory()) {
-				listarDirectorio(ficheros[i], separador + " ");
-			}
-		}
 	}
 
 }

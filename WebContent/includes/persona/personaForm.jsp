@@ -1,3 +1,4 @@
+<%@page import="com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona"%>
 <jsp:include page="../../plantillas/head.jsp"></jsp:include>
 <jsp:include page="../../plantillas/nav.jsp"></jsp:include>
 
@@ -73,4 +74,4 @@
 
 <br>
 	
-<jsp:include page="../../plantillas/foot.jsp"></jsp:include>
+<jsp:include page="../../plantillas/foot.jsp"></jsp:include>			

@@ -5,7 +5,9 @@
 <h1>Detalle Persona</h1>
 
 <%
+
 	String msg = (String)request.getAttribute("msg");
+
 	if(msg != null) {
 		out.print("<h2>" + msg + "</h2>");
 	}

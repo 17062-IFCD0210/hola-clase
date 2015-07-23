@@ -1,7 +1,6 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -33,7 +32,7 @@ public class TestVehiculos {
 	@Test
 	public void testVehiculoElectrico() {
 		VehiculoElectrico ve = new VehiculoElectrico();
-
+		
 		assertEquals(1, ve.getNumPlazas());
 		assertEquals("", ve.getDimensiones());
 		assertEquals(100, ve.getPotencia());
@@ -41,11 +40,11 @@ public class TestVehiculos {
 		assertEquals(300, ve.getCapacidadBateria());
 		assertEquals("Check Bateria - Vehiculo Arrancado", ve.arrancar());
 	}
-
+	
 	@Test
 	public void testVehiculoGasolina() {
 		VehiculoGasolina vg = new VehiculoGasolina();
-
+		
 		assertEquals(1, vg.getNumPlazas());
 		assertEquals("", vg.getDimensiones());
 		assertEquals(500, vg.getPotencia());
@@ -54,24 +53,24 @@ public class TestVehiculos {
 		assertEquals(VehiculoGasolina.GASOLINA95, vg.getCombustible());
 		assertEquals("Calentar inyectores - Vehiculo Arrancado", vg.arrancar());
 	}
-
+	
 	@Test
 	public void testListaMezclada() {
 		ArrayList<Vehiculo> listado = new ArrayList<Vehiculo>();
-
+		
 		listado.add(new VehiculoElectrico());
 		listado.add(new VehiculoGasolina());
 		listado.add(new VehiculoGasolina());
 		listado.add(new VehiculoElectrico());
 		listado.add(new VehiculoElectrico());
-
+		
 		Iterator<Vehiculo> it = listado.iterator();
 		Vehiculo v;
-		while (it.hasNext()) {
+		while(it.hasNext()) {
 			v = it.next();
-			if (v instanceof VehiculoElectrico) {
+			if(v instanceof VehiculoElectrico) {
 				((VehiculoElectrico) v).checkBateria();
-			} else if (v instanceof VehiculoGasolina) {
+			} else if(v instanceof VehiculoGasolina) {
 				((VehiculoGasolina) v).checkInyector();
 			} else {
 				fail("No sabemos como arrancar este tipo de vehiculo");

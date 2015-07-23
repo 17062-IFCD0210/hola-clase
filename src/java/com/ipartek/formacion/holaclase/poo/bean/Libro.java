@@ -1,19 +1,19 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 public class Libro implements Cloneable {
-	// Atributos
+	//Atributos
 	private int numPags = 0;
 	private String dimensiones = "";
 	private String autor = "Anonimo";
 	private String colorPortada = "";
 	private int marcador = 0;
 	private String titulo = "";
-
-	// Constructores
+	
+	//Constructores
 	public Libro() {
 		super();
 	}
-
+	
 	public Libro(String titulo) {
 		super();
 		this.titulo = titulo;
@@ -30,7 +30,7 @@ public class Libro implements Cloneable {
 		this.setTitulo(titulo);
 	}
 
-	// Getters y Setters
+	//Getters y Setters
 	public int getNumPags() {
 		return numPags;
 	}
@@ -70,7 +70,7 @@ public class Libro implements Cloneable {
 	public void setMarcador(int marcador) {
 		this.marcador = marcador;
 	}
-
+	
 	public String getTitulo() {
 		return titulo;
 	}
@@ -78,27 +78,24 @@ public class Libro implements Cloneable {
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
 	}
-
-	// Metodos
+	
+	//Metodos
 	/**
-	 * Leer una pagina del libro, se actualiza marcador, no se puede leer mas
-	 * del numero de paginas
-	 * 
+	 * Leer una pagina del libro, se actualiza marcador, no se puede leer mas del numero de paginas
 	 * @return pagina actual o marcador
 	 */
 	public int leer() {
 		int result = this.getMarcador();
-
-		if (result < this.getNumPags()) {
+		
+		if(result < this.getNumPags()) {
 			result++;
 			this.setMarcador(result);
 		}
 		return result;
 	}
-
+	
 	/**
 	 * Aumenta el numero de paginas
-	 * 
 	 * @return numero de paginas
 	 */
 	public int escribir() {
@@ -107,35 +104,32 @@ public class Libro implements Cloneable {
 		this.setNumPags(result);
 		return result;
 	}
-
+	
 	/**
 	 * Abre el libro y retorna el marcador con la pagina actual
-	 * 
 	 * @return marcador
 	 */
 	public int abrir() {
 		return this.getMarcador();
 	}
-
+	
 	/**
 	 * Cierra el libro y retorna numero paginas para finalizar
-	 * 
 	 * @return numero de paginas restantes
 	 */
-	public int cerrar() {
+	public int cerrar() {		
 		return this.getNumPags() - this.getMarcador();
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Libro [numPags=" + numPags + ", dimensiones=" + dimensiones
 				+ ", autor=" + autor + ", colorPortada=" + colorPortada
 				+ ", marcador=" + marcador + ", titulo=" + titulo + "]";
 	}
-
-	@Override
+	
 	public Libro clone() throws CloneNotSupportedException {
-		return (Libro) super.clone();
-	}
-
+        return (Libro)super.clone();
+}
+	
 }

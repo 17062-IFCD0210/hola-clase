@@ -1,8 +1,11 @@
 /*
 	Pimer JavaScript para trastera con el 
+
 	version:  1.0
 	author:   Ander Uraga Real
 	date: 	  20150518
+
+
 */
 
 //array con todos los afortunados
@@ -107,3 +110,16 @@ function obtener_ganador(){
 	
 	
 }
+
+ 
+
+
+
+
+
+
+
+
+
+
+

@@ -1,13 +1,13 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 public class Vehiculo {
-	// Atributos
+	//Atributos
 	private int numPlazas;
 	private String dimensiones;
 	private int potencia;
 	private String modelo;
-
-	// Constructores
+	
+	//Constructores
 	public Vehiculo() {
 		super();
 		this.setNumPlazas(1);
@@ -15,8 +15,8 @@ public class Vehiculo {
 		this.setPotencia(0);
 		this.setModelo("Sin Determinar");
 	}
-
-	// Getters y Setters
+	
+	//Getters y Setters
 	public int getNumPlazas() {
 		return numPlazas;
 	}
@@ -48,17 +48,20 @@ public class Vehiculo {
 	public void setModelo(String modelo) {
 		this.modelo = modelo;
 	}
-
-	// Metodos
+	
+	
+	//Metodos
 	@Override
 	public String toString() {
 		return "Vehiculo [numPlazas=" + numPlazas + ", dimensiones="
 				+ dimensiones + ", potencia=" + potencia + ", modelo=" + modelo
 				+ "]";
 	}
-
+	
 	public String arrancar() {
 		return "Vehiculo Arrancado";
 	}
-
+	
+	
+	
 }
