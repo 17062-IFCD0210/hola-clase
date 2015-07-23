@@ -3,13 +3,15 @@
  */
 package com.ipartek.formacion.holaclase.poo.bean;
 
+import java.io.Serializable;
+
 
 /**
  * Bean para modelar una Persona fisica
  * @author ur00
  *
  */
-public class Persona {
+public class Persona implements Serializable{
 
 	//constantes
 	public static final int EDAD_MINIMA = 18;
