@@ -3,6 +3,7 @@ package com.ipartek.formacion.holaclase.poo;
 import static org.junit.Assert.*;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -13,11 +14,14 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 public class TestFicheros {
 
 	static final String PATH_FILES = "files/";
+	static final String PATH_FILES_NEW = PATH_FILES + "new";
+	
 	static final String PATH_FICHERO1 = PATH_FILES + "fichero1.txt";
 	static final String PATH_FICHERO2 = PATH_FILES + "fichero2.txt";
 	static final String PATH_FICHERO_GORDO = PATH_FILES + "fichero_gordo.txt";
@@ -54,6 +58,37 @@ public class TestFicheros {
 		}
 		
 	}
+	
+	@Test
+	public void testCrearDirectorio() {
+		
+		
+		
+		File dirNew = new File( PATH_FILES_NEW );
+		
+		//comprobar que no exista
+		if ( dirNew.exists() ){
+			fail("No deberi existir " + PATH_FILES_NEW );
+		}else{
+			//creacion directorio
+			assertTrue(
+					"No se ha creado directorio " + PATH_FILES_NEW,  
+					dirNew.mkdir() 
+				);
+		}
+		
+		
+		//eliminar directorio
+		assertTrue(
+				"No se ha eliminado directorio " + PATH_FILES_NEW,  
+				dirNew.delete()
+		);		
+		
+		
+		
+		
+	}
+	
 	
 	@Test
 	public void testLeerPrimerChar() {
@@ -112,13 +147,25 @@ public class TestFicheros {
 			
 		}
 		
+		//eliminar fichero creado
+		File file2 = new File (PATH_FICHERO2);
+		assertTrue("No se ha podido eliminar " + PATH_FICHERO2, file2.delete()  );
+		
+		
+		
 	}
 	
 	
 	
-	@Test(timeout=1000*4)
+	@Test /*(timeout=1000*4)*/
+	@Ignore
 	public void testCrearFichero() {
-				
+		
+		
+		/******************************** 
+		 *         crear fichero        *
+		 ********************************/
+		
 		FileWriter outputStream = null;
 		BufferedWriter bfw = null;
 		
@@ -152,7 +199,43 @@ public class TestFicheros {
 				fail("Cerrando los Streams");
 			}	
 			
+		}//end finally
+		
+		
+		
+	/******************************** 
+	 *         comprobar tamaño     *
+	 ********************************/
+	File fGordo = null;
+	
+	try{	
+		fGordo = new File(PATH_FICHERO_GORDO);
+		if ( !fGordo.exists() ){
+			fail("No existe fichero " + PATH_FICHERO_GORDO );
 		}
+		assertTrue ("No tiene mas de 700Mb", fGordo.length() > 700 * 1024 * 1024 );
+		
+		
+	}catch(Exception e){
+		e.printStackTrace();
+		fail("Comprobando tamano " + PATH_FICHERO_GORDO );
+	}	
+		
+		
+	/******************************** 
+	 *         delete fichero        *
+	 ********************************/
+		
+	if ( fGordo != null ){
+		
+		assertTrue("No se ha borrado " + PATH_FICHERO_GORDO ,
+				   fGordo.delete()
+				  );
+		
+	}else{
+		fail("No deberia ser null " + PATH_FICHERO_GORDO );
+	}
+		
 		
 	}
 	

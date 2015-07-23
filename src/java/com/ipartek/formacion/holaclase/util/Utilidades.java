@@ -89,5 +89,12 @@ public class Utilidades {
             return false;
         }        
     }
+    
+    /**
+     * Metodo tonto para pruebas
+     */
+    public static void cantar(){
+    	System.out.println("La la la la de Masiel.....");
+    }
 	
 }

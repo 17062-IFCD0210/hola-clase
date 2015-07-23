@@ -22,19 +22,17 @@ public class JsoupParse {
 		
 		Document doc;
 		String titlePagina = "";
-		//ArrsayList<String> enlaces = new ArrayAllocationExpression() 
+		
 		
 		try {
 			doc = Jsoup.connect(URL).get();
 			System.out.println("Conectado");
 			
-			
-	        
 			//obtener el codigo fuente
 			//System.out.println( doc.html() );
 			
 			titlePagina = doc.title();
-			System.out.println("Title= " + titlePagina );
+			//System.out.println("Title= " + titlePagina );
 			
 			final File f = new File( FILE_FOLDER + titlePagina + FILE_EXTENSION );
 	        FileUtils.writeStringToFile( f, doc.outerHtml(), "UTF-8");
