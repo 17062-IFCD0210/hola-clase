@@ -200,10 +200,10 @@ public class TestFicheros {
 			if(!fGordo.exists()){
 				fail("No existe fichero "+PATH_FICHERO_GORDO);
 			}
-			assertTrue("El tamaño es menor de 700 Mbytes",700*1024*1024 < tam);	
+			assertTrue("El tamaï¿½o es menor de 700 Mbytes",700*1024*1024 < tam);	
 		} catch (Exception e) {
 			e.printStackTrace();
-			fail("Comprobando tamaño "+PATH_FICHERO_GORDO);
+			fail("Comprobando tamaï¿½o "+PATH_FICHERO_GORDO);
 		}
 		
 		//System.out.println(tam/1024);
@@ -372,13 +372,26 @@ public class TestFicheros {
 			p.setApellido("Real");
 			p.setNombre("Javi");
 			p.setEmail("javi@javi.com");
-			fichero.writeObject(p);
 			try {
 				p.setEdad(25);
 			} catch (PersonaException e) {
 				e.printStackTrace();
 				fail("Problema con la edad: " +e.getMessage() );				
 			}
+			fichero.writeObject(p);
+			
+			//meto una segunda persona
+			p=new Persona();
+			p.setApellido("Camacho");
+			p.setNombre("Any");
+			p.setEmail("any@camacho.com");
+			try {
+				p.setEdad(29);
+			} catch (PersonaException e) {
+				e.printStackTrace();
+				fail("Problema con la edad: " +e.getMessage() );				
+			}
+			fichero.writeObject(p);
 		};
 		
 	}
@@ -387,6 +400,10 @@ public class TestFicheros {
 	public void testRecuperarPersona () throws IOException, ClassNotFoundException {
 		try (ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(PATH_FILES+"test.dat"))){
 			Persona p = (Persona) fichero.readObject();
+			assertEquals("Falla el nombre",p.getNombre(),"Javi");
+			assertEquals("Falla el apellido",p.getApellido(),"Real");
+			assertEquals("Falla la edad",p.getEdad(),25);
+			assertEquals("Falla el email",p.getEmail(),"javi@javi.com");
 			System.out.println(p.getApellido() + " " + p.getNombre() + " " + p.getEmail());
 		} /*catch (ClassNotFoundException e) {
 			fail("Problema con la clase Persona");
@@ -395,7 +412,16 @@ public class TestFicheros {
 			e.printStackTrace();			
 			fail("Problema con el archivo");
 		};*/
-		
+
+		try (ObjectInputStream fichero = new ObjectInputStream(new FileInputStream(PATH_FILES+"test.dat"))){
+			Persona p = (Persona) fichero.readObject();
+			p = (Persona) fichero.readObject();
+			assertEquals("Falla el nombre",p.getNombre(),"Any");
+			assertEquals("Falla el apellido",p.getApellido(),"Camacho");
+			assertEquals("Falla la edad",p.getEdad(),29);
+			assertEquals("Falla el email",p.getEmail(),"any@camacho.com");
+			System.out.println(p.getApellido() + " " + p.getNombre() + " " + p.getEmail());
+		}
 	}
 
 }
