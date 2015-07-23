@@ -3,6 +3,7 @@ package com.ipartek.formacion.holaclase.poo;
 import static org.junit.Assert.*;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -17,15 +18,20 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
-public class TestFicheros {
+import com.ipartek.formacion.holaclase.util.Utilidades;
 
+public class TestFicheros {
+	
 	static final String PATH_FILES = "files/";
+	static final String PATH_FILES_NEW = PATH_FILES + "new";
+	
 	static final String PATH_FICHERO1 = PATH_FILES + "fichero1.txt";
 	static final String PATH_FICHERO2 = PATH_FILES + "fichero2.txt";
 	static final String PATH_FICHERO_GORDO = PATH_FILES + "fichero_gordo.txt";
-	Path fgordo = Paths.get(PATH_FICHERO_GORDO);
+	
 	
 	//1º parrafo de LoremIpsum
 	static final String PARRAFO = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod ligula in massa semper vestibulum. Aliquam sed ex risus. Quisque lorem quam, fringilla id neque vitae, facilisis tempor augue. Quisque ullamcorper bibendum erat, ac rutrum tortor posuere vitae. Quisque convallis pretium lacinia. Morbi porttitor leo vitae suscipit luctus. Aliquam sed feugiat dui, at dictum ex. Maecenas ac posuere urna. Mauris at aliquam velit. Curabitur dapibus fermentum lorem. Morbi molestie urna nec quam porta, ut maximus neque tincidunt. Maecenas dictum a justo nec tincidunt. Aliquam condimentum, tellus ac mollis hendrerit, dui orci lacinia nisl, tempor aliquet lorem nibh in nunc. Mauris nec leo mauris. Ut dictum ipsum eros, ut commodo ante ornare eu.";
@@ -59,6 +65,44 @@ public class TestFicheros {
 		}
 		
 	}
+	
+	
+	@Test
+	public void testCrearDirectorio() throws IOException {
+		
+		
+		//comprobar que no exista el directorio
+		File dirNew = new File ( PATH_FILES_NEW );
+		
+		if ( dirNew.exists() ) {
+			
+			fail( "No deberia existir " + PATH_FILES_NEW );
+			
+		}else{
+			//creacion directorio
+			assertTrue( "No se ha creado directorio " + PATH_FILES_NEW, 
+						dirNew.mkdir() 
+					  );
+			
+		}
+		
+		//comprobar que no exista el fichero
+		
+		File hola1 = new File(PATH_FILES_NEW+"/hola1.txt");
+		hola1.createNewFile();
+		
+		
+		
+		
+		/*
+		//eliminar directorio
+		assertTrue( "No se ha eliminado directorio " + PATH_FILES_NEW, 
+						dirNew.delete() 
+				   );
+		*/
+	}
+	
+	
 	
 	@Test
 	public void testLeerPrimerChar() {
@@ -116,13 +160,20 @@ public class TestFicheros {
 			}	
 			
 		}
+
 		
 	}
 	
 	
 	
 	@Test
+	@Ignore //Ignora el test
 	public void testCrearFichero() {
+		
+		/**
+		 * Crear fichero
+		 * 
+		 */
 				
 		FileWriter outputStream = null;
 		BufferedWriter bfw = null;
@@ -147,7 +198,7 @@ public class TestFicheros {
 		}finally{
 			
 			try{
-				
+				//cierre inverso a la 
 				if ( bfw != null ){bfw.close();}
 				if ( outputStream != null ){outputStream.close();}
 
@@ -155,32 +206,78 @@ public class TestFicheros {
 				fail("Cerrando los Streams");
 			}	
 			
-		}
+		}// end finally
 		
-	}
-	
-	@Test
-	public void testBorrarFichero() {
+		/*********************
+		 * comprobar tamaño	 *
+		 *********************/
+		File fGordo = null;
 		
-		try { 
+		try{
 			
-			if ( Files.size(fgordo) > 700000000 ) { 
-					Files.delete(fgordo);
+			fGordo = new File(PATH_FICHERO_GORDO);
+			if ( !fGordo.exists() ){
+				
+				fail("No existe el fichero" + PATH_FICHERO_GORDO);
+				
 			}
+			assertTrue( "No tiene mas de 700 Mb", fGordo.length() > 700 * 1024 * 1024 ); 
 			
-		} catch (IOException e) {
-			fail("Borrando fichero al ser mayor de 700mb");
+		}catch(Exception e){
+			
+			e.printStackTrace();
+			fail("Comprobando tamaño" + PATH_FICHERO_GORDO);
+			
+		}	
+		
+		
+		/*
+		/********************
+		 *  delete fichero	*
+		 *******************
+		if ( fGordo != null ) {
+			assertTrue( "No se ha borrado el fichero gordo" + PATH_FICHERO_GORDO, 
+							fGordo.delete() 
+						);
+		}else {
+			fail( "No deberia ser null" + PATH_FICHERO_GORDO );
 		}
-	
-	}
-	
-	/*
-	@Test
-	public void testCrearDirectorio()  {
-			File.
-	
+		*/
 		
 	}
-	*/
+	
+	
+	@Test
+	public void testListarDirectorioNoRecursivamente() {
+		
+		final String PATH_APP_HTML = "C:\\Desarrollo\\html";
+		File app = new File (PATH_APP_HTML);
+		
+		Utilidades.listarDirectorio(app, "   ");
+		
+		/*
+		if ( app.exists() ){
+			
+			
+			//FORe
+			for ( File f : app.listFiles() ){
+				System.out.println( f.getName() );
+				
+				if ( f.isDirectory() ){
+					for ( File pHijo : f.listFiles() ){
+						System.out.println("     " + pHijo.getName() );
+					}
+				}
+				
+			} 
+			
+		}else{
+			fail ("No existe " + PATH_APP_HTML);
+		}
+		*/
+	}
+	
+	
+
 	
 }

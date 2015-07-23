@@ -1,5 +1,6 @@
 package com.ipartek.formacion.holaclase.util;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -97,5 +98,32 @@ public class Utilidades {
 	public static String cantar() {
 		return "Cantando...";
 	}
+	
+	
+	/**
+	 * Lista de forma recursiva todos los ficheros de un directorio
+	 * @param directorio {@code File} directorio a recorrer
+	 * @param separador  {@code String} separador  de niveles de directorios, para mostrar por pantalla
+	 */
+	public static void listarDirectorio(File directorio, String separador){
+		
+		File[] ficheros = directorio.listFiles();
+		
+		for (int i=0; i<ficheros.length; i++){		
+			
+			System.out.println( separador + ficheros[i].getName() );
+			
+			if ( ficheros[i].isDirectory() ){
+				String nuevo_separador;
+				listarDirectorio(ficheros[i], separador + " ");
+			}
+			
+			
+		}
+		
+	}
+	
+	
+	
 	
 }
