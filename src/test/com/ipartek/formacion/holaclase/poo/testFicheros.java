@@ -5,19 +5,20 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import com.ipartek.formacion.holaclase.util.Utilidades;
 
 public class testFicheros {
 
@@ -25,8 +26,8 @@ public class testFicheros {
 	static final String PATH_FICHERO1 = PATH_FILES + "fichero1.txt";
 	static final String PATH_FICHERO2 = PATH_FILES + "fichero2.txt";
 	static final String PATH_FICHERO_GORDO = PATH_FILES + "fichero_gordo.txt";
-	static final String PATH_DIRECTORIO_NEW = "\\files\\new\\"; //Necesario escapar \ por problemas de compilación
-	static final String PATH_FICHERO = PATH_FILES + "/new/fichero";
+	static final String PATH_FILES_NEW = PATH_FILES + "new";
+	static final String PATH_FICHERO = PATH_FILES + "new/fichero";
 	static final String PARRAFO = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque molestie vehicula laoreet. Sed blandit justo vel tempor faucibus. Fusce pretium scelerisque nisl, placerat ornare massa consectetur a. Mauris vestibulum fermentum mattis. Mauris faucibus porta nunc, non blandit velit pellentesque sed. Duis sagittis pharetra felis vel feugiat. In nunc lectus, ultrices at nisi quis, scelerisque commodo nibh. Vestibulum volutpat velit lectus, et pellentesque purus lobortis elementum.";
 	
 	
@@ -91,6 +92,10 @@ public class testFicheros {
 				fail("Cerrando los Streams");
 			}
 		}
+		
+		//Eliminar fichero creado
+		File file2 = new File(PATH_FICHERO2);
+		assertTrue("No se ha podido eliminar " + PATH_FICHERO2, file2.delete());
 	}
 	
 	@Test
@@ -119,7 +124,8 @@ public class testFicheros {
 		}
 	}
 
-	@Test(timeout=1000*3) //Si tarda más de 3 segundos que pare
+	@Test(timeout=1000*4) //Si tarda más de 3 segundos que pare
+	@Ignore //No ejecuta el test
 	public void testCrearFichero(){
 
 		FileWriter outputStream = null;
@@ -145,89 +151,140 @@ public class testFicheros {
 					fail("Cerrando los Streams");
 					e.printStackTrace();
 			}
-		}
-	}
-	
-	@Test
-	public void testEscribirJava7() {
-		//Con la clase Path de Java7
-		Path path = null;
-		Files fichero = null;
+		}//end finally
 		
-		try {
-			
-			path = Paths.get(PATH_FICHERO_GORDO);			
-			if (fichero.exists(path)){
-				if (fichero.size(path) > 700){
-					assertTrue("El tamaño es mayor de 700MB", fichero.size(path) > 700);
-					
-					if(!fichero.isDirectory(path)){
-						fichero.delete(path);
-						assertTrue("Ya se ha borrado el fichero gordo", !fichero.exists(path));
-					}
-				}
+		/*********************
+		 *   Crear fichero   *
+		 ********************/
+		File fGordo=null;
+		try{
+			fGordo = new File(PATH_FICHERO_GORDO);
+			if ( !fGordo.exists() ){
+				fail("No existe fichero" + PATH_FICHERO_GORDO);
 			}
+			assertTrue("No tiene más de 700 MB", fGordo.length() > 700*1024);
 			
-		} catch (FileNotFoundException e) {
-			fail("No se ha podido borrar el fichero PATH_FICHERO_GORDO");
+		}catch (Exception e){
 			e.printStackTrace();
-		} catch (IOException e) {
-			fail("No se ha podido comprobar el tamaño");
-			e.printStackTrace();
+			fail("Comprobando tamaño " + PATH_FICHERO_GORDO);
+		}
+		
+		/**********************
+		 *   Borrar fichero   *
+		 *********************/
+		if ( fGordo != null ){
+			assertTrue("No se ha borrado el fichero Gordo", fGordo.delete());
+		}else{
+			
 		}
 	}
 	
+	/**
+	 * Creamos el directorio new en /files y 100 ficheros
+	 */
 	@Test
-	public void testEscribirJava6() {
-		//Sin la clase Path de Java6
-		Path path = null;
-		Files fichero = null;
+	public void testCrearDirectorio() {
 		
-		try {
-			
-			path = Paths.get(PATH_FICHERO_GORDO);			
-			if (fichero.exists(path)){
-				if (fichero.size(path) > 700){
-					assertTrue("El tamaño es mayor de 700MB", fichero.size(path) > 700);
-					
-					if(!fichero.isDirectory(path)){
-						fichero.delete(path);
-						assertTrue("Ya se ha borrado el fichero gordo", !fichero.exists(path));
-					}
+		File dirNew = new File(PATH_FILES_NEW + "/");
+		
+		//Comprobar que no exista
+    		if (dirNew.exists()){
+			//Eliminar directorio
+			try{
+				for ( File fich : dirNew.listFiles() ){
+					assertTrue("No se ha eliminado directorio " + PATH_FILES_NEW, dirNew.delete());
 				}
-			}
 			
-		} catch (FileNotFoundException e) {
-			fail("No se ha podido borrar el fichero PATH_FICHERO_GORDO");
-			e.printStackTrace();
-		} catch (IOException e) {
-			fail("No se ha podido comprobar el tamaño");
+				//fail("No debería existir " + PATH_FILES_NEW);
+			}catch(Exception e){
+				fail("No se ha podido borrar el directorio " + PATH_FILES_NEW);
+				e.printStackTrace();
+			}
+		}else{
+			//Creación directorio
+			assertTrue("No se ha creado directorio " + PATH_FILES_NEW, dirNew.mkdir());
+			}
+		
+		Crear100Ficheros(1); //Recorremos de forma recursiva
+		
+		//Los borramos de nuevo
+		try{
+			for ( File fich : dirNew.listFiles() ){
+				fich.delete();
+			}
+			assertTrue("No se ha eliminado directorio " + PATH_FILES_NEW, dirNew.delete());
+			
+			//fail("No debería existir " + PATH_FILES_NEW);
+		}catch(Exception e){
+			fail("No se ha podido borrar el directorio " + PATH_FILES_NEW);
 			e.printStackTrace();
 		}
+		
 	}
 	
+	
+	/**
+	 * Función recursiva que crea 100 ficheros fichero1.txt, fichero2.txt, ... hasta 100
+	 * @param contador para renombrar cada fichero creado
+	 */
+	public static void Crear100Ficheros(int contador) {
+		
+		String nombreFichero = PATH_FICHERO + contador + ".txt";
+		File f = new File(nombreFichero);
+		
+		//Comprobar que no exista
+		if (f.exists()){
+			fail("No debería existir " + nombreFichero);
+		}else{
+			//Creación fichero
+			if (contador < 101){
+				try {
+					
+					assertTrue("No se ha creado directorio " + nombreFichero, f.createNewFile());
+					if ( f.exists() ){
+					}
+				} catch (IOException e) {
+					fail("No se ha podido crear el fichero");
+					e.printStackTrace();
+				}
+				Crear100Ficheros(++contador);
+			}
+			/*for (int i=1; i<101; i++){
+				try {
+					f.createNewFile();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}*/
+		}
+	}
+
 	@Test
-	public void testComprobar() {
+	@Ignore //No ejecuta el test
+	public void testListarDirectorioRecursivamente() {
 		
-		Path path = null; //Clase
-		Files fichero = null; //Clase
-		FileWriter outputStream = null; //Objeto
+		final String PATH_APP_HTML = "C:\\Home\\Proyectos\\eclipse\\Servers";
+		File app = new File(PATH_APP_HTML);
 		
-		try {
+		Utilidades.listarDirectorio(app, " "); //De forma recursiva
+		
+		/*//Comprobar que no exista
+		if (app.exists()){
 			
-			path = Paths.get(PATH_DIRECTORIO_NEW);			
-			if (!fichero.exists(path)){
-				outputStream = new FileWriter(PATH_DIRECTORIO_NEW); // la contrabarra \ está escapada (\\) para evitar problemas de compilación
-				outputStream = new FileWriter(PATH_FICHERO + 1 + ".txt");	
+			for ( File f : app.listFiles() ){ //for each
+				System.out.println( f.getName() );
 				
+				if ( f.isDirectory() ){
+					for ( File pHijo : f.listFiles() ){
+						System.out.println("    " + pHijo.getName());
+					}
+				}
 			}
-			
-		} catch (FileNotFoundException e) {
-			fail("No se ha podido borrar el fichero PATH_FICHERO_GORDO");
-			e.printStackTrace();
-		} catch (IOException e) {
-			fail("No se ha podido comprobar el tamaño");
-			e.printStackTrace();
-		}
+		}else{
+			fail("No debería existir " + PATH_FILES_NEW);
+		}*/
+
 	}
+	
 }
