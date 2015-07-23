@@ -2,4 +2,4 @@
 
 apliacion web para aprender HTML5, CSS3 y JavaScript
 
-prueva aritz
+prueva aritz 2
