@@ -3,26 +3,39 @@ package com.ipartek.formacion.holaclase.poo;
 import static org.junit.Assert.*;
 
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInput;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.io.Writer;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.bean.PersonaException;
+import com.ipartek.formacion.holaclase.util.Utilidades;
 
 public class TestFicheros {
 
 	static final String PATH_FILES = "files/";
+	static final String PATH_FILES_NEW = PATH_FILES + "new";
+	
 	static final String PATH_FICHERO1 = PATH_FILES + "fichero1.txt";
 	static final String PATH_FICHERO2 = PATH_FILES + "fichero2.txt";
 	static final String PATH_FICHERO_GORDO = PATH_FILES + "fichero_gordo.txt";
 	
-	//1� parrafo de LoremIpsum
+	//1º parrafo de LoremIpsum
 	static final String PARRAFO = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod ligula in massa semper vestibulum. Aliquam sed ex risus. Quisque lorem quam, fringilla id neque vitae, facilisis tempor augue. Quisque ullamcorper bibendum erat, ac rutrum tortor posuere vitae. Quisque convallis pretium lacinia. Morbi porttitor leo vitae suscipit luctus. Aliquam sed feugiat dui, at dictum ex. Maecenas ac posuere urna. Mauris at aliquam velit. Curabitur dapibus fermentum lorem. Morbi molestie urna nec quam porta, ut maximus neque tincidunt. Maecenas dictum a justo nec tincidunt. Aliquam condimentum, tellus ac mollis hendrerit, dui orci lacinia nisl, tempor aliquet lorem nibh in nunc. Mauris nec leo mauris. Ut dictum ipsum eros, ut commodo ante ornare eu.";
 	
 	
@@ -56,6 +69,37 @@ public class TestFicheros {
 	}
 	
 	@Test
+	public void testCrearDirectorio() {
+		
+		
+		
+		File dirNew = new File( PATH_FILES_NEW );
+		
+		//comprobar que no exista
+		if ( dirNew.exists() ){
+			fail("No deberi existir " + PATH_FILES_NEW );
+		}else{
+			//creacion directorio
+			assertTrue(
+					"No se ha creado directorio " + PATH_FILES_NEW,  
+					dirNew.mkdir() 
+				);
+		}
+		
+		
+		//eliminar directorio
+		assertTrue(
+				"No se ha eliminado directorio " + PATH_FILES_NEW,  
+				dirNew.delete()
+		);		
+		
+		
+		
+		
+	}
+	
+	
+	@Test
 	public void testLeerPrimerChar() {
 		try {
 			FileReader inputStream = new FileReader(PATH_FICHERO1);
@@ -76,6 +120,7 @@ public class TestFicheros {
 		}
 	}
 	
+		
 	
 	@Test
 	public void testCopiar() {
@@ -112,13 +157,25 @@ public class TestFicheros {
 			
 		}
 		
+		//eliminar fichero creado
+		File file2 = new File (PATH_FICHERO2);
+		assertTrue("No se ha podido eliminar " + PATH_FICHERO2, file2.delete()  );
+		
+		
+		
 	}
 	
 	
 	
-	@Test(timeout=1000*4)
+	@Test /*(timeout=1000*4)*/
+	@Ignore
 	public void testCrearFichero() {
-				
+		
+		
+		/******************************** 
+		 *         crear fichero        *
+		 ********************************/
+		
 		FileWriter outputStream = null;
 		BufferedWriter bfw = null;
 		
@@ -152,10 +209,111 @@ public class TestFicheros {
 				fail("Cerrando los Streams");
 			}	
 			
+		}//end finally
+		
+		
+		
+	/******************************** 
+	 *         comprobar tamaño     *
+	 ********************************/
+	File fGordo = null;
+	
+	try{	
+		fGordo = new File(PATH_FICHERO_GORDO);
+		if ( !fGordo.exists() ){
+			fail("No existe fichero " + PATH_FICHERO_GORDO );
 		}
+		assertTrue ("No tiene mas de 700Mb", fGordo.length() > 700 * 1024 * 1024 );
+		
+		
+	}catch(Exception e){
+		e.printStackTrace();
+		fail("Comprobando tamano " + PATH_FICHERO_GORDO );
+	}	
+		
+		
+	/******************************** 
+	 *         delete fichero        *
+	 ********************************/
+		
+	if ( fGordo != null ){
+		
+		assertTrue("No se ha borrado " + PATH_FICHERO_GORDO ,
+				   fGordo.delete()
+				  );
+		
+	}else{
+		fail("No deberia ser null " + PATH_FICHERO_GORDO );
+	}
+		
 		
 	}
 	
-	
+	@Test 
+	@Ignore
+	public void testListarDirectorioNORecursivamente(){
 
+		
+		final String PATH_APP_HTML = "C:\\desarrollo\\html";
+		File app = new File (PATH_APP_HTML);
+		
+		Utilidades.listarDirectorio(app, " ");
+		
+		/*
+		if ( app.exists() ){
+			
+			for ( File f : app.listFiles()){
+				
+				System.out.println( f.getName() );
+				
+				if ( f.isDirectory() ){
+					
+					for (File pHijo : f.listFiles() ){
+						System.out.println( "    " + pHijo.getName() );
+					}
+					
+				}
+				
+			}
+			
+		}else{
+			fail("No existe " + PATH_APP_HTML );
+		}
+		*/
+		
+	}
+	@Test
+	public void testGuardarPersona() throws IOException, ClassNotFoundException, PersonaException{
+		//Serializamos el objeto
+		try(ObjectOutputStream out=
+					new ObjectOutputStream(new FileOutputStream("test.dat")))
+			{Persona persona = new Persona();
+			persona.setNombre("Ander");
+			persona.setApellido("Ander");
+			persona.setEdad(33);
+			persona.setEmail("ander@ander.com");
+			out.writeObject(persona);
+			};
+			
+				
+		}
+	@Test
+	public void testRecuperarPersona() throws IOException, ClassNotFoundException, PersonaException{
+		//Deserializamos y cargamos los datos
+				try(ObjectInputStream out=
+						new ObjectInputStream(new
+						FileInputStream("test.dat")))
+						{
+					Persona persona =(Persona)out.readObject();
+					System.out.println("Resultado fichero:" + "\n" + 
+					"Nombre:" + persona.getNombre()+ "\n" +
+					"Apellido:" + persona.getApellido()+"\n"+ 
+					"Edad:"+persona.getEdad()+"\n"+
+					"Email:"+ persona.getEmail());
+				}	
+			
+	}	
+		
+	
+	
 }

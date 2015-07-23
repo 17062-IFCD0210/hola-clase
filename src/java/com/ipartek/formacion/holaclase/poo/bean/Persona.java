@@ -8,7 +8,7 @@ package com.ipartek.formacion.holaclase.poo.bean;
  * @author ur00
  *
  */
-public class Persona {
+public class Persona implements java.io.Serializable{
 
 	//constantes
 	public static final int EDAD_MINIMA = 18;
