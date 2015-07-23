@@ -1,5 +1,6 @@
 package com.ipartek.formacion.holaclase.util;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.text.ParsePosition;
@@ -123,4 +124,23 @@ public class Utilidades {
     public static void cantar() {
 		System.out.println("LALALALALALA");
 	}
+    
+
+    /**
+     * Lista de forma recursiva todos los ficheros de un directorio
+     * @param directorio {@code File}  directorio a recorrer
+     * @param separador {@code String} separador para niveles de directorios
+     */
+    public static void listarDirectorio(File directorio, String separador){
+    	
+    	File[] ficheros = directorio.listFiles();
+    	
+    	for (int i=0; i < ficheros.length ; i++){    		
+    		System.out.println(separador + ficheros[i].getName());    	
+	    	if (ficheros[i].isDirectory()){
+	    		listarDirectorio(ficheros[i], " " + separador);
+	    	}
+    	}
+    }
+    
 }
