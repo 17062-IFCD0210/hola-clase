@@ -2,72 +2,56 @@ package com.ipartek.formacion.holaclase.poo.ejemplos;
 
 public class Excepciones {
 
-	private void metodoA(){		
-		System.out.println("MetodoA:entra");
-		try {
-			this.metodoB();
-		} catch (Exception e) {
-			System.out.println(" *Excepcion capturada en metodoA");
-			e.printStackTrace();
-		}
-		System.out.println("MetodoA:sale");
+	private void metodoA() {
+		System.out.println("Metodo A:entra");
+		this.metodoB();
+		System.out.println("Metodo A:sale");
 	}
-	
-	private void metodoB() throws Exception{		
-		System.out.println("    MetodoB:entra");
+
+	private void metodoB() {
+		System.out.println("    Metodo B:entra");
 		this.metodoC();
-		System.out.println("    MetodoB:sale");
+		System.out.println("    Metodo B:sale");
 	}
-	
-	private void metodoC() throws Exception{		
-		System.out.println("        MetodoC:entra");
-		try{
+
+	private void metodoC() {
+		System.out.println("        Metodo C:entra");
+		try {
 			String pete = null;
 			pete.charAt(0);
-			System.out.println("*** No pasara nunca por aki!!!!");
-			
-		}catch( ArrayIndexOutOfBoundsException e){	
-			System.out.println("Excepcion ARRAY");
-		}catch( NullPointerException e){	
-			System.out.println("Excepcion NULL");			
-			throw new NullPointerException();		
-			
-		}catch(Exception e){
+			System.out.println("****No pasara nunca por aqui****");
+		} catch (NullPointerException e) {
+			System.out.println("EXCEPCION NULL");
+		} catch (ArrayIndexOutOfBoundsException e) {
+			System.out.println("EXCEPCION ARRAY");
+		} catch (Exception e) {
 			System.out.println("Excepcion basica de java");
-			//e.printStackTrace();
-			
-		}finally{
-			System.out.println("        Se ejecuta siempre");		
-		};	
-		
-		System.out.println("        MetodoC:sale");
+			// e.printStackTrace();
+		} finally {
+			System.out.println("Se ejecuta siempre");
+		}
+
+		System.out.println("        Metodo C:sale");
 	}
-	
-	
+
 	/**
 	 * Metodo para probar el ejemplo de esta clase
+	 * 
 	 * @param args
-	 * @throws  
+	 * @throws ExcepcionPersonalizada
 	 */
-	public static void main(String[] args) {		
-
-		
+	public static void main(String[] args) throws ExcepcionPersonalizada {
 		Excepciones objeto = new Excepciones();
 		objeto.metodoA();
-		
-		try{
-			
-			throw new ExcepcionPersonalizada( "Otra excepcion", 12);
-			//throw new ExcepcionPersonalizada("Lanzando Excepcion");
-			
-			
-		}catch(ExcepcionPersonalizada e){
-			System.out.println("Excepcion capturada" );
-			System.out.println("Codigo: " + e.getcodigo() );
-			System.out.println("Mensaje: " + e.getMessage() );			
-			
-		}	
-		
+
+		try {
+			throw new ExcepcionPersonalizada("Excepcion capturada");
+		} catch (ExcepcionPersonalizada e) {
+			System.out.println("Excepcion capturada");
+			System.out.println("Codigo: " + e.getCodigo());
+			System.out.println("Mensaje: " + e.getMessage());
+		}
+
 	}
 
 }

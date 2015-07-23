@@ -1,6 +1,7 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.fail;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -31,72 +32,51 @@ public class TestVehiculos {
 
 	@Test
 	public void testVehiculoElectrico() {
-		
 		VehiculoElectrico ve = new VehiculoElectrico();
-		
-		assertEquals( "Sin determinar" , ve.getModelo() );
-		assertEquals( 1 , ve.getNumeroPlazas() );
-		assertEquals( "" , ve.getDimensiones() );
-		assertEquals( 100 , ve.getPotencia() );
-		assertEquals( 300 , ve.getCapacidadBaterias() );
-		assertEquals( "Check bateria - Vehiculo arrancado" , ve.arrancar() );
-		
+
+		assertEquals(1, ve.getNumPlazas());
+		assertEquals("", ve.getDimensiones());
+		assertEquals(100, ve.getPotencia());
+		assertEquals("Sin Determinar", ve.getModelo());
+		assertEquals(300, ve.getCapacidadBateria());
+		assertEquals("Check Bateria - Vehiculo Arrancado", ve.arrancar());
 	}
-	
-	
+
 	@Test
 	public void testVehiculoGasolina() {
-		
 		VehiculoGasolina vg = new VehiculoGasolina();
-		
-		assertEquals( "Sin determinar" , vg.getModelo() );
-		assertEquals( 1 , vg.getNumeroPlazas() );
-		assertEquals( "" , vg.getDimensiones() );
-		assertEquals( 500 , vg.getPotencia() );
-		
-		assertEquals("Capacidad minima 40 litros", 
-				      40 , vg.getCapacidadDeposito() );
-		
-		assertEquals("Por defecto usa GASOLINA 95", 
-				      VehiculoGasolina.GASOLINA95 , vg.getCombustible() );
-		
-		assertEquals( "Calentar inyectores - Vehiculo arrancado" , vg.arrancar() );
-		
+
+		assertEquals(1, vg.getNumPlazas());
+		assertEquals("", vg.getDimensiones());
+		assertEquals(500, vg.getPotencia());
+		assertEquals("Sin Determinar", vg.getModelo());
+		assertEquals(40, vg.getCapacidadDeposito());
+		assertEquals(VehiculoGasolina.GASOLINA95, vg.getCombustible());
+		assertEquals("Calentar inyectores - Vehiculo Arrancado", vg.arrancar());
 	}
-	
-	
-	
+
 	@Test
 	public void testListaMezclada() {
-		
 		ArrayList<Vehiculo> listado = new ArrayList<Vehiculo>();
-		
-		listado.add( new VehiculoElectrico() );
-		listado.add( new VehiculoGasolina() );
-		listado.add( new VehiculoGasolina() );
-		listado.add( new VehiculoElectrico() );
-		listado.add( new VehiculoElectrico() );
-		
+
+		listado.add(new VehiculoElectrico());
+		listado.add(new VehiculoGasolina());
+		listado.add(new VehiculoGasolina());
+		listado.add(new VehiculoElectrico());
+		listado.add(new VehiculoElectrico());
+
 		Iterator<Vehiculo> it = listado.iterator();
 		Vehiculo v;
-		while (it.hasNext()){			
-			 v = it.next();
-			 
-			 if ( v instanceof VehiculoElectrico ){
-				 
+		while (it.hasNext()) {
+			v = it.next();
+			if (v instanceof VehiculoElectrico) {
 				((VehiculoElectrico) v).checkBateria();
-				
-			 }else if ( v instanceof VehiculoGasolina ){
-				 
-				 ((VehiculoGasolina) v).checkInyector();
-				 
-			 }else{
-				 fail ("No sabemos como arrancar este tipo vehiculo");
-			 }
+			} else if (v instanceof VehiculoGasolina) {
+				((VehiculoGasolina) v).checkInyector();
+			} else {
+				fail("No sabemos como arrancar este tipo de vehiculo");
+			}
 		}
-		
 	}
-	
-	
 
 }

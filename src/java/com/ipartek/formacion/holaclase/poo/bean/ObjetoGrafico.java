@@ -4,24 +4,31 @@ package com.ipartek.formacion.holaclase.poo.bean;
  * Clase abstracta para representar un {@code ObjetoGrafico} Atributos {@code x}
  * e {@code y} para representar la posicion en 2D del objeto
  *
- * @author ur00
+ * @author Raul
  *
  */
 public abstract class ObjetoGrafico {
-
+	// Atributos
 	private Punto p1;
 
-	/**
-	 * Creamos un objeto {@code ObjetoGrafico} en un {@code Punto}
-	 *
-	 * @param Punto
-	 * @throws CloneNotSupportedException
-	 */
-	public ObjetoGrafico(Punto p) throws CloneNotSupportedException {
+	// Constructores
+	public ObjetoGrafico() {
 		super();
-		this.p1 = p.clone();
 	}
 
+	/**
+	 * Creamos un {@code ObjetoGrafico} en un punto concreto
+	 *
+	 * @param x
+	 * @param y
+	 * @throws CloneNotSupportedException
+	 */
+	public ObjetoGrafico(Punto p1) throws CloneNotSupportedException {
+		super();
+		this.p1 = p1.clone();
+	}
+
+	// Getters y Setters
 	public Punto getP1() {
 		return p1;
 	}
@@ -30,28 +37,28 @@ public abstract class ObjetoGrafico {
 		this.p1 = p1;
 	}
 
+	// Metodos
 	/**
 	 * Mover el {@code ObjetoGrafico} a una nueva posicion
 	 *
-	 * @param pMober
-	 *            {@code Punto} a mover
-	 * @throws CloneNotSupportedException
+	 * @param pMover
+	 *            {@code Punto}
 	 */
-	public void mover(Punto pMover) throws CloneNotSupportedException {
-		this.p1 = pMover.clone();
+	public void mover(Punto pMover) {
+		this.p1 = pMover;
 	}
 
 	/**
 	 * Dibuja el {@code ObjetoGrafico}
 	 *
-	 * @return cadena de texto diciendo que se ha dibujado
+	 * @return retorna una cadena de texto diciendo que se ha dibujado
 	 */
 	public abstract String dibujar();
 
 	/**
 	 * Redimensiona el {@code ObjetoGrafico}
 	 *
-	 * @return cadena de texto diciendo que se ha redimensionado
+	 * @return retorna una cadena de texto diciendo que se ha redimensionado
 	 */
 	public abstract String redimensionar();
 

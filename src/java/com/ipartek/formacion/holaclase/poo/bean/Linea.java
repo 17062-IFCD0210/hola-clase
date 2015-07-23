@@ -1,21 +1,23 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 public class Linea extends ObjetoGrafico {
-
+	// Atributos
 	private Punto p2;
 
+	// Constructores
 	/**
-	 * Construye un objeto {@code Linea extends ObjetoGrafico} necesitamos
-	 * indicarle el punto de inicio y fin
+	 * Construye un objeto {@code ObjetoGrafico}
 	 *
+	 * @param pInicio
+	 * @param pFin
 	 * @throws CloneNotSupportedException
-	 *
 	 */
 	public Linea(Punto pInicio, Punto pFin) throws CloneNotSupportedException {
 		super(pInicio);
 		this.p2 = pFin.clone();
 	}
 
+	// Getters y Setters
 	public Punto getP2() {
 		return p2;
 	}
@@ -24,14 +26,15 @@ public class Linea extends ObjetoGrafico {
 		this.p2 = p2;
 	}
 
+	// Metodos
 	@Override
 	public String dibujar() {
-		return Linea.class.getName() + " dibujada";
+		return Linea.class.getSimpleName() + " dibujada";
 	}
 
 	@Override
 	public String redimensionar() {
-		return Linea.class.getName() + " redimensionada";
+		return Linea.class.getSimpleName() + " redimensionada";
 	}
 
 }

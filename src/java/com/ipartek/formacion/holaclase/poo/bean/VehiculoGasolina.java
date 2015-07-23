@@ -1,24 +1,30 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
+/**
+ * Clase VehiculoGasolina que hereda de su padre Vehiculo Todos los atributos
+ * del padre se heredan automaticamente
+ * 
+ * @author Raul
+ *
+ */
 public class VehiculoGasolina extends Vehiculo {
-	
-	//constantes
+	// Constantes
 	public static final String GASOLINA95 = "95";
 	public static final String GASOLINA98 = "98";
-	
-	//atributos
+
+	// Atributos
 	private int capacidadDeposito;
 	private String combustible;
-	
-	//constructor
+
+	// Constructores
 	public VehiculoGasolina() {
 		super();
-		this.setCapacidadDeposito(40);		
 		this.setPotencia(500);
+		this.setCapacidadDeposito(40);
 		this.setCombustible(GASOLINA95);
 	}
 
-	//getters y setters
+	// Getters y Setters
 	public int getCapacidadDeposito() {
 		return capacidadDeposito;
 	}
@@ -34,15 +40,15 @@ public class VehiculoGasolina extends Vehiculo {
 	public void setCombustible(String combustible) {
 		this.combustible = combustible;
 	}
-	
-	
+
+	// Metodos
 	@Override
-	public String arrancar() {		
+	public String arrancar() {
+		// TODO Auto-generated method stub
 		return "Calentar inyectores - " + super.arrancar();
 	}
-	
-	public boolean checkInyector(){
-		return true;
-	}; 
 
+	public boolean checkInyector() {
+		return true;
+	}
 }

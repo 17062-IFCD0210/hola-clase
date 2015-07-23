@@ -13,7 +13,6 @@
 	<li>
 		<h2>Nuevos Elementos HTML5</h2>
 		<ul>
-			<li><a href="ejemplos/html5/canvaspaint.jsp">Canvas</a></li>
 			<li><a href="ejemplos/html5/figure.jsp">Figure</a></li>
 			<li><a href="ejemplos/html5/hgroup.jsp">Hgroup</a></li>
 			<li><a href="ejemplos/html5/hgroup.jsp">Time</a></li>
@@ -65,10 +64,9 @@
 		<ul>
 			<li><a href="ejemplos/reales/cartelera.jsp">Cartelera</a></li>
 			<li><a href="ejemplos/reales/cartelera_detalle.jsp">Detalle Cartelera</a></li>
+			<li><a href="ejemplos/reales/surf.jsp">Surf Search Spot</a></li>
 			<li><a href="ejemplos/reales/ipartek.jsp">Ipartek</a></li>
-			<li><a href="ejemplos/reales/surf.jsp">surf</a></li>			
-			<li><a href="ejemplos/reales/bootstrap/bootstrap.jsp" target="_blank"">Bootstrap</a></li>
-
+			<li><a href="ejemplos/reales/bootstrap_grid.jsp">Bootstrap Grid</a></li>
 		</ul>
 	</li> 
 	<li> 
@@ -76,7 +74,8 @@
 		<ul>
 			<li><a href="ejemplos/formularios/login.jsp">Login</a></li>			
 			<li><a href="ejemplos/formularios/datos_personales.jsp">Datos Personales</a></li>
-			<li><a href="includes/persona/personaFormulario.jsp">Alta Persona</a></li>
+			<li><a href="includes/persona/personaForm.jsp">Alta Persona</a></li>
+			<li><a href="ejemplos/formularios/ejemploFormBasico.jsp">Ejemplo Basico</a></li>
 		</ul>
 	</li>  
 	<li>
@@ -117,7 +116,7 @@
 	</li>  
   </ul>
 
-		
+
 
 
 </nav>
@@ -125,4 +124,3 @@
 </header>
 
 <div id="content">
-

@@ -8,128 +8,129 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.ipartek.formacion.holaclase.poo.bean.Persona;
-import com.ipartek.formacion.holaclase.poo.bean.PersonaException;
+import com.ipartek.formacion.holaclase.poo.bean.Alumno;
+import com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona;
 
 /**
  * Servlet implementation class ControladorPersona
  */
 public class ControladorPersona extends HttpServlet {
-	
 	private static final long serialVersionUID = 1L;
-	
 	RequestDispatcher dispatcher;
-	
-	//parametros
-	String  pNombre;
-	String  pApellido;
-	String  pEmail;	
-	int     pEdad;
-	boolean pAprobado = false;
-	float   pNota;
-	
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public ControladorPersona() {
-        super();
-        
-    }
+
+	String pNombre;
+	String pApellido;
+	String pEdad;
+	String pEmail;
+	String pAprobado;
+	String pNota;
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	public ControladorPersona() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		try{
-			//recoger parametros del formulario
-			getParameters(request);
-						
-			//validar los datos
-			
-			//crear Persona
-			Persona p = new Persona();
-			p.setNombre( pNombre );
+	@Override
+	protected void doGet(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	@Override
+	protected void doPost(HttpServletRequest request,
+			HttpServletResponse response) throws ServletException, IOException {
+
+		// Recoger parametros del formulario
+		this.getParameters(request);
+		boolean todoBien = false;
+		// Validar los datos
+		try {
+			// Crear Persona
+			Alumno p = new Alumno();
+			p.setNombre(pNombre);
 			p.setApellido(pApellido);
+			p.setEdad(Integer.parseInt(pEdad));
 			p.setEmail(pEmail);
-			p.setEdad( pEdad );
-			
-			//TODO cambiar Persona por Alumno
-			//p.setAprobado(pAprobado);
-			//p.setNota(pNota);
-			
-			p=null;
-			p.setApellido("");
-			
-			//guardamos en la BBDD		
-			
-			//enviar attributo para mensaje
-			request.setAttribute("msg", "Zorionak te has dado de alta");
-			//enviar attributo Persona
-			request.setAttribute("persona", p );
-			//Ir a => personaDetalle.jsp
-			dispatcher = request.getRequestDispatcher("includes/persona/personaDetalle.jsp");
-			
-		
-		}catch ( PersonaException e){
+			p.setNota(Float.parseFloat(pNota));
+
+			if ((pAprobado == null && (p.getNota() >= 5))
+					|| (pAprobado != null && (p.getNota() < 5))) {
+				request.setAttribute("msg",
+						"Atributo Aprobado o nota no valida.");
+				dispatcher = request
+						.getRequestDispatcher("includes/persona/personaForm.jsp");
+			} else if (pAprobado != null) {
+				p.setAprobado(true);
+				todoBien = true; // Validando que todo este bien
+			} else {
+				p.setAprobado(false);
+				todoBien = true; // Validando que todo este bien
+			}
+
+			// Comprobamos las validaciones
+			if (todoBien) {
+				// Guardamos en la BBDD
+
+				// Enviar atributo para mensaje
+				request.setAttribute("msg", "Zorionak, te has dado de alta");
+
+				// Enviar atributo persona
+				request.setAttribute("persona", p);
+
+				// Ir a => personaDetalle.jsp
+				dispatcher = request
+						.getRequestDispatcher("includes/persona/personaDetalle.jsp");
+			}
+
+		} catch (ExcepcionPersona e) {
+			// Excepcion persona para cuando la edad es menor, mayor, o negativa
 			e.printStackTrace();
-			request.setAttribute("msg", e.getMessage() );
-			dispatcher = request.getRequestDispatcher("includes/persona/personaFormulario.jsp");
-			
-		}catch( Exception e ){
+			request.setAttribute("msg", e.getMessage());
+			dispatcher = request
+					.getRequestDispatcher("includes/persona/personaForm.jsp");
+		} catch (NumberFormatException e) {
+			// Excepcion numerica cuando la edad o la nota son letras
 			e.printStackTrace();
-			request.setAttribute("msg", e.getMessage() );
+			request.setAttribute("msg",
+					"Error de formato. La Edad y/o la nota deben ser numericos");
+			dispatcher = request
+					.getRequestDispatcher("includes/persona/personaForm.jsp");
+		} catch (Exception e) {
+			// Excepcion global para cualquier error
+			e.printStackTrace();
+			request.setAttribute("msg", e.getMessage());
 			dispatcher = request.getRequestDispatcher("plantillas/error.jsp");
-			
+		} finally {
+			// Lanzamos el dispatcher
+			dispatcher.forward(request, response);
 		}
-		finally{
-			
-			//despachar
-			dispatcher.forward(request, response );			
-		}	
-				
-		
+
 	}
 
 	/**
-	 * Recoger los parametros enviados
+	 * Cogemos los valores de los parametros en un metodo
+	 *
 	 * @param request
-	 * @throws PersonaException 
 	 */
-	private void getParameters(HttpServletRequest request) throws PersonaException {
-
-		pNombre   = request.getParameter("nombre");
+	private void getParameters(HttpServletRequest request) {
+		// Recogemos parametros de la clase Persona
+		pNombre = request.getParameter("nombre");
 		pApellido = request.getParameter("apellido");
-		pEmail    = request.getParameter("email");
-		
-		try{
-			pEdad  =  Integer.parseInt(request.getParameter("edad"));
-		}catch(Exception e){
-			throw new PersonaException( PersonaException.MSG_EDAD_RANGO );
-		}
-		
-		if ( "si".equalsIgnoreCase( request.getParameter("aprobado")) ){
-			pAprobado=true;
-		}
-		
-		try{
-			pNota = Float.parseFloat(request.getParameter("nota"));
-		}catch(Exception e){
-			throw new PersonaException( PersonaException.MSG_NOTA_RANGO );
-		}	
-		
-		
-		
-		
-		
+		pEdad = request.getParameter("edad");
+		pEmail = request.getParameter("mail");
+		pAprobado = request.getParameter("aprobado");
+		pNota = request.getParameter("nota");
 	}
 
 }

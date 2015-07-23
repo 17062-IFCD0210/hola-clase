@@ -11,21 +11,18 @@
 			<p>
 				<label for="nombre">Nombre:</label><br>
 				<input type="text" id="nombre" name="nombre" value=""
-					   required pattern="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃ‰ÃÃ“ÃšÃ‘]{2,256}"	 
+					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}"	 
 				       placeholder="Escribe tu nombre"
-				       title="Por favor escribe tu nombre"	
-				       autofocus
-				       tabindex="1"		       
+				       title="Por favor escribe tu nombre"				       
 				       >
 			</p>
 			
 			<p>
 				<label for="apellidos">Apellidos:</label><br>
 				<input type="text" id="apellidos" name="apellidos"
-					   required pattern="[a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃ‰ÃÃ“ÃšÃ‘]{2,256} ([a-zA-ZÃ¡Ã©Ã­Ã³ÃºÃ±ÃÃ‰ÃÃ“ÃšÃ‘]{2,256}?)"	  
+					   required pattern="[a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256} ([a-zA-ZáéíóúñÁÉÍÓÚÑ]{2,256}?)"	  
 				       value="" placeholder="Tus dos apellidos"
-				       title="Por favor escribe tus dos apellidos"
-				       tabindex="3"		 
+				       title="Por favor escribe tus dos apellidos" 
 				       >
 			</p>
 			
@@ -39,8 +36,7 @@
 				<label for="edad">Edad:</label><br>
 				<input type="text" id="edad" name="edad" value=""
 				       placeholder="0-99"
-				       required pattern="[0-9]{1,2}"	
-				       tabindex="2"					        
+				       required pattern="[0-9]{1,2}"				        
 					   size="2" >
 			</p>
 			
@@ -122,23 +118,21 @@
 			
 	</fieldset>
 	
-	
-	
 	<fieldset>
 	<legend>CV</legend>
 	
-		<textarea name="cv" cols="60" rows="10"  
-		          placeholder="Introduce tu cv en texto plano(minimo 50 caracteres)"></textarea>
+		<textarea id="cv" name="cv" cols="60" rows="10" maxlength="256" 
+		          placeholder="Introduce tu cv en texto plano(maximo 256 caracteres)"></textarea>
+		 
 			         			
 	</fieldset>
 	
 	<fieldset>
 	<legend>Observaciones</legend>
 	
-		<textarea data-role="observaciones"
-		          name="observaciones" 
-		          cols="60" rows="10"  
-		          placeholder="Observaciones (max 255 caracteres)"></textarea>
+		<textarea data-role="observaciones" name="observaciones" cols="60" rows="10" maxlength="256" 
+		          placeholder="Observaciones (Maximo 256 caracteres)"></textarea>
+		 
 			         			
 	</fieldset>	
 		
@@ -152,5 +146,7 @@
 </form>
 
 <br>
+
+
 			
-<jsp:include page="../../plantillas/foot.jsp"></jsp:include>			
+<jsp:include page="../../plantillas/foot.jsp"></jsp:include>

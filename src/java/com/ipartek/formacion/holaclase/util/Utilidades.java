@@ -2,117 +2,72 @@ package com.ipartek.formacion.holaclase.util;
 
 import java.io.File;
 import java.math.BigDecimal;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Utilidades {
-	public static final int ASCENDENTE = 0;
-	public static final int DESCENDENTE = 1;
+	// Atributos
+	public static final int ASC = 0;
+	public static final int DESC = 1;
+
+	// Constructores
+
+	// Getters y Setters
+
+	// Metodos
 
 	/**
-	 * Round redondea numeros decimales
-	 * 
+	 * Funcion que redondea los decimales largos
+	 *
 	 * @param d
 	 *            numero decimal a redondear
 	 * @param decimalPlace
-	 *            numero de decimales
+	 *            numero de decimales a redondear
 	 * @return numero redondeado
 	 */
 	public static float round(float d, int decimalPlace) {
-		return BigDecimal.valueOf(d)
-				.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP).floatValue();
+		BigDecimal bd = new BigDecimal(Float.toString(d));
+		bd = bd.setScale(decimalPlace, BigDecimal.ROUND_HALF_UP);
+		return bd.floatValue();
 	}
 
 	/**
-	 * funcion que ordena un array de manera ascendente o descendente
-	 * 
+	 * Funcion que ordena ascendentemente o descendentemente un array de enteros
+	 *
 	 * @param array
-	 *            Array con numeros a ordenar
+	 *            array desordenado que hay que ordenar
 	 * @param orden
-	 *            orden de ordenacion: ascendente(0) o descendente(1)
-	 * @return retorna el array ordenado
+	 *            numero que se le pasa (0 == ASC, 1== DESC)
+	 * @return array ordenado
 	 */
-	public static int[] ordenar(int[] array, int orden) {
-
-		// clonar array para evitar que array y arrayOrdenado apunten al mismo
-		// sitio de memoria
-		int[] arrayOrdenado = array;
-
-		// Variable para comparar los valores del array de dos en dos.
-		int ayudante1 = 0;
-		int ayudante2 = 0;
-
-		/**
-		 * Bucle que se repite tantas veces como tamaño del array para
-		 * cerciorarse de que se ordena correctamente
-		 * 
-		 * TODO Optimizar bucle, para suprimir las vueltas que da de mas.
-		 */
-		for (int cnt = 0; cnt < array.length; cnt++) {
-
-			// Intento de ordenacion del array (Ordena el array en distintas
-			// pasadas por este codigo)
-			for (int i = 0, j = 1; j < array.length; i++, j++) {
-
-				ayudante1 = arrayOrdenado[i];
-				ayudante2 = arrayOrdenado[j];
-
-				switch (orden) {
-				case ASCENDENTE:
-					if (ayudante1 < ayudante2) {
-						// arrayOrdenado[i] = ayudante1;
-						// arrayOrdenado[j] = ayudante2;
-					} else {
-						arrayOrdenado[i] = ayudante2;
-						arrayOrdenado[j] = ayudante1;
+	public static int[] ordenar(int array[], int orden) {
+		int aux = 0;
+		for (int i = 0; i < array.length; i++) {
+			for (int j = (i + 1); j < array.length; j++) {
+				if (orden == ASC) {
+					if (array[i] > array[j]) {
+						aux = array[i];
+						array[i] = array[j];
+						array[j] = aux;
 					}
-					break;
-				case DESCENDENTE:
-					if (ayudante1 > ayudante2) {
-						// arrayOrdenado[i] = ayudante1;
-						// arrayOrdenado[j] = ayudante2;
-					} else {
-						arrayOrdenado[i] = ayudante2;
-						arrayOrdenado[j] = ayudante1;
+				}
+				if (orden == DESC) {
+					if (array[i] < array[j]) {
+						aux = array[i];
+						array[i] = array[j];
+						array[j] = aux;
 					}
-					break;
 				}
 			}
 		}
-		return arrayOrdenado;
+		return array;
 	}
 
-	/**
-	 * Funcion que verifica si el parametro pasado tiene un formato de email.
-	 * 
-	 * @param correo
-	 *            email a verificar
-	 * @return retorna booleano: true si es email, false si no lo es.
-	 */
-	public static boolean isEmail(String correo) {
-		Pattern pat = null;
-		Matcher mat = null;
-		pat = Pattern
-				.compile("^([0-9a-zA-Z]([_.w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-w]*[0-9a-zA-Z].)+([a-zA-Z]{2,9}.)+[a-zA-Z]{2,3})$");
-		mat = pat.matcher(correo);
-		if (mat.find()) {
-			System.out.println("[" + mat.group() + "]");
-			return true;
-		} else {
-			return false;
-		}
-	}
-
-	/**
-	 * Metodo tonto para pruebas
-	 */
-	public static void cantar() {
-		System.out.println("La la la la de Masiel.....");
+	public static String cantar() {
+		return "Estoy cantando";
 	}
 
 	/**
 	 * Lista de forma recursiva todos los ficheros deun directorio
-	 * 
+	 *
 	 * @param directorio
 	 *            {@code File} directorio a recorrer
 	 * @param separador
@@ -120,11 +75,11 @@ public class Utilidades {
 	 *            por pantalla
 	 */
 	public static void listarDirectorio(File directorio, String separador) {
-		
+
 		File[] ficheros = directorio.listFiles();
-		for (int i= 0; i < ficheros.length; i++) {
+		for (int i = 0; i < ficheros.length; i++) {
 			System.out.println(separador + ficheros[i].getName());
-			if (ficheros[i].isDirectory()){				
+			if (ficheros[i].isDirectory()) {
 				listarDirectorio(ficheros[i], separador + " ");
 			}
 		}

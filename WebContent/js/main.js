@@ -3,132 +3,53 @@
  *   Se carga en foot.jsp despues de incluir todas las librerias necesarias de JS 	
  */
 
+/******REGISTO USUARIOS Control de usuarios existentes*******/
+function llamadaAjax() {		
+//URL donde se encuentra el servicio AJAX
+var url = "ControladorAjaxRegistroUsuario";
 
-function llamadaAjax(){
-	//se ejecuta al perder el foco
-	console.info("llamada Ajax");
-	var input_usuario = $("#usuario");
-	var input_email   = $("#email");
-	
-	
-	//Url donde se encuentra el servicio Ajax
-	var url =  "ControladorAjaxRegistroUsuario";
-	
-	$.ajax( url , {
-		"type": "get", // usualmente post o get
-		"success": function(result) {
-			console.info(result);			
-			$(".msg_delete").remove();
-			//Si usuario != "" escribir mensaje
-			if ( result.usuario != "" ){
-				if ( result.libre_usuario ){
-					input_usuario.after("<span class='msg_delete msg_success'>Usuario Disponible</span>");
-				}else{
-					input_usuario.after("<span class='msg_delete msg_error'>Usuario NO disponible</span>");
-				}	
-			}	
-			//gestion mensajes email
-			if ( result.email != "" ){
-				if ( result.libre_email ){
-					input_email.after("<span class='msg_delete msg_success'>Email Disponible</span>");
-				}else{
-					input_email.after("<span class='msg_delete msg_error'>Email NO disponible</span>");
-				}	
-			}	
-			
-		},
-		"error": function(result) {
-			console.error("Error ajax", result);
-		},
-		"data": { usuario: input_usuario.val() ,
-			      email  : input_email.val() },
-		"async": true,
-	});
-	
-}
-
-function validar(formulario){
-	var check = $(".msg_success");
-	
-	if (check.length == 3 ){
-		formulario.submit();
-	}else{	
-		return false;
-	}
-}
-
-/*
-function ultimasVisitas(){
-	
-	 if (window.sessionStorage && window.localStorage) { 
-			console.info('Almacenamiento local Soportado');
-			
-			//limpiar listado visitas
-			$('#visitas').html('');
-			
-			//cargar pagina visitada
-			if ( localStorage.getItem('last') != undefined ){
-				
-				var pagina = "ultima";
-				
-				//crear elemento de la lista
-				var last = "<li><a href='" + localStorage.getItem('last') + "'>"+pagina+"</a></li>";
-				$('#visitas').append( last );
-				
+$.ajax( url , {
+	"type": "get", // usualmente post o get
+	"success": function(result) {
+		console.info("Llego el contenido y no hubo error", result);
+		$(".msg_delete").remove();
+		if(result.user != "") {
+			if(result.existe){
+				$("#usuario").after("<span id=\"non-check\" class=\"msg_delete fa-stack fa-lg c-rojo\"><i class=\"fa fa-circle-o fa-stack-1x\"></i><i class=\"fa fa-times fa-stack-1x\"></i></span>");
+			} else {
+				$("#usuario").after("<i id=\"check\" class=\"msg_delete fa fa-check-circle-o c-verde\"></i>");
 			}
-			
-			//guardar ultima pagina visitada
-			localStorage.setItem('last', window.location.href );
-			
-			//pintar todas las LocalStorages
-			var a_keys = Object.keys ( localStorage );
-			
-			for ( i=0; i < a_keys.length; i++ ){
-				console.debug( a_keys[i] + '=>' + localStorage.getItem(a_keys[i]) );
+		}
+		if(result.mail != "") {
+			if(result.existe_mail){
+				$("#mail").after("<span id=\"non-check\" class=\"msg_delete fa-stack fa-lg c-rojo\"><i class=\"fa fa-circle-o fa-stack-1x\"></i><i class=\"fa fa-times fa-stack-1x\"></i></span>");
+			} else {
+				$("#mail").after("<i id=\"check\" class=\"msg_delete fa fa-check-circle-o c-verde\"></i>");
 			}
-			
-			
-		 } else { 
-			 alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
-		 } 
+		}
 		
+		if(result.pass != "" && result.repass != "") {
+			if(result.iguales) {
+				$("#repass").after("<i id=\"check\" class=\"msg_delete fa fa-check-circle-o c-verde\"></i>");
+			} else {
+				$("#repass").after("<span id=\"non-check\" class=\"msg_delete fa-stack fa-lg c-rojo\"><i class=\"fa fa-circle-o fa-stack-1x\"></i><i class=\"fa fa-times fa-stack-1x\"></i></span>");
+			}
+		}
+	},
+	"error": function(result) {
+		console.error("Este callback maneja los errores", result);			},
+	"data": {usuario: $("#usuario").val(), mail: $("#mail").val(), pass: $("#pass").val(), repass: $("#repass").val()},
+	"async": true,
+	});
 }
 
-*/
-
-
-//http://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript
-var troll = {
-		 
-	    nombre: 'PepeGrog',
-	    apellido: 'mokerf',
-	 
-	    init: function( nombre ){
-	    	this.nombre = nombre;
-	    },
-	    saluda: function () {
-	      console.info ('soy un Troll y me llamo ' + this.nombre );
-	    }// este al ser el ultimi no lleva coma
-};
-
-
-/**
- * Objeto para gestionar las ultimas visitas y fecha
- * 
- *  Necesario tener una maquetacion de este modo:
- *  
- *  <h3>Ultimas Visita <span id="last_time"></span></h3>
- *	<ul id="visitas">			
- *		<li>Sin visitas</li>		
- *	</ul>
- *  
- */
 var ultimasVisitas = {
 		
 		selec_contenedor: '#visitas',
 		selec_fecha:  '#last_time',	
 		json_visita: { "url": undefined,"nombre": undefined,"fecha": undefined	},
 		num_visitas: 5, //numero maximo de vistas a guardar
+		aVisitas: new Array(),
 		
 		//Inicializa el objeto
 		init: function(){
@@ -151,15 +72,20 @@ var ultimasVisitas = {
 		
 		//Carga los datos de Storage en el atributo this.json_visita
 		loadStorageData: function(){
-			
-			if ( localStorage.getItem('last') != undefined ){
-				 this.json_visita = JSON.parse( localStorage.getItem('last'));
-			}	 
+				 this.json_visita = JSON.parse( localStorage.getItem('li1'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li2'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li3'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li4'));
+				 this.json_visita = JSON.parse( localStorage.getItem('li5'));
 			
 		},
 		
 		saveStorageData: function(){
-			localStorage.setItem('last', JSON.stringify(this.json_visita));
+				localStorage.setItem('li1', JSON.stringify(this.json_visita));
+				localStorage.setItem('li2', JSON.stringify(this.json_visita));
+				localStorage.setItem('li3', JSON.stringify(this.json_visita));
+				localStorage.setItem('li4', JSON.stringify(this.json_visita));
+				localStorage.setItem('li5', JSON.stringify(this.json_visita));
 		},
 		
 		//Muestra la Fecha guardada en localStorage#selec_fecha
@@ -222,9 +148,13 @@ var ultimasVisitas = {
 							   };
 			*/
 			
+			for(i=0;i<this.num_visitas;i++) {
+				if(this.json_visita.url != url) {
+					this.json_visita.url    = url;
+					this.json_visita.nombre = nombre;
+				}
+			}
 			
-			this.json_visita.url    = url;
-			this.json_visita.nombre = nombre;
 			
 			//localStorage.setItem('last', JSON.stringify(json_visita) );
 			
@@ -238,11 +168,18 @@ var ultimasVisitas = {
 			
 			var visita = undefined;
 			if ( this.json_visita != undefined ){
-				 
-			
 				 var li = "<li><a href='"+ this.json_visita.url+"'>"+ this.json_visita.nombre + "</a></li>";
-				 $(this.selec_contenedor).append( li );
-			
+				 var li1, li2, li3, li4, li5;
+				 li5=li4;
+				 li4=li3;
+				 li3=li2;
+				 li2=li1;
+				 li1=li;
+				 $(this.selec_contenedor).append( li1 );
+				 $(this.selec_contenedor).append( li2 );
+				 $(this.selec_contenedor).append( li3 );
+				 $(this.selec_contenedor).append( li4 );
+				 $(this.selec_contenedor).append( li5 );
 			}
 			console.debug(' end:loadVisita');
 		}
@@ -250,61 +187,68 @@ var ultimasVisitas = {
 };
 
 
-var textarea_observaciones = {
-		
-		selector: "[data-role='observaciones']",
-		max_char: 255,
-		
-		init: function(){
-			console.debug('textarea_observaciones: init');
-			$(this.selector).bind( "keyup", this.leerTecla );			
-		},
-		
-		leerTecla: function(){
-			console.debug('textarea_observaciones: leerTecla');
-			var chars = $(this.selector).length;				  
-			//check if there are more characters then allowed  
-				if(chars > this.max_char){  
-					//and if there are use substr to get the text before the limit  
-					var new_text = text.substr(0, this.max_char);  		  
-					//and change the current text with the new text  
-					$(this).val(new_text);  
-				}
-						
-			this.mostrar(chars);
-		},
-		
-		mostrar: function(chars){
-			console.debug('textarea_observaciones: mostrar');
-			$(this.selector).after("<span>"+ chars +"/"+this.max_char+"</span>");
-		}
-}
+var maxLength = 256;
+$('#cv').keyup(function() {
+	//Cogemos la longitud de caracteres del texto
+	var length = $(this).val().length;
+	//Si el tamaño es mayor de 256, dejamos que no meta más
+	if(length>maxLength) {
+		var new_text = text.substr(0,length);
+		$(this).val(new_text); 
+	}
+	$('#valor').empty();
+	$('#cv').after('<span id="valor">'+length+ '/256</span>');
+});
 
 
+//function ultimasVisitas(){
+//	
+//	 if (window.sessionStorage && window.localStorage) { 
+//			console.info('Almacenamiento local Soportado');
+//			
+//			//limpiar listado visitas
+//			$('#visitas').html('');
+//			
+//			//cargar pagina visitada
+//			if ( localStorage.getItem('last') != undefined ){
+//				
+//				var pagina = "ultima";
+//				
+//				//crear elemento de la lista
+//				var last = "<li><a href='" + localStorage.getItem('last') + "'>"+pagina+"</a></li>";
+//				$('#visitas').append( last );
+//				
+//			}
+//			
+//			//guardar ultima pagina visitada
+//			localStorage.setItem('last', window.location.href );
+//			
+//			//pintar todas las LocalStorages
+//			var a_keys = Object.keys ( localStorage );
+//			
+//			for ( i=0; i < a_keys.length; i++ ){
+//				console.debug( a_keys[i] + '=>' + localStorage.getItem(a_keys[i]) );
+//			}
+//			
+//			
+//		 } else { 
+//			 alert('Lo siento, pero tu navegador no acepta almacenamiento local'); 
+//		 } 
+//		
+//}
 
 //Se ejecuta cuando todo el HTML se ha cargado
 $(function() {
 	
-	troll.init('ander');
-	troll.saluda();
-	
-	//control de caracteres para TextArea
-	textarea_observaciones.init();
-	
-	
-	//ultimasVisitas();
-	ultimasVisitas.init();
-	
-	
-	
 	console.debug('document ready!');	
 	$('#select').filterByText($('#textbox'), false);
-
-	
-	
 	
 	console.warn ('tinymce deshabilitado');
  	//tinymce.init({selector:'textarea'});
+	
+	
+	ultimasVisitas.init();
+	//ultimasVisitas();
  
 	
 	// asociar a todos los elementos input[data-widget='calendario']
@@ -327,50 +271,57 @@ $(function() {
 	} );
   
 	
-	//codigo para las pestañas
-		$('ul.tabs li:first').addClass('active');
+//codigo para las pestañas
+	$('ul.tabs li:first').addClass('active');
+	$('.block div').hide();
+	$('.block div:first').show();
+	$('ul.tabs li').on('click', function() {
+		$('ul.tabs li').removeClass('active');
+		$(this).addClass('active')
 		$('.block div').hide();
-		$('.block div:first').show();
-		$('ul.tabs li').on('click', function() {
-			$('ul.tabs li').removeClass('active');
-			$(this).addClass('active')
-			$('.block div').hide();
-			var activeTab = $(this).find('a').attr('href');
-			$(activeTab).show();
-			return false;
-	
-		})
+		var activeTab = $(this).find('a').attr('href');
+		$(activeTab).show();
+		return false;
 
-		
-	/* RESGISTRO USUARIOS control de usuarios existentes */
+	})
 	
-	//seleccionar usuario del formulario
-	$("#form_new_user #usuario").blur(function(){		
-		llamadaAjax();		
-	});
-		
 	
-	$("#form_new_user #email").blur(function(){	
-			llamadaAjax();
+	//Llamada Usuario
+	$("#form_new_user #usuario").blur(function() {
+		//SE ejecuta la funcion
+		llamadaAjax();
 	});
 	
-	$("#form_new_user #repass").blur(function(){
-		var pass = document.getElementById("pass").value;
-		var repass = document.getElementById("repass").value;
-		var input_repass  = $("#repass");
+	//Llamada Mail
+	$("#form_new_user #mail").blur(function() {
+		//SE ejecuta la funcion
+		llamadaAjax();
+	});
+	
+	$("#pass").blur(function() {
+		llamadaAjax();
+	});
+	
+	$("#repass").blur(function() {
+		llamadaAjax();
+	});
+	
+	
+	
+	 if (window.sessionStorage && window.localStorage) { 
+		 console.info('Almacenamiento local soportado');
+		 //localStorage.setItem('p0','hola');
+		 //sessionStorage.setItem('p0','hola');
+		 
+		//Pintar todas las localstorages
+		 var a_keys = Object.keys(localStorage);
+		 
+		 for(i=0;i<a_keys.length;i++) {
+			 console.debug(a_keys[i] + ' tiene el valor de ' + localStorage.getItem(a_keys[i]));
+		 }
+		 
 
-		//gestion mensajes email
-		$(".msg_pass_delete").remove();
-		if ( pass != "" ){
-			if ( pass == repass ){
-				input_repass.after("<span class='msg_pass_delete msg_success'>Password identicos</span>");
-			}else{
-				input_repass.after("<span class='msg_pass_delete msg_error'>Password distintos</span>");
-			}	
-		}			
-	});		
-		
-});//end ready
-
-
-
+	 } else { 
+		 console.info('Almacenamiento local NO soportado'); 
+	 }
+});

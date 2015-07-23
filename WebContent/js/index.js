@@ -1,11 +1,8 @@
 /*
 	Pimer JavaScript para trastera con el 
-
 	version:  1.0
 	author:   Ander Uraga Real
 	date: 	  20150518
-
-
 */
 
 //array con todos los afortunados
@@ -54,9 +51,6 @@ function init(){
 //	var listado_keys = Object.keys(localStorage);
 	
 }
-
-	
-	
 	
 	
 //function allStorage(){
@@ -113,16 +107,3 @@ function obtener_ganador(){
 	
 	
 }
-
- 
-
-
-
-
-
-
-
-
-
-
-

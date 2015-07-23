@@ -26,12 +26,12 @@
 	  <div id="encabezado"  >
 
 
-			<h1><a href="#p1" title="Ir a secci贸n X1">Hola clase!!1</a></h1>
-			<h2><a href="#p2" title="Ir a secci贸n X2">Hola clase!!2</a></h2>
-			<h3><a href="#p3" title="Ir a secci贸n X3">Hola clase!!3</a></h3>  
-			<h4><a href="#p4" title="Ir a secci贸n X4">Hola clase!!4</a></h4>
-			<h5><a href="#p5" title="Ir a secci贸n X5">Hola clase!!5</a></h5>
-			<h5><a href="#p6" title="Ir a secci贸n X6">Hola clase!!6</a></h6>
+			<h1><a href="#p1" title="Ir a secci髇 X1">Hola clase!!1</a></h1>
+			<h2><a href="#p2" title="Ir a secci髇 X2">Hola clase!!2</a></h2>
+			<h3><a href="#p3" title="Ir a secci髇 X3">Hola clase!!3</a></h3>  
+			<h4><a href="#p4" title="Ir a secci髇 X4">Hola clase!!4</a></h4>
+			<h5><a href="#p5" title="Ir a secci髇 X5">Hola clase!!5</a></h5>
+			<h5><a href="#p6" title="Ir a secci髇 X6">Hola clase!!6</a></h6>
 		
 			<a href="#ej1">Ejemplo Etiquetas de Linea y Bloque</a>
 			<a href="#ej2">Ejemplo Listas</a>

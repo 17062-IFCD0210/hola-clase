@@ -1,7 +1,5 @@
 package com.ipartek.formacion.holaclase.constantes;
 
-import static org.junit.Assert.*;
-
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -29,10 +27,6 @@ public class TestDiasSemana {
 	@Test
 	public void test() {
 
-		DiasSemana dia = DiasSemana.LUNES;
-		
-		
-		
- 
 	}
+
 }

@@ -1,40 +1,44 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
+/**
+ * Clase VehiculoElectrico que hereda de Vehiculo Tiene todos los atributos del
+ * padre mas los suyos propios Los del padre no hace falta definirlos de nuevo,
+ * se heredan automaticamente
+ * 
+ * @author Raul
+ *
+ */
 public class VehiculoElectrico extends Vehiculo {
+	// Atributos
+	private int capacidadBateria;
 
-	/* Tiene todos los atributos del Padre mas los usyos propios */	
-	/* Los del padre no hace falta definirlos de nuevo, se heredan!!! */
-	private int capacidadBaterias;
-	
-	
-	/* Hemos usado el polimorfismo para que al construir un 
-	 * VehiculoElectrico la potencia minima sea 100 en vez de 0 */
+	// Constructores
+	/**
+	 * Hemos usado el polimorfismo para que el construir un vehiculo la potencia
+	 * minima sea de 100 en vez de 0
+	 */
 	public VehiculoElectrico() {
-		super();		
-		this.setPotencia(100); 
-		this.capacidadBaterias = 300;
+		super();
+		this.setPotencia(100);
+		this.setCapacidadBateria(300);
 	}
 
-
-	public int getCapacidadBaterias() {
-		return capacidadBaterias;
+	// Getters y Setters
+	public int getCapacidadBateria() {
+		return capacidadBateria;
 	}
 
-
-	public void setCapacidadBaterias(int capacidadBaterias) {
-		this.capacidadBaterias = capacidadBaterias;
+	public void setCapacidadBateria(int capacidadBateria) {
+		this.capacidadBateria = capacidadBateria;
 	}
 
-
+	// Metodos
 	@Override
-	public String arrancar() {		
-		return "Check bateria - " + super.arrancar();
+	public String arrancar() {
+		return "Check Bateria - " + super.arrancar();
 	}
 
-	public boolean checkBateria(){
+	public boolean checkBateria() {
 		return true;
-	}; 
-		
-	
-	
+	}
 }

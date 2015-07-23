@@ -1,18 +1,24 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
-
+/**
+ * Clase {@code Punto} que se dedica a coger los puntos {@code X} e {@code Y} de
+ * la clase
+ *
+ * @author Raul
+ *
+ */
 public class Punto implements Cloneable {
-
+	// Atributos
 	private int x;
 	private int y;
 
+	// Constructores
 	public Punto(int x, int y) {
-		super();
-		this.x = x;
-		this.y = y;
+		this.setX(x);
+		this.setY(y);
 	}
 
-	// getters y setters
+	// Getters y Setters
 	public int getX() {
 		return x;
 	}
@@ -29,9 +35,9 @@ public class Punto implements Cloneable {
 		this.y = y;
 	}
 
+	// Metodos
 	@Override
 	public Punto clone() throws CloneNotSupportedException {
 		return (Punto) super.clone();
 	}
-
 }

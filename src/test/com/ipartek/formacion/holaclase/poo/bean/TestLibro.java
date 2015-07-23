@@ -1,6 +1,7 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -11,7 +12,7 @@ import org.junit.Test;
 public class TestLibro {
 
 	Libro libro;
-	
+
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 	}
@@ -31,90 +32,76 @@ public class TestLibro {
 	}
 
 	@Test
-	public void testLibro() {
-		
-		assertSame("La biblia de los caidos", libro.getTitulo() );
-		assertEquals( 0 , libro.getNumeroPaginas() );
-		assertSame( "" , libro.getDimensiones() );
-		assertSame( "anonimo", libro.getAutor() );
-		assertSame( "" , libro.getColorPortada() );
-		assertEquals( 0 , libro.getMarcador() );		
-				
+	public void testConstructor() {
+		assertSame("La biblia de los caidos", libro.getTitulo());
+		assertSame(0, libro.getNumPags());
+		assertSame("", libro.getDimensiones());
+		assertSame("Anonimo", libro.getAutor());
+		assertSame("", libro.getColorPortada());
+		assertSame(0, libro.getMarcador());
 	}
-	
+
 	@Test
 	public void testLeer() {
+		libro.setNumPags(300);
+		int pagsLeidas = 0;
 
-		libro.setNumeroPaginas(300);
-		int paginaLeidas = 0;		
-		
-		//repeticion de 0 a N
-		while ( paginaLeidas < libro.getNumeroPaginas() ){
+		// Repeticion de 0...n
+		while (pagsLeidas < libro.getNumPags()) {
 			libro.leer();
-			paginaLeidas++;
+			pagsLeidas++;
 		}
-		
-		assertEquals( 300 , libro.getMarcador() );
-		
-		//comprobar que no pueda lleer al finalizae el libro
-		for (int i=0; i < 1000; i++){
+
+		assertEquals(300, libro.getMarcador());
+
+		// Comprobar que no pueda leer al finalizar el libro
+		for (int i = 0; i < 1000; i++) {
 			libro.leer();
-		}	
-		
-		assertEquals("No se puede leer mas de las paginas del Libro ", 300 , libro.getMarcador() );
-		assertEquals("No se puede leer mas de las paginas del Libro ", 0 , libro.cerrar() );
-		
-		
-		
+		}
+
+		assertEquals("No se puede leer mas de las paginas del libro", 300,
+				libro.getMarcador());
+		assertEquals("No se puede leer mas de las paginas del libro", 0,
+				libro.cerrar());
 	}
-	
+
 	@Test
 	public void testEscribir() {
-		
-		libro.escribir();		
-		assertEquals( 1 , libro.getNumeroPaginas() );
-		assertEquals( 0 , libro.getMarcador() );
-		
-		libro.escribir();		
-		assertEquals( 2 , libro.getNumeroPaginas() );
-		assertEquals( 0 , libro.getMarcador() );
-		
-		
-		int paginasParaEscribir = 5;
-		int paginasEscritas = 0; 
-		//repeticion de 1 a N
-		do{
-			libro.escribir();				
-			assertEquals( 0 , libro.getMarcador() );
-			paginasEscritas++;
-		}
-		while( paginasEscritas < paginasParaEscribir );
-		
-		assertEquals( 7 , libro.getNumeroPaginas() );
-		
+		libro.escribir();
+		assertEquals(1, libro.getNumPags());
+		assertEquals(0, libro.getMarcador());
+
+		libro.escribir();
+		assertEquals(2, libro.getNumPags());
+		assertEquals(0, libro.getMarcador());
+
+		// Repeticion de 1...n
+		int pagsParaEsribir = 5;
+		int pagsEscritas = 0;
+		do {
+			libro.escribir();
+			assertEquals(0, libro.getMarcador());
+			pagsEscritas++;
+		} while (pagsEscritas < pagsParaEsribir);
+
+		assertEquals(7, libro.getNumPags());
 	}
-	
+
 	@Test
 	public void testAbrirCerrar() {
-		
-		assertEquals( 0, libro.abrir() );
-		assertEquals( 0, libro.cerrar() );
-		
-		libro.setNumeroPaginas(1000);
-		
-		libro.leer();
-		libro.leer();
-		
-		assertEquals( (1000-2) , libro.cerrar() );
-		assertEquals( (libro.getNumeroPaginas()- libro.getMarcador()) , libro.cerrar() );		
-		
-		assertEquals( 2, libro.abrir() );
-		assertEquals( libro.getMarcador() , libro.abrir() );
-		 
-		 
-	}
-	
-	
+		assertEquals(0, libro.abrir());
+		assertEquals(0, libro.cerrar());
 
+		libro.setNumPags(1000);
+
+		libro.leer();
+		libro.leer();
+
+		assertEquals((1000 - 2), libro.cerrar());
+		assertEquals((libro.getNumPags() - libro.getMarcador()), libro.cerrar());
+
+		assertEquals(2, libro.abrir());
+		assertEquals(libro.getMarcador(), libro.abrir());
+	}
 
 }

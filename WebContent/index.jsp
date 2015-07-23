@@ -1,6 +1,5 @@
 <jsp:include page="plantillas/head.jsp"></jsp:include>
 <jsp:include page="plantillas/nav.jsp"></jsp:include>
-
 <div id="home" class="clearfix">
 	 
 	 <!-- Contenido principal de la pagina -->
@@ -63,26 +62,22 @@
 			<li><a href="http://librosweb.es/libro/pro_git/" target="_blank">Pro Git, el libro oficial de Git</a></li>
 			<li><a href="http://librosweb.es/libro/css/" target="_blank">CSS B&aacute;sico</a></li>
 			<li><a href="http://librosweb.es/libro/css_avanzado/" target="_blank">CSS Avzanzado</a></li>
-			<li><a href="http://getbootstrap.com/" target="_blank">Boostrap</a></li>
-			<li><a href="https://www.youtube.com/watch?v=nug1pMke-y4" target="_blank">Boostrap VideoTutorial</a></li>
-			
-			
-			
+			<li><a href="http://getbootstrap.com/" target="_blank">Bootstrap</a></li>
+			<li><a href="https://www.youtube.com/watch?v=nug1pMke-y4" target="_blank">Videotutorial Bootstrap</a></li>
 		</ul>
 		
-		<br><br>
+		<h3>Ultimas Paginas Visitadas <span id="last_time"></span></h3></h3>
+		<ul id="visitas">
 		
-		<h3>Ultimas Visita <span id="last_time"></span></h3>
-		<ul id="visitas">			
-			<li>Sin visitas</li>		
 		</ul>
 	
 	</aside>   
 	   
-<script type="text/javascript" src="js/index.js"></script>
+
 <script>
 	//llamada a  la funcion init() de index.js
 	init();
+	
 </script>
 
 
@@ -90,14 +85,3 @@
 	 
 </div> <!-- home -->
 <jsp:include page="plantillas/foot.jsp"></jsp:include>
-
-
-
-
-
-
-
-
-
-
-

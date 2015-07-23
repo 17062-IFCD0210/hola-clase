@@ -37,7 +37,9 @@
   <!-- highlight code -->
   <link rel="stylesheet" href="js/highlight/styles/railscasts.css">
   	
-
+  <!-- Morris CSS -->
+  <link rel="stylesheet" href="js/morris.js-0.5.1/morris.css">
+  
   <!--[if lt IE 9]>
   	  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 	  <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -189,5 +191,4 @@
 	</div>
 	
 	<!-- Navegacion menu principal  -->
-
 

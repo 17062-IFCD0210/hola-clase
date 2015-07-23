@@ -1,55 +1,56 @@
 package com.ipartek.formacion.holaclase.poo.bean;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-
-
 
 public class Estanteria {
+	// Atributos
+	private ArrayList<Libro> coleccion = new ArrayList<Libro>();
 
-	private ArrayList<Libro> libros;
-
-	
+	// Constructores
 	public Estanteria() {
 		super();
-		libros = new ArrayList<Libro>();
 	}
-	
-	
-	public void guardar(Libro libro){
-		libros.add(libro);	
-	};
-	
+
+	// Getters y Setters
+	public ArrayList<Libro> getColeccion() {
+		return coleccion;
+	}
+
+	public void setColeccion(ArrayList<Libro> coleccion) {
+		this.coleccion = coleccion;
+	}
+
+	// Metodos
+
+	public int numLibros() {
+		return coleccion.size();
+	}
+
+	public void listaLibros() {
+		for (int i = 0; i < coleccion.size(); i++) {
+			System.out.println(coleccion.get(i).toString());
+		}
+	}
+
+	public void guardar(Libro libro) {
+		coleccion.add(libro);
+	}
+
 	/**
-	 * Obtenemos el Libro por su titulo 
-	 * @param titulo titulo del Libro
+	 * Obtenemos el Libro por su titulo
+	 * 
+	 * @param titulo
+	 *            titulo del libro
 	 * @return Libro solicitado, si no existe null
 	 */
-	public Libro extraer( String titulo ){
-		Libro resul = null;
-		Libro libro;
-		if ( titulo != null ){
-			Iterator<Libro> it = libros.iterator();		
-			while ( it.hasNext() ) {
-				libro = it.next();
-				if ( titulo.equalsIgnoreCase(libro.getTitulo())){
-					resul = libro;					
-					break; // para que seguir buscando?
-				}
+	public Libro extraer(String titulo) {
+		Libro libro = null;
+		for (int i = 0; i < coleccion.size(); i++) {
+			if (coleccion.get(i).getTitulo().equals(titulo)) {
+				libro = coleccion.get(i);
+				break;
 			}
-			libro=null;
-		}	
-		return resul;
-	};
-	
-	
-	public int numeroLibros(){
-		return libros.size();
+		}
+		return libro;
 	}
-	
-	
-	
-	
-	
-	
 }

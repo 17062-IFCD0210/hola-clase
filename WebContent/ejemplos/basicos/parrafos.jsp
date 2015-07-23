@@ -1,6 +1,7 @@
 <jsp:include page="../../plantillas/head.jsp"></jsp:include>
 <jsp:include page="../../plantillas/nav.jsp"></jsp:include>
-  
+ <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
 	  <div id="encabezado"  >
 
 			
@@ -59,7 +60,12 @@
 		<br/>
 		<br/>
 		<br/>
-		
+		<script type="text/javascript" src="js/index.js"></script>
+		<script>
+			var pag=2;
+			init();
+			
+		</script>
 	
 	
 <jsp:include page="../../plantillas/foot.jsp"></jsp:include>

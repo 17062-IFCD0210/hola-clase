@@ -1,14 +1,14 @@
 package com.ipartek.formacion.holaclase.poo.ejemplos;
 
 public class ExcepcionPersonalizada extends Exception {
-	
 	private String message;
-	private    int codigo;
-	
-	//codigos de excepciones
-	static final int CODIGO_EXCEPCION_SIN_DEFINIR = 0;
-	
+	private int codigo;
+
+	// codigos de excepciones
+	public static final int CODIGO_EXCEPCION_SIN_DEFINIR = 0;
+
 	/**
+	 *
 	 * @param message
 	 * @param codigo
 	 */
@@ -17,22 +17,19 @@ public class ExcepcionPersonalizada extends Exception {
 		this.message = message;
 		this.codigo = codigo;
 	}
-	
-	/**
-	 * @param message
-	 */
+
 	public ExcepcionPersonalizada(String message) {
 		super();
 		this.message = message;
-		this.codigo  = CODIGO_EXCEPCION_SIN_DEFINIR;
+		this.codigo = CODIGO_EXCEPCION_SIN_DEFINIR;
 	}
 
-	public String getMessage(){	
+	@Override
+	public String getMessage() {
 		return this.message;
 	}
-	
-	public int getcodigo(){	
+
+	public int getCodigo() {
 		return this.codigo;
 	}
-
 }
