@@ -11,14 +11,16 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
+
+import com.ipartek.formacion.holaclase.util.Utilidades;
 
 public class TestFicheros {
 
@@ -93,6 +95,9 @@ public class TestFicheros {
 				e.printStackTrace();
 			}
 		}
+
+		File file2 = new File(PATH_FICHERO2);
+		assertTrue("No ha borrado el fichero", file2.delete());
 	}
 
 	@Test
@@ -117,45 +122,66 @@ public class TestFicheros {
 		}
 	}
 
-	// @Test
-	// public void testCrearFichero() {
-	// FileWriter outputStream = null;
-	// BufferedWriter bfw = null;
-	// Path fichero = Paths.get(PATH_FICHERO_GORDO);
-	// long tamano = 0;
-	// try {
-	// outputStream = new FileWriter(PATH_FICHERO_GORDO);
-	// bfw = new BufferedWriter(outputStream);
-	// for (int i = 0; i < 1000000; i++) {
-	// bfw.write(PARRAFO);
-	// }
-	//
-	// tamano = Files.size(fichero);
-	// assertTrue((700 * 1024 * 1024) < tamano);
-	//
-	// } catch (FileNotFoundException e) {
-	// // TODO Auto-generated catch block
-	// fail("No se ha podido abrir el fichero " + PATH_FICHERO_GORDO);
-	// e.printStackTrace();
-	// } catch (IOException e) {
-	// fail("No se ha podido escribir el fichero" + PATH_FICHERO_GORDO);
-	// e.printStackTrace();
-	// } finally {
-	// try {
-	// if (bfw != null) {
-	// bfw.close();
-	// }
-	// if (outputStream != null) {
-	// outputStream.close();
-	// }
-	//
-	// Files.delete(fichero);
-	// } catch (IOException e) {
-	// fail("Cerrando los streams");
-	// e.printStackTrace();
-	// }
-	// }
-	// }
+	@Test
+	public void testCrearFichero() {
+		File fGordo = null;
+		FileWriter outputStream = null;
+		BufferedWriter bfw = null;
+		try {
+			// Creamos fichero
+			fGordo = new File(PATH_FICHERO_GORDO);
+			// Creamos metodo de escritura
+			outputStream = new FileWriter(fGordo);
+			// Creamos el buffer, para que tarde menos en escibir
+			bfw = new BufferedWriter(outputStream);
+
+			for (int i = 0; i < 1000000; i++) {
+				// Escribimos
+				bfw.write(PARRAFO);
+			}
+
+		} catch (FileNotFoundException e) {
+			fail("No se ha podido abrir el fichero " + PATH_FICHERO_GORDO);
+			e.printStackTrace();
+		} catch (IOException e) {
+			fail("No se ha podido escribir el fichero" + PATH_FICHERO_GORDO);
+			e.printStackTrace();
+		} finally {
+			try {
+				if (bfw != null) {
+					bfw.close();
+				}
+				if (outputStream != null) {
+					outputStream.close();
+				}
+			} catch (IOException e) {
+				fail("Cerrando los streams");
+				e.printStackTrace();
+			}
+		}
+
+		File fBorrar = null;
+		// Comprobar Tamaño
+		try {
+			fBorrar = new File(PATH_FICHERO_GORDO);
+			if (!fGordo.exists()) {
+				fail("No existe fichero " + PATH_FICHERO_GORDO);
+			}
+			assertTrue("No tiene mas de 700Mb",
+					fBorrar.length() > 700 * 1024 * 1024);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("Comprobando tamano " + PATH_FICHERO_GORDO);
+		}
+
+		// Comprobar borrado de fichero
+		if (fBorrar != null) {
+			assertTrue("No se podido borrar el fichero", fBorrar.delete());
+		} else {
+			fail("No deberia ser Null");
+		}
+
+	}
 
 	@Test
 	public void testCrearDirectorio() {
@@ -165,22 +191,17 @@ public class TestFicheros {
 		BufferedWriter bfw = null;
 		if (Files.notExists(Paths.get(PATH_DIR))) {
 			directorio.mkdir();
-		} else {
+		}
+
+		for (int i = 0; i < 100; i++) {
 			try {
-				for (int i = 0; i < 100; i++) {
-					hola = new File(directorio.getPath() + "/hola" + (i + 1)
-							+ ".txt");
-					outputStream = new FileWriter(hola);
-					bfw = new BufferedWriter(outputStream);
-					bfw.write("");
-				}
+				hola = new File(directorio.getPath() + "/hola" + (i + 1)
+						+ ".txt");
+				outputStream = new FileWriter(hola);
+				bfw = new BufferedWriter(outputStream);
+				bfw.write("");
 
-				for (int i = 0; i < 100; i++) {
-					Path path = Paths.get(directorio.getPath() + "/hola"
-							+ (i + 1) + ".txt");
-					assertTrue(Files.exists(path));
-				}
-
+				assertTrue("No existen los directorios", hola.exists());
 			} catch (IOException e) {
 				fail("Error al crearlo");
 				e.printStackTrace();
@@ -198,5 +219,36 @@ public class TestFicheros {
 				}
 			}
 		}
+
+		for (int i = 0; i < 100; i++) {
+			hola = new File(directorio.getPath() + "/hola" + (i + 1) + ".txt");
+
+			assertTrue("No borra los ficheros", hola.delete());
+		}
+
+		assertTrue("No borra el directorio", directorio.delete());
 	}
+
+	@Test
+	@Ignore
+	// Sirve para que no corra el test
+	public void testListarDirectorioRecursivamente() {
+		final String PATH_APP_HTML = "C:\\desarrollo\\html";
+		File app = new File(PATH_APP_HTML);
+
+		/**
+		 * Forma de listar un directorio de forma NO Recursiva
+		 */
+		/*
+		 * if (app.exists()) { for (File f : app.listFiles()) {
+		 * System.out.println(f.getName());
+		 *
+		 * if (f.isDirectory()) { for (File fHijo : f.listFiles()) {
+		 * System.out.println("    " + fHijo.getName()); } } } } else {
+		 * fail("No existe fichero " + PATH_APP_HTML); }
+		 */
+
+		Utilidades.listarDirectorio(app, "   ");
+	}
+
 }
