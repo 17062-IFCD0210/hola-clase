@@ -6,10 +6,14 @@ import static org.junit.Assert.fail;
 
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -20,6 +24,8 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 
+import com.ipartek.formacion.holaclase.poo.bean.Persona;
+import com.ipartek.formacion.holaclase.poo.ejemplos.ExcepcionPersona;
 import com.ipartek.formacion.holaclase.util.Utilidades;
 
 public class TestFicheros {
@@ -242,13 +248,37 @@ public class TestFicheros {
 		/*
 		 * if (app.exists()) { for (File f : app.listFiles()) {
 		 * System.out.println(f.getName());
-		 *
+		 * 
 		 * if (f.isDirectory()) { for (File fHijo : f.listFiles()) {
 		 * System.out.println("    " + fHijo.getName()); } } } } else {
 		 * fail("No existe fichero " + PATH_APP_HTML); }
 		 */
 
 		Utilidades.listarDirectorio(app, "   ");
+	}
+
+	@Test
+	public void testSerializarFicheros() throws FileNotFoundException,
+			IOException, ExcepcionPersona {
+		try (ObjectOutputStream out = new ObjectOutputStream(
+				new FileOutputStream("files/test.dat"))) {
+			Persona per = new Persona("Pepe", 30);
+			out.writeObject(per);
+		} catch (Exception e) {
+			fail("No deberia entrar aqui");
+		}
+	}
+
+	@Test
+	public void testDeserializarFicheros() throws FileNotFoundException,
+			IOException, ExcepcionPersona {
+		try (ObjectInputStream out = new ObjectInputStream(new FileInputStream(
+				"files/test.dat"))) {
+			Persona per = (Persona) out.readObject();
+			System.out.println(per.toString());
+		} catch (Exception e) {
+			fail("No deberia entrar aqui");
+		}
 	}
 
 }
