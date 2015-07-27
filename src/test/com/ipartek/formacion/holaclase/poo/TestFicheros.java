@@ -34,6 +34,7 @@ public class TestFicheros {
 	static final String PATH_FICHERO1 = PATH_FILES + "fichero1.txt";
 	static final String PATH_FICHERO2 = PATH_FILES + "fichero2.txt";
 	static final String PATH_FICHERO_GORDO = PATH_FILES + "fichero_gordo.txt";
+	static final String PATH_FICHERO_TEST= PATH_FILES + "test.dat"; 
 	
 	//1º parrafo de LoremIpsum
 	static final String PARRAFO = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod ligula in massa semper vestibulum. Aliquam sed ex risus. Quisque lorem quam, fringilla id neque vitae, facilisis tempor augue. Quisque ullamcorper bibendum erat, ac rutrum tortor posuere vitae. Quisque convallis pretium lacinia. Morbi porttitor leo vitae suscipit luctus. Aliquam sed feugiat dui, at dictum ex. Maecenas ac posuere urna. Mauris at aliquam velit. Curabitur dapibus fermentum lorem. Morbi molestie urna nec quam porta, ut maximus neque tincidunt. Maecenas dictum a justo nec tincidunt. Aliquam condimentum, tellus ac mollis hendrerit, dui orci lacinia nisl, tempor aliquet lorem nibh in nunc. Mauris nec leo mauris. Ut dictum ipsum eros, ut commodo ante ornare eu.";
@@ -286,7 +287,7 @@ public class TestFicheros {
 	public void testGuardarPersona() throws IOException, ClassNotFoundException, PersonaException{
 		//Serializamos el objeto
 		try(ObjectOutputStream out=
-					new ObjectOutputStream(new FileOutputStream("test.dat")))
+					new ObjectOutputStream(new FileOutputStream("PATH_FICHERO_TEST")))
 			{Persona persona = new Persona();
 			persona.setNombre("Ander");
 			persona.setApellido("Ander");
@@ -299,10 +300,10 @@ public class TestFicheros {
 		}
 	@Test
 	public void testRecuperarPersona() throws IOException, ClassNotFoundException, PersonaException{
-		//Deserializamos y cargamos los datos
+		//Deserializamos y cargamos los datos al objeto
 				try(ObjectInputStream out=
 						new ObjectInputStream(new
-						FileInputStream("test.dat")))
+						FileInputStream("PATH_FICHERO_TEST")))
 						{
 					Persona persona =(Persona)out.readObject();
 					System.out.println("Resultado fichero:" + "\n" + 
